@@ -89,8 +89,8 @@ namespace Freshivoje.Options_Forms
                      _selectedPackageCategoryId,
                      _selectedPackageQuantity
                      );
-                EditPackageForm editPackage = new EditPackageForm(package);
-                editPackage.ShowDialog(this);
+                //EditPackageForm editPackage = new EditPackageForm(package);
+                //editPackage.ShowDialog(this);
             }
            
 
@@ -101,7 +101,7 @@ namespace Freshivoje.Options_Forms
                 {
                     return;
                 }
-
+                // JA SAM KRALJ
                 DbConnection.deleteFromDB("packaging", "id_packaging", _selectedPackageId);
                 DbConnection.fillDGV(packagesDataGridView, _fillDGVQuery);
             }
@@ -109,8 +109,8 @@ namespace Freshivoje.Options_Forms
 
         private void insertPackageBtn_Click(object sender, EventArgs e)
         {
-            using CreatePackageForm createPackageForm = new CreatePackageForm();
-            createPackageForm.ShowDialog(this);
+            //using CreatePackageForm createPackageForm = new CreatePackageForm();
+            //createPackageForm.ShowDialog(this);
          
         }
 
