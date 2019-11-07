@@ -1,8 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
+
 using MySql.Data.MySqlClient;
 using Freshivoje.Models;
 using Freshivoje.Custom_Forms;
@@ -70,13 +69,13 @@ namespace Freshivoje
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
-            Document doc = new Document();
-            PdfWriter.GetInstance(doc, new FileStream("D:/CreatePdf.pdf", FileMode.Create));
-            doc.Open();
-            Paragraph p1 = new Paragraph("FAKTURA ZA IZADAVANJE!");
-            doc.Add(p1);
-            doc.Close();
-            MessageBox.Show("PDF JE NAPRAVLJEN!");
+            //Document doc = new Document();
+            //PdfWriter.GetInstance(doc, new FileStream("D:/CreatePdf.pdf", FileMode.Create));
+            //doc.Open();
+            //Paragraph p1 = new Paragraph("FAKTURA ZA IZADAVANJE!");
+            //doc.Add(p1);
+            //doc.Close();
+            //MessageBox.Show("PDF JE NAPRAVLJEN!");
         }
 
      
