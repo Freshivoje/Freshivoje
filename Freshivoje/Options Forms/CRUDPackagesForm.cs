@@ -106,7 +106,7 @@ namespace Freshivoje.Options_Forms
                 DbConnection.fillDGV(packagesDataGridView, _fillDGVQuery);
             }
         }
-
+        //1+1
         private void insertPackageBtn_Click(object sender, EventArgs e)
         {
             //using CreatePackageForm createPackageForm = new CreatePackageForm();
