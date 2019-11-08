@@ -94,7 +94,7 @@
             this.crudArticlesFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.crudArticlesFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.crudArticlesFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.crudArticlesFormTblLayout.Size = new System.Drawing.Size(2071, 1064);
+            this.crudArticlesFormTblLayout.Size = new System.Drawing.Size(1930, 1064);
             this.crudArticlesFormTblLayout.TabIndex = 2;
             // 
             // minimizeBtn
@@ -111,7 +111,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1971, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(1827, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.minimizeBtn.Size = new System.Drawing.Size(44, 64);
@@ -135,10 +135,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(2021, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1877, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(47, 64);
+            this.exitBtn.Size = new System.Drawing.Size(50, 64);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -176,7 +176,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1921, 3);
+            this.backBtn.Location = new System.Drawing.Point(1777, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 64);
             this.backBtn.TabIndex = 9;
@@ -227,7 +227,7 @@
             this.articlesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.crudArticlesFormTblLayout.SetRowSpan(this.articlesDataGridView, 11);
             this.articlesDataGridView.RowTemplate.Height = 30;
-            this.articlesDataGridView.Size = new System.Drawing.Size(1762, 764);
+            this.articlesDataGridView.Size = new System.Drawing.Size(1618, 764);
             this.articlesDataGridView.TabIndex = 6;
             this.articlesDataGridView.TabStop = false;
             this.articlesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.articlesDataGridView_CellClick);
@@ -239,7 +239,7 @@
             this.searchArticlesLbl.BackColor = System.Drawing.Color.Transparent;
             this.searchArticlesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchArticlesLbl.ForeColor = System.Drawing.Color.White;
-            this.searchArticlesLbl.Location = new System.Drawing.Point(1608, 113);
+            this.searchArticlesLbl.Location = new System.Drawing.Point(1482, 113);
             this.searchArticlesLbl.Name = "searchArticlesLbl";
             this.searchArticlesLbl.Size = new System.Drawing.Size(178, 27);
             this.searchArticlesLbl.TabIndex = 41;
@@ -258,7 +258,7 @@
             this.insertArticleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insertArticleBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.insertArticleBtn.ForeColor = System.Drawing.Color.White;
-            this.insertArticleBtn.Location = new System.Drawing.Point(273, 143);
+            this.insertArticleBtn.Location = new System.Drawing.Point(255, 143);
             this.insertArticleBtn.Name = "insertArticleBtn";
             this.insertArticleBtn.Size = new System.Drawing.Size(196, 64);
             this.insertArticleBtn.TabIndex = 37;
@@ -271,11 +271,11 @@
             // 
             this.searchArticlesTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchArticlesTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchArticlesTxtBox.Location = new System.Drawing.Point(1479, 143);
+            this.searchArticlesTxtBox.Location = new System.Drawing.Point(1371, 143);
             this.searchArticlesTxtBox.Multiline = true;
             this.searchArticlesTxtBox.Name = "searchArticlesTxtBox";
             this.searchArticlesTxtBox.ShortcutsEnabled = false;
-            this.searchArticlesTxtBox.Size = new System.Drawing.Size(436, 31);
+            this.searchArticlesTxtBox.Size = new System.Drawing.Size(400, 31);
             this.searchArticlesTxtBox.TabIndex = 5;
             this.searchArticlesTxtBox.TextChanged += new System.EventHandler(this.searchArticlesTxtBox_TextChanged);
             this.searchArticlesTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
@@ -313,7 +313,7 @@
             // 
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.NullValue = "✎";
+            dataGridViewCellStyle2.NullValue = "💵";
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             this.updateArticle.DefaultCellStyle = dataGridViewCellStyle2;
@@ -343,7 +343,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(2081, 1074);
+            this.ClientSize = new System.Drawing.Size(1940, 1074);
             this.Controls.Add(this.crudArticlesFormTblLayout);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
