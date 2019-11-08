@@ -7,7 +7,7 @@ namespace Freshivoje.Custom_Forms
 {
     public partial class EditArticleForm : Form
     {
-        private int _articleId;
+        private readonly int _articleId;
         public EditArticleForm(Article article)
         {
             InitializeComponent();
@@ -75,16 +75,13 @@ namespace Freshivoje.Custom_Forms
             }
         }
 
-        private void editBtn_Click(object sender, EventArgs e)
+        private void updatePriceBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(articleNameTxtBox.Text) || string.IsNullOrWhiteSpace(articleSortTxtBox.Text)
-               || string.IsNullOrWhiteSpace(articlePriceTxtBox.Text))
+            if (string.IsNullOrWhiteSpace(articlePriceTxtBox.Text))
             {
                 CustomMessageBox.ShowDialog(this, Properties.Resources.emptyInputErrorMsg);
                 return;
             }
-
-            Article article = new Article(_articleId, articleNameTxtBox.Text, articleSortTxtBox.Text, articleOrganicCmbBox.Text);
 
             DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da \nunesete novu cenu za ovaj artikal?\n\nNova cena: {articlePriceTxtBox.Text} RSD");
 

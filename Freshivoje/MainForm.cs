@@ -5,11 +5,10 @@ namespace Freshivoje
 {
     public partial class MainForm : Form
     {
-        private readonly LoginForm loginForm;
         public MainForm()
         {
             InitializeComponent();
-            loginForm = new LoginForm();
+            using LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog(this);
             // titleLbl.Text += Properties.Settings.Default.currentUserId.ToString();
         }
@@ -48,7 +47,10 @@ namespace Freshivoje
 
         private void logoutBtn_Click(object sender, EventArgs e)
         {
+            Hide();
+            using LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog(this);
+            Show();
         }
 
         private void settingsBtn_Click(object sender, EventArgs e)

@@ -15,7 +15,7 @@ namespace Freshivoje.Options_Forms
 {
     public partial class EditPackageForm : Form
     {
-        private int _packageId;
+        private readonly int _packageId;
         public EditPackageForm(Package package)
         {
             InitializeComponent();
