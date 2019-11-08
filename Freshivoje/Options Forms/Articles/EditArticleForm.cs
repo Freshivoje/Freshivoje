@@ -93,18 +93,6 @@ namespace Freshivoje.Custom_Forms
                 return;
             }
 
-            //MySqlCommand mySqlCommand = new MySqlCommand
-            //{
-            //    CommandText = "UPDATE `articles` SET `article_name` = @articleName, `sort` = @articleSort, `organic` = @articleOrganic WHERE `id_article` = @articleId"
-            //};
-            //mySqlCommand.Parameters.AddWithValue("@articleName", article._name);
-            //mySqlCommand.Parameters.AddWithValue("@articleSort", article._sort);
-            //mySqlCommand.Parameters.AddWithValue("@articleOrganic", article._organic);
-
-            //mySqlCommand.Parameters.AddWithValue("@articleId", article._id);
-
-            //DbConnection.executeQuery(mySqlCommand);
-
             MySqlCommand mySqlCommand = new MySqlCommand
             {
                 CommandText = $"SELECT `value` FROM `prices` WHERE `fk_article_id` = {_articleId} AND `status` = 'aktivna' AND fk_category_id = {articleCategoryCmbBox.SelectedIndex + 1}"
@@ -114,7 +102,7 @@ namespace Freshivoje.Custom_Forms
 
             if (lastPrice == (Convert.ToDecimal(articlePriceTxtBox.Text)))
             {
-                CustomMessageBox.ShowDialog(this, $"Cena {articlePriceTxtBox.Text} RSD je već aktivna!");
+                CustomMessageBox.ShowDialog(this, $"Cena {lastPrice.ToString()} RSD je već aktivna!");
                 return;
             }
            
