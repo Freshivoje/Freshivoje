@@ -13,11 +13,10 @@ namespace Freshivoje.Options_Forms
     {
         private readonly string _fillDGVQuery = "SELECT * FROM `articles`";
         private int _selectedArticleId;
-        private string _selectedArticleName = "";
-        private string _selectedArticleSort = "";
-        private string _selectedArticleOrganic = "";
-     
-
+        private string _selectedArticleName = string.Empty,
+                        _selectedArticleSort = string.Empty,
+                        _selectedArticleOrganic = string.Empty;
+  
         public CRUDArticlesForm()
         {
             InitializeComponent();
@@ -35,9 +34,6 @@ namespace Freshivoje.Options_Forms
                 return cp;
             }
         }
-
-
-
 
         private void blockEnter(object sender, KeyPressEventArgs e)
         {
@@ -115,8 +111,6 @@ namespace Freshivoje.Options_Forms
                 DbConnection.deleteFromDB("articles", "id_article", _selectedArticleId);
                 DbConnection.fillDGV(articlesDataGridView, _fillDGVQuery);
             }
-
-            Debug.WriteLine(_selectedArticleId);
         }
     }
 }

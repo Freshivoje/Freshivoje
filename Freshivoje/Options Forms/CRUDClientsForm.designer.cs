@@ -31,18 +31,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CRUDClientsForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CRUDClientsForm));
             this.clientsDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchClientsLbl = new System.Windows.Forms.Label();
-            this.searchClientsTxtBox = new System.Windows.Forms.TextBox();
-            this.insertClientBtn = new System.Windows.Forms.Button();
-            this.backBtn = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.exitBtn = new System.Windows.Forms.Button();
-            this.minimizeBtn = new System.Windows.Forms.Button();
-            this.crudClientsFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.clientId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +50,14 @@
             this.clientPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.editClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchClientsLbl = new System.Windows.Forms.Label();
+            this.searchClientsTxtBox = new System.Windows.Forms.TextBox();
+            this.insertClientBtn = new System.Windows.Forms.Button();
+            this.backBtn = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.exitBtn = new System.Windows.Forms.Button();
+            this.minimizeBtn = new System.Windows.Forms.Button();
+            this.crudClientsFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).BeginInit();
             this.crudClientsFormTblLayout.SuspendLayout();
             this.SuspendLayout();
@@ -97,7 +97,7 @@
             this.clientPhone,
             this.editClient,
             this.deleteClient});
-            this.crudClientsFormTblLayout.SetColumnSpan(this.clientsDataGridView, 6);
+            this.crudClientsFormTblLayout.SetColumnSpan(this.clientsDataGridView, 11);
             this.clientsDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
@@ -107,206 +107,20 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.clientsDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
-            this.clientsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clientsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.clientsDataGridView.Location = new System.Drawing.Point(153, 255);
+            this.clientsDataGridView.Location = new System.Drawing.Point(3, 255);
             this.clientsDataGridView.MultiSelect = false;
             this.clientsDataGridView.Name = "clientsDataGridView";
             this.clientsDataGridView.ReadOnly = true;
             this.clientsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.clientsDataGridView.RowHeadersWidth = 40;
             this.clientsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.crudClientsFormTblLayout.SetRowSpan(this.clientsDataGridView, 10);
+            this.crudClientsFormTblLayout.SetRowSpan(this.clientsDataGridView, 13);
             this.clientsDataGridView.RowTemplate.Height = 40;
-            this.clientsDataGridView.Size = new System.Drawing.Size(1770, 623);
+            this.clientsDataGridView.Size = new System.Drawing.Size(1924, 816);
             this.clientsDataGridView.TabIndex = 58;
             this.clientsDataGridView.TabStop = false;
             this.clientsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientsDataGridView_CellContentClick);
-            // 
-            // searchClientsLbl
-            // 
-            this.searchClientsLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.searchClientsLbl.AutoSize = true;
-            this.searchClientsLbl.BackColor = System.Drawing.Color.Transparent;
-            this.searchClientsLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchClientsLbl.ForeColor = System.Drawing.Color.White;
-            this.searchClientsLbl.Location = new System.Drawing.Point(1672, 162);
-            this.searchClientsLbl.Name = "searchClientsLbl";
-            this.searchClientsLbl.Size = new System.Drawing.Size(211, 27);
-            this.searchClientsLbl.TabIndex = 57;
-            this.searchClientsLbl.Text = "Pretraga klijenata";
-            this.searchClientsLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // searchClientsTxtBox
-            // 
-            this.searchClientsTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchClientsTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchClientsTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchClientsTxtBox.Location = new System.Drawing.Point(1633, 192);
-            this.searchClientsTxtBox.Multiline = true;
-            this.searchClientsTxtBox.Name = "searchClientsTxtBox";
-            this.searchClientsTxtBox.ShortcutsEnabled = false;
-            this.searchClientsTxtBox.Size = new System.Drawing.Size(290, 31);
-            this.searchClientsTxtBox.TabIndex = 11;
-            this.searchClientsTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
-            this.searchClientsTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchClientsTxtBox_KeyPress);
-            // 
-            // insertClientBtn
-            // 
-            this.insertClientBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.insertClientBtn.BackColor = System.Drawing.Color.Transparent;
-            this.insertClientBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.insertClientBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.insertClientBtn.FlatAppearance.BorderSize = 5;
-            this.insertClientBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.insertClientBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.insertClientBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.insertClientBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.insertClientBtn.ForeColor = System.Drawing.Color.White;
-            this.insertClientBtn.Location = new System.Drawing.Point(191, 192);
-            this.insertClientBtn.Name = "insertClientBtn";
-            this.insertClientBtn.Size = new System.Drawing.Size(213, 57);
-            this.insertClientBtn.TabIndex = 37;
-            this.insertClientBtn.TabStop = false;
-            this.insertClientBtn.Text = "Kreiraj klijenta";
-            this.insertClientBtn.UseVisualStyleBackColor = false;
-            this.insertClientBtn.Click += new System.EventHandler(this.insertClientBtn_Click);
-            // 
-            // backBtn
-            // 
-            this.backBtn.BackColor = System.Drawing.Color.Transparent;
-            this.backBtn.BackgroundImage = global::Freshivoje.Properties.Resources.left_arrow;
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1929, 3);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(44, 57);
-            this.backBtn.TabIndex = 9;
-            this.backBtn.TabStop = false;
-            this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.backBtn.UseVisualStyleBackColor = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.crudClientsFormTblLayout.SetColumnSpan(this.lblTitle, 3);
-            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(3, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblTitle.Size = new System.Drawing.Size(276, 63);
-            this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "OPCIJE KLIJENATA";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // exitBtn
-            // 
-            this.exitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.exitBtn.BackgroundImage = global::Freshivoje.Properties.Resources.x;
-            this.exitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.exitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exitBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exitBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.exitBtn.FlatAppearance.BorderSize = 0;
-            this.exitBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.exitBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(2029, 3);
-            this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(49, 57);
-            this.exitBtn.TabIndex = 6;
-            this.exitBtn.TabStop = false;
-            this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.exitBtn.UseVisualStyleBackColor = false;
-            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
-            // 
-            // minimizeBtn
-            // 
-            this.minimizeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.BackgroundImage = global::Freshivoje.Properties.Resources.minimize;
-            this.minimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.minimizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.minimizeBtn.FlatAppearance.BorderSize = 0;
-            this.minimizeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1979, 3);
-            this.minimizeBtn.Name = "minimizeBtn";
-            this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.minimizeBtn.Size = new System.Drawing.Size(44, 57);
-            this.minimizeBtn.TabIndex = 5;
-            this.minimizeBtn.TabStop = false;
-            this.minimizeBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.minimizeBtn.UseVisualStyleBackColor = false;
-            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
-            // 
-            // crudClientsFormTblLayout
-            // 
-            this.crudClientsFormTblLayout.BackColor = System.Drawing.Color.Transparent;
-            this.crudClientsFormTblLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("crudClientsFormTblLayout.BackgroundImage")));
-            this.crudClientsFormTblLayout.ColumnCount = 10;
-            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.crudClientsFormTblLayout.Controls.Add(this.minimizeBtn, 8, 0);
-            this.crudClientsFormTblLayout.Controls.Add(this.exitBtn, 9, 0);
-            this.crudClientsFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
-            this.crudClientsFormTblLayout.Controls.Add(this.backBtn, 7, 0);
-            this.crudClientsFormTblLayout.Controls.Add(this.searchClientsTxtBox, 6, 3);
-            this.crudClientsFormTblLayout.Controls.Add(this.clientsDataGridView, 1, 4);
-            this.crudClientsFormTblLayout.Controls.Add(this.searchClientsLbl, 6, 2);
-            this.crudClientsFormTblLayout.Controls.Add(this.insertClientBtn, 1, 3);
-            this.crudClientsFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crudClientsFormTblLayout.ForeColor = System.Drawing.Color.White;
-            this.crudClientsFormTblLayout.Location = new System.Drawing.Point(5, 5);
-            this.crudClientsFormTblLayout.Name = "crudClientsFormTblLayout";
-            this.crudClientsFormTblLayout.RowCount = 17;
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.243339F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.437748F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
-            this.crudClientsFormTblLayout.Size = new System.Drawing.Size(2081, 1074);
-            this.crudClientsFormTblLayout.TabIndex = 3;
             // 
             // clientId
             // 
@@ -436,12 +250,196 @@
             this.deleteClient.ReadOnly = true;
             this.deleteClient.Width = 40;
             // 
+            // searchClientsLbl
+            // 
+            this.searchClientsLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.searchClientsLbl.AutoSize = true;
+            this.searchClientsLbl.BackColor = System.Drawing.Color.Transparent;
+            this.searchClientsLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchClientsLbl.ForeColor = System.Drawing.Color.White;
+            this.searchClientsLbl.Location = new System.Drawing.Point(1535, 99);
+            this.searchClientsLbl.Name = "searchClientsLbl";
+            this.searchClientsLbl.Size = new System.Drawing.Size(211, 27);
+            this.searchClientsLbl.TabIndex = 57;
+            this.searchClientsLbl.Text = "Pretraga klijenata";
+            this.searchClientsLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // searchClientsTxtBox
+            // 
+            this.searchClientsTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchClientsTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchClientsTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchClientsTxtBox.Location = new System.Drawing.Point(1508, 129);
+            this.searchClientsTxtBox.Multiline = true;
+            this.searchClientsTxtBox.Name = "searchClientsTxtBox";
+            this.searchClientsTxtBox.ShortcutsEnabled = false;
+            this.searchClientsTxtBox.Size = new System.Drawing.Size(265, 31);
+            this.searchClientsTxtBox.TabIndex = 11;
+            this.searchClientsTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchClientsTxtBox_KeyPress);
+            // 
+            // insertClientBtn
+            // 
+            this.insertClientBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.insertClientBtn.BackColor = System.Drawing.Color.Transparent;
+            this.insertClientBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.insertClientBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.insertClientBtn.FlatAppearance.BorderSize = 5;
+            this.insertClientBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.insertClientBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.insertClientBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.insertClientBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.insertClientBtn.ForeColor = System.Drawing.Color.White;
+            this.insertClientBtn.Location = new System.Drawing.Point(179, 129);
+            this.insertClientBtn.Name = "insertClientBtn";
+            this.insertClientBtn.Size = new System.Drawing.Size(213, 57);
+            this.insertClientBtn.TabIndex = 37;
+            this.insertClientBtn.TabStop = false;
+            this.insertClientBtn.Text = "Kreiraj klijenta";
+            this.insertClientBtn.UseVisualStyleBackColor = false;
+            this.insertClientBtn.Click += new System.EventHandler(this.insertClientBtn_Click);
+            // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.BackgroundImage = global::Freshivoje.Properties.Resources.left_arrow;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBtn.ForeColor = System.Drawing.Color.White;
+            this.backBtn.Location = new System.Drawing.Point(1779, 3);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(44, 57);
+            this.backBtn.TabIndex = 9;
+            this.backBtn.TabStop = false;
+            this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.crudClientsFormTblLayout.SetColumnSpan(this.lblTitle, 3);
+            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(3, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblTitle.Size = new System.Drawing.Size(276, 63);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "OPCIJE KLIJENATA";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // exitBtn
+            // 
+            this.exitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.exitBtn.BackgroundImage = global::Freshivoje.Properties.Resources.x;
+            this.exitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.exitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exitBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.exitBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.exitBtn.FlatAppearance.BorderSize = 0;
+            this.exitBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.exitBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitBtn.ForeColor = System.Drawing.Color.White;
+            this.exitBtn.Location = new System.Drawing.Point(1879, 3);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.exitBtn.Size = new System.Drawing.Size(48, 57);
+            this.exitBtn.TabIndex = 6;
+            this.exitBtn.TabStop = false;
+            this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
+            // minimizeBtn
+            // 
+            this.minimizeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.minimizeBtn.BackgroundImage = global::Freshivoje.Properties.Resources.minimize;
+            this.minimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.minimizeBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.minimizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.minimizeBtn.FlatAppearance.BorderSize = 0;
+            this.minimizeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.minimizeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimizeBtn.ForeColor = System.Drawing.Color.White;
+            this.minimizeBtn.Location = new System.Drawing.Point(1829, 3);
+            this.minimizeBtn.Name = "minimizeBtn";
+            this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.minimizeBtn.Size = new System.Drawing.Size(44, 57);
+            this.minimizeBtn.TabIndex = 5;
+            this.minimizeBtn.TabStop = false;
+            this.minimizeBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.minimizeBtn.UseVisualStyleBackColor = false;
+            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
+            // 
+            // crudClientsFormTblLayout
+            // 
+            this.crudClientsFormTblLayout.BackColor = System.Drawing.Color.Transparent;
+            this.crudClientsFormTblLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("crudClientsFormTblLayout.BackgroundImage")));
+            this.crudClientsFormTblLayout.ColumnCount = 10;
+            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.crudClientsFormTblLayout.Controls.Add(this.minimizeBtn, 8, 0);
+            this.crudClientsFormTblLayout.Controls.Add(this.exitBtn, 9, 0);
+            this.crudClientsFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
+            this.crudClientsFormTblLayout.Controls.Add(this.backBtn, 7, 0);
+            this.crudClientsFormTblLayout.Controls.Add(this.clientsDataGridView, 1, 3);
+            this.crudClientsFormTblLayout.Controls.Add(this.insertClientBtn, 1, 2);
+            this.crudClientsFormTblLayout.Controls.Add(this.searchClientsLbl, 6, 1);
+            this.crudClientsFormTblLayout.Controls.Add(this.searchClientsTxtBox, 6, 2);
+            this.crudClientsFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crudClientsFormTblLayout.ForeColor = System.Drawing.Color.White;
+            this.crudClientsFormTblLayout.Location = new System.Drawing.Point(5, 5);
+            this.crudClientsFormTblLayout.Name = "crudClientsFormTblLayout";
+            this.crudClientsFormTblLayout.RowCount = 17;
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.24334F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.437749F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887929F));
+            this.crudClientsFormTblLayout.Size = new System.Drawing.Size(1930, 1074);
+            this.crudClientsFormTblLayout.TabIndex = 3;
+            // 
             // CRUDClientsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(2091, 1084);
+            this.ClientSize = new System.Drawing.Size(1940, 1084);
             this.Controls.Add(this.crudClientsFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

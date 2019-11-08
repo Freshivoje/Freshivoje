@@ -63,8 +63,6 @@ namespace Freshivoje.Custom_Forms
                 return;
             }
 
-           
-
             Article article = new Article(0, articleNameTxtBox.Text, articleSortTxtBox.Text,  articleOrganicCmbBox.Text, Convert.ToDecimal(articlePriceITxtBox.Text), Convert.ToDecimal(articlePriceIITxtBox.Text), Convert.ToDecimal(articlePriceIIITxtBox.Text));
 
             DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da kreirate artikal\nIme: {article._name}\nSorta: {article._sort}\nKontrolisana proizvodnja: {article._organic}\nCena I klase: {article._priceI} RSD\nCena II klase: {article._priceII} RSD\nCena III klase: {article._priceIII} RSD\n");
@@ -72,8 +70,6 @@ namespace Freshivoje.Custom_Forms
             {
                 return;
             }
-
-            
 
 
             MySqlCommand mySqlCommand = new MySqlCommand
@@ -85,7 +81,7 @@ namespace Freshivoje.Custom_Forms
             mySqlCommand.Parameters.AddWithValue("@articleOrganic", article._organic);
             
 
-            int articleId = (int)DbConnection.getValue(mySqlCommand);
+            int articleId = (int) DbConnection.getValue(mySqlCommand);
             article.setId(articleId);
          
             if (article._id < 1)
@@ -94,31 +90,23 @@ namespace Freshivoje.Custom_Forms
                 return;
             }
 
-            mySqlCommand.CommandText = "INSERT INTO `prices` (`value`, `fk_article_id`, `fk_category_id`) VALUES (@articlePriceI, @insertedArticleId, @categoryId)";
-            mySqlCommand.Parameters.AddWithValue("@articlePriceI", article._priceI);
+            mySqlCommand.CommandText = @"INSERT INTO `prices` (`value`, `fk_article_id`, `fk_category_id`) VALUES (@articlePriceI, @insertedArticleId, @categoryIdI);
+                                         INSERT INTO `prices` (`value`, `fk_article_id`, `fk_category_id`) VALUES (@articlePriceII, @insertedArticleId, @categoryIdII);
+                                         INSERT INTO `prices` (`value`, `fk_article_id`, `fk_category_id`) VALUES (@articlePriceIII, @insertedArticleId, @categoryIdIII);";
+
             mySqlCommand.Parameters.AddWithValue("@insertedArticleId", article._id);
-            mySqlCommand.Parameters.AddWithValue("@categoryId", 1);
 
-          
-            
-            DbConnection.executeQuery(mySqlCommand);
+            mySqlCommand.Parameters.AddWithValue("@articlePriceI", article._priceI);
+            mySqlCommand.Parameters.AddWithValue("@categoryIdI", 1);
 
-            mySqlCommand.CommandText = "INSERT INTO `prices` (`value`, `fk_article_id`, `fk_category_id`) VALUES (@articlePriceII, @insertedArticleId, @categoryId1)";
             mySqlCommand.Parameters.AddWithValue("@articlePriceII", article._priceII);
-   
-            mySqlCommand.Parameters.AddWithValue("@categoryId1", 2);
+            mySqlCommand.Parameters.AddWithValue("@categoryIdII", 2);
 
-            DbConnection.executeQuery(mySqlCommand);
-
-            mySqlCommand.CommandText = "INSERT INTO `prices` (`value`, `fk_article_id`, `fk_category_id`) VALUES (@articlePriceIII, @insertedArticleId, @categoryId2)";
             mySqlCommand.Parameters.AddWithValue("@articlePriceIII", article._priceIII);
-
-            mySqlCommand.Parameters.AddWithValue("@categoryId2", 3);
+            mySqlCommand.Parameters.AddWithValue("@categoryIdIII", 3);
 
             DbConnection.executeQuery(mySqlCommand);
 
-         
-            CustomMessageBox.ShowDialog(this, $"Artikal je kreiran\nIme: {article._name}\nSorta: {article._sort}\nKontrolisana proizvodnja: {article._organic}\nCena I klase: {article._priceI} RSD\nCena II klase: {article._priceII} RSD\nCena III klase: {article._priceIII} RSD\n");
             Close();
         }
 
