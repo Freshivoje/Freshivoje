@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.loginFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.titleLbl = new System.Windows.Forms.Label();
@@ -155,7 +154,7 @@
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(154, 72);
             this.loginBtn.TabIndex = 3;
-            this.loginBtn.Text = "PRIJAVI SE";
+            this.loginBtn.Text = "PRIJAVI SEeee";
             this.loginBtn.UseVisualStyleBackColor = false;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
