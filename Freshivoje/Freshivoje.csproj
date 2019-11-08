@@ -176,12 +176,6 @@
     <Compile Include="Options Forms\CRUDArticlesForm.Designer.cs">
       <DependentUpon>CRUDArticlesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Options Forms\CRUDPackagesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Options Forms\CRUDPackagesForm.designer.cs">
-      <DependentUpon>CRUDPackagesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Options Forms\Packages\CreatePackageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,9 +246,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Options Forms\CRUDArticlesForm.resx">
       <DependentUpon>CRUDArticlesForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Options Forms\CRUDPackagesForm.resx">
-      <DependentUpon>CRUDPackagesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options Forms\Packages\CreatePackageForm.resx">
       <DependentUpon>CreatePackageForm.cs</DependentUpon>
