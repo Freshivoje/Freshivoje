@@ -83,10 +83,10 @@ namespace Freshivoje.Custom_Forms
                 CustomMessageBox.ShowDialog(this, Properties.Resources.emptyInputErrorMsg);
                 return;
             }
-            
+
             Article article = new Article(_articleId, articleNameTxtBox.Text, articleSortTxtBox.Text, articleOrganicCmbBox.Text);
 
-            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da izmenite artikal\nIme: {article._name}\nSorta: {article._sort}\nKontrolisana proizvodnja: {article._organic}");
+            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da \nunesete novu cenu za ovaj artikal?\n\nNova cena: {articlePriceTxtBox.Text} RSD");
 
             if (result == DialogResult.No || result == DialogResult.Cancel)
             {
@@ -95,22 +95,14 @@ namespace Freshivoje.Custom_Forms
 
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = "UPDATE `articles` SET `article_name` = @articleName, `sort` = @articleSort, `organic` = @articleOrganic WHERE `id_article` = @articleId"
+                CommandText = $"SELECT `value` FROM `prices` WHERE `fk_article_id` = {_articleId} AND `status` = 'aktivna' AND fk_category_id = {articleCategoryCmbBox.SelectedIndex + 1}"
             };
-            mySqlCommand.Parameters.AddWithValue("@articleName", article._name);
-            mySqlCommand.Parameters.AddWithValue("@articleSort", article._sort);
-            mySqlCommand.Parameters.AddWithValue("@articleOrganic", article._organic);
 
-            mySqlCommand.Parameters.AddWithValue("@articleId", article._id);
-
-            DbConnection.executeQuery(mySqlCommand);
-       
-            mySqlCommand.CommandText = $"SELECT `value` FROM `prices` WHERE `fk_article_id` = {_articleId} AND `status` = 'aktivna' AND fk_category_id = {articleCategoryCmbBox.SelectedIndex + 1}";
             decimal lastPrice = DbConnection.getValue(mySqlCommand);
 
             if (lastPrice == (Convert.ToDecimal(articlePriceTxtBox.Text)))
             {
-                //CustomMessageBox.ShowDialog(this, $"Cena {articleCategoryCmbBox.Text} klase {articlePriceTxtBox.Text} RSD za ovaj artikal je već aktivna.");
+                CustomMessageBox.ShowDialog(this, $"Cena {lastPrice.ToString()} RSD je već aktivna!");
                 return;
             }
            

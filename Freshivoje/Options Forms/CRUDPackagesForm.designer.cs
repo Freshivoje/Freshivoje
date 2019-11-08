@@ -128,7 +128,7 @@
             this.Status,
             this.editPackaging,
             this.deletePackaging});
-            this.crudPackagesFormTblLayout.SetColumnSpan(this.packagesDataGridView, 4);
+            this.crudPackagesFormTblLayout.SetColumnSpan(this.packagesDataGridView, 8);
             this.packagesDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
@@ -140,7 +140,7 @@
             this.packagesDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.packagesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.packagesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.packagesDataGridView.Location = new System.Drawing.Point(153, 201);
+            this.packagesDataGridView.Location = new System.Drawing.Point(3, 265);
             this.packagesDataGridView.MultiSelect = false;
             this.packagesDataGridView.Name = "packagesDataGridView";
             this.packagesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
@@ -148,7 +148,7 @@
             this.packagesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.crudPackagesFormTblLayout.SetRowSpan(this.packagesDataGridView, 9);
             this.packagesDataGridView.RowTemplate.Height = 30;
-            this.packagesDataGridView.Size = new System.Drawing.Size(1114, 586);
+            this.packagesDataGridView.Size = new System.Drawing.Size(1417, 595);
             this.packagesDataGridView.TabIndex = 60;
             this.packagesDataGridView.TabStop = false;
             this.packagesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.packagingDataGridView_CellContentClick);
