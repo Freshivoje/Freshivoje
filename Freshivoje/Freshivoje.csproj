@@ -180,6 +180,18 @@
     <Compile Include="Options Forms\CRUDPackagesForm.designer.cs">
       <DependentUpon>CRUDPackagesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Options Forms\Packages\CreatePackageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options Forms\Packages\CreatePackageForm.designer.cs">
+      <DependentUpon>CreatePackageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options Forms\Packages\EditPackageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options Forms\Packages\EditPackageForm.designer.cs">
+      <DependentUpon>EditPackageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OptionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +253,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Options Forms\CRUDPackagesForm.resx">
       <DependentUpon>CRUDPackagesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options Forms\Packages\CreatePackageForm.resx">
+      <DependentUpon>CreatePackageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options Forms\Packages\EditPackageForm.resx">
+      <DependentUpon>EditPackageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OptionsForm.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
