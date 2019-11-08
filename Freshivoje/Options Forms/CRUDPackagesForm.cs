@@ -10,12 +10,13 @@ namespace Freshivoje.Options_Forms
     public partial class CRUDPackagesForm : Form
     {
         private readonly string _fillDGVQuery = "SELECT * FROM `packaging` JOIN `categories` ON `packaging`.`fk_category_id` = `categories`.`id_category`";
-        private string   _selectedPackageCategory;
+        private string   _selectedPackageCategory = string.Empty;
         private decimal _selectedPackagePrice;
         private int _selectedPackageId, _selectedPackageCategoryId, _selectedPackageCapacity, _selectedPackageQuantity;
         public CRUDPackagesForm()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
             packagesDataGridView.AutoGenerateColumns = false;         
         }
 
