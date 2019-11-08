@@ -80,12 +80,12 @@
             this.insertFormTblLayout.ColumnCount = 8;
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.84472F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.11091F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.insertFormTblLayout.Controls.Add(this.articlesDataGridView, 1, 10);
             this.insertFormTblLayout.Controls.Add(this.minimizeBtn, 6, 0);
             this.insertFormTblLayout.Controls.Add(this.exitBtn, 7, 0);
@@ -178,7 +178,7 @@
             this.articlesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.insertFormTblLayout.SetRowSpan(this.articlesDataGridView, 3);
             this.articlesDataGridView.RowTemplate.Height = 30;
-            this.articlesDataGridView.Size = new System.Drawing.Size(1122, 168);
+            this.articlesDataGridView.Size = new System.Drawing.Size(1119, 168);
             this.articlesDataGridView.TabIndex = 34;
             this.articlesDataGridView.TabStop = false;
             // 
@@ -289,7 +289,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1331, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(1328, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.minimizeBtn.Size = new System.Drawing.Size(44, 52);
@@ -313,10 +313,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1381, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1378, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(49, 52);
+            this.exitBtn.Size = new System.Drawing.Size(52, 52);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -325,22 +325,22 @@
             // 
             // articlesCmbBox
             // 
-            this.articlesCmbBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.insertFormTblLayout.SetColumnSpan(this.articlesCmbBox, 3);
             this.articlesCmbBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.articlesCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.articlesCmbBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.articlesCmbBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articlesCmbBox.FormattingEnabled = true;
             this.articlesCmbBox.Location = new System.Drawing.Point(153, 119);
             this.articlesCmbBox.Name = "articlesCmbBox";
-            this.articlesCmbBox.Size = new System.Drawing.Size(840, 31);
+            this.articlesCmbBox.Size = new System.Drawing.Size(838, 31);
             this.articlesCmbBox.TabIndex = 1;
             this.articlesCmbBox.SelectedIndexChanged += new System.EventHandler(this.articlesCmbBox_SelectedIndexChanged);
             // 
             // articleCategoryCmbBox
             // 
-            this.articleCategoryCmbBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.articleCategoryCmbBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.articleCategoryCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.articleCategoryCmbBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.articleCategoryCmbBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articleCategoryCmbBox.FormattingEnabled = true;
@@ -348,9 +348,9 @@
             "I",
             "II",
             "III"});
-            this.articleCategoryCmbBox.Location = new System.Drawing.Point(999, 119);
+            this.articleCategoryCmbBox.Location = new System.Drawing.Point(997, 119);
             this.articleCategoryCmbBox.Name = "articleCategoryCmbBox";
-            this.articleCategoryCmbBox.Size = new System.Drawing.Size(276, 31);
+            this.articleCategoryCmbBox.Size = new System.Drawing.Size(275, 31);
             this.articleCategoryCmbBox.TabIndex = 3;
             this.articleCategoryCmbBox.SelectedIndexChanged += new System.EventHandler(this.articlesCmbBox_SelectedIndexChanged);
             // 
@@ -359,11 +359,11 @@
             this.quantityTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.quantityTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.quantityTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantityTxtBox.Location = new System.Drawing.Point(435, 235);
+            this.quantityTxtBox.Location = new System.Drawing.Point(434, 235);
             this.quantityTxtBox.Multiline = true;
             this.quantityTxtBox.Name = "quantityTxtBox";
             this.quantityTxtBox.ShortcutsEnabled = false;
-            this.quantityTxtBox.Size = new System.Drawing.Size(276, 31);
+            this.quantityTxtBox.Size = new System.Drawing.Size(274, 31);
             this.quantityTxtBox.TabIndex = 5;
             this.quantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
@@ -392,7 +392,7 @@
             this.insertFormTblLayout.SetColumnSpan(this.insertedArticlesLbl, 2);
             this.insertedArticlesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.insertedArticlesLbl.ForeColor = System.Drawing.Color.White;
-            this.insertedArticlesLbl.Location = new System.Drawing.Point(924, 551);
+            this.insertedArticlesLbl.Location = new System.Drawing.Point(921, 551);
             this.insertedArticlesLbl.Name = "insertedArticlesLbl";
             this.insertedArticlesLbl.Size = new System.Drawing.Size(143, 27);
             this.insertedArticlesLbl.TabIndex = 29;
@@ -412,7 +412,7 @@
             this.finishInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.finishInsertBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.finishInsertBtn.ForeColor = System.Drawing.Color.White;
-            this.finishInsertBtn.Location = new System.Drawing.Point(615, 757);
+            this.finishInsertBtn.Location = new System.Drawing.Point(613, 757);
             this.finishInsertBtn.Margin = new System.Windows.Forms.Padding(5);
             this.finishInsertBtn.Name = "finishInsertBtn";
             this.finishInsertBtn.Size = new System.Drawing.Size(198, 48);
@@ -436,7 +436,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1281, 3);
+            this.backBtn.Location = new System.Drawing.Point(1278, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 52);
             this.backBtn.TabIndex = 9;
@@ -452,7 +452,7 @@
             this.categoryLbl.BackColor = System.Drawing.Color.Transparent;
             this.categoryLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryLbl.ForeColor = System.Drawing.Color.White;
-            this.categoryLbl.Location = new System.Drawing.Point(1073, 89);
+            this.categoryLbl.Location = new System.Drawing.Point(1070, 89);
             this.categoryLbl.Name = "categoryLbl";
             this.categoryLbl.Size = new System.Drawing.Size(128, 27);
             this.categoryLbl.TabIndex = 12;
@@ -467,7 +467,7 @@
             this.insertFormTblLayout.SetColumnSpan(this.articleLbl, 3);
             this.articleLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articleLbl.ForeColor = System.Drawing.Color.White;
-            this.articleLbl.Location = new System.Drawing.Point(335, 89);
+            this.articleLbl.Location = new System.Drawing.Point(334, 89);
             this.articleLbl.Name = "articleLbl";
             this.articleLbl.Size = new System.Drawing.Size(476, 27);
             this.articleLbl.TabIndex = 11;
@@ -481,7 +481,7 @@
             this.priceLbl.BackColor = System.Drawing.Color.Transparent;
             this.priceLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceLbl.ForeColor = System.Drawing.Color.White;
-            this.priceLbl.Location = new System.Drawing.Point(221, 205);
+            this.priceLbl.Location = new System.Drawing.Point(220, 205);
             this.priceLbl.Name = "priceLbl";
             this.priceLbl.Size = new System.Drawing.Size(140, 27);
             this.priceLbl.TabIndex = 16;
@@ -497,7 +497,7 @@
             this.articlePriceLbl.ForeColor = System.Drawing.Color.White;
             this.articlePriceLbl.Location = new System.Drawing.Point(153, 232);
             this.articlePriceLbl.Name = "articlePriceLbl";
-            this.articlePriceLbl.Size = new System.Drawing.Size(276, 58);
+            this.articlePriceLbl.Size = new System.Drawing.Size(275, 58);
             this.articlePriceLbl.TabIndex = 35;
             this.articlePriceLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -508,7 +508,7 @@
             this.quantityLbl.BackColor = System.Drawing.Color.Transparent;
             this.quantityLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quantityLbl.ForeColor = System.Drawing.Color.White;
-            this.quantityLbl.Location = new System.Drawing.Point(496, 205);
+            this.quantityLbl.Location = new System.Drawing.Point(494, 205);
             this.quantityLbl.Name = "quantityLbl";
             this.quantityLbl.Size = new System.Drawing.Size(154, 27);
             this.quantityLbl.TabIndex = 17;
@@ -525,7 +525,7 @@
             this.crateOwnerCmbBox.Items.AddRange(new object[] {
             "Klijent",
             "Hladnjača"});
-            this.crateOwnerCmbBox.Location = new System.Drawing.Point(159, 465);
+            this.crateOwnerCmbBox.Location = new System.Drawing.Point(158, 465);
             this.crateOwnerCmbBox.Name = "crateOwnerCmbBox";
             this.crateOwnerCmbBox.Size = new System.Drawing.Size(264, 31);
             this.crateOwnerCmbBox.TabIndex = 8;
@@ -538,7 +538,7 @@
             this.crateOwnerLbl.BackColor = System.Drawing.Color.Transparent;
             this.crateOwnerLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.crateOwnerLbl.ForeColor = System.Drawing.Color.White;
-            this.crateOwnerLbl.Location = new System.Drawing.Point(228, 435);
+            this.crateOwnerLbl.Location = new System.Drawing.Point(227, 435);
             this.crateOwnerLbl.Name = "crateOwnerLbl";
             this.crateOwnerLbl.Size = new System.Drawing.Size(126, 27);
             this.crateOwnerLbl.TabIndex = 26;
@@ -558,7 +558,7 @@
             this.insertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insertBtn.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.insertBtn.ForeColor = System.Drawing.Color.White;
-            this.insertBtn.Location = new System.Drawing.Point(404, 529);
+            this.insertBtn.Location = new System.Drawing.Point(402, 529);
             this.insertBtn.Margin = new System.Windows.Forms.Padding(5);
             this.insertBtn.Name = "insertBtn";
             this.insertBtn.Size = new System.Drawing.Size(56, 44);
@@ -577,7 +577,7 @@
             this.packageTypeCmbBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.packageTypeCmbBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.packageTypeCmbBox.FormattingEnabled = true;
-            this.packageTypeCmbBox.Location = new System.Drawing.Point(582, 465);
+            this.packageTypeCmbBox.Location = new System.Drawing.Point(580, 465);
             this.packageTypeCmbBox.Name = "packageTypeCmbBox";
             this.packageTypeCmbBox.Size = new System.Drawing.Size(264, 31);
             this.packageTypeCmbBox.TabIndex = 7;
@@ -591,7 +591,7 @@
             this.insertFormTblLayout.SetColumnSpan(this.crateTypeLbl, 2);
             this.crateTypeLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.crateTypeLbl.ForeColor = System.Drawing.Color.White;
-            this.crateTypeLbl.Location = new System.Drawing.Point(679, 435);
+            this.crateTypeLbl.Location = new System.Drawing.Point(677, 435);
             this.crateTypeLbl.Name = "crateTypeLbl";
             this.crateTypeLbl.Size = new System.Drawing.Size(70, 27);
             this.crateTypeLbl.TabIndex = 25;
@@ -604,7 +604,7 @@
             this.crateQuantityTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.crateQuantityTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.crateQuantityTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crateQuantityTxtBox.Location = new System.Drawing.Point(1005, 465);
+            this.crateQuantityTxtBox.Location = new System.Drawing.Point(1002, 465);
             this.crateQuantityTxtBox.Multiline = true;
             this.crateQuantityTxtBox.Name = "crateQuantityTxtBox";
             this.crateQuantityTxtBox.ShortcutsEnabled = false;
@@ -620,7 +620,7 @@
             this.crateQuantityLbl.BackColor = System.Drawing.Color.Transparent;
             this.crateQuantityLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.crateQuantityLbl.ForeColor = System.Drawing.Color.White;
-            this.crateQuantityLbl.Location = new System.Drawing.Point(1107, 435);
+            this.crateQuantityLbl.Location = new System.Drawing.Point(1105, 435);
             this.crateQuantityLbl.Name = "crateQuantityLbl";
             this.crateQuantityLbl.Size = new System.Drawing.Size(59, 27);
             this.crateQuantityLbl.TabIndex = 24;
@@ -636,7 +636,7 @@
             this.insertFormTblLayout.SetColumnSpan(this.cratesLbl, 2);
             this.cratesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cratesLbl.ForeColor = System.Drawing.Color.White;
-            this.cratesLbl.Location = new System.Drawing.Point(647, 379);
+            this.cratesLbl.Location = new System.Drawing.Point(646, 379);
             this.cratesLbl.Name = "cratesLbl";
             this.cratesLbl.Size = new System.Drawing.Size(133, 27);
             this.cratesLbl.TabIndex = 18;

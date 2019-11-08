@@ -104,7 +104,9 @@ namespace Freshivoje.Custom_Forms
             }
            
             mySqlCommand.CommandText = "UPDATE `prices` SET `status` = 'neaktivna' WHERE `fk_article_id` = @articleId AND `fk_category_id` = @fkCategoryId";
+            mySqlCommand.Parameters.AddWithValue("@articleId", _articleId);
             mySqlCommand.Parameters.AddWithValue("@fkCategoryId", articleCategoryCmbBox.SelectedIndex + 1);
+
 
             DbConnection.executeQuery(mySqlCommand);
 

@@ -101,14 +101,20 @@ namespace Freshivoje
 
         private void insertBtn_Click(object sender, EventArgs e)
         {
+            MySqlCommand mySqlCommand = new MySqlCommand
+            {
+                CommandText = "SELECT `article_name`, `sort`, `organic` FROM `articles` WHERE `id_article` = @articleId" 
+            };
+
+            mySqlCommand.Parameters.AddWithValue("@articleId", _articleId);
+
+            var test = DbConnection.getQueryValues(mySqlCommand);
+            articlesDataGridView.Rows.Add();
 
             //int articleId = ((ComboBoxItem)articlesCmbBox.SelectedItem).Value;
 
 
-            //MySqlCommand mySqlCommand = new MySqlCommand
-            //{
-            //    CommandText = "SELECT article_name, sort, organic FROM articles WHERE id_article =" + articleId 
-            //};
+         
 
             //dynamic arts = DbConnection.getQueryValues(mySqlCommand);
             //var chars = new char[1];
@@ -153,7 +159,7 @@ namespace Freshivoje
             ////pArticles.setArticle(item);
             //clearAllText();
             //// refresh richTextBox
-            
+
             //for (int i =0; i < pArticles.articles.Count; i++)
             //{
             //    Article article = pArticles.articles[i]._art;
