@@ -65,32 +65,30 @@
             this.createArticleFormTableLayoutPanel.Controls.Add(this.articleSortTxtBox, 1, 3);
             this.createArticleFormTableLayoutPanel.Controls.Add(this.articleNameTxtBox, 1, 1);
             this.createArticleFormTableLayoutPanel.Controls.Add(this.label1, 1, 4);
-            this.createArticleFormTableLayoutPanel.Controls.Add(this.cancelBtn, 3, 12);
             this.createArticleFormTableLayoutPanel.Controls.Add(this.articlePriceILbl, 1, 6);
             this.createArticleFormTableLayoutPanel.Controls.Add(this.label5, 1, 8);
             this.createArticleFormTableLayoutPanel.Controls.Add(this.label2, 1, 10);
-            this.createArticleFormTableLayoutPanel.Controls.Add(this.createBtn, 1, 12);
+            this.createArticleFormTableLayoutPanel.Controls.Add(this.cancelBtn, 3, 13);
+            this.createArticleFormTableLayoutPanel.Controls.Add(this.createBtn, 1, 13);
             this.createArticleFormTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.createArticleFormTableLayoutPanel.Location = new System.Drawing.Point(5, 5);
             this.createArticleFormTableLayoutPanel.Name = "createArticleFormTableLayoutPanel";
-            this.createArticleFormTableLayoutPanel.RowCount = 14;
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333334F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333334F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333334F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333334F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333334F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333334F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333334F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333334F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333334F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333334F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333334F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333334F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.createArticleFormTableLayoutPanel.RowCount = 15;
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.createArticleFormTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
             this.createArticleFormTableLayoutPanel.Size = new System.Drawing.Size(666, 668);
             this.createArticleFormTableLayoutPanel.TabIndex = 1;
             // 
@@ -100,13 +98,13 @@
             this.createArticleFormTableLayoutPanel.SetColumnSpan(this.articlePriceIIITxtBox, 4);
             this.articlePriceIIITxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.articlePriceIIITxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.articlePriceIIITxtBox.Location = new System.Drawing.Point(113, 542);
+            this.articlePriceIIITxtBox.Location = new System.Drawing.Point(113, 476);
             this.articlePriceIIITxtBox.MaxLength = 8;
             this.articlePriceIIITxtBox.Multiline = true;
             this.articlePriceIIITxtBox.Name = "articlePriceIIITxtBox";
             this.articlePriceIIITxtBox.ShortcutsEnabled = false;
             this.articlePriceIIITxtBox.Size = new System.Drawing.Size(438, 31);
-            this.articlePriceIIITxtBox.TabIndex = 25;
+            this.articlePriceIIITxtBox.TabIndex = 5;
             this.articlePriceIIITxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // articlePriceIITxtBox
@@ -115,13 +113,13 @@
             this.createArticleFormTableLayoutPanel.SetColumnSpan(this.articlePriceIITxtBox, 4);
             this.articlePriceIITxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.articlePriceIITxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.articlePriceIITxtBox.Location = new System.Drawing.Point(113, 444);
+            this.articlePriceIITxtBox.Location = new System.Drawing.Point(113, 390);
             this.articlePriceIITxtBox.MaxLength = 8;
             this.articlePriceIITxtBox.Multiline = true;
             this.articlePriceIITxtBox.Name = "articlePriceIITxtBox";
             this.articlePriceIITxtBox.ShortcutsEnabled = false;
             this.articlePriceIITxtBox.Size = new System.Drawing.Size(438, 31);
-            this.articlePriceIITxtBox.TabIndex = 23;
+            this.articlePriceIITxtBox.TabIndex = 4;
             this.articlePriceIITxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // articleNameLbl
@@ -132,7 +130,7 @@
             this.createArticleFormTableLayoutPanel.SetColumnSpan(this.articleNameLbl, 2);
             this.articleNameLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articleNameLbl.ForeColor = System.Drawing.Color.White;
-            this.articleNameLbl.Location = new System.Drawing.Point(264, 22);
+            this.articleNameLbl.Location = new System.Drawing.Point(264, 16);
             this.articleNameLbl.Name = "articleNameLbl";
             this.articleNameLbl.Size = new System.Drawing.Size(135, 27);
             this.articleNameLbl.TabIndex = 10;
@@ -147,7 +145,7 @@
             this.createArticleFormTableLayoutPanel.SetColumnSpan(this.articleSortLbl, 2);
             this.articleSortLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articleSortLbl.ForeColor = System.Drawing.Color.White;
-            this.articleSortLbl.Location = new System.Drawing.Point(296, 120);
+            this.articleSortLbl.Location = new System.Drawing.Point(296, 102);
             this.articleSortLbl.Name = "articleSortLbl";
             this.articleSortLbl.Size = new System.Drawing.Size(72, 27);
             this.articleSortLbl.TabIndex = 12;
@@ -165,10 +163,10 @@
             this.articleOrganicCmbBox.Items.AddRange(new object[] {
             "Da",
             "Ne"});
-            this.articleOrganicCmbBox.Location = new System.Drawing.Point(113, 248);
+            this.articleOrganicCmbBox.Location = new System.Drawing.Point(113, 218);
             this.articleOrganicCmbBox.Name = "articleOrganicCmbBox";
             this.articleOrganicCmbBox.Size = new System.Drawing.Size(438, 31);
-            this.articleOrganicCmbBox.TabIndex = 3;
+            this.articleOrganicCmbBox.TabIndex = 2;
             this.articleOrganicCmbBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // articlePriceITxtBox
@@ -177,13 +175,13 @@
             this.createArticleFormTableLayoutPanel.SetColumnSpan(this.articlePriceITxtBox, 4);
             this.articlePriceITxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.articlePriceITxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.articlePriceITxtBox.Location = new System.Drawing.Point(113, 346);
+            this.articlePriceITxtBox.Location = new System.Drawing.Point(113, 304);
             this.articlePriceITxtBox.MaxLength = 8;
             this.articlePriceITxtBox.Multiline = true;
             this.articlePriceITxtBox.Name = "articlePriceITxtBox";
             this.articlePriceITxtBox.ShortcutsEnabled = false;
             this.articlePriceITxtBox.Size = new System.Drawing.Size(438, 31);
-            this.articlePriceITxtBox.TabIndex = 4;
+            this.articlePriceITxtBox.TabIndex = 3;
             this.articlePriceITxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // articleSortTxtBox
@@ -192,7 +190,7 @@
             this.createArticleFormTableLayoutPanel.SetColumnSpan(this.articleSortTxtBox, 4);
             this.articleSortTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.articleSortTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.articleSortTxtBox.Location = new System.Drawing.Point(113, 150);
+            this.articleSortTxtBox.Location = new System.Drawing.Point(113, 132);
             this.articleSortTxtBox.Multiline = true;
             this.articleSortTxtBox.Name = "articleSortTxtBox";
             this.articleSortTxtBox.ShortcutsEnabled = false;
@@ -207,7 +205,7 @@
             this.createArticleFormTableLayoutPanel.SetColumnSpan(this.articleNameTxtBox, 4);
             this.articleNameTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.articleNameTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.articleNameTxtBox.Location = new System.Drawing.Point(113, 52);
+            this.articleNameTxtBox.Location = new System.Drawing.Point(113, 46);
             this.articleNameTxtBox.Multiline = true;
             this.articleNameTxtBox.Name = "articleNameTxtBox";
             this.articleNameTxtBox.ShortcutsEnabled = false;
@@ -223,7 +221,7 @@
             this.createArticleFormTableLayoutPanel.SetColumnSpan(this.label1, 4);
             this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(186, 218);
+            this.label1.Location = new System.Drawing.Point(186, 188);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(292, 27);
             this.label1.TabIndex = 22;
@@ -243,10 +241,10 @@
             this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.ForeColor = System.Drawing.Color.White;
-            this.cancelBtn.Location = new System.Drawing.Point(373, 593);
+            this.cancelBtn.Location = new System.Drawing.Point(373, 564);
             this.cancelBtn.Margin = new System.Windows.Forms.Padding(5);
             this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(140, 40);
+            this.cancelBtn.Size = new System.Drawing.Size(140, 50);
             this.cancelBtn.TabIndex = 21;
             this.cancelBtn.TabStop = false;
             this.cancelBtn.Text = "ODUSTANI";
@@ -261,7 +259,7 @@
             this.createArticleFormTableLayoutPanel.SetColumnSpan(this.articlePriceILbl, 4);
             this.articlePriceILbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articlePriceILbl.ForeColor = System.Drawing.Color.White;
-            this.articlePriceILbl.Location = new System.Drawing.Point(222, 316);
+            this.articlePriceILbl.Location = new System.Drawing.Point(222, 274);
             this.articlePriceILbl.Name = "articlePriceILbl";
             this.articlePriceILbl.Size = new System.Drawing.Size(220, 27);
             this.articlePriceILbl.TabIndex = 17;
@@ -276,7 +274,7 @@
             this.createArticleFormTableLayoutPanel.SetColumnSpan(this.label5, 4);
             this.label5.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(216, 414);
+            this.label5.Location = new System.Drawing.Point(216, 360);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(231, 27);
             this.label5.TabIndex = 29;
@@ -291,7 +289,7 @@
             this.createArticleFormTableLayoutPanel.SetColumnSpan(this.label2, 4);
             this.label2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(211, 512);
+            this.label2.Location = new System.Drawing.Point(211, 446);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(242, 27);
             this.label2.TabIndex = 30;
@@ -311,10 +309,10 @@
             this.createBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createBtn.ForeColor = System.Drawing.Color.White;
-            this.createBtn.Location = new System.Drawing.Point(144, 593);
+            this.createBtn.Location = new System.Drawing.Point(144, 564);
             this.createBtn.Margin = new System.Windows.Forms.Padding(5);
             this.createBtn.Name = "createBtn";
-            this.createBtn.Size = new System.Drawing.Size(154, 40);
+            this.createBtn.Size = new System.Drawing.Size(154, 50);
             this.createBtn.TabIndex = 20;
             this.createBtn.TabStop = false;
             this.createBtn.Text = "KREIRAJ";
