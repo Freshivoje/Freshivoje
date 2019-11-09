@@ -78,35 +78,36 @@ namespace Freshivoje
             try
             {
 
-                MySqlCommand mySqlCommand2 = new MySqlCommand
-                {
-                    CommandText = "SELECT transport_number FROM transport ORDER BY id_transport DESC LIMIT 1"
-                };
+                MySqlCommand mySqlCommand2 = new MySqlCommand();
+                mySqlCommand2.CommandText = "SELECT transport_number FROM transport ORDER BY id_transport DESC LIMIT 1";
                 mySqlCommand2.Connection = _databaseConnection;
+                mySqlCommand2.Transaction = transaction;
 
-                int transportNumber = (int)DbConnection.getValue(mySqlCommand2);
-                if (transportNumber <= 0) transportNumber =0;
-                else transportNumber += 1;
+                dynamic transportNumber = mySqlCommand2.ExecuteScalar();
+                if (transportNumber == null) transportNumber = 0;
+                transportNumber += 1;
 
                 MySqlCommand mySqlCommand1 = new MySqlCommand();
 
                 DateTime today = DateTime.Today;
-                mySqlCommand1.CommandText = "INSERT INTO `transport` (`fk_client_id`, `transport_number`, `transport_date`, `transport_year`, `transport_status`) VALUES (@clientId, @transportNumber, @transportDate, @transportYear, @transportStatus); SELECT LAST_INSERT_ID()";
+                string date = today.ToString("yyyy-MM-dd");
+                mySqlCommand1.CommandText = @"INSERT INTO `transport` (`fk_client_id`, `transport_number`, `transport_date`, `transport_year`, `transport_status`) VALUES (@clientId, @transportNumber, @transportDate, @transportYear, @transportStatus); SELECT LAST_INSERT_ID()";
                 mySqlCommand1.Connection = _databaseConnection;
                 mySqlCommand1.Transaction = transaction;
                 mySqlCommand1.Parameters.AddWithValue("@clientId", transportItems[0]._clientId);
                 mySqlCommand1.Parameters.AddWithValue("@transportNumber", transportNumber);
-                mySqlCommand1.Parameters.AddWithValue("@transportDate",today.ToString("mm-dd-yyyy"));
+                mySqlCommand1.Parameters.AddWithValue("@transportDate",date);
                 mySqlCommand1.Parameters.AddWithValue("@transportYear", today.ToString("yyyy"));
                 mySqlCommand1.Parameters.AddWithValue("@transportStatus", 1);
 
 
-                int transportId = (int)DbConnection.getValue(mySqlCommand1);
+                dynamic transportId = mySqlCommand1.ExecuteScalar();
+
 
                 for (int i = 0; i < transportItems.Count; i++)
                 {
 
-                    string query = @"INSERT INTO `transport_items` (`fk_transport_id`, `price`, `quantity`, `traveled`, `total_price`) VALUES (@fkTransportId, @price, @quantity, @travel, @total_price)";
+                    string query = "INSERT INTO `transport_items` (`fk_transport_id`, `price`, `quantity`, `traveled`, `total_price`) VALUES ( @fkTransportId, @price, @quantity, @travel, @total_price)";
                     MySqlCommand mySqlCommand = new MySqlCommand();
                     mySqlCommand.Connection = _databaseConnection;
                     mySqlCommand.CommandText = query;

@@ -46,8 +46,8 @@
             this.IdClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updateArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.previewTransport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.crudArticlesFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TransportDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -93,6 +93,7 @@
             this.crudArticlesFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
             this.crudArticlesFormTblLayout.Size = new System.Drawing.Size(1187, 628);
             this.crudArticlesFormTblLayout.TabIndex = 3;
+            this.crudArticlesFormTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.crudArticlesFormTblLayout_Paint);
             // 
             // minimizeBtn
             // 
@@ -116,6 +117,7 @@
             this.minimizeBtn.TabStop = false;
             this.minimizeBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.minimizeBtn.UseVisualStyleBackColor = false;
+            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
             // 
             // exitBtn
             // 
@@ -139,6 +141,7 @@
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // lblTitle
             // 
@@ -178,6 +181,7 @@
             this.backBtn.TabStop = false;
             this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // TransportDataGridView
             // 
@@ -200,8 +204,8 @@
             this.IdClient,
             this.client,
             this.Datum,
-            this.updateArticle,
-            this.deleteArticle});
+            this.previewTransport,
+            this.deleteStatus});
             this.crudArticlesFormTblLayout.SetColumnSpan(this.TransportDataGridView, 4);
             this.TransportDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -212,6 +216,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.TransportDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            this.TransportDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TransportDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.TransportDataGridView.Location = new System.Drawing.Point(153, 135);
             this.TransportDataGridView.MultiSelect = false;
@@ -227,28 +232,30 @@
             // 
             // searchArticlesLbl
             // 
-            this.searchArticlesLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.searchArticlesLbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchArticlesLbl.AutoSize = true;
             this.searchArticlesLbl.BackColor = System.Drawing.Color.Transparent;
             this.searchArticlesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchArticlesLbl.ForeColor = System.Drawing.Color.White;
-            this.searchArticlesLbl.Location = new System.Drawing.Point(834, 55);
+            this.searchArticlesLbl.Location = new System.Drawing.Point(870, 48);
             this.searchArticlesLbl.Name = "searchArticlesLbl";
-            this.searchArticlesLbl.Size = new System.Drawing.Size(178, 27);
+            this.searchArticlesLbl.Size = new System.Drawing.Size(106, 27);
             this.searchArticlesLbl.TabIndex = 41;
-            this.searchArticlesLbl.Text = "Pretraži artikle";
-            this.searchArticlesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.searchArticlesLbl.Text = "Pretraži ";
+            this.searchArticlesLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // searchTransportTxtBox
             // 
+            this.searchTransportTxtBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.searchTransportTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchTransportTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTransportTxtBox.Location = new System.Drawing.Point(816, 85);
+            this.searchTransportTxtBox.Location = new System.Drawing.Point(816, 91);
             this.searchTransportTxtBox.Multiline = true;
             this.searchTransportTxtBox.Name = "searchTransportTxtBox";
             this.searchTransportTxtBox.ShortcutsEnabled = false;
             this.searchTransportTxtBox.Size = new System.Drawing.Size(215, 31);
             this.searchTransportTxtBox.TabIndex = 5;
+            this.searchTransportTxtBox.TextChanged += new System.EventHandler(this.searchTransportxtBox_TextChanged);
             // 
             // transportId
             // 
@@ -268,31 +275,33 @@
             // client
             // 
             this.client.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.client.DataPropertyName = "client";
             this.client.HeaderText = "Klient";
             this.client.Name = "client";
             this.client.ReadOnly = true;
             // 
             // Datum
             // 
+            this.Datum.DataPropertyName = "transport_date";
             this.Datum.HeaderText = "Datum";
             this.Datum.Name = "Datum";
             this.Datum.ReadOnly = true;
             // 
-            // updateArticle
+            // previewTransport
             // 
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.NullValue = "✎";
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.updateArticle.DefaultCellStyle = dataGridViewCellStyle2;
-            this.updateArticle.HeaderText = "";
-            this.updateArticle.Name = "updateArticle";
-            this.updateArticle.ReadOnly = true;
-            this.updateArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.updateArticle.Width = 40;
+            this.previewTransport.DefaultCellStyle = dataGridViewCellStyle2;
+            this.previewTransport.HeaderText = "";
+            this.previewTransport.Name = "previewTransport";
+            this.previewTransport.ReadOnly = true;
+            this.previewTransport.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.previewTransport.Width = 40;
             // 
-            // deleteArticle
+            // deleteStatus
             // 
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
@@ -300,12 +309,12 @@
             dataGridViewCellStyle3.NullValue = "X";
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
-            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle3;
-            this.deleteArticle.HeaderText = "";
-            this.deleteArticle.Name = "deleteArticle";
-            this.deleteArticle.ReadOnly = true;
-            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deleteArticle.Width = 40;
+            this.deleteStatus.DefaultCellStyle = dataGridViewCellStyle3;
+            this.deleteStatus.HeaderText = "";
+            this.deleteStatus.Name = "deleteStatus";
+            this.deleteStatus.ReadOnly = true;
+            this.deleteStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.deleteStatus.Width = 40;
             // 
             // TransportRecordForm
             // 
@@ -331,13 +340,13 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.DataGridView TransportDataGridView;
+        private System.Windows.Forms.Label searchArticlesLbl;
+        private System.Windows.Forms.TextBox searchTransportTxtBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn transportId;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdClient;
         private System.Windows.Forms.DataGridViewTextBoxColumn client;
         private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updateArticle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deleteArticle;
-        private System.Windows.Forms.Label searchArticlesLbl;
-        private System.Windows.Forms.TextBox searchTransportTxtBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn previewTransport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deleteStatus;
     }
 }

@@ -60,13 +60,13 @@ namespace Freshivoje.Transport
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = CustomDialog.ShowDialog(this, "Da li ste sigurni da želite da zavrsite plaćanje?");
+            DialogResult result = CustomDialog.ShowDialog(this,$"Da li ste sigurni da želite da zavrsite putni nalog?");
             if (result == DialogResult.No || result == DialogResult.Cancel)
             {
                 return;
             }
             DbConnection.executeTransportQuery(transportItems);
-            CustomMessageBox.ShowDialog(this, "Uspešno ste kreirali nalog za plaćanje!");
+            CustomMessageBox.ShowDialog(this,$"Uspešno ste kreirali putni nalog!");
             Close();
 
         }
