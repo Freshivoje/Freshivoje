@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.crateQuantityLbl = new System.Windows.Forms.Label();
             this.travelTxtBox = new System.Windows.Forms.TextBox();
             this.backBtn = new System.Windows.Forms.Button();
@@ -46,13 +46,13 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.transportDataGridView = new System.Windows.Forms.DataGridView();
-            this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this._id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Količina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kilometri = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UkupnaCena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.transportDataGridView)).BeginInit();
             this.insertFormTblLayout.SuspendLayout();
             this.SuspendLayout();
@@ -259,6 +259,7 @@
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // minimizeBtn
             // 
@@ -282,6 +283,7 @@
             this.minimizeBtn.TabStop = false;
             this.minimizeBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.minimizeBtn.UseVisualStyleBackColor = false;
+            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
             // 
             // transportDataGridView
             // 
@@ -289,14 +291,14 @@
             this.transportDataGridView.AllowUserToDeleteRows = false;
             this.transportDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.transportDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.transportDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.transportDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.transportDataGridView.ColumnHeadersHeight = 40;
             this.transportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.transportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -308,21 +310,21 @@
             this.deleteArticle});
             this.insertFormTblLayout.SetColumnSpan(this.transportDataGridView, 3);
             this.transportDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.transportDataGridView.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.transportDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
             this.transportDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transportDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.transportDataGridView.Location = new System.Drawing.Point(153, 441);
             this.transportDataGridView.MultiSelect = false;
             this.transportDataGridView.Name = "transportDataGridView";
             this.transportDataGridView.ReadOnly = true;
-            this.transportDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            this.transportDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.transportDataGridView.RowHeadersWidth = 40;
             this.transportDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.insertFormTblLayout.SetRowSpan(this.transportDataGridView, 4);
@@ -330,55 +332,6 @@
             this.transportDataGridView.Size = new System.Drawing.Size(1821, 213);
             this.transportDataGridView.TabIndex = 34;
             this.transportDataGridView.TabStop = false;
-            // 
-            // insertFormTblLayout
-            // 
-            this.insertFormTblLayout.BackColor = System.Drawing.Color.Transparent;
-            this.insertFormTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
-            this.insertFormTblLayout.ColumnCount = 7;
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.insertFormTblLayout.Controls.Add(this.transportDataGridView, 1, 8);
-            this.insertFormTblLayout.Controls.Add(this.minimizeBtn, 5, 0);
-            this.insertFormTblLayout.Controls.Add(this.exitBtn, 6, 0);
-            this.insertFormTblLayout.Controls.Add(this.priceLbl, 1, 3);
-            this.insertFormTblLayout.Controls.Add(this.quantityLbl, 2, 3);
-            this.insertFormTblLayout.Controls.Add(this.priceTxtBox, 1, 4);
-            this.insertFormTblLayout.Controls.Add(this.quantityTxtBox, 2, 4);
-            this.insertFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
-            this.insertFormTblLayout.Controls.Add(this.backBtn, 4, 0);
-            this.insertFormTblLayout.Controls.Add(this.travelTxtBox, 3, 4);
-            this.insertFormTblLayout.Controls.Add(this.crateQuantityLbl, 3, 3);
-            this.insertFormTblLayout.Controls.Add(this.insertBtn, 1, 5);
-            this.insertFormTblLayout.Controls.Add(this.insertedArticlesLbl, 1, 6);
-            this.insertFormTblLayout.Controls.Add(this.finishInsertBtn, 1, 13);
-            this.insertFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.insertFormTblLayout.Location = new System.Drawing.Point(0, 0);
-            this.insertFormTblLayout.Name = "insertFormTblLayout";
-            this.insertFormTblLayout.RowCount = 15;
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.466885F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.107748F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.190619F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
-            this.insertFormTblLayout.Size = new System.Drawing.Size(2133, 830);
-            this.insertFormTblLayout.TabIndex = 2;
             // 
             // _id
             // 
@@ -421,18 +374,67 @@
             // 
             // deleteArticle
             // 
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle14.NullValue = "X";
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Red;
-            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle6.NullValue = "X";
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Red;
+            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle6;
             this.deleteArticle.HeaderText = "";
             this.deleteArticle.Name = "deleteArticle";
             this.deleteArticle.ReadOnly = true;
             this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.deleteArticle.Width = 40;
+            // 
+            // insertFormTblLayout
+            // 
+            this.insertFormTblLayout.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
+            this.insertFormTblLayout.ColumnCount = 7;
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.insertFormTblLayout.Controls.Add(this.transportDataGridView, 1, 8);
+            this.insertFormTblLayout.Controls.Add(this.minimizeBtn, 5, 0);
+            this.insertFormTblLayout.Controls.Add(this.exitBtn, 6, 0);
+            this.insertFormTblLayout.Controls.Add(this.priceLbl, 1, 3);
+            this.insertFormTblLayout.Controls.Add(this.quantityLbl, 2, 3);
+            this.insertFormTblLayout.Controls.Add(this.priceTxtBox, 1, 4);
+            this.insertFormTblLayout.Controls.Add(this.quantityTxtBox, 2, 4);
+            this.insertFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
+            this.insertFormTblLayout.Controls.Add(this.backBtn, 4, 0);
+            this.insertFormTblLayout.Controls.Add(this.travelTxtBox, 3, 4);
+            this.insertFormTblLayout.Controls.Add(this.crateQuantityLbl, 3, 3);
+            this.insertFormTblLayout.Controls.Add(this.insertBtn, 1, 5);
+            this.insertFormTblLayout.Controls.Add(this.insertedArticlesLbl, 1, 6);
+            this.insertFormTblLayout.Controls.Add(this.finishInsertBtn, 1, 13);
+            this.insertFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.insertFormTblLayout.Location = new System.Drawing.Point(0, 0);
+            this.insertFormTblLayout.Name = "insertFormTblLayout";
+            this.insertFormTblLayout.RowCount = 15;
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.466885F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.107748F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.190619F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
+            this.insertFormTblLayout.Size = new System.Drawing.Size(2133, 830);
+            this.insertFormTblLayout.TabIndex = 2;
             // 
             // TransportForm
             // 

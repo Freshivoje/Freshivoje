@@ -207,16 +207,31 @@
     <Compile Include="Transport\ChooseClientTransportForm.Designer.cs">
       <DependentUpon>ChooseClientTransportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Transport\ChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\ChooseForm.Designer.cs">
+      <DependentUpon>ChooseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transport\TransportForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Transport\TransportForm.Designer.cs">
       <DependentUpon>TransportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Transport\TransportRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\TransportRecordForm.Designer.cs">
+      <DependentUpon>TransportRecordForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Insert\ChooseClientForm.resx">
       <DependentUpon>ChooseClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Insert\ChooseInsertMethodForm.resx">
+      <DependentUpon>InsertMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insert\InsertMethodForm.resx">
       <DependentUpon>InsertMethodForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options Forms\Articles\EditArticleForm.resx">
@@ -277,8 +292,14 @@
     <EmbeddedResource Include="Transport\ChooseClientTransportForm.resx">
       <DependentUpon>ChooseClientTransportForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transport\ChooseForm.resx">
+      <DependentUpon>ChooseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transport\TransportForm.resx">
       <DependentUpon>TransportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\TransportRecordForm.resx">
+      <DependentUpon>TransportRecordForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".editorconfig" />
     <None Include="Properties\Settings.settings">

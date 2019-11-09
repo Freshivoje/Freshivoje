@@ -76,7 +76,7 @@
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
             this.chooseClientFormTblLayout.Controls.Add(this.minimizeBtn, 8, 0);
             this.chooseClientFormTblLayout.Controls.Add(this.exitBtn, 9, 0);
             this.chooseClientFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
@@ -123,7 +123,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(2009, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(2003, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.minimizeBtn.Size = new System.Drawing.Size(44, 45);
@@ -147,10 +147,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(2059, 3);
+            this.exitBtn.Location = new System.Drawing.Point(2053, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(86, 45);
+            this.exitBtn.Size = new System.Drawing.Size(92, 45);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -188,7 +188,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1959, 3);
+            this.backBtn.Location = new System.Drawing.Point(1953, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 45);
             this.backBtn.TabIndex = 9;
@@ -202,11 +202,11 @@
             this.searchClientsTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchClientsTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchClientsTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchClientsTxtBox.Location = new System.Drawing.Point(1658, 105);
+            this.searchClientsTxtBox.Location = new System.Drawing.Point(1653, 105);
             this.searchClientsTxtBox.Multiline = true;
             this.searchClientsTxtBox.Name = "searchClientsTxtBox";
             this.searchClientsTxtBox.ShortcutsEnabled = false;
-            this.searchClientsTxtBox.Size = new System.Drawing.Size(295, 31);
+            this.searchClientsTxtBox.Size = new System.Drawing.Size(294, 31);
             this.searchClientsTxtBox.TabIndex = 11;
             this.searchClientsTxtBox.TextChanged += new System.EventHandler(this.searchClientsTxtBox_TextChanged);
             // 
@@ -261,7 +261,7 @@
             this.clientsTransportDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.chooseClientFormTblLayout.SetRowSpan(this.clientsTransportDataGridView, 13);
             this.clientsTransportDataGridView.RowTemplate.Height = 40;
-            this.clientsTransportDataGridView.Size = new System.Drawing.Size(1800, 656);
+            this.clientsTransportDataGridView.Size = new System.Drawing.Size(1794, 656);
             this.clientsTransportDataGridView.TabIndex = 58;
             this.clientsTransportDataGridView.TabStop = false;
             this.clientsTransportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientsDataGridView_CellContentClick);
@@ -377,7 +377,7 @@
             this.searchClientsLbl.BackColor = System.Drawing.Color.Transparent;
             this.searchClientsLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchClientsLbl.ForeColor = System.Drawing.Color.White;
-            this.searchClientsLbl.Location = new System.Drawing.Point(1700, 75);
+            this.searchClientsLbl.Location = new System.Drawing.Point(1694, 75);
             this.searchClientsLbl.Name = "searchClientsLbl";
             this.searchClientsLbl.Size = new System.Drawing.Size(211, 27);
             this.searchClientsLbl.TabIndex = 57;

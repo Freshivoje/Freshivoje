@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Freshivoje.Custom_Forms;
 using Freshivoje.Models;
 using MySql.Data.MySqlClient;
 
@@ -22,6 +23,18 @@ namespace Freshivoje.Transport
             InitializeComponent();
             transportDataGridView.AutoGenerateColumns = false;
             fkClientId = clientId;
+            WindowState = FormWindowState.Maximized;
+        }
+
+        // Disables flickering on FormLoad
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
         }
 
         private void TransportForm_Load(object sender, EventArgs e)
@@ -40,30 +53,37 @@ namespace Freshivoje.Transport
             var bindingList = new BindingList<TransportItems>(transportItems);
             var source = new BindingSource(bindingList, null);
             transportDataGridView.DataSource = source;
+            priceTxtBox.Text = "";
+            quantityTxtBox.Text = "";
+            travelTxtBox.Text = "";
         }
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < transportItems.Count; i++)
+            DialogResult result = CustomDialog.ShowDialog(this, "Da li ste sigurni da želite da zavrsite plaćanje?");
+            if (result == DialogResult.No || result == DialogResult.Cancel)
             {
-                MySqlCommand mySqlCommand = new MySqlCommand
-                {
-                    CommandText = @"INSERT INTO `transport` (`fk_client_id`, `price`, `quantity`, `traveled`, `total_price`) VALUES ('@fkClientId', '@price', '@quantity', '@travel', '@total_price')"
-                };
-
-                mySqlCommand.Parameters.AddWithValue("@fkClientId", transportItems[i]._clientId);
-                mySqlCommand.Parameters.AddWithValue("@price", transportItems[i]._price);
-                mySqlCommand.Parameters.AddWithValue("@quantity", transportItems[i]._quantity);
-                mySqlCommand.Parameters.AddWithValue("@travel", transportItems[i]._traveled);
-                mySqlCommand.Parameters.AddWithValue("@total_price", transportItems[i]._totalPrice);
-
-                DbConnection.executeQuery(mySqlCommand);
+                return;
             }
+            DbConnection.executeTransportQuery(transportItems);
+            CustomMessageBox.ShowDialog(this, "Uspešno ste kreirali nalog za plaćanje!");
+            Close();
+
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
+            Close();
+        }
 
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void minimizeBtn_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }
