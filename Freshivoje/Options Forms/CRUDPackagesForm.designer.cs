@@ -329,14 +329,14 @@
             // 
             this.weight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.weight.DataPropertyName = "weight";
-            this.weight.HeaderText = "Tezina";
+            this.weight.HeaderText = "Težina";
             this.weight.Name = "weight";
             // 
             // producer
             // 
             this.producer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.producer.DataPropertyName = "producer";
-            this.producer.HeaderText = "Proizvodjac";
+            this.producer.HeaderText = "Proizvođač";
             this.producer.Name = "producer";
             // 
             // Status
