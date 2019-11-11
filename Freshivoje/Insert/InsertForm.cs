@@ -10,16 +10,21 @@ namespace Freshivoje
 {
     public partial class InsertForm : Form
     {
-        public PurchaseArticles pArticles = new PurchaseArticles();
-        private int _articleId;
+        private int _articleId, _articleCategoryId, _packagingId;
+        decimal _palletWeight = 1M, _packagingWeight;
         public InsertForm(int clientId)
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;  
-            DbConnection.fillCustomCmbBox(articlesCmbBox, "articles", "id_article", "article_name", "sort", "organic");
+            DbConnection.fillCmbBox(articlesCmbBox, "articles", "id_article", "article_name", "sort", "organic");
+            DbConnection.fillCmbBox(cratesCmbBox, "packaging", "id_packaging", "capacity", "category", "weight", "producer");
+
             palletCmbBox.SelectedIndex = 1;
             articleCategoryCmbBox.SelectedIndex = 0;
-            //  crateOwnerCmbBox.SelectedIndex = 0;
+            articlesCmbBox.SelectedIndex = 0;
+
+            crateOwnerCmbBox.SelectedIndex = 0;
+            cratesCmbBox.SelectedIndex = 0;
         }
 
         // Disables flickering on FormLoad
@@ -90,84 +95,55 @@ namespace Freshivoje
 
         private void insertBtn_Click(object sender, EventArgs e)
         {
-            MySqlCommand mySqlCommand = new MySqlCommand
+            if(palletCmbBox.SelectedIndex == 0)
             {
-                CommandText = "SELECT `article_name`, `sort`, `organic` FROM `articles` WHERE `id_article` = @articleId" 
-            };
+                _palletWeight = Convert.ToDecimal(palletWeightTxtBox.Text) * Convert.ToDecimal(numberOfPalletsTxtBox.Text);
+            }
+            int quantity = Convert.ToInt32(quantityTxtBox.Text);
+            decimal price = Convert.ToDecimal(articlePriceLbl.Text);
 
-            mySqlCommand.Parameters.AddWithValue("@articleId", _articleId);
-
-            //int articleId = ((ComboBoxItem)articlesCmbBox.SelectedItem).Value;
-
-
-         
-
-            //dynamic arts = DbConnection.getQueryValues(mySqlCommand);
-            //var chars = new char[1];
-            //chars[0] = ',';
-            //string[] articles = arts.Split(chars);
+            decimal crateWeight = _packagingWeight;
+            int numOfCrates = Convert.ToInt32(crateQuantityTxtBox.Text);
 
 
-            //MySqlCommand mySqlCommand1 = new MySqlCommand
-            //{
-            //    CommandText = "SELECT category_name FROM categories WHERE id_category =" + ((ComboBoxItem)articleCategoryCmbBox.SelectedItem).Value
-            //};
+            decimal cratesDeduction = crateWeight * numOfCrates + _palletWeight;
 
-            //dynamic category = DbConnection.getValue(mySqlCommand1);
+            decimal bruto = quantity - cratesDeduction;
 
-            ////Article art = new Article(
-            ////    articleId,
-            ////    articles[0],
-            ////    articles[1],
-            ////   ((ComboBoxItem)categoryCmbBox.SelectedItem).Value,
-            ////   articles[2],
-            ////   Decimal.Parse(priceTxtBox.Text)         
-            ////);
 
-            //string owener = crateOwnerCmbBox.Text;
-            //string packageId = null;
-            //string packagedNumber = null;
-            //if(owener == "1")
-            //{
-            //    packageId = ((ComboBoxItem)packageTypeCmbBox.SelectedItem).Value.ToString();
-            //    packagedNumber = crateQuantityTxtBox.Text;
-            //}
+            decimal neto = Math.Round(bruto * price, 2);
+            
+            string[] articleFields = articlesCmbBox.Text.Split('/');
+            string articleCategory = articleCategoryCmbBox.Text;
 
-            ////Item item = new Item(
-            ////    art,
-            ////    Convert.ToInt32(quantityTxtBox.Text),
-            ////    owener,
-            ////    packageId,
-            ////    packagedNumber,
-            ////    category
-            ////);
-
-            ////pArticles.setArticle(item);
-            //clearAllText();
-            //// refresh richTextBox
-
-            //for (int i =0; i < pArticles.articles.Count; i++)
-            //{
-            //    Article article = pArticles.articles[i]._art;
-            //  //  articlesDataGridView.Rows.Add(article._id, article._fkCategoryId, article._fkCategoryId, article._name, article._sort, pArticles.articles[i]._category, article._organic, article._price);
-            //}
-
+            insertedArticlesDataGridView.Rows.Add(articleFields[0], articleFields[1], articleFields[2], articleCategory, neto);
         }
 
         public void getArticlePrice()
         {
-            if (articlesCmbBox.SelectedIndex < 0)
+            if(articlesCmbBox.SelectedIndex < 0)
             {
                 return;
             }
             _articleId = ((ComboBoxItem)articlesCmbBox.SelectedItem).Value;
+            _articleCategoryId = articleCategoryCmbBox.SelectedIndex + 1;
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = $"SELECT `value` FROM `prices` WHERE `fk_article_id` = {_articleId} AND `status` = 'aktivna' AND fk_category_id = {articleCategoryCmbBox.SelectedIndex + 1}"
+                CommandText = $"SELECT `value` FROM `prices` WHERE `fk_article_id` = {_articleId} AND `status` = 'aktivna' AND fk_category_id = {_articleCategoryId}"
             };
 
             decimal lastPrice = DbConnection.getValue(mySqlCommand);
             articlePriceLbl.Text = lastPrice.ToString();
+        }
+
+        private void cratesCmbBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _packagingId = (cratesCmbBox.SelectedItem as ComboBoxItem).Value;
+            MySqlCommand mySqlCommand = new MySqlCommand
+            {
+                CommandText = $"SELECT `weight` FROM `packaging` WHERE `id_packaging` = {_packagingId}"
+            };
+            _packagingWeight = (decimal) DbConnection.getValue(mySqlCommand) / 1000;
         }
 
         private void articlesCmbBox_SelectedIndexChanged(object sender, EventArgs e)
