@@ -10,12 +10,13 @@ namespace Freshivoje.Options_Forms
     public partial class CRUDPackagesForm : Form
     {
         private readonly string _fillDGVQuery = "SELECT * FROM `packaging`";
-        private string   _selectedPackageCategory, _selectedPackageProducer, _selectedPackageStatus;
+        private string _selectedPackageCategory, _selectedPackageProducer, _selectedPackageStatus;
         private decimal _selectedPackagePrice;
         private int _selectedPackageId, _selectedPackageCapacity, _selectedPackageQuantity, _selectedPackageWeight;
         public CRUDPackagesForm()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
             packagesDataGridView.AutoGenerateColumns = false;         
         }
 
@@ -78,7 +79,7 @@ namespace Freshivoje.Options_Forms
             _selectedPackagePrice = Convert.ToDecimal(packagesDataGridView.Rows[e.RowIndex].Cells["price"].Value);
             _selectedPackageQuantity = Convert.ToInt32(packagesDataGridView.Rows[e.RowIndex].Cells["quantity"].Value);
             _selectedPackageCategory = packagesDataGridView.Rows[e.RowIndex].Cells["category"].Value.ToString();
-            _selectedPackageWeight = Convert.ToInt32(packagesDataGridView.Rows[e.RowIndex].Cells["weight"].Value);//baca gresku
+            _selectedPackageWeight = Convert.ToInt32(packagesDataGridView.Rows[e.RowIndex].Cells["weight"].Value); //baca gresku
             _selectedPackageProducer = packagesDataGridView.Rows[e.RowIndex].Cells["producer"].Value.ToString();
             _selectedPackageStatus = packagesDataGridView.Rows[e.RowIndex].Cells["status"].Value.ToString();
 

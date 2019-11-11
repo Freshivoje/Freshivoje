@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.articleFormTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.packageCategoryTxtBox = new System.Windows.Forms.TextBox();
             this.packageStatusCmbBox = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.packageStatusLbl = new System.Windows.Forms.Label();
             this.packageProducerTxtBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.packageProducerLbl = new System.Windows.Forms.Label();
             this.packageWeightTxtBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.packageWeightLbl = new System.Windows.Forms.Label();
             this.packageCapacityLbl = new System.Windows.Forms.Label();
             this.packageCapacityTxtBox = new System.Windows.Forms.TextBox();
             this.cancelBtn = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@
             this.packageQuantityTxtBox = new System.Windows.Forms.TextBox();
             this.packageQuantityLbl = new System.Windows.Forms.Label();
             this.packagePriceTxtBox = new System.Windows.Forms.TextBox();
-            this.packageCategoryTxtBox = new System.Windows.Forms.TextBox();
             this.articleFormTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,11 +60,11 @@
             this.articleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.articleFormTableLayoutPanel.Controls.Add(this.packageCategoryTxtBox, 1, 3);
             this.articleFormTableLayoutPanel.Controls.Add(this.packageStatusCmbBox, 1, 13);
-            this.articleFormTableLayoutPanel.Controls.Add(this.label3, 0, 12);
+            this.articleFormTableLayoutPanel.Controls.Add(this.packageStatusLbl, 0, 12);
             this.articleFormTableLayoutPanel.Controls.Add(this.packageProducerTxtBox, 1, 11);
-            this.articleFormTableLayoutPanel.Controls.Add(this.label2, 0, 10);
+            this.articleFormTableLayoutPanel.Controls.Add(this.packageProducerLbl, 0, 10);
             this.articleFormTableLayoutPanel.Controls.Add(this.packageWeightTxtBox, 1, 9);
-            this.articleFormTableLayoutPanel.Controls.Add(this.label1, 0, 8);
+            this.articleFormTableLayoutPanel.Controls.Add(this.packageWeightLbl, 0, 8);
             this.articleFormTableLayoutPanel.Controls.Add(this.packageCapacityLbl, 2, 0);
             this.articleFormTableLayoutPanel.Controls.Add(this.packageCapacityTxtBox, 1, 1);
             this.articleFormTableLayoutPanel.Controls.Add(this.cancelBtn, 3, 15);
@@ -99,6 +99,21 @@
             this.articleFormTableLayoutPanel.Size = new System.Drawing.Size(666, 668);
             this.articleFormTableLayoutPanel.TabIndex = 2;
             // 
+            // packageCategoryTxtBox
+            // 
+            this.packageCategoryTxtBox.BackColor = System.Drawing.Color.White;
+            this.packageCategoryTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.articleFormTableLayoutPanel.SetColumnSpan(this.packageCategoryTxtBox, 4);
+            this.packageCategoryTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.packageCategoryTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.packageCategoryTxtBox.Location = new System.Drawing.Point(113, 120);
+            this.packageCategoryTxtBox.MaxLength = 6;
+            this.packageCategoryTxtBox.Multiline = true;
+            this.packageCategoryTxtBox.Name = "packageCategoryTxtBox";
+            this.packageCategoryTxtBox.ShortcutsEnabled = false;
+            this.packageCategoryTxtBox.Size = new System.Drawing.Size(438, 31);
+            this.packageCategoryTxtBox.TabIndex = 1;
+            // 
             // packageStatusCmbBox
             // 
             this.articleFormTableLayoutPanel.SetColumnSpan(this.packageStatusCmbBox, 4);
@@ -115,20 +130,20 @@
             this.packageStatusCmbBox.Size = new System.Drawing.Size(438, 31);
             this.packageStatusCmbBox.TabIndex = 6;
             // 
-            // label3
+            // packageStatusLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.articleFormTableLayoutPanel.SetColumnSpan(this.label3, 6);
-            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 480);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(660, 27);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Stanje";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.packageStatusLbl.AutoSize = true;
+            this.packageStatusLbl.BackColor = System.Drawing.Color.Transparent;
+            this.articleFormTableLayoutPanel.SetColumnSpan(this.packageStatusLbl, 6);
+            this.packageStatusLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.packageStatusLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.packageStatusLbl.ForeColor = System.Drawing.Color.White;
+            this.packageStatusLbl.Location = new System.Drawing.Point(3, 480);
+            this.packageStatusLbl.Name = "packageStatusLbl";
+            this.packageStatusLbl.Size = new System.Drawing.Size(660, 27);
+            this.packageStatusLbl.TabIndex = 27;
+            this.packageStatusLbl.Text = "Stanje";
+            this.packageStatusLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // packageProducerTxtBox
             // 
@@ -144,20 +159,20 @@
             this.packageProducerTxtBox.Size = new System.Drawing.Size(438, 31);
             this.packageProducerTxtBox.TabIndex = 5;
             // 
-            // label2
+            // packageProducerLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.articleFormTableLayoutPanel.SetColumnSpan(this.label2, 6);
-            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 402);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(660, 27);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Proizvođač";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.packageProducerLbl.AutoSize = true;
+            this.packageProducerLbl.BackColor = System.Drawing.Color.Transparent;
+            this.articleFormTableLayoutPanel.SetColumnSpan(this.packageProducerLbl, 6);
+            this.packageProducerLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.packageProducerLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.packageProducerLbl.ForeColor = System.Drawing.Color.White;
+            this.packageProducerLbl.Location = new System.Drawing.Point(3, 402);
+            this.packageProducerLbl.Name = "packageProducerLbl";
+            this.packageProducerLbl.Size = new System.Drawing.Size(660, 27);
+            this.packageProducerLbl.TabIndex = 25;
+            this.packageProducerLbl.Text = "Proizvođač";
+            this.packageProducerLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // packageWeightTxtBox
             // 
@@ -172,21 +187,23 @@
             this.packageWeightTxtBox.ShortcutsEnabled = false;
             this.packageWeightTxtBox.Size = new System.Drawing.Size(438, 31);
             this.packageWeightTxtBox.TabIndex = 4;
+            this.packageWeightTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
+            this.packageWeightTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
-            // label1
+            // packageWeightLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.articleFormTableLayoutPanel.SetColumnSpan(this.label1, 6);
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 324);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(660, 27);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Težina ambalaže";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.packageWeightLbl.AutoSize = true;
+            this.packageWeightLbl.BackColor = System.Drawing.Color.Transparent;
+            this.articleFormTableLayoutPanel.SetColumnSpan(this.packageWeightLbl, 6);
+            this.packageWeightLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.packageWeightLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.packageWeightLbl.ForeColor = System.Drawing.Color.White;
+            this.packageWeightLbl.Location = new System.Drawing.Point(3, 324);
+            this.packageWeightLbl.Name = "packageWeightLbl";
+            this.packageWeightLbl.Size = new System.Drawing.Size(660, 27);
+            this.packageWeightLbl.TabIndex = 23;
+            this.packageWeightLbl.Text = "Težina ambalaže";
+            this.packageWeightLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // packageCapacityLbl
             // 
@@ -217,6 +234,7 @@
             this.packageCapacityTxtBox.ShortcutsEnabled = false;
             this.packageCapacityTxtBox.Size = new System.Drawing.Size(438, 31);
             this.packageCapacityTxtBox.TabIndex = 0;
+            this.packageCapacityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             this.packageCapacityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // cancelBtn
@@ -309,6 +327,7 @@
             this.packageQuantityTxtBox.Size = new System.Drawing.Size(438, 31);
             this.packageQuantityTxtBox.TabIndex = 2;
             this.packageQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
+            this.packageQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // packageQuantityLbl
             // 
@@ -339,21 +358,7 @@
             this.packagePriceTxtBox.Size = new System.Drawing.Size(438, 31);
             this.packagePriceTxtBox.TabIndex = 3;
             this.packagePriceTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
-            // 
-            // packageCategoryTxtBox
-            // 
-            this.packageCategoryTxtBox.BackColor = System.Drawing.Color.White;
-            this.packageCategoryTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.articleFormTableLayoutPanel.SetColumnSpan(this.packageCategoryTxtBox, 4);
-            this.packageCategoryTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.packageCategoryTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.packageCategoryTxtBox.Location = new System.Drawing.Point(113, 120);
-            this.packageCategoryTxtBox.MaxLength = 6;
-            this.packageCategoryTxtBox.Multiline = true;
-            this.packageCategoryTxtBox.Name = "packageCategoryTxtBox";
-            this.packageCategoryTxtBox.ShortcutsEnabled = false;
-            this.packageCategoryTxtBox.Size = new System.Drawing.Size(438, 31);
-            this.packageCategoryTxtBox.TabIndex = 1;
+            this.packagePriceTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // CreatePackageForm
             // 
@@ -385,11 +390,11 @@
         private System.Windows.Forms.Button createBtn;
         private System.Windows.Forms.TextBox packageQuantityTxtBox;
         private System.Windows.Forms.Label packageQuantityLbl;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label packageStatusLbl;
         private System.Windows.Forms.TextBox packageProducerTxtBox;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label packageProducerLbl;
         private System.Windows.Forms.TextBox packageWeightTxtBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label packageWeightLbl;
         private System.Windows.Forms.ComboBox packageStatusCmbBox;
         private System.Windows.Forms.TextBox packageCategoryTxtBox;
     }
