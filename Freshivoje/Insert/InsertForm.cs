@@ -17,6 +17,7 @@ namespace Freshivoje
             InitializeComponent();
             WindowState = FormWindowState.Maximized;  
             DbConnection.fillCustomCmbBox(articlesCmbBox, "articles", "id_article", "article_name", "sort", "organic");
+            palletCmbBox.SelectedIndex = 1;
             articleCategoryCmbBox.SelectedIndex = 0;
             //  crateOwnerCmbBox.SelectedIndex = 0;
         }
@@ -86,18 +87,6 @@ namespace Freshivoje
             //MessageBox.Show("PDF JE NAPRAVLJEN!");
         }
 
-        private void onChangeOwener(object sender, EventArgs e)
-        {
-            //int owneryIndex = crateOwnerCmbBox.SelectedIndex;
-            //if(owneryIndex == 1)
-            //{
-            //    packageTypeCmbBox.Visible = true;
-            //    crateTypeLbl.Visible = true;
-            //    crateQuantityTxtBox.Visible = true;
-            //    crateQuantityLbl.Visible = true;
-            //}
-          
-        }
 
         private void insertBtn_Click(object sender, EventArgs e)
         {
@@ -107,9 +96,6 @@ namespace Freshivoje
             };
 
             mySqlCommand.Parameters.AddWithValue("@articleId", _articleId);
-
-            var test = DbConnection.getQueryValues(mySqlCommand);
-            articlesDataGridView.Rows.Add();
 
             //int articleId = ((ComboBoxItem)articlesCmbBox.SelectedItem).Value;
 
@@ -168,15 +154,6 @@ namespace Freshivoje
 
         }
 
-        public void clearAllText()
-        {
-            ((ComboBoxItem)articlesCmbBox.SelectedItem).Value = 0;
-            ((ComboBoxItem)articleCategoryCmbBox.SelectedItem).Value = 0;
-            crateOwnerCmbBox.Text  = "";
-            packageTypeCmbBox.Text = "";
-            crateQuantityTxtBox.Text = "";
-        }
-
         public void getArticlePrice()
         {
             if (articlesCmbBox.SelectedIndex < 0)
@@ -196,6 +173,25 @@ namespace Freshivoje
         private void articlesCmbBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             getArticlePrice();
+        }
+
+        private void palletCmbBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if((sender as ComboBox).SelectedIndex == 0)
+            {
+                palletWeightLbl.Enabled = true;
+                palletWeightTxtBox.Enabled = true;
+
+                numberOfPalletsLbl.Enabled = true;
+                numberOfPalletsTxtBox.Enabled = true;
+            } else
+            {
+                palletWeightLbl.Enabled = false;
+                palletWeightTxtBox.Enabled = false;
+
+                numberOfPalletsLbl.Enabled = false;
+                numberOfPalletsTxtBox.Enabled = false;
+            }
         }
     }
 }

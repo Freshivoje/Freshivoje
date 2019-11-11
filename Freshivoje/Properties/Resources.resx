@@ -157,6 +157,6 @@ BANKOVNI RAČUN MORA IMATI 13 CIFARA!</value>
   </data>
   <data name="invalidZipCodeMsg" xml:space="preserve">
     <value>NEPRAVILAN POŠTANSKI BROJ!
-POŠTANSKI BROJ MORA IMA 5 CIFARA!</value>
+POŠTANSKI BROJ MORA IMATI 5 CIFARA!</value>
   </data>
 </root>

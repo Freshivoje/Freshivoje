@@ -127,7 +127,14 @@ namespace Freshivoje.Options_Forms
         private void searchPackageTxtBox_TextChanged(object sender, EventArgs e)
         {
             string searchValue = searchPackagesTxtBox.Text;
-            (packagesDataGridView.DataSource as DataTable).DefaultView.RowFilter = $"Convert(`capacity`, 'System.String') LIKE '%{searchValue}%' OR Convert(`price`, 'System.String') LIKE '%{searchValue}%' OR `category_name` LIKE '%{searchValue}%'";
+            (packagesDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"Convert(`capacity`, 'System.String') LIKE '%{searchValue}%' 
+                                                                                    OR Convert(`price`, 'System.String') LIKE '%{searchValue}%' 
+                                                                                    OR `category` LIKE '%{searchValue}%' 
+                                                                                    OR Convert(`quantity`, 'System.String') LIKE '%{searchValue}%' 
+                                                                                    OR Convert(`weight`, 'System.String') LIKE '%{searchValue}%'
+                                                                                    OR `producer` LIKE '%{searchValue}%'
+                                                                                    OR `status` LIKE '%{searchValue}%'";
+
         }
 
     }

@@ -139,7 +139,7 @@ namespace Freshivoje.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to NEPRAVILAN POŠTANSKI BROJ!
-        ///POŠTANSKI BROJ MORA IMA 5 CIFARA!.
+        ///POŠTANSKI BROJ MORA IMATI 5 CIFARA!.
         /// </summary>
         internal static string invalidZipCodeMsg {
             get {
