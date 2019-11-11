@@ -11,12 +11,14 @@ namespace Freshivoje
     public partial class InsertForm : Form
     {
         public PurchaseArticles pArticles = new PurchaseArticles();
+        private int _articleId;
         public InsertForm(int clientId)
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
-        //    DbConnection.fillCustomCmbBox(articlesCmbBox, "articles", "id_article","article_name", "sort", "organic");
-          //  crateOwnerCmbBox.SelectedIndex = 0;
+            WindowState = FormWindowState.Maximized;  
+            DbConnection.fillCustomCmbBox(articlesCmbBox, "articles", "id_article", "article_name", "sort", "organic");
+            articleCategoryCmbBox.SelectedIndex = 0;
+            //  crateOwnerCmbBox.SelectedIndex = 0;
         }
 
         // Disables flickering on FormLoad
@@ -57,6 +59,12 @@ namespace Freshivoje
             {
                 e.Handled = true;
             }
+
+            // 2 decimals limit
+            if (System.Text.RegularExpressions.Regex.IsMatch((sender as TextBox).Text, @"\.\d\d") && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
         }
 
         private void blockEnter(object sender, KeyPressEventArgs e)
@@ -78,98 +86,116 @@ namespace Freshivoje
             //MessageBox.Show("PDF JE NAPRAVLJEN!");
         }
 
-     
-
-        private void onChangeArticle(object sender, EventArgs e)
-        {
-            DbConnection.fillCmbBox(categoryCmbBox, "categories", "id_category", "category_name");
-            categoryCmbBox.Enabled = true;
-        }
-
         private void onChangeOwener(object sender, EventArgs e)
         {
-            int owneryIndex = crateOwnerCmbBox.SelectedIndex;
-            if(owneryIndex == 1)
-            {
-                packageTypeCmbBox.Visible = true;
-                crateTypeLbl.Visible = true;
-                crateQuantityTxtBox.Visible = true;
-                crateQuantityLbl.Visible = true;
-            }
+            //int owneryIndex = crateOwnerCmbBox.SelectedIndex;
+            //if(owneryIndex == 1)
+            //{
+            //    packageTypeCmbBox.Visible = true;
+            //    crateTypeLbl.Visible = true;
+            //    crateQuantityTxtBox.Visible = true;
+            //    crateQuantityLbl.Visible = true;
+            //}
           
         }
 
         private void insertBtn_Click(object sender, EventArgs e)
         {
-
-            int articleId = ((ComboBoxItem)articlesCmbBox.SelectedItem).Value;
-
-
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = "SELECT article_name, sort, organic FROM articles WHERE id_article =" + articleId 
+                CommandText = "SELECT `article_name`, `sort`, `organic` FROM `articles` WHERE `id_article` = @articleId" 
             };
 
-            dynamic arts = DbConnection.getQueryValues(mySqlCommand);
-            var chars = new char[1];
-            chars[0] = ',';
-            string[] articles = arts.Split(chars);
+            mySqlCommand.Parameters.AddWithValue("@articleId", _articleId);
+
+            var test = DbConnection.getQueryValues(mySqlCommand);
+            articlesDataGridView.Rows.Add();
+
+            //int articleId = ((ComboBoxItem)articlesCmbBox.SelectedItem).Value;
 
 
-            MySqlCommand mySqlCommand1 = new MySqlCommand
-            {
-                CommandText = "SELECT category_name FROM categories WHERE id_category =" + ((ComboBoxItem)categoryCmbBox.SelectedItem).Value
-            };
+         
 
-            dynamic category = DbConnection.getValue(mySqlCommand1);
+            //dynamic arts = DbConnection.getQueryValues(mySqlCommand);
+            //var chars = new char[1];
+            //chars[0] = ',';
+            //string[] articles = arts.Split(chars);
 
-            //Article art = new Article(
-            //    articleId,
-            //    articles[0],
-            //    articles[1],
-            //   ((ComboBoxItem)categoryCmbBox.SelectedItem).Value,
-            //   articles[2],
-            //   Decimal.Parse(priceTxtBox.Text)         
-            //);
 
-            string owener = crateOwnerCmbBox.Text;
-            string packageId = null;
-            string packagedNumber = null;
-            if(owener == "1")
-            {
-                packageId = ((ComboBoxItem)packageTypeCmbBox.SelectedItem).Value.ToString();
-                packagedNumber = crateQuantityTxtBox.Text;
-            }
+            //MySqlCommand mySqlCommand1 = new MySqlCommand
+            //{
+            //    CommandText = "SELECT category_name FROM categories WHERE id_category =" + ((ComboBoxItem)articleCategoryCmbBox.SelectedItem).Value
+            //};
 
-            //Item item = new Item(
-            //    art,
-            //    Convert.ToInt32(quantityTxtBox.Text),
-            //    owener,
-            //    packageId,
-            //    packagedNumber,
-            //    category
-            //);
+            //dynamic category = DbConnection.getValue(mySqlCommand1);
 
-            //pArticles.setArticle(item);
-            clearAllText();
-            // refresh richTextBox
-            
-            for (int i =0; i < pArticles.articles.Count; i++)
-            {
-                Article article = pArticles.articles[i]._art;
-              //  articlesDataGridView.Rows.Add(article._id, article._fkCategoryId, article._fkCategoryId, article._name, article._sort, pArticles.articles[i]._category, article._organic, article._price);
-            }
+            ////Article art = new Article(
+            ////    articleId,
+            ////    articles[0],
+            ////    articles[1],
+            ////   ((ComboBoxItem)categoryCmbBox.SelectedItem).Value,
+            ////   articles[2],
+            ////   Decimal.Parse(priceTxtBox.Text)         
+            ////);
+
+            //string owener = crateOwnerCmbBox.Text;
+            //string packageId = null;
+            //string packagedNumber = null;
+            //if(owener == "1")
+            //{
+            //    packageId = ((ComboBoxItem)packageTypeCmbBox.SelectedItem).Value.ToString();
+            //    packagedNumber = crateQuantityTxtBox.Text;
+            //}
+
+            ////Item item = new Item(
+            ////    art,
+            ////    Convert.ToInt32(quantityTxtBox.Text),
+            ////    owener,
+            ////    packageId,
+            ////    packagedNumber,
+            ////    category
+            ////);
+
+            ////pArticles.setArticle(item);
+            //clearAllText();
+            //// refresh richTextBox
+
+            //for (int i =0; i < pArticles.articles.Count; i++)
+            //{
+            //    Article article = pArticles.articles[i]._art;
+            //  //  articlesDataGridView.Rows.Add(article._id, article._fkCategoryId, article._fkCategoryId, article._name, article._sort, pArticles.articles[i]._category, article._organic, article._price);
+            //}
 
         }
 
         public void clearAllText()
         {
             ((ComboBoxItem)articlesCmbBox.SelectedItem).Value = 0;
-            ((ComboBoxItem)categoryCmbBox.SelectedItem).Value = 0;
-            priceTxtBox.Text = "";
+            ((ComboBoxItem)articleCategoryCmbBox.SelectedItem).Value = 0;
             crateOwnerCmbBox.Text  = "";
             packageTypeCmbBox.Text = "";
             crateQuantityTxtBox.Text = "";
+        }
+
+        public void getArticlePrice()
+        {
+            if (articlesCmbBox.SelectedIndex < 0)
+            {
+                return;
+            }
+            _articleId = ((ComboBoxItem)articlesCmbBox.SelectedItem).Value;
+            MySqlCommand mySqlCommand = new MySqlCommand
+            {
+                CommandText = $"SELECT `value` FROM `prices` WHERE `fk_article_id` = {_articleId} AND `status` = 'aktivna' AND fk_category_id = {articleCategoryCmbBox.SelectedIndex + 1}"
+            };
+
+            decimal lastPrice = DbConnection.getValue(mySqlCommand);
+            articlePriceLbl.Text = lastPrice.ToString();
+        }
+
+        private void articlesCmbBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getArticlePrice();
         }
     }
 }

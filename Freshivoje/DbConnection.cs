@@ -172,8 +172,8 @@ namespace Freshivoje
                 mySqlCommand.Connection = _databaseConnection;
                 _databaseConnection.Open();
                 using MySqlDataReader reader = mySqlCommand.ExecuteReader();
-                reader.Read();
-                value = reader.GetString(0) + "," + reader.GetString(1) + "," + reader.GetString(2);
+                //reader.Read();
+                return reader;
             }
             catch
             {
