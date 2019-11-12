@@ -107,7 +107,7 @@ namespace Freshivoje
                 for (int i = 0; i < transportItems.Count; i++)
                 {
 
-                    string query = "INSERT INTO `transport_items` (`fk_transport_id`, `price`, `quantity`, `traveled`, `total_price`) VALUES ( @fkTransportId, @price, @quantity, @travel, @total_price)";
+                    string query = "INSERT INTO `transport_items` (`fk_transport_id`, `price`, `quantity`, `traveled`) VALUES ( @fkTransportId, @price, @quantity, @travel)";
                     MySqlCommand mySqlCommand = new MySqlCommand();
                     mySqlCommand.Connection = _databaseConnection;
                     mySqlCommand.CommandText = query;
@@ -116,7 +116,7 @@ namespace Freshivoje
                     mySqlCommand.Parameters.AddWithValue("@price", transportItems[i]._price);
                     mySqlCommand.Parameters.AddWithValue("@quantity", transportItems[i]._quantity);
                     mySqlCommand.Parameters.AddWithValue("@travel", transportItems[i]._traveled);
-                    mySqlCommand.Parameters.AddWithValue("@total_price", transportItems[i]._totalPrice);
+              
 
                     int result = mySqlCommand.ExecuteNonQuery();
                     if (result <= 0)

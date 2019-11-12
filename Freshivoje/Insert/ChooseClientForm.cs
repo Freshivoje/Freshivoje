@@ -73,10 +73,5 @@ namespace Freshivoje.Insert
         {
             WindowState = FormWindowState.Minimized;
         }
-
-        private void chooseClientFormTblLayout_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
     }
 }

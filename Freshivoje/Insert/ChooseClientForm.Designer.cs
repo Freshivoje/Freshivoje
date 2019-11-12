@@ -48,6 +48,7 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.searchClientsTxtBox = new System.Windows.Forms.TextBox();
             this.clientsDataGridView = new System.Windows.Forms.DataGridView();
+            this.searchClientsLbl = new System.Windows.Forms.Label();
             this.clientId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +58,6 @@
             this.zip_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchClientsLbl = new System.Windows.Forms.Label();
             this.chooseClientFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -108,7 +108,6 @@
             this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.887928F));
             this.chooseClientFormTblLayout.Size = new System.Drawing.Size(1930, 1025);
             this.chooseClientFormTblLayout.TabIndex = 4;
-            this.chooseClientFormTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.chooseClientFormTblLayout_Paint);
             // 
             // minimizeBtn
             // 
@@ -267,6 +266,20 @@
             this.clientsDataGridView.TabStop = false;
             this.clientsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientsDataGridView_CellContentClick);
             // 
+            // searchClientsLbl
+            // 
+            this.searchClientsLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.searchClientsLbl.AutoSize = true;
+            this.searchClientsLbl.BackColor = System.Drawing.Color.Transparent;
+            this.searchClientsLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchClientsLbl.ForeColor = System.Drawing.Color.White;
+            this.searchClientsLbl.Location = new System.Drawing.Point(1502, 93);
+            this.searchClientsLbl.Name = "searchClientsLbl";
+            this.searchClientsLbl.Size = new System.Drawing.Size(211, 27);
+            this.searchClientsLbl.TabIndex = 57;
+            this.searchClientsLbl.Text = "Pretraga klijenata";
+            this.searchClientsLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // clientId
             // 
             this.clientId.DataPropertyName = "id_client";
@@ -369,21 +382,7 @@
             this.selectClient.HeaderText = "";
             this.selectClient.Name = "selectClient";
             this.selectClient.ReadOnly = true;
-            this.selectClient.Width = 80;
-            // 
-            // searchClientsLbl
-            // 
-            this.searchClientsLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.searchClientsLbl.AutoSize = true;
-            this.searchClientsLbl.BackColor = System.Drawing.Color.Transparent;
-            this.searchClientsLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchClientsLbl.ForeColor = System.Drawing.Color.White;
-            this.searchClientsLbl.Location = new System.Drawing.Point(1502, 93);
-            this.searchClientsLbl.Name = "searchClientsLbl";
-            this.searchClientsLbl.Size = new System.Drawing.Size(211, 27);
-            this.searchClientsLbl.TabIndex = 57;
-            this.searchClientsLbl.Text = "Pretraga klijenata";
-            this.searchClientsLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.selectClient.Width = 40;
             // 
             // ChooseClientForm
             // 

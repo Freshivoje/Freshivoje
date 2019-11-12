@@ -8,7 +8,7 @@ namespace Freshivoje.Models
 {
     public class TransportItems
     {
-        
+        public int _id { get; private set; }
         public int _clientId { get; private set; }
         public decimal _price { get; private set; }
         public decimal _quantity { get; private set; }
@@ -16,15 +16,16 @@ namespace Freshivoje.Models
         public decimal _totalPrice { get; private set; }
 
         public TransportItems(
-           
+         
             int fkClientId,
             decimal price,
             decimal quantity,
             decimal traveled,
-            decimal totalPrice
+            decimal totalPrice = 0,
+              int id = 0
              )
         {
-          
+            _id = id;
             _clientId = fkClientId;
             _price = price;
             _quantity = quantity;

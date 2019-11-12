@@ -17,13 +17,16 @@ namespace Freshivoje.Transport
     {
         public List<TransportItems> transportItems = new List<TransportItems>();
         int fkClientId;
-      
+        int idTransport = 0;
+        
         public TransportForm(int clientId)
         {
+            
             InitializeComponent();
             transportDataGridView.AutoGenerateColumns = false;
             fkClientId = clientId;
             WindowState = FormWindowState.Maximized;
+         
         }
 
         // Disables flickering on FormLoad
@@ -48,11 +51,12 @@ namespace Freshivoje.Transport
             decimal quantity = Convert.ToDecimal(quantityTxtBox.Text);
             decimal travel = Convert.ToDecimal(travelTxtBox.Text);
             decimal totalPrice = price * quantity * travel;
-
-            transportItems.Add(new TransportItems(fkClientId, price, quantity, travel, totalPrice));
+            idTransport++;
+            transportItems.Add(new TransportItems(fkClientId, price, quantity, travel, totalPrice, idTransport));
             var bindingList = new BindingList<TransportItems>(transportItems);
             var source = new BindingSource(bindingList, null);
             transportDataGridView.DataSource = source;
+
             priceTxtBox.Text = "";
             quantityTxtBox.Text = "";
             travelTxtBox.Text = "";
@@ -84,6 +88,30 @@ namespace Freshivoje.Transport
         private void minimizeBtn_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void transportDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5)
+            {
+                DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da obrišete putni nalog?");
+                if (result == DialogResult.No || result == DialogResult.Cancel)
+                {
+                    return;
+                }
+                int rowindex = transportDataGridView.CurrentRow.Index;
+                int broj = transportItems.Count;
+                for (int i = 0; i < transportItems.Count; i++)
+                {
+                    if((transportItems[i]._id - 1) == rowindex)
+                    {
+                        transportItems.RemoveAt(Convert.ToInt32(rowindex));
+                        var bindingList = new BindingList<TransportItems>(transportItems);
+                        var source = new BindingSource(bindingList, null);
+                        transportDataGridView.DataSource = source;
+                    }
+                }
+            }
         }
     }
 }

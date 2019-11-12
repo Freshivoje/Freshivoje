@@ -32,9 +32,9 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.repurchaseBtn = new System.Windows.Forms.Button();
             this.storegeOfGoodsBtn = new System.Windows.Forms.Button();
             this.rentingBtn = new System.Windows.Forms.Button();
-            this.repurchaseBtn = new System.Windows.Forms.Button();
             this.insertMethodFormTblLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,9 +51,9 @@
             this.insertMethodFormTblLayout.Controls.Add(this.backBtn, 2, 0);
             this.insertMethodFormTblLayout.Controls.Add(this.minimizeBtn, 3, 0);
             this.insertMethodFormTblLayout.Controls.Add(this.exitBtn, 4, 0);
-            this.insertMethodFormTblLayout.Controls.Add(this.rentingBtn, 1, 6);
-            this.insertMethodFormTblLayout.Controls.Add(this.storegeOfGoodsBtn, 1, 4);
             this.insertMethodFormTblLayout.Controls.Add(this.repurchaseBtn, 1, 2);
+            this.insertMethodFormTblLayout.Controls.Add(this.storegeOfGoodsBtn, 1, 3);
+            this.insertMethodFormTblLayout.Controls.Add(this.rentingBtn, 1, 4);
             this.insertMethodFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insertMethodFormTblLayout.Location = new System.Drawing.Point(5, 5);
             this.insertMethodFormTblLayout.Name = "insertMethodFormTblLayout";
@@ -138,6 +138,26 @@
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
+            // repurchaseBtn
+            // 
+            this.repurchaseBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.repurchaseBtn.BackColor = System.Drawing.Color.Transparent;
+            this.repurchaseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.repurchaseBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.repurchaseBtn.FlatAppearance.BorderSize = 5;
+            this.repurchaseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.repurchaseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.repurchaseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.repurchaseBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repurchaseBtn.ForeColor = System.Drawing.Color.White;
+            this.repurchaseBtn.Location = new System.Drawing.Point(191, 148);
+            this.repurchaseBtn.Name = "repurchaseBtn";
+            this.repurchaseBtn.Size = new System.Drawing.Size(228, 72);
+            this.repurchaseBtn.TabIndex = 0;
+            this.repurchaseBtn.Text = "OTKUP ARTIKALA";
+            this.repurchaseBtn.UseVisualStyleBackColor = false;
+            this.repurchaseBtn.Click += new System.EventHandler(this.repurchaseBtn_Click);
+            // 
             // storegeOfGoodsBtn
             // 
             this.storegeOfGoodsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -150,7 +170,7 @@
             this.storegeOfGoodsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.storegeOfGoodsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.storegeOfGoodsBtn.ForeColor = System.Drawing.Color.White;
-            this.storegeOfGoodsBtn.Location = new System.Drawing.Point(191, 311);
+            this.storegeOfGoodsBtn.Location = new System.Drawing.Point(191, 231);
             this.storegeOfGoodsBtn.Name = "storegeOfGoodsBtn";
             this.storegeOfGoodsBtn.Size = new System.Drawing.Size(228, 72);
             this.storegeOfGoodsBtn.TabIndex = 1;
@@ -169,32 +189,12 @@
             this.rentingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rentingBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rentingBtn.ForeColor = System.Drawing.Color.White;
-            this.rentingBtn.Location = new System.Drawing.Point(191, 475);
+            this.rentingBtn.Location = new System.Drawing.Point(191, 314);
             this.rentingBtn.Name = "rentingBtn";
             this.rentingBtn.Size = new System.Drawing.Size(228, 72);
             this.rentingBtn.TabIndex = 2;
             this.rentingBtn.Text = "IZNAJMLJIVANJE PROSTORA";
             this.rentingBtn.UseVisualStyleBackColor = false;
-            // 
-            // repurchaseBtn
-            // 
-            this.repurchaseBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.repurchaseBtn.BackColor = System.Drawing.Color.Transparent;
-            this.repurchaseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.repurchaseBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.repurchaseBtn.FlatAppearance.BorderSize = 5;
-            this.repurchaseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.repurchaseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.repurchaseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.repurchaseBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.repurchaseBtn.ForeColor = System.Drawing.Color.White;
-            this.repurchaseBtn.Location = new System.Drawing.Point(191, 147);
-            this.repurchaseBtn.Name = "repurchaseBtn";
-            this.repurchaseBtn.Size = new System.Drawing.Size(228, 72);
-            this.repurchaseBtn.TabIndex = 0;
-            this.repurchaseBtn.Text = "OTKUP ARTIKALA";
-            this.repurchaseBtn.UseVisualStyleBackColor = false;
-            this.repurchaseBtn.Click += new System.EventHandler(this.repurchaseBtn_Click);
             // 
             // InsertMethodForm
             // 

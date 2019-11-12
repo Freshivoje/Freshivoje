@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.crateQuantityLbl = new System.Windows.Forms.Label();
             this.travelTxtBox = new System.Windows.Forms.TextBox();
             this.backBtn = new System.Windows.Forms.Button();
@@ -46,13 +46,13 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.transportDataGridView = new System.Windows.Forms.DataGridView();
+            this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this._id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Količina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kilometri = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UkupnaCena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.transportDataGridView)).BeginInit();
             this.insertFormTblLayout.SuspendLayout();
             this.SuspendLayout();
@@ -291,14 +291,14 @@
             this.transportDataGridView.AllowUserToDeleteRows = false;
             this.transportDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.transportDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.transportDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.transportDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.transportDataGridView.ColumnHeadersHeight = 40;
             this.transportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.transportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -310,21 +310,21 @@
             this.deleteArticle});
             this.insertFormTblLayout.SetColumnSpan(this.transportDataGridView, 3);
             this.transportDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.transportDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.transportDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.transportDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transportDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.transportDataGridView.Location = new System.Drawing.Point(153, 441);
             this.transportDataGridView.MultiSelect = false;
             this.transportDataGridView.Name = "transportDataGridView";
             this.transportDataGridView.ReadOnly = true;
-            this.transportDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.transportDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.transportDataGridView.RowHeadersWidth = 40;
             this.transportDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.insertFormTblLayout.SetRowSpan(this.transportDataGridView, 4);
@@ -332,60 +332,7 @@
             this.transportDataGridView.Size = new System.Drawing.Size(1821, 213);
             this.transportDataGridView.TabIndex = 34;
             this.transportDataGridView.TabStop = false;
-            // 
-            // _id
-            // 
-            this._id.HeaderText = "ID";
-            this._id.Name = "_id";
-            this._id.ReadOnly = true;
-            this._id.Visible = false;
-            // 
-            // price
-            // 
-            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.price.DataPropertyName = "_price";
-            this.price.HeaderText = "Jedinična Cena";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            // 
-            // Količina
-            // 
-            this.Količina.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Količina.DataPropertyName = "_quantity";
-            this.Količina.HeaderText = "Količina";
-            this.Količina.Name = "Količina";
-            this.Količina.ReadOnly = true;
-            // 
-            // Kilometri
-            // 
-            this.Kilometri.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Kilometri.DataPropertyName = "_traveled";
-            this.Kilometri.HeaderText = "Kilometri";
-            this.Kilometri.Name = "Kilometri";
-            this.Kilometri.ReadOnly = true;
-            // 
-            // UkupnaCena
-            // 
-            this.UkupnaCena.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UkupnaCena.DataPropertyName = "_totalPrice";
-            this.UkupnaCena.HeaderText = "Ukupna Cena";
-            this.UkupnaCena.Name = "UkupnaCena";
-            this.UkupnaCena.ReadOnly = true;
-            // 
-            // deleteArticle
-            // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle6.NullValue = "X";
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Red;
-            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle6;
-            this.deleteArticle.HeaderText = "";
-            this.deleteArticle.Name = "deleteArticle";
-            this.deleteArticle.ReadOnly = true;
-            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deleteArticle.Width = 40;
+            this.transportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.transportDataGridView_CellContentClick);
             // 
             // insertFormTblLayout
             // 
@@ -435,6 +382,61 @@
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
             this.insertFormTblLayout.Size = new System.Drawing.Size(2133, 830);
             this.insertFormTblLayout.TabIndex = 2;
+            // 
+            // _id
+            // 
+            this._id.DataPropertyName = "_id";
+            this._id.HeaderText = "ID";
+            this._id.Name = "_id";
+            this._id.ReadOnly = true;
+            this._id.Visible = false;
+            // 
+            // price
+            // 
+            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.price.DataPropertyName = "_price";
+            this.price.HeaderText = "Jedinična Cena";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            // 
+            // Količina
+            // 
+            this.Količina.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Količina.DataPropertyName = "_quantity";
+            this.Količina.HeaderText = "Količina";
+            this.Količina.Name = "Količina";
+            this.Količina.ReadOnly = true;
+            // 
+            // Kilometri
+            // 
+            this.Kilometri.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Kilometri.DataPropertyName = "_traveled";
+            this.Kilometri.HeaderText = "Kilometri";
+            this.Kilometri.Name = "Kilometri";
+            this.Kilometri.ReadOnly = true;
+            // 
+            // UkupnaCena
+            // 
+            this.UkupnaCena.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UkupnaCena.DataPropertyName = "_totalPrice";
+            this.UkupnaCena.HeaderText = "Ukupna Cena";
+            this.UkupnaCena.Name = "UkupnaCena";
+            this.UkupnaCena.ReadOnly = true;
+            // 
+            // deleteArticle
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.NullValue = "X";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle2;
+            this.deleteArticle.HeaderText = "";
+            this.deleteArticle.Name = "deleteArticle";
+            this.deleteArticle.ReadOnly = true;
+            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.deleteArticle.Width = 40;
             // 
             // TransportForm
             // 
