@@ -34,5 +34,10 @@ namespace Freshivoje
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void searchTxtBox_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

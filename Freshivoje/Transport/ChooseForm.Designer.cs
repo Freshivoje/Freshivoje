@@ -59,7 +59,7 @@
             this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.chooseTransportFormTblLayout.Size = new System.Drawing.Size(634, 630);
             this.chooseTransportFormTblLayout.TabIndex = 2;
@@ -145,7 +145,7 @@
             this.repurchaseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.repurchaseBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.repurchaseBtn.ForeColor = System.Drawing.Color.White;
-            this.repurchaseBtn.Location = new System.Drawing.Point(203, 151);
+            this.repurchaseBtn.Location = new System.Drawing.Point(203, 161);
             this.repurchaseBtn.Name = "repurchaseBtn";
             this.repurchaseBtn.Size = new System.Drawing.Size(228, 72);
             this.repurchaseBtn.TabIndex = 0;
@@ -165,7 +165,7 @@
             this.storegeOfGoodsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.storegeOfGoodsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.storegeOfGoodsBtn.ForeColor = System.Drawing.Color.White;
-            this.storegeOfGoodsBtn.Location = new System.Drawing.Point(203, 406);
+            this.storegeOfGoodsBtn.Location = new System.Drawing.Point(203, 436);
             this.storegeOfGoodsBtn.Name = "storegeOfGoodsBtn";
             this.storegeOfGoodsBtn.Size = new System.Drawing.Size(228, 72);
             this.storegeOfGoodsBtn.TabIndex = 1;

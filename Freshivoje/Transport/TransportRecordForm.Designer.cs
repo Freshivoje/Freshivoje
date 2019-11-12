@@ -46,6 +46,7 @@
             this.IdClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.previewTransport = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.crudArticlesFormTblLayout.SuspendLayout();
@@ -93,7 +94,6 @@
             this.crudArticlesFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
             this.crudArticlesFormTblLayout.Size = new System.Drawing.Size(1187, 628);
             this.crudArticlesFormTblLayout.TabIndex = 3;
-            this.crudArticlesFormTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.crudArticlesFormTblLayout_Paint);
             // 
             // minimizeBtn
             // 
@@ -204,6 +204,7 @@
             this.IdClient,
             this.client,
             this.Datum,
+            this.status,
             this.previewTransport,
             this.deleteStatus});
             this.crudArticlesFormTblLayout.SetColumnSpan(this.TransportDataGridView, 4);
@@ -229,6 +230,7 @@
             this.TransportDataGridView.Size = new System.Drawing.Size(878, 445);
             this.TransportDataGridView.TabIndex = 6;
             this.TransportDataGridView.TabStop = false;
+            this.TransportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TransportDataGridView_CellContentClick);
             // 
             // searchArticlesLbl
             // 
@@ -256,6 +258,7 @@
             this.searchTransportTxtBox.Size = new System.Drawing.Size(215, 31);
             this.searchTransportTxtBox.TabIndex = 5;
             this.searchTransportTxtBox.TextChanged += new System.EventHandler(this.searchTransportxtBox_TextChanged);
+            this.searchTransportTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // transportId
             // 
@@ -287,11 +290,17 @@
             this.Datum.Name = "Datum";
             this.Datum.ReadOnly = true;
             // 
+            // status
+            // 
+            this.status.DataPropertyName = "transport_status";
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            // 
             // previewTransport
             // 
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.NullValue = "✎";
+            dataGridViewCellStyle2.NullValue = "🔎";
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             this.previewTransport.DefaultCellStyle = dataGridViewCellStyle2;
@@ -305,10 +314,10 @@
             // 
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle3.NullValue = "X";
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.NullValue = "💰";
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.deleteStatus.DefaultCellStyle = dataGridViewCellStyle3;
             this.deleteStatus.HeaderText = "";
             this.deleteStatus.Name = "deleteStatus";
@@ -346,6 +355,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IdClient;
         private System.Windows.Forms.DataGridViewTextBoxColumn client;
         private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn previewTransport;
         private System.Windows.Forms.DataGridViewTextBoxColumn deleteStatus;
     }

@@ -40,6 +40,35 @@ namespace Freshivoje.Transport
             }
         }
 
+        private void onlyNumerics(object sender, KeyPressEventArgs e)
+        {
+            // Limit input to numbers only
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            // 2 decimals limit
+            if (System.Text.RegularExpressions.Regex.IsMatch((sender as TextBox).Text, @"\.\d\d") && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void blockEnter(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                e.Handled = true;
+            }
+        }
+
+
         private void TransportForm_Load(object sender, EventArgs e)
         {
 

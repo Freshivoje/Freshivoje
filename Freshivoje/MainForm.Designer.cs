@@ -56,12 +56,12 @@
             this.mainFormTblLayout.Controls.Add(this.minimizeBtn, 2, 0);
             this.mainFormTblLayout.Controls.Add(this.exitBtn, 3, 0);
             this.mainFormTblLayout.Controls.Add(this.insertBtn, 1, 1);
-            this.mainFormTblLayout.Controls.Add(this.settingsBtn, 1, 5);
-            this.mainFormTblLayout.Controls.Add(this.inventoryBtn, 1, 4);
             this.mainFormTblLayout.Controls.Add(this.paymentsBtn, 1, 2);
             this.mainFormTblLayout.Controls.Add(this.packagesBtn, 1, 3);
             this.mainFormTblLayout.Controls.Add(this.logoutBtn, 1, 7);
-            this.mainFormTblLayout.Controls.Add(this.transportBtn, 1, 6);
+            this.mainFormTblLayout.Controls.Add(this.transportBtn, 1, 5);
+            this.mainFormTblLayout.Controls.Add(this.settingsBtn, 1, 6);
+            this.mainFormTblLayout.Controls.Add(this.inventoryBtn, 1, 4);
             this.mainFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainFormTblLayout.Location = new System.Drawing.Point(5, 5);
             this.mainFormTblLayout.Name = "mainFormTblLayout";
@@ -173,7 +173,7 @@
             this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settingsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingsBtn.ForeColor = System.Drawing.Color.White;
-            this.settingsBtn.Location = new System.Drawing.Point(228, 347);
+            this.settingsBtn.Location = new System.Drawing.Point(228, 418);
             this.settingsBtn.Name = "settingsBtn";
             this.settingsBtn.Size = new System.Drawing.Size(154, 65);
             this.settingsBtn.TabIndex = 4;
@@ -272,7 +272,7 @@
             this.transportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.transportBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transportBtn.ForeColor = System.Drawing.Color.White;
-            this.transportBtn.Location = new System.Drawing.Point(228, 418);
+            this.transportBtn.Location = new System.Drawing.Point(228, 347);
             this.transportBtn.Name = "transportBtn";
             this.transportBtn.Size = new System.Drawing.Size(154, 65);
             this.transportBtn.TabIndex = 7;

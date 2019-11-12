@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Freshivoje.Custom_Forms;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +15,10 @@ namespace Freshivoje.Transport
     public partial class TransportRecordForm : Form
     {
         private int _selectedTransportId;
+        private string _selectedTransportStatus;
         private readonly string _fillDGVQuery = "SELECT " +
             "CONCAT(`clients`.`first_name`,' ',`clients`.`last_name`) as client, `clients`.`id_client` as fk_client_id,`transport`.`id_transport`, `transport`.`transport_date`" +
-            "FROM `transport` INNER JOIN `clients` ON `clients`.`id_client` = `transport`.`fk_client_id`  WHERE `transport`.`transport_status` = '1' AND `transport`.`transport_year` = '" + DateTime.Today.ToString("yyyy") + "'";
+            ",`transport`.`transport_status` FROM `transport` INNER JOIN `clients` ON `clients`.`id_client` = `transport`.`fk_client_id`  WHERE `transport`.`transport_year` = '" + DateTime.Today.ToString("yyyy") + "'";
 
         public TransportRecordForm()
         {
@@ -25,12 +28,6 @@ namespace Freshivoje.Transport
             DbConnection.fillDGV(TransportDataGridView, _fillDGVQuery);
         }
 
-        private void crudArticlesFormTblLayout_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
         protected override CreateParams CreateParams
         {
             get
@@ -38,6 +35,13 @@ namespace Freshivoje.Transport
                 CreateParams cp = base.CreateParams;
                 cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
                 return cp;
+            }
+        }
+        private void blockEnter(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                e.Handled = true;
             }
         }
         private void clientsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -75,6 +79,36 @@ namespace Freshivoje.Transport
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void TransportDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _selectedTransportId = Convert.ToInt32(TransportDataGridView.Rows[e.RowIndex].Cells["transportId"].Value);
+            _selectedTransportStatus = TransportDataGridView.Rows[e.RowIndex].Cells["status"].Value.ToString();
+            if (_selectedTransportStatus == "plaćeno")
+            {
+                CustomMessageBox.ShowDialog(this, $"Ovaj putni nalog je već plaćen!");
+                return;
+            }
+            else
+            {
+                if (e.ColumnIndex == 6)
+                {
+                    DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da ste platili putni nalog?");
+                    if (result == DialogResult.No || result == DialogResult.Cancel)
+                    {
+                        return;
+                    }
+                    MySqlCommand mySqlCommand = new MySqlCommand
+                    {
+                        CommandText = "UPDATE `transport` SET `transport_status`='plaćeno' WHERE id_transport=@id"
+                    };
+                    mySqlCommand.Parameters.AddWithValue("@id", _selectedTransportId);
+                    DbConnection.executeQuery(mySqlCommand);
+                }
+            }
+            
+            DbConnection.fillDGV(TransportDataGridView, _fillDGVQuery);
         }
     }
 }
