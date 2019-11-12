@@ -76,6 +76,12 @@ namespace Freshivoje.Transport
 
         private void insertBtn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(priceTxtBox.Text) || string.IsNullOrWhiteSpace(quantityTxtBox.Text)
+             || string.IsNullOrWhiteSpace(travelTxtBox.Text))
+            {
+                CustomMessageBox.ShowDialog(this, "Molimo Vas popunite sva polja!");
+                return;
+            }
             decimal price = Convert.ToDecimal(priceTxtBox.Text);
             decimal quantity = Convert.ToDecimal(quantityTxtBox.Text);
             decimal travel = Convert.ToDecimal(travelTxtBox.Text);
