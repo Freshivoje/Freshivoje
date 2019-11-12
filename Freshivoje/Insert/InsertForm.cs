@@ -95,28 +95,35 @@ namespace Freshivoje
 
         private void insertBtn_Click(object sender, EventArgs e)
         {
-            if(palletCmbBox.SelectedIndex == 0)
+            if ((palletCmbBox.SelectedIndex == 0 && (string.IsNullOrWhiteSpace(palletWeightTxtBox.Text) || string.IsNullOrWhiteSpace(numberOfPalletsTxtBox.Text))) 
+                || (string.IsNullOrWhiteSpace(articleQuantityTxtBox.Text) || string.IsNullOrWhiteSpace(crateQuantityTxtBox.Text)))
+            {
+                CustomMessageBox.ShowDialog(this, Properties.Resources.emptyInputErrorMsg);
+                return;
+            }
+
+
+            if (palletCmbBox.SelectedIndex == 0)
             {
                 _palletWeight = Convert.ToDecimal(palletWeightTxtBox.Text) * Convert.ToDecimal(numberOfPalletsTxtBox.Text);
             }
-            int quantity = Convert.ToInt32(quantityTxtBox.Text);
-            decimal price = Convert.ToDecimal(articlePriceLbl.Text);
+
+            int brutoWeight = Convert.ToInt32(articleQuantityTxtBox.Text);
+            decimal articlePrice = Convert.ToDecimal(articlePriceLbl.Text);
 
             decimal crateWeight = _packagingWeight;
             int numOfCrates = Convert.ToInt32(crateQuantityTxtBox.Text);
 
+            decimal nonArticleWeight = crateWeight * numOfCrates + _palletWeight;
 
-            decimal cratesDeduction = crateWeight * numOfCrates + _palletWeight;
+            decimal netoWeight = brutoWeight - nonArticleWeight;
 
-            decimal bruto = quantity - cratesDeduction;
-
-
-            decimal neto = Math.Round(bruto * price, 2);
+            decimal price = Math.Round(netoWeight * articlePrice, 2);
             
             string[] articleFields = articlesCmbBox.Text.Split('/');
             string articleCategory = articleCategoryCmbBox.Text;
 
-            insertedArticlesDataGridView.Rows.Add(articleFields[0], articleFields[1], articleFields[2], articleCategory, neto);
+            insertedArticlesDataGridView.Rows.Add(articleFields[0], articleFields[1], articleFields[2], articleCategory, price);
         }
 
         public void getArticlePrice()
