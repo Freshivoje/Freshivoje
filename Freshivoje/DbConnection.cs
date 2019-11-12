@@ -27,10 +27,20 @@ namespace Freshivoje
                 using MySqlDataReader reader = mySqlCommand.ExecuteReader();
                 while (reader.Read())
                 {
+                    string text = string.Empty;
+                    foreach(string column in columns)
+                    {
+                        if(column == columns[0])
+                        {
+                            continue;
+                        }
+                        text += $"{ reader.GetString(column)} / ";
+                    }
+                    text = text.Trim(' ', '/');
                     ComboBoxItem item = new ComboBoxItem
                     {
                         Value = reader.GetInt32(columns[0]),
-                        Text = reader.GetString(columns[1])
+                        Text = text
                     };
                     cmbBox.Items.Add(item);
                 }
@@ -138,86 +148,6 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
             return value;
-        }
-
-        public static dynamic getQuery(MySqlCommand mySqlCommand)
-        {
-            dynamic value = null;
-            try
-            {
-                mySqlCommand.Connection = _databaseConnection;
-                _databaseConnection.Open();
-                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
-                reader.Read();
-                value = reader.GetString(0);
-            }
-            catch
-            {
-                if (_databaseConnection.State != ConnectionState.Open)
-                {
-                    return -1;
-                }
-            }
-            finally
-            {
-                _databaseConnection.Close();
-            }
-            return value;
-        }
-        public static dynamic getQueryValues(MySqlCommand mySqlCommand)
-        {
-            dynamic value = null;
-            try
-            {
-                mySqlCommand.Connection = _databaseConnection;
-                _databaseConnection.Open();
-                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
-                reader.Read();
-                value = reader.GetString(0) + "," + reader.GetString(1) + "," + reader.GetString(2);
-            }
-            catch
-            {
-                if (_databaseConnection.State != ConnectionState.Open)
-                {
-                    return -1;
-                }
-            }
-            finally
-            {
-                _databaseConnection.Close();
-            }
-            return value;
-        }
-
-        public static void fillCustomCmbBox(ComboBox cmbBox, string table, params string[] columns)
-        {
-            try
-            {
-                _databaseConnection.Open();
-                MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
-                mySqlCommand.CommandText = $"SELECT * FROM `{table}`";
-                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
-                while (reader.Read())
-                {
-                    ComboBoxItem item = new ComboBoxItem
-                    {
-                        Value = reader.GetInt32(columns[0]),
-                        Text = reader.GetString(columns[1]) + " / " + reader.GetString(columns[2]) + " / " + reader.GetString(columns[3])
-                    };
-                    cmbBox.Items.Add(item);
-                }
-            }
-            catch
-            {
-                if (_databaseConnection.State != ConnectionState.Open)
-                {
-                    return;
-                }
-            }
-            finally
-            {
-                _databaseConnection.Close();
-            }
         }
     }
 }

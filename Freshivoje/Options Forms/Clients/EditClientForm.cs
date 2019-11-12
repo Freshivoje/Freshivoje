@@ -8,7 +8,7 @@ namespace Freshivoje.Options_Forms
 {
     public partial class EditClientForm : Form
     {
-        private int _clientId;
+        private readonly int _clientId;
         public EditClientForm(Client client)
         {
             InitializeComponent();
