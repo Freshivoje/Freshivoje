@@ -149,31 +149,5 @@ namespace Freshivoje
             }
             return value;
         }
-
-        public static dynamic getQuery(MySqlCommand mySqlCommand)
-        {
-            dynamic value = null;
-            try
-            {
-                mySqlCommand.Connection = _databaseConnection;
-                _databaseConnection.Open();
-                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
-                reader.Read();
-                value = reader.GetString(0);
-            }
-            catch
-            {
-                if (_databaseConnection.State != ConnectionState.Open)
-                {
-                    return -1;
-                }
-            }
-            finally
-            {
-                _databaseConnection.Close();
-            }
-            return value;
-        }
-      
     }
 }
