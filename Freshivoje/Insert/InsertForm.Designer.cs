@@ -101,7 +101,7 @@
             this.insertFormTblLayout.Controls.Add(this.palletWeightTxtBox, 3, 2);
             this.insertFormTblLayout.Controls.Add(this.crateOwnerCmbBox, 1, 7);
             this.insertFormTblLayout.Controls.Add(this.cratesCmbBox, 2, 7);
-            this.insertFormTblLayout.Controls.Add(this.insertedArticlesDataGridView, 1, 11);
+            this.insertFormTblLayout.Controls.Add(this.insertedArticlesDataGridView, 0, 11);
             this.insertFormTblLayout.Controls.Add(this.categoryLbl, 3, 3);
             this.insertFormTblLayout.Controls.Add(this.priceLbl, 4, 3);
             this.insertFormTblLayout.Controls.Add(this.articlePriceLbl, 4, 4);
@@ -115,7 +115,7 @@
             this.insertFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insertFormTblLayout.Location = new System.Drawing.Point(5, 5);
             this.insertFormTblLayout.Name = "insertFormTblLayout";
-            this.insertFormTblLayout.RowCount = 15;
+            this.insertFormTblLayout.RowCount = 14;
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -496,7 +496,7 @@
             this.articleCategory,
             this.articlePrice,
             this.deleteArticle});
-            this.insertFormTblLayout.SetColumnSpan(this.insertedArticlesDataGridView, 4);
+            this.insertFormTblLayout.SetColumnSpan(this.insertedArticlesDataGridView, 8);
             this.insertedArticlesDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -508,7 +508,7 @@
             this.insertedArticlesDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.insertedArticlesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insertedArticlesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.insertedArticlesDataGridView.Location = new System.Drawing.Point(153, 473);
+            this.insertedArticlesDataGridView.Location = new System.Drawing.Point(3, 473);
             this.insertedArticlesDataGridView.MultiSelect = false;
             this.insertedArticlesDataGridView.Name = "insertedArticlesDataGridView";
             this.insertedArticlesDataGridView.ReadOnly = true;
@@ -517,7 +517,7 @@
             this.insertedArticlesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.insertFormTblLayout.SetRowSpan(this.insertedArticlesDataGridView, 4);
             this.insertedArticlesDataGridView.RowTemplate.Height = 30;
-            this.insertedArticlesDataGridView.Size = new System.Drawing.Size(1126, 397);
+            this.insertedArticlesDataGridView.Size = new System.Drawing.Size(1427, 397);
             this.insertedArticlesDataGridView.TabIndex = 34;
             this.insertedArticlesDataGridView.TabStop = false;
             // 

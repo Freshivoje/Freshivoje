@@ -15,7 +15,8 @@ namespace Freshivoje
         public InsertForm(int clientId)
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;  
+            WindowState = FormWindowState.Maximized; 
+            
             DbConnection.fillCmbBox(articlesCmbBox, "articles", "id_article", "article_name", "sort", "organic");
             DbConnection.fillCmbBox(cratesCmbBox, "packaging", "id_packaging", "capacity", "category", "weight", "producer");
 
