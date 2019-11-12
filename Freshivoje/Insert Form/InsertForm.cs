@@ -122,7 +122,9 @@ namespace Freshivoje
             string[] articleFields = articlesCmbBox.Text.Split('/');
             string articleCategory = articleCategoryCmbBox.Text;
 
-            Article article = new Article(0, articleFields[0], articleFields[1], articleFields[2], price);
+            string packageOwnership = crateOwnerCmbBox.Text;
+
+            Article article = new Article(_articleId, articleFields[0], articleFields[1], articleFields[2], price);
 
             DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da unesete artikal?\n{articlesCmbBox.Text}\nKlasa: {articleCategory}\nNeto kilaža: {netoWeight.ToString("0.00")}\nCena: {article._priceI} RSD");
             if (result == DialogResult.No || result == DialogResult.Cancel)
@@ -130,7 +132,11 @@ namespace Freshivoje
                 return;
             }
 
-            insertedArticlesDataGridView.Rows.Add(_packagingId, numOfCrates, article._name, article._sort, article._organic, articleCategory, article._priceI);
+            insertedArticlesDataGridView.Rows.Add(_packagingId, numOfCrates, packageOwnership, article._name, article._sort, article._organic, articleCategory, article._priceI);
+
+            crateQuantityTxtBox.ResetText();
+            articleQuantityTxtBox.ResetText();
+            crateQuantityTxtBox.Select();
         }
 
         public void getArticlePrice()
@@ -158,31 +164,39 @@ namespace Freshivoje
                 return;
             }
 
+            DialogResult result = CustomDialog.ShowDialog(this, "Da li ste sigurni da želite da unesete ove artikle u magacin?");
+            if (result == DialogResult.No || result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = @"INSERT INTO `packaging_records` (`fk_packaging_id`, `fk_client_id`, `packaging_record_quantity`) VALUES (@packagingId, @clientId, @packagingQuantity)"
+                CommandText = @"INSERT INTO `packaging_records` (`fk_packaging_id`, `fk_client_id`, `packaging_ownership`, `packaging_record_quantity`) VALUES (@packagingId, @clientId, @packagingOwnership, @packagingQuantity)"
             };
 
-
             foreach (DataGridViewRow row in insertedArticlesDataGridView.Rows)
-            {
-
+            { 
                 int packagingId = Convert.ToInt32(row.Cells["packagingId"].Value);
                 int packagingQuantity = Convert.ToInt32(row.Cells["packagingQuantity"].Value);
-
-                mySqlCommand.Parameters.Clear();
+                string packagingOwnership = row.Cells["packagingOwnership"].Value.ToString();
 
                 mySqlCommand.Parameters.AddWithValue("@packagingId", packagingId);
                 mySqlCommand.Parameters.AddWithValue("@clientId", _selectedClientId);
+                mySqlCommand.Parameters.AddWithValue("@packagingOwnership", packagingOwnership);
                 mySqlCommand.Parameters.AddWithValue("@packagingQuantity", packagingQuantity);
 
                 DbConnection.executeQuery(mySqlCommand);
+                
+                mySqlCommand.Parameters.Clear();
             }
+
+            insertedArticlesDataGridView.Rows.Clear();
         }
 
         private void insertedArticlesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 8)
             {
 
                 DataGridViewRow _selectedRow = insertedArticlesDataGridView.CurrentRow;

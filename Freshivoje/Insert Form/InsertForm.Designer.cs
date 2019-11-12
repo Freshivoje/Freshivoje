@@ -65,6 +65,7 @@
             this.finishInsertBtn = new System.Windows.Forms.Button();
             this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packagingQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packagingOwnership = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articleSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articleOrganic = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -385,8 +386,8 @@
             this.crateOwnerCmbBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.crateOwnerCmbBox.FormattingEnabled = true;
             this.crateOwnerCmbBox.Items.AddRange(new object[] {
-            "Klijent",
-            "Hladnjača"});
+            "Hladnjača",
+            "Klijent"});
             this.crateOwnerCmbBox.Location = new System.Drawing.Point(153, 283);
             this.crateOwnerCmbBox.Name = "crateOwnerCmbBox";
             this.crateOwnerCmbBox.Size = new System.Drawing.Size(277, 31);
@@ -429,6 +430,7 @@
             this.insertedArticlesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.packagingId,
             this.packagingQuantity,
+            this.packagingOwnership,
             this.articleName,
             this.articleSort,
             this.articleOrganic,
@@ -648,6 +650,13 @@
             this.packagingQuantity.ReadOnly = true;
             this.packagingQuantity.Visible = false;
             // 
+            // packagingOwnership
+            // 
+            this.packagingOwnership.HeaderText = "Vlasništvo";
+            this.packagingOwnership.Name = "packagingOwnership";
+            this.packagingOwnership.ReadOnly = true;
+            this.packagingOwnership.Visible = false;
+            // 
             // articleName
             // 
             this.articleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -757,6 +766,7 @@
         private System.Windows.Forms.Button finishInsertBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn packagingId;
         private System.Windows.Forms.DataGridViewTextBoxColumn packagingQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn packagingOwnership;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleName;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleSort;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleOrganic;
