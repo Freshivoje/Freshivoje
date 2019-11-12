@@ -5,17 +5,27 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Freshivoje.Models;
 using Freshivoje.Custom_Forms;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Freshivoje
 {
     public partial class InsertForm : Form
     {
-        private int _articleId, _articleCategoryId, _packagingId;
-        decimal _palletWeight = 1M, _packagingWeight;
+        private int _selectedClientId, _articleId, _articleCategoryId, _packagingId;
+        private decimal _palletWeight = 1M, _packagingWeight, _selectedArticlePrice;
+        private string _selectedArticleName = string.Empty,
+                        _selectedArticleSort = string.Empty, 
+                        _selectedArticleOrganic = string.Empty,
+                        _selectedArticleCategory = string.Empty;
+
         public InsertForm(int clientId)
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized; 
+            WindowState = FormWindowState.Maximized;
+            insertedArticlesDataGridView.AutoGenerateColumns = false;
+
+            _selectedClientId = clientId;
             
             DbConnection.fillCmbBox(articlesCmbBox, "articles", "id_article", "article_name", "sort", "organic");
             DbConnection.fillCmbBox(cratesCmbBox, "packaging", "id_packaging", "capacity", "category", "weight", "producer");
@@ -82,18 +92,6 @@ namespace Freshivoje
             }
         }
 
-        private void finishInsertBtn_Click(object sender, EventArgs e)
-        {
-            //Document doc = new Document();
-            //PdfWriter.GetInstance(doc, new FileStream("D:/CreatePdf.pdf", FileMode.Create));
-            //doc.Open();
-            //Paragraph p1 = new Paragraph("FAKTURA ZA IZADAVANJE!");
-            //doc.Add(p1);
-            //doc.Close();
-            //MessageBox.Show("PDF JE NAPRAVLJEN!");
-        }
-
-
         private void insertBtn_Click(object sender, EventArgs e)
         {
             if ((palletCmbBox.SelectedIndex == 0 && (string.IsNullOrWhiteSpace(palletWeightTxtBox.Text) || string.IsNullOrWhiteSpace(numberOfPalletsTxtBox.Text))) 
@@ -117,19 +115,27 @@ namespace Freshivoje
 
             decimal nonArticleWeight = crateWeight * numOfCrates + _palletWeight;
 
-            decimal netoWeight = brutoWeight - nonArticleWeight;
+            decimal netoWeight = decimal.Round(brutoWeight - nonArticleWeight, 2);
 
             decimal price = Math.Round(netoWeight * articlePrice, 2);
-            
+
             string[] articleFields = articlesCmbBox.Text.Split('/');
             string articleCategory = articleCategoryCmbBox.Text;
 
-            insertedArticlesDataGridView.Rows.Add(articleFields[0], articleFields[1], articleFields[2], articleCategory, price);
+            Article article = new Article(0, articleFields[0], articleFields[1], articleFields[2], price);
+
+            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da unesete artikal?\n{articlesCmbBox.Text}\nKlasa: {articleCategory}\nNeto kilaža: {netoWeight.ToString("0.00")}\nCena: {article._priceI} RSD");
+            if (result == DialogResult.No || result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            insertedArticlesDataGridView.Rows.Add(_packagingId, numOfCrates, article._name, article._sort, article._organic, articleCategory, article._priceI);
         }
 
         public void getArticlePrice()
         {
-            if(articlesCmbBox.SelectedIndex < 0)
+            if (articlesCmbBox.SelectedIndex < 0)
             {
                 return;
             }
@@ -142,6 +148,58 @@ namespace Freshivoje
 
             decimal lastPrice = DbConnection.getValue(mySqlCommand);
             articlePriceLbl.Text = lastPrice.ToString();
+        }
+
+        private void finishInsertBtn_Click(object sender, EventArgs e)
+        {
+            if (insertedArticlesDataGridView.Rows.Count < 1)
+            {
+                CustomMessageBox.ShowDialog(this, Properties.Resources.emptyDGVMsg);
+                return;
+            }
+
+            MySqlCommand mySqlCommand = new MySqlCommand
+            {
+                CommandText = @"INSERT INTO `packaging_records` (`fk_packaging_id`, `fk_client_id`, `packaging_record_quantity`) VALUES (@packagingId, @clientId, @packagingQuantity)"
+            };
+
+
+            foreach (DataGridViewRow row in insertedArticlesDataGridView.Rows)
+            {
+
+                int packagingId = Convert.ToInt32(row.Cells["packagingId"].Value);
+                int packagingQuantity = Convert.ToInt32(row.Cells["packagingQuantity"].Value);
+
+                mySqlCommand.Parameters.Clear();
+
+                mySqlCommand.Parameters.AddWithValue("@packagingId", packagingId);
+                mySqlCommand.Parameters.AddWithValue("@clientId", _selectedClientId);
+                mySqlCommand.Parameters.AddWithValue("@packagingQuantity", packagingQuantity);
+
+                DbConnection.executeQuery(mySqlCommand);
+            }
+        }
+
+        private void insertedArticlesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 7)
+            {
+
+                DataGridViewRow _selectedRow = insertedArticlesDataGridView.CurrentRow;
+
+                _selectedArticleName = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleName"].Value.ToString();
+                _selectedArticleSort = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleSort"].Value.ToString();
+                _selectedArticleOrganic = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleOrganic"].Value.ToString();
+                _selectedArticleCategory = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleCategory"].Value.ToString();
+                _selectedArticlePrice = Convert.ToDecimal(insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articlePrice"].Value);
+
+                DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da obrišete artikal iz unosa?\n{_selectedArticleName}/{_selectedArticleSort}/{_selectedArticleOrganic}\nKlasa: {_selectedArticleCategory}\nCena: {_selectedArticlePrice}");
+                if (result == DialogResult.No || result == DialogResult.Cancel)
+                {
+                    return;
+                }
+                insertedArticlesDataGridView.Rows.Remove(_selectedRow);
+            }
         }
 
         private void cratesCmbBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -161,7 +219,7 @@ namespace Freshivoje
 
         private void palletCmbBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if((sender as ComboBox).SelectedIndex == 0)
+            if ((sender as ComboBox).SelectedIndex == 0)
             {
                 palletWeightLbl.Enabled = true;
                 palletWeightTxtBox.Enabled = true;

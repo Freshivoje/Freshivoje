@@ -42,21 +42,7 @@ namespace Freshivoje.Options_Forms
                 e.Handled = true;
             }
         }
-        private void onlyNumerics(object sender, KeyPressEventArgs e)
-        {
-            // Limit input to numbers only
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-        }
-
-
+    
         private void backBtn_Click(object sender, EventArgs e)
         {
             Close();

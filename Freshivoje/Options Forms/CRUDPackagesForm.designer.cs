@@ -36,6 +36,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.crudPackagesFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.packagesDataGridView = new System.Windows.Forms.DataGridView();
+            this.minimizeBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.backBtn = new System.Windows.Forms.Button();
+            this.searchPackagesTxtBox = new System.Windows.Forms.TextBox();
+            this.insertPackageBtn = new System.Windows.Forms.Button();
+            this.searchPackagesLbl = new System.Windows.Forms.Label();
             this.idPackaging = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,13 +53,6 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.editPackaging = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deletePackaging = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minimizeBtn = new System.Windows.Forms.Button();
-            this.exitBtn = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.backBtn = new System.Windows.Forms.Button();
-            this.searchPackagesLbl = new System.Windows.Forms.Label();
-            this.searchPackagesTxtBox = new System.Windows.Forms.TextBox();
-            this.insertPackageBtn = new System.Windows.Forms.Button();
             this.crudPackagesFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.packagesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +69,7 @@
             this.crudPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.crudPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.crudPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.crudPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.crudPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.crudPackagesFormTblLayout.Controls.Add(this.packagesDataGridView, 1, 3);
             this.crudPackagesFormTblLayout.Controls.Add(this.minimizeBtn, 6, 0);
             this.crudPackagesFormTblLayout.Controls.Add(this.exitBtn, 7, 0);
@@ -151,92 +151,6 @@
             this.packagesDataGridView.TabIndex = 60;
             this.packagesDataGridView.TabStop = false;
             this.packagesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.packagingDataGridView_CellContentClick);
-            // 
-            // idPackaging
-            // 
-            this.idPackaging.DataPropertyName = "id_packaging";
-            this.idPackaging.HeaderText = "ID";
-            this.idPackaging.Name = "idPackaging";
-            this.idPackaging.Visible = false;
-            // 
-            // capacity
-            // 
-            this.capacity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.capacity.DataPropertyName = "capacity";
-            this.capacity.HeaderText = "Nosivost";
-            this.capacity.Name = "capacity";
-            // 
-            // category
-            // 
-            this.category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.category.DataPropertyName = "category";
-            this.category.HeaderText = "Kategorija";
-            this.category.Name = "category";
-            // 
-            // quantity
-            // 
-            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.quantity.DataPropertyName = "quantity";
-            this.quantity.HeaderText = "Količina";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            // 
-            // price
-            // 
-            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.price.DataPropertyName = "price";
-            this.price.HeaderText = "Cena";
-            this.price.Name = "price";
-            // 
-            // weight
-            // 
-            this.weight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.weight.DataPropertyName = "weight";
-            this.weight.HeaderText = "Težina";
-            this.weight.Name = "weight";
-            // 
-            // producer
-            // 
-            this.producer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.producer.DataPropertyName = "producer";
-            this.producer.HeaderText = "Proizvođač";
-            this.producer.Name = "producer";
-            // 
-            // Status
-            // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Status.DataPropertyName = "status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            // 
-            // editPackaging
-            // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.NullValue = "✎";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.editPackaging.DefaultCellStyle = dataGridViewCellStyle2;
-            this.editPackaging.HeaderText = "";
-            this.editPackaging.Name = "editPackaging";
-            this.editPackaging.ReadOnly = true;
-            this.editPackaging.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.editPackaging.Width = 40;
-            // 
-            // deletePackaging
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle3.NullValue = "X";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
-            this.deletePackaging.DefaultCellStyle = dataGridViewCellStyle3;
-            this.deletePackaging.HeaderText = "";
-            this.deletePackaging.Name = "deletePackaging";
-            this.deletePackaging.ReadOnly = true;
-            this.deletePackaging.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deletePackaging.Width = 40;
             // 
             // minimizeBtn
             // 
@@ -326,20 +240,6 @@
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // searchPackagesLbl
-            // 
-            this.searchPackagesLbl.AutoSize = true;
-            this.searchPackagesLbl.BackColor = System.Drawing.Color.Transparent;
-            this.searchPackagesLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.searchPackagesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchPackagesLbl.ForeColor = System.Drawing.Color.White;
-            this.searchPackagesLbl.Location = new System.Drawing.Point(993, 105);
-            this.searchPackagesLbl.Name = "searchPackagesLbl";
-            this.searchPackagesLbl.Size = new System.Drawing.Size(274, 27);
-            this.searchPackagesLbl.TabIndex = 41;
-            this.searchPackagesLbl.Text = "Pretraži ambalaže";
-            this.searchPackagesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // searchPackagesTxtBox
             // 
             this.searchPackagesTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -374,6 +274,106 @@
             this.insertPackageBtn.Text = "Kreiraj ambalažu";
             this.insertPackageBtn.UseVisualStyleBackColor = false;
             this.insertPackageBtn.Click += new System.EventHandler(this.insertPackageBtn_Click);
+            // 
+            // searchPackagesLbl
+            // 
+            this.searchPackagesLbl.AutoSize = true;
+            this.searchPackagesLbl.BackColor = System.Drawing.Color.Transparent;
+            this.searchPackagesLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.searchPackagesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchPackagesLbl.ForeColor = System.Drawing.Color.White;
+            this.searchPackagesLbl.Location = new System.Drawing.Point(993, 105);
+            this.searchPackagesLbl.Name = "searchPackagesLbl";
+            this.searchPackagesLbl.Size = new System.Drawing.Size(274, 27);
+            this.searchPackagesLbl.TabIndex = 41;
+            this.searchPackagesLbl.Text = "Pretraži ambalaže";
+            this.searchPackagesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // idPackaging
+            // 
+            this.idPackaging.DataPropertyName = "id_packaging";
+            this.idPackaging.HeaderText = "ID";
+            this.idPackaging.Name = "idPackaging";
+            this.idPackaging.Visible = false;
+            // 
+            // capacity
+            // 
+            this.capacity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.capacity.DataPropertyName = "capacity";
+            this.capacity.HeaderText = "Nosivost";
+            this.capacity.Name = "capacity";
+            // 
+            // category
+            // 
+            this.category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.category.DataPropertyName = "category";
+            this.category.HeaderText = "Kategorija";
+            this.category.Name = "category";
+            // 
+            // quantity
+            // 
+            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.quantity.DataPropertyName = "quantity";
+            this.quantity.HeaderText = "Količina";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            // 
+            // price
+            // 
+            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.price.DataPropertyName = "price";
+            this.price.HeaderText = "Cena";
+            this.price.Name = "price";
+            // 
+            // weight
+            // 
+            this.weight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.weight.DataPropertyName = "weight";
+            this.weight.HeaderText = "Težina";
+            this.weight.Name = "weight";
+            // 
+            // producer
+            // 
+            this.producer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.producer.DataPropertyName = "producer";
+            this.producer.HeaderText = "Proizvođač";
+            this.producer.Name = "producer";
+            // 
+            // Status
+            // 
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Status.DataPropertyName = "state";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            // 
+            // editPackaging
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.NullValue = "✎";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.editPackaging.DefaultCellStyle = dataGridViewCellStyle2;
+            this.editPackaging.HeaderText = "";
+            this.editPackaging.Name = "editPackaging";
+            this.editPackaging.ReadOnly = true;
+            this.editPackaging.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.editPackaging.Width = 40;
+            // 
+            // deletePackaging
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.NullValue = "X";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
+            this.deletePackaging.DefaultCellStyle = dataGridViewCellStyle3;
+            this.deletePackaging.HeaderText = "";
+            this.deletePackaging.Name = "deletePackaging";
+            this.deletePackaging.ReadOnly = true;
+            this.deletePackaging.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.deletePackaging.Width = 40;
             // 
             // CRUDPackagesForm
             // 
