@@ -32,8 +32,8 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
-            this.purchaseBtn = new System.Windows.Forms.Button();
-            this.storegeOfGoodsBtn = new System.Windows.Forms.Button();
+            this.purchaseArticlesBtn = new System.Windows.Forms.Button();
+            this.storageRentBtn = new System.Windows.Forms.Button();
             this.insertMethodFormTblLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,8 +50,8 @@
             this.insertMethodFormTblLayout.Controls.Add(this.backBtn, 2, 0);
             this.insertMethodFormTblLayout.Controls.Add(this.minimizeBtn, 3, 0);
             this.insertMethodFormTblLayout.Controls.Add(this.exitBtn, 4, 0);
-            this.insertMethodFormTblLayout.Controls.Add(this.purchaseBtn, 1, 2);
-            this.insertMethodFormTblLayout.Controls.Add(this.storegeOfGoodsBtn, 1, 4);
+            this.insertMethodFormTblLayout.Controls.Add(this.purchaseArticlesBtn, 1, 2);
+            this.insertMethodFormTblLayout.Controls.Add(this.storageRentBtn, 1, 4);
             this.insertMethodFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insertMethodFormTblLayout.Location = new System.Drawing.Point(5, 5);
             this.insertMethodFormTblLayout.Name = "insertMethodFormTblLayout";
@@ -136,44 +136,44 @@
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
-            // purchaseBtn
+            // purchaseArticlesBtn
             // 
-            this.purchaseBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.purchaseBtn.BackColor = System.Drawing.Color.Transparent;
-            this.purchaseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.purchaseBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.purchaseBtn.FlatAppearance.BorderSize = 5;
-            this.purchaseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.purchaseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.purchaseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.purchaseBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.purchaseBtn.ForeColor = System.Drawing.Color.White;
-            this.purchaseBtn.Location = new System.Drawing.Point(191, 147);
-            this.purchaseBtn.Name = "purchaseBtn";
-            this.purchaseBtn.Size = new System.Drawing.Size(228, 72);
-            this.purchaseBtn.TabIndex = 0;
-            this.purchaseBtn.Text = "OTKUP ARTIKALA";
-            this.purchaseBtn.UseVisualStyleBackColor = false;
-            this.purchaseBtn.Click += new System.EventHandler(this.repurchaseBtn_Click);
+            this.purchaseArticlesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.purchaseArticlesBtn.BackColor = System.Drawing.Color.Transparent;
+            this.purchaseArticlesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.purchaseArticlesBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.purchaseArticlesBtn.FlatAppearance.BorderSize = 5;
+            this.purchaseArticlesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.purchaseArticlesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.purchaseArticlesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.purchaseArticlesBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.purchaseArticlesBtn.ForeColor = System.Drawing.Color.White;
+            this.purchaseArticlesBtn.Location = new System.Drawing.Point(191, 147);
+            this.purchaseArticlesBtn.Name = "purchaseArticlesBtn";
+            this.purchaseArticlesBtn.Size = new System.Drawing.Size(228, 72);
+            this.purchaseArticlesBtn.TabIndex = 0;
+            this.purchaseArticlesBtn.Text = "OTKUP ARTIKALA";
+            this.purchaseArticlesBtn.UseVisualStyleBackColor = false;
+            this.purchaseArticlesBtn.Click += new System.EventHandler(this.repurchaseBtn_Click);
             // 
-            // storegeOfGoodsBtn
+            // storageRentBtn
             // 
-            this.storegeOfGoodsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.storegeOfGoodsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.storegeOfGoodsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.storegeOfGoodsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.storegeOfGoodsBtn.FlatAppearance.BorderSize = 5;
-            this.storegeOfGoodsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.storegeOfGoodsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.storegeOfGoodsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.storegeOfGoodsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.storegeOfGoodsBtn.ForeColor = System.Drawing.Color.White;
-            this.storegeOfGoodsBtn.Location = new System.Drawing.Point(191, 311);
-            this.storegeOfGoodsBtn.Name = "storegeOfGoodsBtn";
-            this.storegeOfGoodsBtn.Size = new System.Drawing.Size(228, 72);
-            this.storegeOfGoodsBtn.TabIndex = 1;
-            this.storegeOfGoodsBtn.Text = "LAGEROVANJE";
-            this.storegeOfGoodsBtn.UseVisualStyleBackColor = false;
+            this.storageRentBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.storageRentBtn.BackColor = System.Drawing.Color.Transparent;
+            this.storageRentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.storageRentBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.storageRentBtn.FlatAppearance.BorderSize = 5;
+            this.storageRentBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.storageRentBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.storageRentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.storageRentBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.storageRentBtn.ForeColor = System.Drawing.Color.White;
+            this.storageRentBtn.Location = new System.Drawing.Point(191, 311);
+            this.storageRentBtn.Name = "storageRentBtn";
+            this.storageRentBtn.Size = new System.Drawing.Size(228, 72);
+            this.storageRentBtn.TabIndex = 1;
+            this.storageRentBtn.Text = "LAGEROVANJE";
+            this.storageRentBtn.UseVisualStyleBackColor = false;
             // 
             // InsertMethodForm
             // 
@@ -197,8 +197,8 @@
         private System.Windows.Forms.TableLayoutPanel insertMethodFormTblLayout;
         private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button exitBtn;
-        private System.Windows.Forms.Button purchaseBtn;
-        private System.Windows.Forms.Button storegeOfGoodsBtn;
+        private System.Windows.Forms.Button purchaseArticlesBtn;
+        private System.Windows.Forms.Button storageRentBtn;
         private System.Windows.Forms.Button backBtn;
     }
 }

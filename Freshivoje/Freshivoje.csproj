@@ -213,9 +213,6 @@
     <EmbeddedResource Include="Insert Form\ChooseClientForm.resx">
       <DependentUpon>ChooseClientForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Insert Form\ChooseInsertMethodForm.resx">
-      <DependentUpon>InsertMethodForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Insert Form\InsertMethodForm.resx">
       <DependentUpon>InsertMethodForm.cs</DependentUpon>
     </EmbeddedResource>
