@@ -104,7 +104,7 @@ namespace Freshivoje.Transport
             {
                 return;
             }
-            DbConnection.executeTransportQuery(transportItems);
+            DbConnection.executeTransportQuery(transportItems, fkClientId);
             CustomMessageBox.ShowDialog(this,$"Uspešno ste kreirali putni nalog!");
             Close();
 
