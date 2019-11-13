@@ -68,7 +68,7 @@ namespace Freshivoje
                 _databaseConnection.Open();
                 mySqlCommand.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {

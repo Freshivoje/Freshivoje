@@ -93,7 +93,7 @@ namespace Freshivoje.Transport
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = CustomDialog.ShowDialog(this,$"Da li ste sigurni da želite da zavrsite putni nalog?");
+            DialogResult result = CustomDialog.ShowDialog(this,$"Da li ste sigurni da želite da završite putni nalog?");
             if (result == DialogResult.No || result == DialogResult.Cancel)
             {
                 return;
@@ -101,7 +101,6 @@ namespace Freshivoje.Transport
             DbConnection.executeTransportQuery(transportItems, _clientId);
             CustomMessageBox.ShowDialog(this,$"Uspešno ste kreirali putni nalog!");
             Close();
-
         }
 
         private void backBtn_Click(object sender, EventArgs e)
