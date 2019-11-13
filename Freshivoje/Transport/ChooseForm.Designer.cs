@@ -50,18 +50,19 @@
             this.chooseTransportFormTblLayout.Controls.Add(this.backBtn, 2, 0);
             this.chooseTransportFormTblLayout.Controls.Add(this.minimizeBtn, 3, 0);
             this.chooseTransportFormTblLayout.Controls.Add(this.exitBtn, 4, 0);
-            this.chooseTransportFormTblLayout.Controls.Add(this.repurchaseBtn, 1, 1);
-            this.chooseTransportFormTblLayout.Controls.Add(this.storegeOfGoodsBtn, 1, 2);
+            this.chooseTransportFormTblLayout.Controls.Add(this.storegeOfGoodsBtn, 1, 3);
+            this.chooseTransportFormTblLayout.Controls.Add(this.repurchaseBtn, 1, 2);
             this.chooseTransportFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chooseTransportFormTblLayout.Location = new System.Drawing.Point(0, 0);
+            this.chooseTransportFormTblLayout.Location = new System.Drawing.Point(5, 5);
             this.chooseTransportFormTblLayout.Name = "chooseTransportFormTblLayout";
-            this.chooseTransportFormTblLayout.RowCount = 4;
+            this.chooseTransportFormTblLayout.RowCount = 6;
             this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.chooseTransportFormTblLayout.Size = new System.Drawing.Size(634, 630);
+            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.chooseTransportFormTblLayout.Size = new System.Drawing.Size(624, 620);
             this.chooseTransportFormTblLayout.TabIndex = 2;
             // 
             // backBtn
@@ -78,7 +79,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(487, 3);
+            this.backBtn.Location = new System.Drawing.Point(477, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 54);
             this.backBtn.TabIndex = 11;
@@ -101,7 +102,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(537, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(527, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(44, 54);
             this.minimizeBtn.TabIndex = 5;
@@ -123,7 +124,7 @@
             this.exitBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(587, 3);
+            this.exitBtn.Location = new System.Drawing.Point(577, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.exitBtn.Size = new System.Drawing.Size(44, 54);
@@ -145,7 +146,7 @@
             this.repurchaseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.repurchaseBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.repurchaseBtn.ForeColor = System.Drawing.Color.White;
-            this.repurchaseBtn.Location = new System.Drawing.Point(203, 161);
+            this.repurchaseBtn.Location = new System.Drawing.Point(198, 211);
             this.repurchaseBtn.Name = "repurchaseBtn";
             this.repurchaseBtn.Size = new System.Drawing.Size(228, 72);
             this.repurchaseBtn.TabIndex = 0;
@@ -165,7 +166,7 @@
             this.storegeOfGoodsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.storegeOfGoodsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.storegeOfGoodsBtn.ForeColor = System.Drawing.Color.White;
-            this.storegeOfGoodsBtn.Location = new System.Drawing.Point(203, 436);
+            this.storegeOfGoodsBtn.Location = new System.Drawing.Point(198, 336);
             this.storegeOfGoodsBtn.Name = "storegeOfGoodsBtn";
             this.storegeOfGoodsBtn.Size = new System.Drawing.Size(228, 72);
             this.storegeOfGoodsBtn.TabIndex = 1;
@@ -177,10 +178,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(634, 630);
             this.Controls.Add(this.chooseTransportFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChooseForm";
+            this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChooseForm";
             this.chooseTransportFormTblLayout.ResumeLayout(false);

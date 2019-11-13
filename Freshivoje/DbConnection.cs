@@ -83,8 +83,10 @@ namespace Freshivoje
 
         public static void executeTransportQuery(List<TransportItem> transportItems, int clientId)
         {
-            MySqlCommand mySqlCommand = new MySqlCommand();
-            mySqlCommand.Connection = _databaseConnection;
+            MySqlCommand mySqlCommand = new MySqlCommand
+            {
+                Connection = _databaseConnection
+            };
             _databaseConnection.Open();
 
             MySqlTransaction transaction = _databaseConnection.BeginTransaction();

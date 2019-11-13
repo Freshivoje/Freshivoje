@@ -88,7 +88,6 @@ namespace Freshivoje.Options_Forms
             mySqlCommand.Parameters.AddWithValue("@packageProducer", package._producer);
             mySqlCommand.Parameters.AddWithValue("@packageStatus", package._status);
              
-            ///test
             DbConnection.executeQuery(mySqlCommand);
             Close();
         }

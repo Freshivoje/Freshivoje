@@ -20,13 +20,11 @@ namespace Freshivoje.Transport
         private int idTransport = 0;
         
         public TransportForm(int clientId)
-        {
-            
+        {    
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             transportDataGridView.AutoGenerateColumns = false;
-            _clientId = clientId;
-         
+            _clientId = clientId;   
         }
 
         // Disables flickering on FormLoad
@@ -89,6 +87,8 @@ namespace Freshivoje.Transport
             priceTxtBox.ResetText();
             quantityTxtBox.ResetText();
             travelTxtBox.ResetText();
+
+            priceTxtBox.Focus();
         }
 
         private void finishInsertBtn_Click(object sender, EventArgs e)

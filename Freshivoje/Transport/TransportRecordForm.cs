@@ -16,9 +16,8 @@ namespace Freshivoje.Transport
     {
         private int _selectedTransportId;
         private string _selectedTransportStatus;
-        private readonly string _fillDGVQuery = "SELECT " +
-            "CONCAT(`clients`.`first_name`,' ',`clients`.`last_name`) as client, `clients`.`id_client` as fk_client_id,`transport`.`id_transport`, `transport`.`transport_date`" +
-            ",`transport`.`transport_status` FROM `transport` INNER JOIN `clients` ON `clients`.`id_client` = `transport`.`fk_client_id`  WHERE `transport`.`transport_year` = '" + DateTime.Today.ToString("yyyy") + "'";
+        private readonly string _fillDGVQuery = "SELECT CONCAT(`clients`.`first_name`,' ',`clients`.`last_name`) as client, `clients`.`id_client` as fk_client_id, `transport`.`id_transport`, `transport`.`transport_date`" +
+            ",`transport`.`transport_status` FROM `transport` JOIN `clients` ON `clients`.`id_client` = `transport`.`fk_client_id`";
 
         public TransportRecordForm()
         {
@@ -44,21 +43,7 @@ namespace Freshivoje.Transport
                 e.Handled = true;
             }
         }
-        private void clientsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-            {
-                return;
-            }
 
-            _selectedTransportId = Convert.ToInt32(TransportDataGridView.Rows[e.RowIndex].Cells["transportId"].Value);
-
-            if (e.ColumnIndex == 8)
-            {
-                using TransportForm transportForm = new TransportForm(_selectedTransportId);
-                transportForm.ShowDialog(this);
-            }
-        }
         private void searchTransportxtBox_TextChanged(object sender, EventArgs e)
         {
             string searchValue = searchTransportTxtBox.Text;
@@ -83,32 +68,36 @@ namespace Freshivoje.Transport
 
         private void TransportDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            _selectedTransportId = Convert.ToInt32(TransportDataGridView.Rows[e.RowIndex].Cells["transportId"].Value);
-            _selectedTransportStatus = TransportDataGridView.Rows[e.RowIndex].Cells["status"].Value.ToString();
-            if (_selectedTransportStatus == "plaćeno")
+            if (e.RowIndex < 0)
             {
-                CustomMessageBox.ShowDialog(this, $"Ovaj putni nalog je već plaćen!");
                 return;
             }
-            else
-            {
-                if (e.ColumnIndex == 6)
+
+            if (e.ColumnIndex == 5)
+            { 
+                _selectedTransportId = Convert.ToInt32(TransportDataGridView.Rows[e.RowIndex].Cells["transportId"].Value);
+                _selectedTransportStatus = TransportDataGridView.Rows[e.RowIndex].Cells["status"].Value.ToString();
+                if (_selectedTransportStatus == "plaćeno")
                 {
-                    DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da ste platili putni nalog?");
-                    if (result == DialogResult.No || result == DialogResult.Cancel)
-                    {
-                        return;
-                    }
-                    MySqlCommand mySqlCommand = new MySqlCommand
-                    {
-                        CommandText = "UPDATE `transport` SET `transport_status`='1' WHERE id_transport=@id"
-                    };
-                    mySqlCommand.Parameters.AddWithValue("@id", _selectedTransportId);
-                    DbConnection.executeQuery(mySqlCommand);
+                    CustomMessageBox.ShowDialog(this, $"Ovaj putni nalog je već plaćen!");
+                    return;
                 }
             }
-            
-            DbConnection.fillDGV(TransportDataGridView, _fillDGVQuery);
+         
+            if (e.ColumnIndex == 6)
+            {
+                DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da ste platili putni nalog?");
+                if (result == DialogResult.No || result == DialogResult.Cancel)
+                {
+                    return;
+                }
+                MySqlCommand mySqlCommand = new MySqlCommand
+                {
+                    CommandText = "UPDATE `transport` SET `transport_status`='1' WHERE id_transport=@id"
+                };
+                mySqlCommand.Parameters.AddWithValue("@id", _selectedTransportId);
+                DbConnection.executeQuery(mySqlCommand);
+            } 
         }
     }
 }
