@@ -68,12 +68,13 @@ namespace Freshivoje
                 _databaseConnection.Open();
                 mySqlCommand.ExecuteNonQuery();
             }
-            catch
+            catch(Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
                     return;
                 }
+                throw e;
             }
             finally
             {
@@ -201,12 +202,13 @@ namespace Freshivoje
                 _databaseConnection.Open();
                 value = mySqlCommand.ExecuteScalar();
             }
-            catch
+            catch(Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
                     return -1;
                 }
+                throw e;
             }
             finally
             {

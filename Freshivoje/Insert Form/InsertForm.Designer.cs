@@ -66,10 +66,12 @@
             this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packagingQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packagingOwnership = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articleSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articleOrganic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articleCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articleQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articlePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.insertFormTblLayout.SuspendLayout();
@@ -431,10 +433,12 @@
             this.packagingId,
             this.packagingQuantity,
             this.packagingOwnership,
+            this.articleId,
             this.articleName,
             this.articleSort,
             this.articleOrganic,
             this.articleCategory,
+            this.articleQuantity,
             this.articlePrice,
             this.deleteArticle});
             this.insertFormTblLayout.SetColumnSpan(this.insertedArticlesDataGridView, 8);
@@ -652,15 +656,21 @@
             // 
             // packagingOwnership
             // 
-            this.packagingOwnership.HeaderText = "Vlasništvo";
+            this.packagingOwnership.HeaderText = "Vlasništvo ambalaže";
             this.packagingOwnership.Name = "packagingOwnership";
             this.packagingOwnership.ReadOnly = true;
             this.packagingOwnership.Visible = false;
             // 
+            // articleId
+            // 
+            this.articleId.HeaderText = "ID artikla";
+            this.articleId.Name = "articleId";
+            this.articleId.ReadOnly = true;
+            this.articleId.Visible = false;
+            // 
             // articleName
             // 
             this.articleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleName.DataPropertyName = "article_name";
             this.articleName.HeaderText = "Ime";
             this.articleName.Name = "articleName";
             this.articleName.ReadOnly = true;
@@ -668,7 +678,6 @@
             // articleSort
             // 
             this.articleSort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleSort.DataPropertyName = "sort";
             this.articleSort.HeaderText = "Sorta";
             this.articleSort.Name = "articleSort";
             this.articleSort.ReadOnly = true;
@@ -676,7 +685,6 @@
             // articleOrganic
             // 
             this.articleOrganic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.articleOrganic.DataPropertyName = "organic";
             this.articleOrganic.HeaderText = "Kontrolisana proizvodnja";
             this.articleOrganic.Name = "articleOrganic";
             this.articleOrganic.ReadOnly = true;
@@ -685,14 +693,21 @@
             // articleCategory
             // 
             this.articleCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleCategory.DataPropertyName = "category_name";
             this.articleCategory.HeaderText = "Klasa";
             this.articleCategory.Name = "articleCategory";
             this.articleCategory.ReadOnly = true;
             // 
+            // articleQuantity
+            // 
+            this.articleQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.articleQuantity.HeaderText = "Neto količina";
+            this.articleQuantity.Name = "articleQuantity";
+            this.articleQuantity.ReadOnly = true;
+            this.articleQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // articlePrice
             // 
-            this.articlePrice.DataPropertyName = "value";
+            this.articlePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.articlePrice.HeaderText = "Cena";
             this.articlePrice.Name = "articlePrice";
             this.articlePrice.ReadOnly = true;
@@ -767,10 +782,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn packagingId;
         private System.Windows.Forms.DataGridViewTextBoxColumn packagingQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn packagingOwnership;
+        private System.Windows.Forms.DataGridViewTextBoxColumn articleId;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleName;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleSort;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleOrganic;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn articleQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn articlePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn deleteArticle;
     }
