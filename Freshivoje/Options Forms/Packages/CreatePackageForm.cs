@@ -18,7 +18,7 @@ namespace Freshivoje.Options_Forms
         public CreatePackageForm()
         {
             InitializeComponent();
-            packageStatusCmbBox.Text = "Novo";
+            packageStatusCmbBox.SelectedIndex = 0;
         }
 
         // Disables flickering on FormLoad

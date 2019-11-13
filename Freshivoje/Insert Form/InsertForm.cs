@@ -154,8 +154,8 @@ namespace Freshivoje
         {
             if (insertedArticlesDataGridView.Rows.Count < 1)
             {
-                CustomMessageBox.ShowDialog(this, Properties.Resources.emptyDGVMsg);
-                return;
+                //CustomMessageBox.ShowDialog(this, Properties.Resources.emptyDGVMsg);
+                //return;
             }
 
             MySqlCommand mySqlCommand = new MySqlCommand

@@ -17,21 +17,22 @@ namespace Freshivoje.Options_Forms
 
         private readonly string _fillDGVQuery = "SELECT * FROM `clients`";
         private int _selectedClientId;
-        private string _selectedClientFirstName = "",
-                        _selectedClientLastName = "",
-                        _selectedClientAddress = "",
-                        _selectedClientType = "",
-                        _selectedClientCompanyName = "",
-                        _selectedClientJMBG = "",
-                        _selectedClientPIB = "",
-                        _selectedClientBPG = "",
-                        _selectedClientSPO = "",
-                        _selectedClientZipCode = "",
-                        _selectedClientBankAccount = "",
-                        _selectedClientPhone = "";
+        private string _selectedClientFirstName = string.Empty,
+                        _selectedClientLastName = string.Empty,
+                        _selectedClientAddress = string.Empty,
+                        _selectedClientType = string.Empty,
+                        _selectedClientCompanyName = string.Empty,
+                        _selectedClientJMBG = string.Empty,
+                        _selectedClientPIB = string.Empty,
+                        _selectedClientBPG = string.Empty,
+                        _selectedClientSPO = string.Empty,
+                        _selectedClientZipCode = string.Empty,
+                        _selectedClientBankAccount = string.Empty,
+                        _selectedClientPhone = string.Empty;
         public CRUDClientsForm()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
             clientsDataGridView.AutoGenerateColumns = false;
             // BUG?
             clientsDataGridView.DefaultCellStyle.ForeColor = Color.Black;

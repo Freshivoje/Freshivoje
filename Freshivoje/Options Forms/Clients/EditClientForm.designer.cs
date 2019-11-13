@@ -183,6 +183,7 @@
             this.clientLastNameTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.clientFormTableLayoutPanel.SetColumnSpan(this.clientLastNameTxtBox, 4);
             this.clientLastNameTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.clientLastNameTxtBox.Enabled = false;
             this.clientLastNameTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientLastNameTxtBox.Location = new System.Drawing.Point(963, 59);
             this.clientLastNameTxtBox.Multiline = true;
@@ -197,6 +198,7 @@
             this.clientFirstNameTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.clientFormTableLayoutPanel.SetColumnSpan(this.clientFirstNameTxtBox, 4);
             this.clientFirstNameTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.clientFirstNameTxtBox.Enabled = false;
             this.clientFirstNameTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientFirstNameTxtBox.Location = new System.Drawing.Point(163, 59);
             this.clientFirstNameTxtBox.Multiline = true;
@@ -360,6 +362,7 @@
             this.clientJMBGTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.clientFormTableLayoutPanel.SetColumnSpan(this.clientJMBGTxtBox, 4);
             this.clientJMBGTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.clientJMBGTxtBox.Enabled = false;
             this.clientJMBGTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientJMBGTxtBox.Location = new System.Drawing.Point(163, 283);
             this.clientJMBGTxtBox.MaxLength = 13;

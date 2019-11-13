@@ -91,14 +91,14 @@ namespace Freshivoje
 
                 DateTime today = DateTime.Today;
                 string date = today.ToString("yyyy-MM-dd");
-                mySqlCommand1.CommandText = @"INSERT INTO `transport` (`fk_client_id`, `transport_number`, `transport_date`, `transport_year`, `transport_status`) VALUES (@clientId, @transportNumber, @transportDate, @transportYear, @transportStatus); SELECT LAST_INSERT_ID()";
+                mySqlCommand1.CommandText = @"INSERT INTO `transport` (`fk_client_id`, `transport_number`, `transport_date`, `transport_year`) VALUES (@clientId, @transportNumber, @transportDate, @transportYear); SELECT LAST_INSERT_ID()";
                 mySqlCommand1.Connection = _databaseConnection;
                 mySqlCommand1.Transaction = transaction;
                 mySqlCommand1.Parameters.AddWithValue("@clientId", transportItems[0]._clientId);
                 mySqlCommand1.Parameters.AddWithValue("@transportNumber", transportNumber);
                 mySqlCommand1.Parameters.AddWithValue("@transportDate",date);
                 mySqlCommand1.Parameters.AddWithValue("@transportYear", today.ToString("yyyy"));
-                mySqlCommand1.Parameters.AddWithValue("@transportStatus", 1);
+             
 
 
                 dynamic transportId = mySqlCommand1.ExecuteScalar();

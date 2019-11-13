@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cancelBtn = new System.Windows.Forms.Button();
-            this.editBtn = new System.Windows.Forms.Button();
+            this.updatePriceBtn = new System.Windows.Forms.Button();
             this.articleOrganicLbl = new System.Windows.Forms.Label();
             this.articleNameTxtBox = new System.Windows.Forms.TextBox();
             this.articleSortTxtBox = new System.Windows.Forms.TextBox();
@@ -68,50 +68,52 @@
             this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelBtn.ForeColor = System.Drawing.Color.White;
-            this.cancelBtn.Location = new System.Drawing.Point(378, 577);
+            this.cancelBtn.Location = new System.Drawing.Point(378, 489);
             this.cancelBtn.Margin = new System.Windows.Forms.Padding(5);
             this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(140, 40);
+            this.editArticleFormTableLayoutPanel.SetRowSpan(this.cancelBtn, 2);
+            this.cancelBtn.Size = new System.Drawing.Size(140, 78);
             this.cancelBtn.TabIndex = 21;
             this.cancelBtn.TabStop = false;
             this.cancelBtn.Text = "NAZAD";
             this.cancelBtn.UseVisualStyleBackColor = false;
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
-            // editBtn
+            // updatePriceBtn
             // 
-            this.editBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.editBtn.BackColor = System.Drawing.Color.Transparent;
-            this.editArticleFormTableLayoutPanel.SetColumnSpan(this.editBtn, 2);
-            this.editBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.editBtn.FlatAppearance.BorderSize = 5;
-            this.editBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.editBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBtn.ForeColor = System.Drawing.Color.White;
-            this.editBtn.Location = new System.Drawing.Point(147, 577);
-            this.editBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(154, 40);
-            this.editBtn.TabIndex = 20;
-            this.editBtn.TabStop = false;
-            this.editBtn.Text = "IZMENI";
-            this.editBtn.UseVisualStyleBackColor = false;
-            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
+            this.updatePriceBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.updatePriceBtn.BackColor = System.Drawing.Color.Transparent;
+            this.editArticleFormTableLayoutPanel.SetColumnSpan(this.updatePriceBtn, 2);
+            this.updatePriceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.updatePriceBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.updatePriceBtn.FlatAppearance.BorderSize = 5;
+            this.updatePriceBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.updatePriceBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.updatePriceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updatePriceBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updatePriceBtn.ForeColor = System.Drawing.Color.White;
+            this.updatePriceBtn.Location = new System.Drawing.Point(147, 489);
+            this.updatePriceBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.updatePriceBtn.Name = "updatePriceBtn";
+            this.editArticleFormTableLayoutPanel.SetRowSpan(this.updatePriceBtn, 2);
+            this.updatePriceBtn.Size = new System.Drawing.Size(154, 78);
+            this.updatePriceBtn.TabIndex = 20;
+            this.updatePriceBtn.TabStop = false;
+            this.updatePriceBtn.Text = "DODAJ NOVU CENU";
+            this.updatePriceBtn.UseVisualStyleBackColor = false;
+            this.updatePriceBtn.Click += new System.EventHandler(this.updatePriceBtn_Click);
             // 
             // articleOrganicLbl
             // 
             this.articleOrganicLbl.AutoSize = true;
             this.articleOrganicLbl.BackColor = System.Drawing.Color.Transparent;
             this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articleOrganicLbl, 4);
-            this.articleOrganicLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.articleOrganicLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.articleOrganicLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articleOrganicLbl.ForeColor = System.Drawing.Color.White;
-            this.articleOrganicLbl.Location = new System.Drawing.Point(115, 176);
+            this.articleOrganicLbl.Location = new System.Drawing.Point(115, 193);
             this.articleOrganicLbl.Name = "articleOrganicLbl";
-            this.articleOrganicLbl.Size = new System.Drawing.Size(442, 44);
+            this.articleOrganicLbl.Size = new System.Drawing.Size(442, 27);
             this.articleOrganicLbl.TabIndex = 19;
             this.articleOrganicLbl.Text = "Kontrolisana proizvodnja";
             this.articleOrganicLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -173,7 +175,7 @@
             this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articleSortLbl, 2);
             this.articleSortLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articleSortLbl.ForeColor = System.Drawing.Color.White;
-            this.articleSortLbl.Location = new System.Drawing.Point(300, 105);
+            this.articleSortLbl.Location = new System.Drawing.Point(301, 105);
             this.articleSortLbl.Name = "articleSortLbl";
             this.articleSortLbl.Size = new System.Drawing.Size(72, 27);
             this.articleSortLbl.TabIndex = 12;
@@ -188,7 +190,7 @@
             this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articleNameLbl, 2);
             this.articleNameLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articleNameLbl.ForeColor = System.Drawing.Color.White;
-            this.articleNameLbl.Location = new System.Drawing.Point(268, 17);
+            this.articleNameLbl.Location = new System.Drawing.Point(270, 17);
             this.articleNameLbl.Name = "articleNameLbl";
             this.articleNameLbl.Size = new System.Drawing.Size(135, 27);
             this.articleNameLbl.TabIndex = 10;
@@ -239,7 +241,7 @@
             this.articlePricesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.editArticleFormTableLayoutPanel.SetRowSpan(this.articlePricesDataGridView, 13);
             this.articlePricesDataGridView.RowTemplate.Height = 30;
-            this.articlePricesDataGridView.Size = new System.Drawing.Size(626, 572);
+            this.articlePricesDataGridView.Size = new System.Drawing.Size(630, 572);
             this.articlePricesDataGridView.TabIndex = 61;
             this.articlePricesDataGridView.TabStop = false;
             // 
@@ -295,8 +297,8 @@
             this.editArticleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.66536F));
             this.editArticleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.66536F));
             this.editArticleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.66536F));
-            this.editArticleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.66536F));
-            this.editArticleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.66536F));
+            this.editArticleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.8125F));
+            this.editArticleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.404891F));
             this.editArticleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.66536F));
             this.editArticleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.80157F));
             this.editArticleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.80157F));
@@ -314,8 +316,8 @@
             this.editArticleFormTableLayoutPanel.Controls.Add(this.articleSortTxtBox, 1, 3);
             this.editArticleFormTableLayoutPanel.Controls.Add(this.articleNameTxtBox, 1, 1);
             this.editArticleFormTableLayoutPanel.Controls.Add(this.articleOrganicLbl, 1, 4);
-            this.editArticleFormTableLayoutPanel.Controls.Add(this.editBtn, 1, 13);
-            this.editArticleFormTableLayoutPanel.Controls.Add(this.cancelBtn, 3, 13);
+            this.editArticleFormTableLayoutPanel.Controls.Add(this.updatePriceBtn, 1, 11);
+            this.editArticleFormTableLayoutPanel.Controls.Add(this.cancelBtn, 3, 11);
             this.editArticleFormTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editArticleFormTableLayoutPanel.Location = new System.Drawing.Point(5, 5);
             this.editArticleFormTableLayoutPanel.Name = "editArticleFormTableLayoutPanel";
@@ -373,12 +375,12 @@
             this.articleCategoryLbl.AutoSize = true;
             this.articleCategoryLbl.BackColor = System.Drawing.Color.Transparent;
             this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articleCategoryLbl, 4);
-            this.articleCategoryLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.articleCategoryLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.articleCategoryLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articleCategoryLbl.ForeColor = System.Drawing.Color.White;
-            this.articleCategoryLbl.Location = new System.Drawing.Point(115, 264);
+            this.articleCategoryLbl.Location = new System.Drawing.Point(115, 281);
             this.articleCategoryLbl.Name = "articleCategoryLbl";
-            this.articleCategoryLbl.Size = new System.Drawing.Size(442, 44);
+            this.articleCategoryLbl.Size = new System.Drawing.Size(442, 27);
             this.articleCategoryLbl.TabIndex = 63;
             this.articleCategoryLbl.Text = "Klasa";
             this.articleCategoryLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -431,7 +433,7 @@
         private System.Windows.Forms.TextBox articleSortTxtBox;
         private System.Windows.Forms.TextBox articleNameTxtBox;
         private System.Windows.Forms.Label articleOrganicLbl;
-        private System.Windows.Forms.Button editBtn;
+        private System.Windows.Forms.Button updatePriceBtn;
         private System.Windows.Forms.Label articleCategoryLbl;
         private System.Windows.Forms.ComboBox articleCategoryCmbBox;
         private System.Windows.Forms.Label articlePriceLbl;

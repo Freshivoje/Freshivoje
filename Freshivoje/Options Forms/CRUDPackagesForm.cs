@@ -9,14 +9,15 @@ namespace Freshivoje.Options_Forms
 {
     public partial class CRUDPackagesForm : Form
     {
-        private readonly string _fillDGVQuery = "SELECT * FROM `packaging` JOIN `categories` ON `packaging`.`fk_category_id` = `categories`.`id_category`";
-        private string _selectedPackageCategory;
+        private readonly string _fillDGVQuery = "SELECT * FROM `packaging`";
+        private string _selectedPackageCategory, _selectedPackageProducer, _selectedPackageStatus;
         private decimal _selectedPackagePrice;
-        private int _selectedPackageId, _selectedPackageCategoryId, _selectedPackageCapacity, _selectedPackageQuantity;
+        private int _selectedPackageId, _selectedPackageCapacity, _selectedPackageQuantity, _selectedPackageWeight;
         public CRUDPackagesForm()
         {
             InitializeComponent();
-            packagesDataGridView.AutoGenerateColumns = false;
+            WindowState = FormWindowState.Maximized;
+            packagesDataGridView.AutoGenerateColumns = false;         
         }
 
         // Disables flickering on FormLoad
@@ -41,21 +42,7 @@ namespace Freshivoje.Options_Forms
                 e.Handled = true;
             }
         }
-        private void onlyNumerics(object sender, KeyPressEventArgs e)
-        {
-            // Limit input to numbers only
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-        }
-
-
+    
         private void backBtn_Click(object sender, EventArgs e)
         {
             Close();
@@ -78,40 +65,44 @@ namespace Freshivoje.Options_Forms
             _selectedPackagePrice = Convert.ToDecimal(packagesDataGridView.Rows[e.RowIndex].Cells["price"].Value);
             _selectedPackageQuantity = Convert.ToInt32(packagesDataGridView.Rows[e.RowIndex].Cells["quantity"].Value);
             _selectedPackageCategory = packagesDataGridView.Rows[e.RowIndex].Cells["category"].Value.ToString();
-            _selectedPackageCategoryId = Convert.ToInt32(packagesDataGridView.Rows[e.RowIndex].Cells["idCategory"].Value);
+            _selectedPackageWeight = Convert.ToInt32(packagesDataGridView.Rows[e.RowIndex].Cells["weight"].Value); //baca gresku
+            _selectedPackageProducer = packagesDataGridView.Rows[e.RowIndex].Cells["producer"].Value.ToString();
+            _selectedPackageStatus = packagesDataGridView.Rows[e.RowIndex].Cells["status"].Value.ToString();
 
-            if (e.ColumnIndex == 7)
+
+            if (e.ColumnIndex == 8)
             {
                 Package package = new Package(
                      _selectedPackageId,
                      _selectedPackageCapacity,
                      _selectedPackagePrice,
-                     _selectedPackageCategoryId,
-                     _selectedPackageQuantity
+                     _selectedPackageCategory,
+                     _selectedPackageQuantity,
+                     _selectedPackageWeight,
+                     _selectedPackageProducer,
+                     _selectedPackageStatus
                      );
-                //EditPackageForm editPackage = new EditPackageForm(package);
-                //editPackage.ShowDialog(this);
+                EditPackageForm editPackage = new EditPackageForm(package);
+                editPackage.ShowDialog(this);
             }
+           
 
-
-            if (e.ColumnIndex == 8)
+            if (e.ColumnIndex == 9)
             {
-                DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da obrišete ambalažu?\nNosivost: {_selectedPackageCapacity} grama\nKoličina: {_selectedPackageQuantity}\nKategorija: {_selectedPackageCategory}\nCena: {_selectedPackagePrice} RSD");
+                DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da obrišete ambalažu?\nNosivost: {_selectedPackageCapacity} grama\nKoličina: {_selectedPackageQuantity}\nKategorija: {_selectedPackageCategory}\nCena: {_selectedPackagePrice} RSD\nTežina: {_selectedPackageWeight}grama\nProizvođač: {_selectedPackageProducer}\nStatus: {_selectedPackageStatus}");
                 if (result == DialogResult.No || result == DialogResult.Cancel)
                 {
                     return;
                 }
-                // JA SAM KRALJ
                 DbConnection.deleteFromDB("packaging", "id_packaging", _selectedPackageId);
                 DbConnection.fillDGV(packagesDataGridView, _fillDGVQuery);
             }
         }
-        //1+1
+
         private void insertPackageBtn_Click(object sender, EventArgs e)
         {
-            //using CreatePackageForm createPackageForm = new CreatePackageForm();
-            //createPackageForm.ShowDialog(this);
-
+            using CreatePackageForm createPackageForm = new CreatePackageForm();
+            createPackageForm.ShowDialog(this);
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -122,7 +113,14 @@ namespace Freshivoje.Options_Forms
         private void searchPackageTxtBox_TextChanged(object sender, EventArgs e)
         {
             string searchValue = searchPackagesTxtBox.Text;
-            (packagesDataGridView.DataSource as DataTable).DefaultView.RowFilter = $"Convert(`capacity`, 'System.String') LIKE '%{searchValue}%' OR Convert(`price`, 'System.String') LIKE '%{searchValue}%' OR `category_name` LIKE '%{searchValue}%'";
+            (packagesDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"Convert(`capacity`, 'System.String') LIKE '%{searchValue}%' 
+                                                                                    OR Convert(`price`, 'System.String') LIKE '%{searchValue}%' 
+                                                                                    OR `category` LIKE '%{searchValue}%' 
+                                                                                    OR Convert(`quantity`, 'System.String') LIKE '%{searchValue}%' 
+                                                                                    OR Convert(`weight`, 'System.String') LIKE '%{searchValue}%'
+                                                                                    OR `producer` LIKE '%{searchValue}%'
+                                                                                    OR `status` LIKE '%{searchValue}%'";
+
         }
 
     }
