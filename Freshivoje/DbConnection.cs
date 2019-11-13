@@ -81,7 +81,7 @@ namespace Freshivoje
             }
         }
 
-        public static void executeTransportQuery(List<TransportItem> transportItems, int clientId)
+        public static void executeTransportQuery(List<TransportItem> transportItems)
         {
             MySqlCommand mySqlCommand = new MySqlCommand
             {
@@ -96,7 +96,7 @@ namespace Freshivoje
             {
                 mySqlCommand.CommandText = "SELECT `transport_number` FROM `transport` ORDER BY `transport_number` DESC LIMIT 1";
 
-                int? transportNumber = (int) mySqlCommand.ExecuteScalar();
+                int? transportNumber = Convert.ToInt32(mySqlCommand.ExecuteScalar());
                 if (transportNumber == null)
                 {
                     transportNumber = 0;
@@ -104,11 +104,13 @@ namespace Freshivoje
 
                 transportNumber += 1;
 
+                int clientId = transportItems[0]._clientId;
+
                 mySqlCommand.CommandText = "INSERT INTO `transport` (`fk_client_id`, `transport_number`) VALUES (@clientId, @transportNumber); SELECT LAST_INSERT_ID()";
                 mySqlCommand.Parameters.AddWithValue("@clientId", clientId);
                 mySqlCommand.Parameters.AddWithValue("@transportNumber", transportNumber);
-             
-                dynamic transportId = mySqlCommand.ExecuteScalar();
+
+                int? transportId = Convert.ToInt32(mySqlCommand.ExecuteScalar());
 
                 mySqlCommand.Parameters.Clear();
 
@@ -129,6 +131,10 @@ namespace Freshivoje
             }
             catch (Exception ex)
             {
+                if (_databaseConnection.State != ConnectionState.Open)
+                {
+                    return;
+                }
                 throw new Exception(ex.Message);
             }
             finally

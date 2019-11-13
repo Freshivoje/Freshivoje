@@ -17,7 +17,6 @@ namespace Freshivoje.Transport
     {
         public List<TransportItem> transportItems = new List<TransportItem>();
         private int _clientId;
-        private int idTransport = 0;
         
         public TransportForm(int clientId)
         {    
@@ -78,11 +77,10 @@ namespace Freshivoje.Transport
             decimal quantity = Convert.ToDecimal(quantityTxtBox.Text);
             decimal travel = Convert.ToDecimal(travelTxtBox.Text);
             decimal totalPrice = price * quantity * travel;
-            idTransport++;
-            transportItems.Add(new TransportItem(_clientId, price, quantity, travel, totalPrice, idTransport));
-            var bindingList = new BindingList<TransportItem>(transportItems);
-            var source = new BindingSource(bindingList, null);
-            transportDataGridView.DataSource = source;
+
+            TransportItem transportItem = new TransportItem(0, _clientId, price, quantity, travel, totalPrice);
+
+            transportDataGridView.Rows.Add(transportItem._id, transportItem._price, transportItem._quantity, transportItem._traveled, transportItem._totalPrice);
 
             priceTxtBox.ResetText();
             quantityTxtBox.ResetText();
@@ -93,33 +91,48 @@ namespace Freshivoje.Transport
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = CustomDialog.ShowDialog(this,$"Da li ste sigurni da želite da završite putni nalog?");
+            if (transportDataGridView.Rows.Count < 1)
+            {
+                CustomMessageBox.ShowDialog(this, Properties.Resources.emptyDGVMsg);
+                return;
+            } 
+
+            DialogResult result = CustomDialog.ShowDialog(this,$"Da li ste sigurni da želite da unesete putne naloge?");
             if (result == DialogResult.No || result == DialogResult.Cancel)
             {
                 return;
             }
-            DbConnection.executeTransportQuery(transportItems, _clientId);
-            CustomMessageBox.ShowDialog(this,$"Uspešno ste kreirali putni nalog!");
-            Close();
+
+            foreach (DataGridViewRow row in transportDataGridView.Rows)
+            {
+                decimal price = Convert.ToDecimal(row.Cells["price"].Value);
+                decimal quantity = Convert.ToDecimal(row.Cells["quantity"].Value);
+                decimal traveled = Convert.ToDecimal(row.Cells["traveled"].Value);
+                decimal totalPrice = Convert.ToDecimal(row.Cells["totalPrice"].Value);
+
+                TransportItem item = new TransportItem(0, _clientId, price, quantity, traveled, totalPrice);
+                transportItems.Add(item);
+            }
+
+            DbConnection.executeTransportQuery(transportItems);
+            transportDataGridView.Rows.Clear();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void minimizeBtn_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
-
         private void transportDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.ColumnIndex == 5)
             {
                 DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da obrišete putni nalog?");
@@ -127,17 +140,8 @@ namespace Freshivoje.Transport
                 {
                     return;
                 }
-                int rowindex = transportDataGridView.CurrentRow.Index;
-                for (int i = 0; i < transportItems.Count; i++)
-                {
-                    if((transportItems[i]._id - 1) == rowindex)
-                    {
-                        transportItems.RemoveAt(Convert.ToInt32(rowindex));
-                        var bindingList = new BindingList<TransportItem>(transportItems);
-                        var source = new BindingSource(bindingList, null);
-                        transportDataGridView.DataSource = source;
-                    }
-                }
+                DataGridViewRow _selectedRow = transportDataGridView.CurrentRow;
+                transportDataGridView.Rows.Remove(_selectedRow);
             }
         }
     }

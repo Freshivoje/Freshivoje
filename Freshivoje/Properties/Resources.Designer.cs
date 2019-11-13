@@ -81,7 +81,7 @@ namespace Freshivoje.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to DOŠLO JE DO GREŠKE.
-        ///UNESITE BAR JEDAN ARTIKAL U POLJE!.
+        ///UNESITE VREDNOSTI U POLJE!.
         /// </summary>
         internal static string emptyDGVMsg {
             get {

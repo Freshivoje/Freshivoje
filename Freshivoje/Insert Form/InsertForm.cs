@@ -172,7 +172,7 @@ namespace Freshivoje
 
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = @"INSERT INTO `packaging_records` (`fk_packaging_id`, `fk_client_id`, `packaging_ownership`, `packaging_record_quantity`) VALUES (@packagingId, @clientId, @packagingOwnership, @packagingQuantity)"
+                CommandText = "INSERT INTO `packaging_records` (`fk_packaging_id`, `fk_client_id`, `packaging_ownership`, `packaging_record_quantity`) VALUES (@packagingId, @clientId, @packagingOwnership, @packagingQuantity)"
             };
 
             foreach (DataGridViewRow row in insertedArticlesDataGridView.Rows)
@@ -199,7 +199,6 @@ namespace Freshivoje
             if (e.ColumnIndex == 8)
             {
 
-                DataGridViewRow _selectedRow = insertedArticlesDataGridView.CurrentRow;
 
                 _selectedArticleName = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleName"].Value.ToString();
                 _selectedArticleSort = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleSort"].Value.ToString();
@@ -212,6 +211,8 @@ namespace Freshivoje
                 {
                     return;
                 }
+
+                DataGridViewRow _selectedRow = insertedArticlesDataGridView.CurrentRow;
                 insertedArticlesDataGridView.Rows.Remove(_selectedRow);
             }
         }

@@ -45,13 +45,13 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.transportDataGridView = new System.Windows.Forms.DataGridView();
-            this._id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Količina = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Kilometri = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UkupnaCena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traveled = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.transportDataGridView)).BeginInit();
             this.insertFormTblLayout.SuspendLayout();
             this.SuspendLayout();
@@ -273,6 +273,8 @@
             // 
             this.transportDataGridView.AllowUserToAddRows = false;
             this.transportDataGridView.AllowUserToDeleteRows = false;
+            this.transportDataGridView.AllowUserToResizeColumns = false;
+            this.transportDataGridView.AllowUserToResizeRows = false;
             this.transportDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.transportDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -286,11 +288,11 @@
             this.transportDataGridView.ColumnHeadersHeight = 40;
             this.transportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.transportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this._id,
+            this.id,
             this.price,
-            this.Količina,
-            this.Kilometri,
-            this.UkupnaCena,
+            this.quantity,
+            this.traveled,
+            this.totalPrice,
             this.deleteArticle});
             this.insertFormTblLayout.SetColumnSpan(this.transportDataGridView, 7);
             this.transportDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -318,61 +320,6 @@
             this.transportDataGridView.TabStop = false;
             this.transportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.transportDataGridView_CellContentClick);
             // 
-            // _id
-            // 
-            this._id.DataPropertyName = "_id";
-            this._id.HeaderText = "ID";
-            this._id.Name = "_id";
-            this._id.ReadOnly = true;
-            this._id.Visible = false;
-            // 
-            // price
-            // 
-            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.price.DataPropertyName = "_price";
-            this.price.HeaderText = "Jedinična Cena";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            // 
-            // Količina
-            // 
-            this.Količina.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Količina.DataPropertyName = "_quantity";
-            this.Količina.HeaderText = "Količina";
-            this.Količina.Name = "Količina";
-            this.Količina.ReadOnly = true;
-            // 
-            // Kilometri
-            // 
-            this.Kilometri.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Kilometri.DataPropertyName = "_traveled";
-            this.Kilometri.HeaderText = "Kilometri";
-            this.Kilometri.Name = "Kilometri";
-            this.Kilometri.ReadOnly = true;
-            // 
-            // UkupnaCena
-            // 
-            this.UkupnaCena.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UkupnaCena.DataPropertyName = "_totalPrice";
-            this.UkupnaCena.HeaderText = "Ukupna Cena";
-            this.UkupnaCena.Name = "UkupnaCena";
-            this.UkupnaCena.ReadOnly = true;
-            // 
-            // deleteArticle
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.NullValue = "X";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle2;
-            this.deleteArticle.HeaderText = "";
-            this.deleteArticle.Name = "deleteArticle";
-            this.deleteArticle.ReadOnly = true;
-            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deleteArticle.Width = 40;
-            // 
             // insertFormTblLayout
             // 
             this.insertFormTblLayout.BackColor = System.Drawing.Color.Transparent;
@@ -384,7 +331,7 @@
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.insertFormTblLayout.Controls.Add(this.transportDataGridView, 0, 5);
             this.insertFormTblLayout.Controls.Add(this.minimizeBtn, 5, 0);
             this.insertFormTblLayout.Controls.Add(this.exitBtn, 6, 0);
@@ -419,6 +366,56 @@
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.insertFormTblLayout.Size = new System.Drawing.Size(1930, 820);
             this.insertFormTblLayout.TabIndex = 2;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // price
+            // 
+            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.price.HeaderText = "Cena po kilogramu";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            // 
+            // quantity
+            // 
+            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.quantity.HeaderText = "Količina";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            // 
+            // traveled
+            // 
+            this.traveled.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.traveled.HeaderText = "Kilometri";
+            this.traveled.Name = "traveled";
+            this.traveled.ReadOnly = true;
+            // 
+            // totalPrice
+            // 
+            this.totalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.totalPrice.HeaderText = "Ukupna cena";
+            this.totalPrice.Name = "totalPrice";
+            this.totalPrice.ReadOnly = true;
+            // 
+            // deleteArticle
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.NullValue = "X";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle2;
+            this.deleteArticle.HeaderText = "";
+            this.deleteArticle.Name = "deleteArticle";
+            this.deleteArticle.ReadOnly = true;
+            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.deleteArticle.Width = 40;
             // 
             // TransportForm
             // 
@@ -455,11 +452,11 @@
         private System.Windows.Forms.TextBox quantityTxtBox;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button insertBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Količina;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Kilometri;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UkupnaCena;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn traveled;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn deleteArticle;
     }
 }

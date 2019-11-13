@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Freshivoje.Models
+﻿namespace Freshivoje.Models
 {
     public class TransportItem
     {
@@ -15,15 +9,14 @@ namespace Freshivoje.Models
         public decimal _traveled { get; private set; }
         public decimal _totalPrice { get; private set; }
 
-        public TransportItem(
-         
+        public TransportItem (
+            int id,
             int fkClientId,
             decimal price,
             decimal quantity,
             decimal traveled,
-            decimal totalPrice = 0,
-              int id = 0
-             )
+            decimal totalPrice = 0
+        )
         {
             _id = id;
             _clientId = fkClientId;
