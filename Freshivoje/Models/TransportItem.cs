@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Freshivoje.Models
 {
-    public class TransportItems
+    public class TransportItem
     {
         public int _id { get; private set; }
         public int _clientId { get; private set; }
@@ -15,7 +15,7 @@ namespace Freshivoje.Models
         public decimal _traveled { get; private set; }
         public decimal _totalPrice { get; private set; }
 
-        public TransportItems(
+        public TransportItem(
          
             int fkClientId,
             decimal price,

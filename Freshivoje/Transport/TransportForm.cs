@@ -15,17 +15,17 @@ namespace Freshivoje.Transport
 {
     public partial class TransportForm : Form
     {
-        public List<TransportItems> transportItems = new List<TransportItems>();
-        int fkClientId;
-        int idTransport = 0;
+        public List<TransportItem> transportItems = new List<TransportItem>();
+        private int _clientId;
+        private int idTransport = 0;
         
         public TransportForm(int clientId)
         {
             
             InitializeComponent();
-            transportDataGridView.AutoGenerateColumns = false;
-            fkClientId = clientId;
             WindowState = FormWindowState.Maximized;
+            transportDataGridView.AutoGenerateColumns = false;
+            _clientId = clientId;
          
         }
 
@@ -68,18 +68,12 @@ namespace Freshivoje.Transport
             }
         }
 
-
-        private void TransportForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void insertBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(priceTxtBox.Text) || string.IsNullOrWhiteSpace(quantityTxtBox.Text)
              || string.IsNullOrWhiteSpace(travelTxtBox.Text))
             {
-                CustomMessageBox.ShowDialog(this, "Molimo Vas popunite sva polja!");
+                CustomMessageBox.ShowDialog(this, Properties.Resources.emptyInputErrorMsg);
                 return;
             }
             decimal price = Convert.ToDecimal(priceTxtBox.Text);
@@ -87,14 +81,14 @@ namespace Freshivoje.Transport
             decimal travel = Convert.ToDecimal(travelTxtBox.Text);
             decimal totalPrice = price * quantity * travel;
             idTransport++;
-            transportItems.Add(new TransportItems(fkClientId, price, quantity, travel, totalPrice, idTransport));
-            var bindingList = new BindingList<TransportItems>(transportItems);
+            transportItems.Add(new TransportItem(_clientId, price, quantity, travel, totalPrice, idTransport));
+            var bindingList = new BindingList<TransportItem>(transportItems);
             var source = new BindingSource(bindingList, null);
             transportDataGridView.DataSource = source;
 
-            priceTxtBox.Text = "";
-            quantityTxtBox.Text = "";
-            travelTxtBox.Text = "";
+            priceTxtBox.ResetText();
+            quantityTxtBox.ResetText();
+            travelTxtBox.ResetText();
         }
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
@@ -104,7 +98,7 @@ namespace Freshivoje.Transport
             {
                 return;
             }
-            DbConnection.executeTransportQuery(transportItems);
+            DbConnection.executeTransportQuery(transportItems, _clientId);
             CustomMessageBox.ShowDialog(this,$"Uspešno ste kreirali putni nalog!");
             Close();
 
@@ -135,13 +129,12 @@ namespace Freshivoje.Transport
                     return;
                 }
                 int rowindex = transportDataGridView.CurrentRow.Index;
-                int broj = transportItems.Count;
                 for (int i = 0; i < transportItems.Count; i++)
                 {
                     if((transportItems[i]._id - 1) == rowindex)
                     {
                         transportItems.RemoveAt(Convert.ToInt32(rowindex));
-                        var bindingList = new BindingList<TransportItems>(transportItems);
+                        var bindingList = new BindingList<TransportItem>(transportItems);
                         var source = new BindingSource(bindingList, null);
                         transportDataGridView.DataSource = source;
                     }

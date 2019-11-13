@@ -81,70 +81,57 @@ namespace Freshivoje
             }
         }
 
-        public static void executeTransportQuery(List<TransportItems> transportItems)
+        public static void executeTransportQuery(List<TransportItem> transportItems, int clientId)
         {
+            MySqlCommand mySqlCommand = new MySqlCommand();
+            mySqlCommand.Connection = _databaseConnection;
             _databaseConnection.Open();
+
             MySqlTransaction transaction = _databaseConnection.BeginTransaction();
+            mySqlCommand.Transaction = transaction;
+
             try
             {
+                mySqlCommand.CommandText = "SELECT `transport_number` FROM `transport` ORDER BY `transport_number` DESC LIMIT 1";
 
-                MySqlCommand mySqlCommand2 = new MySqlCommand();
-                mySqlCommand2.CommandText = "SELECT transport_number FROM transport ORDER BY id_transport DESC LIMIT 1";
-                mySqlCommand2.Connection = _databaseConnection;
-                mySqlCommand2.Transaction = transaction;
+                int? transportNumber = (int) mySqlCommand.ExecuteScalar();
+                if (transportNumber == null)
+                {
+                    transportNumber = 0;
+                }
 
-                dynamic transportNumber = mySqlCommand2.ExecuteScalar();
-                if (transportNumber == null) transportNumber = 0;
                 transportNumber += 1;
 
-                MySqlCommand mySqlCommand1 = new MySqlCommand();
-
-                DateTime today = DateTime.Today;
-                string date = today.ToString("yyyy-MM-dd");
-                mySqlCommand1.CommandText = @"INSERT INTO `transport` (`fk_client_id`, `transport_number`, `transport_date`, `transport_year`) VALUES (@clientId, @transportNumber, @transportDate, @transportYear); SELECT LAST_INSERT_ID()";
-                mySqlCommand1.Connection = _databaseConnection;
-                mySqlCommand1.Transaction = transaction;
-                mySqlCommand1.Parameters.AddWithValue("@clientId", transportItems[0]._clientId);
-                mySqlCommand1.Parameters.AddWithValue("@transportNumber", transportNumber);
-                mySqlCommand1.Parameters.AddWithValue("@transportDate",date);
-                mySqlCommand1.Parameters.AddWithValue("@transportYear", today.ToString("yyyy"));
+                mySqlCommand.CommandText = "INSERT INTO `transport` (`fk_client_id`, `transport_number`) VALUES (@clientId, @transportNumber); SELECT LAST_INSERT_ID()";
+                mySqlCommand.Parameters.AddWithValue("@clientId", clientId);
+                mySqlCommand.Parameters.AddWithValue("@transportNumber", transportNumber);
              
+                dynamic transportId = mySqlCommand.ExecuteScalar();
 
+                mySqlCommand.Parameters.Clear();
 
-                dynamic transportId = mySqlCommand1.ExecuteScalar();
-
-
-                for (int i = 0; i < transportItems.Count; i++)
+                mySqlCommand.CommandText = "INSERT INTO `transport_items` (`fk_transport_id`, `price`, `quantity`, `traveled`) VALUES ( @fkTransportId, @price, @quantity, @traveled)";
+                foreach (TransportItem item in transportItems)
                 {
-
-                    string query = "INSERT INTO `transport_items` (`fk_transport_id`, `price`, `quantity`, `traveled`) VALUES ( @fkTransportId, @price, @quantity, @travel)";
-                    MySqlCommand mySqlCommand = new MySqlCommand();
-                    mySqlCommand.Connection = _databaseConnection;
-                    mySqlCommand.CommandText = query;
-                    mySqlCommand.Transaction = transaction;
                     mySqlCommand.Parameters.AddWithValue("@fkTransportId", transportId);
-                    mySqlCommand.Parameters.AddWithValue("@price", transportItems[i]._price);
-                    mySqlCommand.Parameters.AddWithValue("@quantity", transportItems[i]._quantity);
-                    mySqlCommand.Parameters.AddWithValue("@travel", transportItems[i]._traveled);
-              
+                    mySqlCommand.Parameters.AddWithValue("@price", item._price);
+                    mySqlCommand.Parameters.AddWithValue("@quantity", item._quantity);
+                    mySqlCommand.Parameters.AddWithValue("@traveled", item._traveled);
 
-                    int result = mySqlCommand.ExecuteNonQuery();
-                    if (result <= 0)
-                    {
-                        throw new InvalidProgramException();
-                    }
+                    mySqlCommand.ExecuteNonQuery();
+
+                    mySqlCommand.Parameters.Clear();
                 }
-                transaction.Commit();
 
+                transaction.Commit();
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
                 throw new Exception(ex.Message);
             }
             finally
             {
-                DbConnection._databaseConnection.Close();
+                _databaseConnection.Close();
             }
         }
 

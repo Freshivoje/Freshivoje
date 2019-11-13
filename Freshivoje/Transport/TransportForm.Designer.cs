@@ -454,7 +454,6 @@
             this.Name = "TransportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransportForm";
-            this.Load += new System.EventHandler(this.TransportForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.transportDataGridView)).EndInit();
             this.insertFormTblLayout.ResumeLayout(false);
             this.insertFormTblLayout.PerformLayout();
