@@ -95,14 +95,23 @@
     <Compile Include="Insert Form\ChooseClientForm.Designer.cs">
       <DependentUpon>ChooseClientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Insert Form\InsertMethodForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Insert Form\ChooseInsertMethodForm.Designer.cs">
       <DependentUpon>InsertMethodForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Insert Form\InsertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Insert Form\InsertForm.Designer.cs">
+      <DependentUpon>InsertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Insert Form\InsertMethodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Package.cs" />
+    <Compile Include="Models\PurchaseArticles.cs" />
+    <Compile Include="Models\TransportItems.cs" />
     <Compile Include="Options Forms\Articles\EditArticleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,12 +149,6 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Insert Form\InsertForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Insert Form\InsertForm.Designer.cs">
-      <DependentUpon>InsertForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Article.cs" />
     <Compile Include="Options Forms\Clients\EditClientForm.cs">
@@ -210,8 +213,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transport\ChooseClientTransportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\ChooseClientTransportForm.Designer.cs">
+      <DependentUpon>ChooseClientTransportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\ChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\ChooseForm.Designer.cs">
+      <DependentUpon>ChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\TransportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\TransportForm.Designer.cs">
+      <DependentUpon>TransportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\TransportRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\TransportRecordForm.Designer.cs">
+      <DependentUpon>TransportRecordForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Insert Form\ChooseClientForm.resx">
       <DependentUpon>ChooseClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insert Form\InsertForm.resx">
+      <DependentUpon>InsertForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Insert Form\InsertMethodForm.resx">
       <DependentUpon>InsertMethodForm.cs</DependentUpon>
@@ -227,9 +257,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Custom Forms\CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Insert Form\InsertForm.resx">
-      <DependentUpon>InsertForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -277,6 +304,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Transport\ChooseClientTransportForm.resx">
+      <DependentUpon>ChooseClientTransportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\ChooseForm.resx">
+      <DependentUpon>ChooseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\TransportForm.resx">
+      <DependentUpon>TransportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\TransportRecordForm.resx">
+      <DependentUpon>TransportRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include=".editorconfig" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -323,6 +362,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Packaging\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

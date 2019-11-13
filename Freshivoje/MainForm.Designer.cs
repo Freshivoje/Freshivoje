@@ -34,12 +34,12 @@
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.insertBtn = new System.Windows.Forms.Button();
-            this.settingsBtn = new System.Windows.Forms.Button();
-            this.inventoryBtn = new System.Windows.Forms.Button();
             this.paymentsBtn = new System.Windows.Forms.Button();
             this.packagesBtn = new System.Windows.Forms.Button();
             this.logoutBtn = new System.Windows.Forms.Button();
             this.transportBtn = new System.Windows.Forms.Button();
+            this.settingsBtn = new System.Windows.Forms.Button();
+            this.inventoryBtn = new System.Windows.Forms.Button();
             this.mainFormTblLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -161,45 +161,6 @@
             this.insertBtn.UseVisualStyleBackColor = false;
             this.insertBtn.Click += new System.EventHandler(this.insertBtn_Click);
             // 
-            // settingsBtn
-            // 
-            this.settingsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.settingsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.settingsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.settingsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.settingsBtn.FlatAppearance.BorderSize = 5;
-            this.settingsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.settingsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsBtn.ForeColor = System.Drawing.Color.White;
-            this.settingsBtn.Location = new System.Drawing.Point(228, 418);
-            this.settingsBtn.Name = "settingsBtn";
-            this.settingsBtn.Size = new System.Drawing.Size(154, 65);
-            this.settingsBtn.TabIndex = 4;
-            this.settingsBtn.Text = "OPCIJE";
-            this.settingsBtn.UseVisualStyleBackColor = false;
-            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
-            // 
-            // inventoryBtn
-            // 
-            this.inventoryBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.inventoryBtn.BackColor = System.Drawing.Color.Transparent;
-            this.inventoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.inventoryBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.inventoryBtn.FlatAppearance.BorderSize = 5;
-            this.inventoryBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.inventoryBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.inventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventoryBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventoryBtn.ForeColor = System.Drawing.Color.White;
-            this.inventoryBtn.Location = new System.Drawing.Point(228, 276);
-            this.inventoryBtn.Name = "inventoryBtn";
-            this.inventoryBtn.Size = new System.Drawing.Size(154, 65);
-            this.inventoryBtn.TabIndex = 3;
-            this.inventoryBtn.Text = "MAGACIN";
-            this.inventoryBtn.UseVisualStyleBackColor = false;
-            // 
             // paymentsBtn
             // 
             this.paymentsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -255,7 +216,7 @@
             this.logoutBtn.Location = new System.Drawing.Point(228, 489);
             this.logoutBtn.Name = "logoutBtn";
             this.logoutBtn.Size = new System.Drawing.Size(154, 65);
-            this.logoutBtn.TabIndex = 5;
+            this.logoutBtn.TabIndex = 6;
             this.logoutBtn.Text = "ODJAVA";
             this.logoutBtn.UseVisualStyleBackColor = false;
             this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
@@ -275,10 +236,49 @@
             this.transportBtn.Location = new System.Drawing.Point(228, 347);
             this.transportBtn.Name = "transportBtn";
             this.transportBtn.Size = new System.Drawing.Size(154, 65);
-            this.transportBtn.TabIndex = 7;
+            this.transportBtn.TabIndex = 4;
             this.transportBtn.Text = "PUT";
             this.transportBtn.UseVisualStyleBackColor = false;
             this.transportBtn.Click += new System.EventHandler(this.transportBtn_Click);
+            // 
+            // settingsBtn
+            // 
+            this.settingsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.settingsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.settingsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.settingsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.settingsBtn.FlatAppearance.BorderSize = 5;
+            this.settingsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.settingsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsBtn.ForeColor = System.Drawing.Color.White;
+            this.settingsBtn.Location = new System.Drawing.Point(228, 418);
+            this.settingsBtn.Name = "settingsBtn";
+            this.settingsBtn.Size = new System.Drawing.Size(154, 65);
+            this.settingsBtn.TabIndex = 5;
+            this.settingsBtn.Text = "OPCIJE";
+            this.settingsBtn.UseVisualStyleBackColor = false;
+            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
+            // 
+            // inventoryBtn
+            // 
+            this.inventoryBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inventoryBtn.BackColor = System.Drawing.Color.Transparent;
+            this.inventoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.inventoryBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.inventoryBtn.FlatAppearance.BorderSize = 5;
+            this.inventoryBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.inventoryBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.inventoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventoryBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventoryBtn.ForeColor = System.Drawing.Color.White;
+            this.inventoryBtn.Location = new System.Drawing.Point(228, 276);
+            this.inventoryBtn.Name = "inventoryBtn";
+            this.inventoryBtn.Size = new System.Drawing.Size(154, 65);
+            this.inventoryBtn.TabIndex = 3;
+            this.inventoryBtn.Text = "MAGACIN";
+            this.inventoryBtn.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 

@@ -40,8 +40,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.TransportDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchArticlesLbl = new System.Windows.Forms.Label();
-            this.searchTransportTxtBox = new System.Windows.Forms.TextBox();
             this.transportId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +47,8 @@
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.previewTransport = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchArticlesLbl = new System.Windows.Forms.Label();
+            this.searchTransportTxtBox = new System.Windows.Forms.TextBox();
             this.crudArticlesFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TransportDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -222,6 +222,7 @@
             this.TransportDataGridView.Location = new System.Drawing.Point(153, 135);
             this.TransportDataGridView.MultiSelect = false;
             this.TransportDataGridView.Name = "TransportDataGridView";
+            this.TransportDataGridView.ReadOnly = true;
             this.TransportDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.TransportDataGridView.RowHeadersWidth = 40;
             this.TransportDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -232,39 +233,12 @@
             this.TransportDataGridView.TabStop = false;
             this.TransportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TransportDataGridView_CellContentClick);
             // 
-            // searchArticlesLbl
-            // 
-            this.searchArticlesLbl.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchArticlesLbl.AutoSize = true;
-            this.searchArticlesLbl.BackColor = System.Drawing.Color.Transparent;
-            this.searchArticlesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchArticlesLbl.ForeColor = System.Drawing.Color.White;
-            this.searchArticlesLbl.Location = new System.Drawing.Point(870, 48);
-            this.searchArticlesLbl.Name = "searchArticlesLbl";
-            this.searchArticlesLbl.Size = new System.Drawing.Size(106, 27);
-            this.searchArticlesLbl.TabIndex = 41;
-            this.searchArticlesLbl.Text = "Pretraži ";
-            this.searchArticlesLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // searchTransportTxtBox
-            // 
-            this.searchTransportTxtBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchTransportTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchTransportTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTransportTxtBox.Location = new System.Drawing.Point(816, 91);
-            this.searchTransportTxtBox.Multiline = true;
-            this.searchTransportTxtBox.Name = "searchTransportTxtBox";
-            this.searchTransportTxtBox.ShortcutsEnabled = false;
-            this.searchTransportTxtBox.Size = new System.Drawing.Size(215, 31);
-            this.searchTransportTxtBox.TabIndex = 5;
-            this.searchTransportTxtBox.TextChanged += new System.EventHandler(this.searchTransportxtBox_TextChanged);
-            this.searchTransportTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
-            // 
             // transportId
             // 
             this.transportId.DataPropertyName = "id_transport";
             this.transportId.HeaderText = "ID";
             this.transportId.Name = "transportId";
+            this.transportId.ReadOnly = true;
             this.transportId.Visible = false;
             // 
             // IdClient
@@ -295,6 +269,7 @@
             this.status.DataPropertyName = "transport_status";
             this.status.HeaderText = "Status";
             this.status.Name = "status";
+            this.status.ReadOnly = true;
             // 
             // previewTransport
             // 
@@ -324,6 +299,34 @@
             this.deleteStatus.ReadOnly = true;
             this.deleteStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.deleteStatus.Width = 40;
+            // 
+            // searchArticlesLbl
+            // 
+            this.searchArticlesLbl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.searchArticlesLbl.AutoSize = true;
+            this.searchArticlesLbl.BackColor = System.Drawing.Color.Transparent;
+            this.searchArticlesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchArticlesLbl.ForeColor = System.Drawing.Color.White;
+            this.searchArticlesLbl.Location = new System.Drawing.Point(870, 48);
+            this.searchArticlesLbl.Name = "searchArticlesLbl";
+            this.searchArticlesLbl.Size = new System.Drawing.Size(106, 27);
+            this.searchArticlesLbl.TabIndex = 41;
+            this.searchArticlesLbl.Text = "Pretraži ";
+            this.searchArticlesLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // searchTransportTxtBox
+            // 
+            this.searchTransportTxtBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.searchTransportTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchTransportTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTransportTxtBox.Location = new System.Drawing.Point(816, 91);
+            this.searchTransportTxtBox.Multiline = true;
+            this.searchTransportTxtBox.Name = "searchTransportTxtBox";
+            this.searchTransportTxtBox.ShortcutsEnabled = false;
+            this.searchTransportTxtBox.Size = new System.Drawing.Size(215, 31);
+            this.searchTransportTxtBox.TabIndex = 5;
+            this.searchTransportTxtBox.TextChanged += new System.EventHandler(this.searchTransportxtBox_TextChanged);
+            this.searchTransportTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // TransportRecordForm
             // 
