@@ -11,22 +11,30 @@ namespace Freshivoje.Models
         public int _id { get; private set; }
         public int _capacity { get; private set; }
         public decimal _price { get; private set; }
-        public int _packageFkCategoryId { get; private set; }
+        public string _packageCategory { get; private set; }
         public int _quantity { get; private set; }
+        public int _weight { get; private set; }
+        public string _producer { get; private set; }
+        public string _status { get; private set; }
 
         public Package(int packageId,
             int packageCapacity,
             decimal packagePrice,
-            int packageFkCategoryId,
-            int packageQuantity
+            string packageCategory,
+            int packageQuantity,
+            int packageWeight,
+            string packageProducer,
+            string packageStatus
         )
         {
             _id = packageId;
             _capacity = packageCapacity;
             _price = packagePrice;
-            _packageFkCategoryId = packageFkCategoryId;
+            _packageCategory = packageCategory;
             _quantity = packageQuantity;
+            _weight = packageWeight;
+            _producer = packageProducer;
+            _status = packageStatus;
         }
-
     }
 }

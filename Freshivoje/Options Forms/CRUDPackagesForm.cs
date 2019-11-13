@@ -10,13 +10,13 @@ namespace Freshivoje.Options_Forms
     public partial class CRUDPackagesForm : Form
     {
         private readonly string _fillDGVQuery = "SELECT * FROM `packaging` JOIN `categories` ON `packaging`.`fk_category_id` = `categories`.`id_category`";
-        private string   _selectedPackageCategory;
+        private string _selectedPackageCategory;
         private decimal _selectedPackagePrice;
         private int _selectedPackageId, _selectedPackageCategoryId, _selectedPackageCapacity, _selectedPackageQuantity;
         public CRUDPackagesForm()
         {
             InitializeComponent();
-            packagesDataGridView.AutoGenerateColumns = false;         
+            packagesDataGridView.AutoGenerateColumns = false;
         }
 
         // Disables flickering on FormLoad
@@ -92,7 +92,7 @@ namespace Freshivoje.Options_Forms
                 //EditPackageForm editPackage = new EditPackageForm(package);
                 //editPackage.ShowDialog(this);
             }
-           
+
 
             if (e.ColumnIndex == 8)
             {
@@ -111,7 +111,7 @@ namespace Freshivoje.Options_Forms
         {
             //using CreatePackageForm createPackageForm = new CreatePackageForm();
             //createPackageForm.ShowDialog(this);
-         
+
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
