@@ -62,7 +62,7 @@
             this.paymentsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.506531F));
             this.paymentsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.paymentsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.paymentsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
+            this.paymentsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
             this.paymentsFormTblLayout.Controls.Add(this.minimizeBtn, 9, 0);
             this.paymentsFormTblLayout.Controls.Add(this.exitBtn, 10, 0);
             this.paymentsFormTblLayout.Controls.Add(this.backBtn, 8, 0);
@@ -111,7 +111,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1172, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(1166, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.minimizeBtn.Size = new System.Drawing.Size(44, 53);
@@ -135,10 +135,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1222, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1216, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(87, 53);
+            this.exitBtn.Size = new System.Drawing.Size(93, 53);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -159,7 +159,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1122, 3);
+            this.backBtn.Location = new System.Drawing.Point(1116, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 53);
             this.backBtn.TabIndex = 9;
@@ -203,7 +203,7 @@
             this.paymentsDataGridView.Location = new System.Drawing.Point(153, 239);
             this.paymentsDataGridView.Name = "paymentsDataGridView";
             this.paymentsFormTblLayout.SetRowSpan(this.paymentsDataGridView, 10);
-            this.paymentsDataGridView.Size = new System.Drawing.Size(900, 582);
+            this.paymentsDataGridView.Size = new System.Drawing.Size(894, 582);
             this.paymentsDataGridView.TabIndex = 10;
             this.paymentsDataGridView.TabStop = false;
             // 
@@ -220,7 +220,7 @@
             this.allArticlesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.allArticlesBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.allArticlesBtn.ForeColor = System.Drawing.Color.White;
-            this.allArticlesBtn.Location = new System.Drawing.Point(222, 62);
+            this.allArticlesBtn.Location = new System.Drawing.Point(221, 62);
             this.allArticlesBtn.Name = "allArticlesBtn";
             this.allArticlesBtn.Size = new System.Drawing.Size(157, 53);
             this.allArticlesBtn.TabIndex = 12;
@@ -242,7 +242,7 @@
             this.articlesInBtn.ForeColor = System.Drawing.Color.White;
             this.articlesInBtn.Location = new System.Drawing.Point(153, 121);
             this.articlesInBtn.Name = "articlesInBtn";
-            this.articlesInBtn.Size = new System.Drawing.Size(145, 53);
+            this.articlesInBtn.Size = new System.Drawing.Size(144, 53);
             this.articlesInBtn.TabIndex = 13;
             this.articlesInBtn.TabStop = false;
             this.articlesInBtn.Text = "ULAZ";
@@ -260,9 +260,9 @@
             this.articlesOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.articlesOutBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articlesOutBtn.ForeColor = System.Drawing.Color.White;
-            this.articlesOutBtn.Location = new System.Drawing.Point(304, 121);
+            this.articlesOutBtn.Location = new System.Drawing.Point(303, 121);
             this.articlesOutBtn.Name = "articlesOutBtn";
-            this.articlesOutBtn.Size = new System.Drawing.Size(145, 53);
+            this.articlesOutBtn.Size = new System.Drawing.Size(144, 53);
             this.articlesOutBtn.TabIndex = 14;
             this.articlesOutBtn.TabStop = false;
             this.articlesOutBtn.Text = "IZLAZ";
@@ -280,9 +280,9 @@
             this.payOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.payOutBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.payOutBtn.ForeColor = System.Drawing.Color.White;
-            this.payOutBtn.Location = new System.Drawing.Point(908, 62);
+            this.payOutBtn.Location = new System.Drawing.Point(903, 62);
             this.payOutBtn.Name = "payOutBtn";
-            this.payOutBtn.Size = new System.Drawing.Size(145, 53);
+            this.payOutBtn.Size = new System.Drawing.Size(144, 53);
             this.payOutBtn.TabIndex = 17;
             this.payOutBtn.TabStop = false;
             this.payOutBtn.Text = "ISPLATA";
@@ -300,9 +300,9 @@
             this.payInBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.payInBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.payInBtn.ForeColor = System.Drawing.Color.White;
-            this.payInBtn.Location = new System.Drawing.Point(757, 62);
+            this.payInBtn.Location = new System.Drawing.Point(753, 62);
             this.payInBtn.Name = "payInBtn";
-            this.payInBtn.Size = new System.Drawing.Size(145, 53);
+            this.payInBtn.Size = new System.Drawing.Size(144, 53);
             this.payInBtn.TabIndex = 16;
             this.payInBtn.TabStop = false;
             this.payInBtn.Text = "UPLATA";
@@ -314,11 +314,12 @@
             this.paymentsFormTblLayout.SetColumnSpan(this.searchTxtBox, 2);
             this.searchTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTxtBox.Location = new System.Drawing.Point(757, 180);
+            this.searchTxtBox.Location = new System.Drawing.Point(753, 180);
             this.searchTxtBox.Multiline = true;
             this.searchTxtBox.Name = "searchTxtBox";
-            this.searchTxtBox.Size = new System.Drawing.Size(296, 25);
+            this.searchTxtBox.Size = new System.Drawing.Size(294, 25);
             this.searchTxtBox.TabIndex = 0;
+            this.searchTxtBox.TextChanged += new System.EventHandler(this.searchTxtBox_TextChanged);
             // 
             // searchLbl
             // 
@@ -328,7 +329,7 @@
             this.paymentsFormTblLayout.SetColumnSpan(this.searchLbl, 2);
             this.searchLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchLbl.ForeColor = System.Drawing.Color.White;
-            this.searchLbl.Location = new System.Drawing.Point(851, 150);
+            this.searchLbl.Location = new System.Drawing.Point(846, 150);
             this.searchLbl.Name = "searchLbl";
             this.searchLbl.Size = new System.Drawing.Size(108, 27);
             this.searchLbl.TabIndex = 26;
