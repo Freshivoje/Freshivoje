@@ -81,15 +81,10 @@ namespace Freshivoje.Insert_Form
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
-                //odavde proveravaj
-                string yearOfRenting = rentingDataPicker.Value.Year.ToString();
-                string mounthOfRenting = rentingDataPicker.Value.Month.ToString();
-                string dayOfRenting = rentingDataPicker.Value.Month.ToString();
-                string dateOfRenting = $"{yearOfRenting}-{mounthOfRenting}-{dayOfRenting}";
-                string yearOfRentingEnd = endDataOfRentPicker.Value.Year.ToString();
-                string mounthOfRentingEnd = endDataOfRentPicker.Value.Month.ToString();
-                string dayOfRentingEnd = endDataOfRentPicker.Value.Month.ToString();
-                string dateOfRentingEnd = $"{yearOfRentingEnd}-{mounthOfRentingEnd}-{dayOfRentingEnd}";
+            //odavde proveravaj
+
+                string dateOfRenting = rentingDataPicker.Value.Date.ToString("yyyy-MM-dd");
+                string dateOfRentingEnd = endDataOfRentPicker.Value.Date.ToString("yyyy-MM-dd");
                 storageId = (storagePositionCmbBox.SelectedItem as ComboBoxItem).Value;
 
                 MySqlCommand mySqlCommand = new MySqlCommand
@@ -97,10 +92,12 @@ namespace Freshivoje.Insert_Form
                     CommandText = "INSERT INTO `renting_storage` (`fk_storage_id`, `price`, `renting_data`, `end_of_renting_data`, `fk_client_id`) VALUES (@storageId, @price, @dateOfRenting, @end_of_renting_data, @clientId);"
                 };
                 mySqlCommand.Parameters.AddWithValue("@storageId", storageId);
-                mySqlCommand.Parameters.AddWithValue("@price", Convert.ToInt32(pricelTxtBox.Text));
+                mySqlCommand.Parameters.AddWithValue("@price", Decimal.Parse(pricelTxtBox.Text));
                 mySqlCommand.Parameters.AddWithValue("@dateOfRenting", dateOfRenting);
                 mySqlCommand.Parameters.AddWithValue("@end_of_renting_data", dateOfRentingEnd);
                 mySqlCommand.Parameters.AddWithValue("@clientId", fkClientId);
+
+            DbConnection.executeQuery(mySqlCommand);
             
         }
     }

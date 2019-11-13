@@ -88,10 +88,10 @@
             // 
             // endDataOfRentPicker
             // 
-            this.endDataOfRentPicker.CustomFormat = "\"dd\'/\'MM\'/\'yyyy\"";
+            this.endDataOfRentPicker.CustomFormat = " yyyy-MM-dd";
             this.endDataOfRentPicker.Dock = System.Windows.Forms.DockStyle.Top;
             this.endDataOfRentPicker.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endDataOfRentPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.endDataOfRentPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.endDataOfRentPicker.Location = new System.Drawing.Point(1179, 391);
             this.endDataOfRentPicker.Name = "endDataOfRentPicker";
             this.endDataOfRentPicker.Size = new System.Drawing.Size(820, 30);
@@ -291,9 +291,10 @@
             // 
             // rentingDataPicker
             // 
+            this.rentingDataPicker.CustomFormat = " yyyy-MM-dd";
             this.rentingDataPicker.Dock = System.Windows.Forms.DockStyle.Top;
             this.rentingDataPicker.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rentingDataPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.rentingDataPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.rentingDataPicker.Location = new System.Drawing.Point(153, 391);
             this.rentingDataPicker.Name = "rentingDataPicker";
             this.rentingDataPicker.Size = new System.Drawing.Size(820, 30);
