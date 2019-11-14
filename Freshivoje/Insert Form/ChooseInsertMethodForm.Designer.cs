@@ -174,7 +174,6 @@
             this.storageRentBtn.TabIndex = 1;
             this.storageRentBtn.Text = "LAGEROVANJE";
             this.storageRentBtn.UseVisualStyleBackColor = false;
-            this.storageRentBtn.Click += new System.EventHandler(this.storageRentBtn_Click);
             // 
             // InsertMethodForm
             // 

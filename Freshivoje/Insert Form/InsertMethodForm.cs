@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Freshivoje.Insert;
-using Freshivoje.Insert_Form;
 
 namespace Freshivoje
 {
@@ -46,12 +45,6 @@ namespace Freshivoje
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void storageRentBtn_Click(object sender, EventArgs e)
-        {
-            ChooseClientForRentingForm chooseClientForRentingForm = new ChooseClientForRentingForm();
-            chooseClientForRentingForm.ShowDialog(this);
         }
     }
 }
