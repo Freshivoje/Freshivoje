@@ -281,17 +281,17 @@ namespace Freshivoje.Transport
                 #endregion
                 #region Section-Image
 
-                //string imageURL = "C:\\Users\\KORISNIK\\Pictures\\1234544.png";
-                //iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(imageURL);
+                string imageURL = "C:\\Users\\KORISNIK\\Pictures\\1234544.png";
+                iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(imageURL);
 
                 //Resize image depend upon your need
-                //jpg.ScaleToFit(110.0f, 140.0f);
+                jpg.ScaleToFit(110.0f, 140.0f);
                 //Give space before image
-                //jpg.SpacingBefore = 20.0f;
+                jpg.SpacingBefore = 20.0f;
                 //Give some space after the image
-                //jpg.SpacingAfter = 10.0f;
-                //jpg.SetAbsolutePosition(50, 680); //40 700
-                //jpg.Alignment = Element.ALIGN_CENTER;
+                jpg.SpacingAfter = 10.0f;
+                jpg.SetAbsolutePosition(50, 680); //40 700
+                jpg.Alignment = Element.ALIGN_CENTER;
                 #endregion
 
                 #region section Table
@@ -339,7 +339,7 @@ namespace Freshivoje.Transport
                     pdfDoc.Add(pdfTable5);
                     pdfDoc.Add(pdfTable5);
                     pdfDoc.Add(pdfTable5);
-                    //pdfDoc.Add(jpg);
+                    pdfDoc.Add(jpg);
                     pdfDoc.Add(pdfTable3);
                     pdfDoc.Add(pdfTable5);  
                     pdfDoc.Add(pdfTable5);

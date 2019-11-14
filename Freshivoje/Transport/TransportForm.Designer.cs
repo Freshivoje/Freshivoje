@@ -45,12 +45,12 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.transportDataGridView = new System.Windows.Forms.DataGridView();
+            this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this._id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Količina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kilometri = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UkupnaCena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.transportDataGridView)).BeginInit();
             this.insertFormTblLayout.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +62,7 @@
             this.crateQuantityLbl.BackColor = System.Drawing.Color.Transparent;
             this.crateQuantityLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.crateQuantityLbl.ForeColor = System.Drawing.Color.White;
-            this.crateQuantityLbl.Location = new System.Drawing.Point(1452, 193);
+            this.crateQuantityLbl.Location = new System.Drawing.Point(1615, 193);
             this.crateQuantityLbl.Name = "crateQuantityLbl";
             this.crateQuantityLbl.Size = new System.Drawing.Size(115, 27);
             this.crateQuantityLbl.TabIndex = 24;
@@ -74,11 +74,11 @@
             this.travelTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.travelTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.travelTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.travelTxtBox.Location = new System.Drawing.Point(1241, 223);
+            this.travelTxtBox.Location = new System.Drawing.Point(1371, 223);
             this.travelTxtBox.Multiline = true;
             this.travelTxtBox.Name = "travelTxtBox";
             this.travelTxtBox.ShortcutsEnabled = false;
-            this.travelTxtBox.Size = new System.Drawing.Size(538, 31);
+            this.travelTxtBox.Size = new System.Drawing.Size(603, 31);
             this.travelTxtBox.TabIndex = 6;
             this.travelTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
@@ -96,7 +96,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1785, 3);
+            this.backBtn.Location = new System.Drawing.Point(1980, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 49);
             this.backBtn.TabIndex = 9;
@@ -118,7 +118,7 @@
             this.finishInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.finishInsertBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.finishInsertBtn.ForeColor = System.Drawing.Color.White;
-            this.finishInsertBtn.Location = new System.Drawing.Point(867, 717);
+            this.finishInsertBtn.Location = new System.Drawing.Point(964, 717);
             this.finishInsertBtn.Margin = new System.Windows.Forms.Padding(5);
             this.finishInsertBtn.Name = "finishInsertBtn";
             this.finishInsertBtn.Size = new System.Drawing.Size(198, 45);
@@ -141,7 +141,7 @@
             this.insertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insertBtn.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.insertBtn.ForeColor = System.Drawing.Color.White;
-            this.insertBtn.Location = new System.Drawing.Point(938, 280);
+            this.insertBtn.Location = new System.Drawing.Point(1035, 280);
             this.insertBtn.Margin = new System.Windows.Forms.Padding(5);
             this.insertBtn.Name = "insertBtn";
             this.insertBtn.Size = new System.Drawing.Size(56, 45);
@@ -160,7 +160,7 @@
             this.insertFormTblLayout.SetColumnSpan(this.insertedArticlesLbl, 3);
             this.insertedArticlesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.insertedArticlesLbl.ForeColor = System.Drawing.Color.White;
-            this.insertedArticlesLbl.Location = new System.Drawing.Point(927, 358);
+            this.insertedArticlesLbl.Location = new System.Drawing.Point(1025, 358);
             this.insertedArticlesLbl.Name = "insertedArticlesLbl";
             this.insertedArticlesLbl.Size = new System.Drawing.Size(77, 27);
             this.insertedArticlesLbl.TabIndex = 29;
@@ -189,11 +189,11 @@
             this.quantityTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.quantityTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.quantityTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantityTxtBox.Location = new System.Drawing.Point(697, 223);
+            this.quantityTxtBox.Location = new System.Drawing.Point(762, 223);
             this.quantityTxtBox.Multiline = true;
             this.quantityTxtBox.Name = "quantityTxtBox";
             this.quantityTxtBox.ShortcutsEnabled = false;
-            this.quantityTxtBox.Size = new System.Drawing.Size(538, 31);
+            this.quantityTxtBox.Size = new System.Drawing.Size(603, 31);
             this.quantityTxtBox.TabIndex = 5;
             this.quantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
@@ -206,7 +206,7 @@
             this.priceTxtBox.Multiline = true;
             this.priceTxtBox.Name = "priceTxtBox";
             this.priceTxtBox.ShortcutsEnabled = false;
-            this.priceTxtBox.Size = new System.Drawing.Size(538, 31);
+            this.priceTxtBox.Size = new System.Drawing.Size(603, 31);
             this.priceTxtBox.TabIndex = 4;
             this.priceTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
@@ -217,7 +217,7 @@
             this.quantityLbl.BackColor = System.Drawing.Color.Transparent;
             this.quantityLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quantityLbl.ForeColor = System.Drawing.Color.White;
-            this.quantityLbl.Location = new System.Drawing.Point(889, 193);
+            this.quantityLbl.Location = new System.Drawing.Point(986, 193);
             this.quantityLbl.Name = "quantityLbl";
             this.quantityLbl.Size = new System.Drawing.Size(154, 27);
             this.quantityLbl.TabIndex = 17;
@@ -231,7 +231,7 @@
             this.priceLbl.BackColor = System.Drawing.Color.Transparent;
             this.priceLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceLbl.ForeColor = System.Drawing.Color.White;
-            this.priceLbl.Location = new System.Drawing.Point(269, 193);
+            this.priceLbl.Location = new System.Drawing.Point(301, 193);
             this.priceLbl.Name = "priceLbl";
             this.priceLbl.Size = new System.Drawing.Size(306, 27);
             this.priceLbl.TabIndex = 16;
@@ -252,10 +252,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1885, 3);
+            this.exitBtn.Location = new System.Drawing.Point(2080, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(52, 49);
+            this.exitBtn.Size = new System.Drawing.Size(50, 49);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -276,7 +276,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1835, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(2030, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.minimizeBtn.Size = new System.Drawing.Size(44, 49);
@@ -329,50 +329,10 @@
             this.transportDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.insertFormTblLayout.SetRowSpan(this.transportDataGridView, 4);
             this.transportDataGridView.RowTemplate.Height = 30;
-            this.transportDataGridView.Size = new System.Drawing.Size(1626, 213);
+            this.transportDataGridView.Size = new System.Drawing.Size(1821, 213);
             this.transportDataGridView.TabIndex = 34;
             this.transportDataGridView.TabStop = false;
             this.transportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.transportDataGridView_CellContentClick);
-            // 
-            // _id
-            // 
-            this._id.DataPropertyName = "_id";
-            this._id.HeaderText = "ID";
-            this._id.Name = "_id";
-            this._id.ReadOnly = true;
-            this._id.Visible = false;
-            // 
-            // price
-            // 
-            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.price.DataPropertyName = "_price";
-            this.price.HeaderText = "Jedinična Cena";
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            // 
-            // Količina
-            // 
-            this.Količina.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Količina.DataPropertyName = "_quantity";
-            this.Količina.HeaderText = "Količina";
-            this.Količina.Name = "Količina";
-            this.Količina.ReadOnly = true;
-            // 
-            // Kilometri
-            // 
-            this.Kilometri.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Kilometri.DataPropertyName = "_traveled";
-            this.Kilometri.HeaderText = "Kilometri";
-            this.Kilometri.Name = "Kilometri";
-            this.Kilometri.ReadOnly = true;
-            // 
-            // UkupnaCena
-            // 
-            this.UkupnaCena.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UkupnaCena.DataPropertyName = "_totalPrice";
-            this.UkupnaCena.HeaderText = "Ukupna Cena";
-            this.UkupnaCena.Name = "UkupnaCena";
-            this.UkupnaCena.ReadOnly = true;
             // 
             // insertFormTblLayout
             // 
@@ -420,14 +380,54 @@
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.68623F));
-            this.insertFormTblLayout.Size = new System.Drawing.Size(1940, 830);
+            this.insertFormTblLayout.Size = new System.Drawing.Size(2133, 830);
             this.insertFormTblLayout.TabIndex = 2;
+            // 
+            // _id
+            // 
+            this._id.DataPropertyName = "_id";
+            this._id.HeaderText = "ID";
+            this._id.Name = "_id";
+            this._id.ReadOnly = true;
+            this._id.Visible = false;
+            // 
+            // price
+            // 
+            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.price.DataPropertyName = "_price";
+            this.price.HeaderText = "Jedinična Cena";
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            // 
+            // Količina
+            // 
+            this.Količina.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Količina.DataPropertyName = "_quantity";
+            this.Količina.HeaderText = "Količina";
+            this.Količina.Name = "Količina";
+            this.Količina.ReadOnly = true;
+            // 
+            // Kilometri
+            // 
+            this.Kilometri.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Kilometri.DataPropertyName = "_traveled";
+            this.Kilometri.HeaderText = "Kilometri";
+            this.Kilometri.Name = "Kilometri";
+            this.Kilometri.ReadOnly = true;
+            // 
+            // UkupnaCena
+            // 
+            this.UkupnaCena.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UkupnaCena.DataPropertyName = "_totalPrice";
+            this.UkupnaCena.HeaderText = "Ukupna Cena";
+            this.UkupnaCena.Name = "UkupnaCena";
+            this.UkupnaCena.ReadOnly = true;
             // 
             // TransportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1940, 830);
+            this.ClientSize = new System.Drawing.Size(2133, 830);
             this.Controls.Add(this.insertFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TransportForm";
