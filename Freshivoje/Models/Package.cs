@@ -36,6 +36,5 @@ namespace Freshivoje.Models
             _producer = packageProducer;
             _status = packageStatus;
         }
-
     }
 }

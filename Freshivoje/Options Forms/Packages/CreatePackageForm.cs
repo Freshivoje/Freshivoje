@@ -18,7 +18,7 @@ namespace Freshivoje.Options_Forms
         public CreatePackageForm()
         {
             InitializeComponent();
-            packageStatusCmbBox.Text = "Novo";
+            packageStatusCmbBox.SelectedIndex = 0;
         }
 
         // Disables flickering on FormLoad
@@ -87,7 +87,8 @@ namespace Freshivoje.Options_Forms
             mySqlCommand.Parameters.AddWithValue("@packageWeight", package._weight);
             mySqlCommand.Parameters.AddWithValue("@packageProducer", package._producer);
             mySqlCommand.Parameters.AddWithValue("@packageStatus", package._status);
-
+             
+            ///test
             DbConnection.executeQuery(mySqlCommand);
             Close();
         }

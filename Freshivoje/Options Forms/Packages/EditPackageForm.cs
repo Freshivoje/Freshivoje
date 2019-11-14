@@ -41,6 +41,14 @@ namespace Freshivoje.Options_Forms
             }
         }
 
+        private void blockEnter(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                e.Handled = true;
+            }
+        }
+
         private void onlyNumerics(object sender, KeyPressEventArgs e)
         {
             // Limit input to numbers only

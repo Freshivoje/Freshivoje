@@ -60,8 +60,15 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.9.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.9.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.0.5.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.18\lib\net452\MySql.Data.dll</HintPath>
@@ -76,7 +83,16 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.5.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -87,24 +103,32 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Insert\ChooseClientForm.cs">
+    <Compile Include="Insert Form\ChooseClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Insert\ChooseClientForm.Designer.cs">
+    <Compile Include="Insert Form\ChooseClientForm.Designer.cs">
       <DependentUpon>ChooseClientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Insert\InsertMethodForm.cs">
+    <Compile Include="Insert Form\ChooseInsertMethodForm.Designer.cs">
+      <DependentUpon>InsertMethodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Insert Form\InsertForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Insert\ChooseInsertMethodForm.Designer.cs">
-      <DependentUpon>InsertMethodForm.cs</DependentUpon>
+    <Compile Include="Insert Form\InsertForm.Designer.cs">
+      <DependentUpon>InsertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Insert Form\InsertMethodForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Package.cs" />
     <Compile Include="Models\PurchaseArticles.cs" />
+    <Compile Include="Models\TransportItems.cs" />
     <Compile Include="Options Forms\Articles\EditArticleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,12 +167,6 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Insert\InsertForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Insert\InsertForm.Designer.cs">
-      <DependentUpon>InsertForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\Article.cs" />
     <Compile Include="Options Forms\Clients\EditClientForm.cs">
       <SubType>Form</SubType>
@@ -173,6 +191,12 @@
     </Compile>
     <Compile Include="Options Forms\CRUDArticlesForm.Designer.cs">
       <DependentUpon>CRUDArticlesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options Forms\CRUDPackagesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options Forms\CRUDPackagesForm.designer.cs">
+      <DependentUpon>CRUDPackagesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Options Forms\Packages\CreatePackageForm.cs">
       <SubType>Form</SubType>
@@ -206,10 +230,37 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Insert\ChooseClientForm.resx">
+    <Compile Include="Transport\ChooseClientTransportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\ChooseClientTransportForm.Designer.cs">
+      <DependentUpon>ChooseClientTransportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\ChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\ChooseForm.Designer.cs">
+      <DependentUpon>ChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\TransportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\TransportForm.Designer.cs">
+      <DependentUpon>TransportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\TransportRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\TransportRecordForm.Designer.cs">
+      <DependentUpon>TransportRecordForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Insert Form\ChooseClientForm.resx">
       <DependentUpon>ChooseClientForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Insert\ChooseInsertMethodForm.resx">
+    <EmbeddedResource Include="Insert Form\InsertForm.resx">
+      <DependentUpon>InsertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insert Form\InsertMethodForm.resx">
       <DependentUpon>InsertMethodForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options Forms\Articles\EditArticleForm.resx">
@@ -223,9 +274,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Custom Forms\CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Insert\InsertForm.resx">
-      <DependentUpon>InsertForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -244,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Options Forms\CRUDArticlesForm.resx">
       <DependentUpon>CRUDArticlesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options Forms\CRUDPackagesForm.resx">
+      <DependentUpon>CRUDPackagesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options Forms\Packages\CreatePackageForm.resx">
       <DependentUpon>CreatePackageForm.cs</DependentUpon>
@@ -270,7 +321,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Transport\ChooseClientTransportForm.resx">
+      <DependentUpon>ChooseClientTransportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\ChooseForm.resx">
+      <DependentUpon>ChooseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\TransportForm.resx">
+      <DependentUpon>TransportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\TransportRecordForm.resx">
+      <DependentUpon>TransportRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include=".editorconfig" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -316,6 +380,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Packaging\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

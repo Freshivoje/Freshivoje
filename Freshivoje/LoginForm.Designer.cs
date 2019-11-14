@@ -154,7 +154,7 @@
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(154, 72);
             this.loginBtn.TabIndex = 3;
-            this.loginBtn.Text = "PRIJAVI SEeee";
+            this.loginBtn.Text = "PRIJAVI SE";
             this.loginBtn.UseVisualStyleBackColor = false;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
