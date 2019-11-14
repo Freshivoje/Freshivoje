@@ -55,8 +55,8 @@ namespace Freshivoje.Transport
 
             if (e.ColumnIndex == 8)
             {
-                using TransportForm transportForm = new TransportForm(_selectedTransportId);
-                transportForm.ShowDialog(this);
+                //using TransportForm transportForm = new TransportForm(_selectedTransportId);
+                //transportForm.ShowDialog(this);
             }
         }
         private void searchTransportxtBox_TextChanged(object sender, EventArgs e)

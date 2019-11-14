@@ -15,6 +15,7 @@ using System.IO;
 using iTextSharp.text.pdf;
 using DocumentFormat.OpenXml.Bibliography;
 
+
 namespace Freshivoje.Transport
 {
     public partial class TransportForm : Form
@@ -22,13 +23,12 @@ namespace Freshivoje.Transport
         public List<TransportItems> transportItems = new List<TransportItems>();
         int fkClientId;
         int idTransport = 0;
-        
-        public TransportForm(int clientId)
+        public TransportForm(Client client)
         {
             
             InitializeComponent();
             transportDataGridView.AutoGenerateColumns = false;
-            fkClientId = clientId;
+            fkClientId = client._id;
             WindowState = FormWindowState.Maximized;
          
         }
@@ -72,7 +72,6 @@ namespace Freshivoje.Transport
             }
         }
 
-
         private void TransportForm_Load(object sender, EventArgs e)
         {
 
@@ -101,31 +100,34 @@ namespace Freshivoje.Transport
             travelTxtBox.Text = "";
         }
 
-        public void exportgridview(DataGridView dgw) 
+        public partial class Footer : PdfPageEventHelper
+        {
+            public override void OnEndPage(PdfWriter writer, Document doc)
+            {
+                Paragraph footer = new Paragraph("__________                                                                                                                                __________", FontFactory.GetFont(FontFactory.TIMES, 12, iTextSharp.text.Font.NORMAL));
+                footer.Alignment = Element.ALIGN_CENTER;
+                PdfPTable footerTbl = new PdfPTable(1);
+                footerTbl.TotalWidth = 1000;
+                footerTbl.HorizontalAlignment = Element.ALIGN_CENTER;
+                PdfPCell cell = new PdfPCell(footer);
+                cell.Border = 0;
+                cell.PaddingLeft = 0;
+                footerTbl.AddCell(cell);
+                footerTbl.WriteSelectedRows(0, -1, 50, 50, writer.DirectContent);
+            }
+        }
+
+        public void exportgridview(DataGridView dgw)
         {
             try
             {
                 #region Common Part
                 PdfPTable pdfTableBlank = new PdfPTable(1);
-                
-                //Footer Section
-                PdfPTable pdfTableFooter = new PdfPTable(1);
-                pdfTableFooter.DefaultCell.BorderWidth = 0;
-                pdfTableFooter.WidthPercentage = 100;
-                pdfTableFooter.DefaultCell.HorizontalAlignment = Element.ALIGN_BOTTOM;
-
-                Chunk cnkFooter = new Chunk("Faktura", FontFactory.GetFont("Times New Roman"));
-                cnkFooter.Font.SetStyle(1);
-                cnkFooter.Font.Size = 10;
-    
-                pdfTableFooter.AddCell(new Phrase(cnkFooter));
-                //End Of Footer Section
 
                 pdfTableBlank.AddCell(new Phrase(" "));
                 pdfTableBlank.DefaultCell.Border = 0;
                 #endregion
-
-                #region Page
+                //#region Page
                 #region Section-1
 
                 PdfPTable pdfTable1 = new PdfPTable(1);
@@ -170,6 +172,8 @@ namespace Freshivoje.Transport
                 pdfTable7.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
                 pdfTable7.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
                 pdfTable7.DefaultCell.BorderWidth = 0;
+
+                pdfTable5.DefaultCell.BorderWidth = 0;
 
                 Chunk c1 = new Chunk("REŠIVOJE", FontFactory.GetFont("Times New Roman"));
                 c1.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
@@ -266,7 +270,6 @@ namespace Freshivoje.Transport
                 Phrase p13 = new Phrase();
                 p13.Add(c13);
                 pdfTable3.AddCell(p13);
-
                 #endregion
                 #region Section-1
                 //PdfPTable pdfTable4 = new PdfPTable(4);
@@ -281,7 +284,7 @@ namespace Freshivoje.Transport
                 #endregion
                 #region Section-Image
 
-                string imageURL = "C:\\Users\\KORISNIK\\Pictures\\1234544.png";
+                string imageURL = "D:\\1.png";
                 iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(imageURL);
 
                 //Resize image depend upon your need
@@ -290,15 +293,16 @@ namespace Freshivoje.Transport
                 jpg.SpacingBefore = 20.0f;
                 //Give some space after the image
                 jpg.SpacingAfter = 10.0f;
-                jpg.SetAbsolutePosition(50, 680); //40 700
+                jpg.SetAbsolutePosition(70, 680); //40 700
                 jpg.Alignment = Element.ALIGN_CENTER;
                 #endregion
-
                 #region section Table
                 pdfTable4.AddCell(new Phrase("JEDINICNA CENA"));
                 pdfTable4.AddCell(new Phrase("KOLICINA"));
                 pdfTable4.AddCell(new Phrase("KILOMETRI"));
                 pdfTable4.AddCell(new Phrase("UKUPNA CENA"));
+
+                pdfTable5.AddCell(new Phrase(" "));
 
                 foreach (DataGridViewRow row in dgw.Rows)
                 {
@@ -308,20 +312,14 @@ namespace Freshivoje.Transport
                     }
                 }
                 #endregion
-
-                #endregion
-                pdfTable5.DefaultCell.BorderWidth = 0;
-                pdfTable5.AddCell(new Phrase(" "));
-                pdfTable6.AddCell(new Phrase("_________"));
-                pdfTable7.AddCell(new Phrase("_________"));
-
+                //#endregion
                 #region Pdf Generation
                 string folderPath = "D:\\PDF\\";
                 if (!Directory.Exists(folderPath))
                 {
                     Directory.CreateDirectory(folderPath);
                 }
-
+ 
                 //File Name
                 int fileCount = Directory.GetFiles("D:\\PDF").Length;
                 string strFileName = "Faktura" + (fileCount + 1) + ".pdf";
@@ -329,13 +327,13 @@ namespace Freshivoje.Transport
                 using (FileStream stream = new FileStream(folderPath + strFileName, FileMode.Create))
                 {
                     Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
-                    PdfWriter.GetInstance(pdfDoc, stream);
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
                     pdfDoc.Open();
+
                     #region PAGE-1
                     pdfDoc.Add(pdfTable1);
                     pdfDoc.Add(pdfTable5);
                     pdfDoc.Add(pdfTable2);
-                    pdfDoc.Add(pdfTable5);
                     pdfDoc.Add(pdfTable5);
                     pdfDoc.Add(pdfTable5);
                     pdfDoc.Add(pdfTable5);
@@ -349,16 +347,16 @@ namespace Freshivoje.Transport
                     pdfDoc.Add(pdfTable5);
                     pdfDoc.Add(pdfTable5);
                     pdfDoc.Add(pdfTable5);
+                    pdfDoc.Add(pdfTable5);
                     pdfDoc.Add(pdfTable6);
-                    pdfDoc.Add(pdfTable7);
-                    //pdfDoc.Add(Footer3);
+                    pdfDoc.Add(pdfTable5);
+                    writer.PageEvent = new Footer();
                     pdfDoc.NewPage();
                     #endregion
                     pdfDoc.Close();
                     stream.Close();
                 }
                 #endregion
-
                 #region Display PDF
                 System.Diagnostics.Process.Start(folderPath + "\\" + strFileName);
                 #endregion
@@ -381,8 +379,7 @@ namespace Freshivoje.Transport
             DbConnection.executeTransportQuery(transportItems);
             CustomMessageBox.ShowDialog(this,$"Uspešno ste kreirali putni nalog!");
             exportgridview(transportDataGridView);
-            Close();
-
+            
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -402,6 +399,7 @@ namespace Freshivoje.Transport
 
         private void transportDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.ColumnIndex == 5)
             {
                 DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da obrišete putni nalog?");

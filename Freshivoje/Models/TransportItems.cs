@@ -15,15 +15,15 @@ namespace Freshivoje.Models
         public decimal _traveled { get; private set; }
         public decimal _totalPrice { get; private set; }
 
-        public TransportItems(
-         
+        public TransportItems
+            (
             int fkClientId,
             decimal price,
             decimal quantity,
             decimal traveled,
             decimal totalPrice = 0,
-              int id = 0
-             )
+            int id = 0
+            )
         {
             _id = id;
             _clientId = fkClientId;
