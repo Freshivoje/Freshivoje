@@ -104,6 +104,12 @@
     <Compile Include="Insert Form\ChooseInsertMethodForm.Designer.cs">
       <DependentUpon>InsertMethodForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Insert Form\ChooseStorageRentingMethodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Insert Form\ChooseStorageRentingMethodForm.Designer.cs">
+      <DependentUpon>ChooseStorageRentingMethodForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Insert Form\InsertForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,11 +125,17 @@
     <Compile Include="Insert Form\StorageForRentingForm.Designer.cs">
       <DependentUpon>StorageForRentingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Insert Form\StorageRentingRecordsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Insert Form\StorageRentingRecordsForm.Designer.cs">
+      <DependentUpon>StorageRentingRecordsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Package.cs" />
     <Compile Include="Models\PurchaseArticles.cs" />
-    <Compile Include="Models\TransportItems.cs" />
+    <Compile Include="Models\TransportItem.cs" />
     <Compile Include="Options Forms\Articles\EditArticleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +267,9 @@
     <EmbeddedResource Include="Insert Form\ChooseClientForRentingForm.resx">
       <DependentUpon>ChooseClientForRentingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Insert Form\ChooseStorageRentingMethodForm.resx">
+      <DependentUpon>ChooseStorageRentingMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Insert Form\InsertForm.resx">
       <DependentUpon>InsertForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Insert Form\StorageForRentingForm.resx">
       <DependentUpon>StorageForRentingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insert Form\StorageRentingRecordsForm.resx">
+      <DependentUpon>StorageRentingRecordsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options Forms\Articles\EditArticleForm.resx">
       <DependentUpon>EditArticleForm.cs</DependentUpon>

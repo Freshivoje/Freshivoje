@@ -78,7 +78,7 @@ namespace Freshivoje.Transport
             decimal travel = Convert.ToDecimal(travelTxtBox.Text);
             decimal totalPrice = price * quantity * travel;
 
-            TransportItem transportItem = new TransportItem(0, _clientId, price, quantity, travel, totalPrice);
+            TransportItem transportItem = new TransportItem( _clientId, price, quantity, travel, totalPrice);
 
             transportDataGridView.Rows.Add(transportItem._id, transportItem._price, transportItem._quantity, transportItem._traveled, transportItem._totalPrice);
 
@@ -93,8 +93,8 @@ namespace Freshivoje.Transport
         {
             if (transportDataGridView.Rows.Count < 1)
             {
-                CustomMessageBox.ShowDialog(this, Properties.Resources.emptyDGVMsg);
-                return;
+                //CustomMessageBox.ShowDialog(this, Properties.Resources.emptyDGVMsg);
+                //return;
             } 
 
             DialogResult result = CustomDialog.ShowDialog(this,$"Da li ste sigurni da želite da unesete putne naloge?");
@@ -110,12 +110,13 @@ namespace Freshivoje.Transport
                 decimal traveled = Convert.ToDecimal(row.Cells["traveled"].Value);
                 decimal totalPrice = Convert.ToDecimal(row.Cells["totalPrice"].Value);
 
-                TransportItem item = new TransportItem(0, _clientId, price, quantity, traveled, totalPrice);
+                TransportItem item = new TransportItem(_clientId, price, quantity, traveled, totalPrice);
                 transportItems.Add(item);
             }
 
-            DbConnection.executeTransportQuery(transportItems);
+            DbConnection.executeTransportQuery(transportItems, _clientId);
             transportDataGridView.Rows.Clear();
+            Close();
         }
 
         private void backBtn_Click(object sender, EventArgs e)

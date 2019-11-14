@@ -42,11 +42,11 @@
             this.TransportDataGridView = new System.Windows.Forms.DataGridView();
             this.searchArticlesLbl = new System.Windows.Forms.Label();
             this.searchTransportTxtBox = new System.Windows.Forms.TextBox();
-            this.transportId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_transport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_client_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transport_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transport_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.previewTransport = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.crudArticlesFormTblLayout.SuspendLayout();
@@ -65,7 +65,7 @@
             this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
             this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.crudArticlesFormTblLayout.Controls.Add(this.minimizeBtn, 6, 0);
             this.crudArticlesFormTblLayout.Controls.Add(this.exitBtn, 7, 0);
             this.crudArticlesFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
@@ -109,7 +109,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1277, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(1276, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.minimizeBtn.Size = new System.Drawing.Size(44, 47);
@@ -133,10 +133,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1327, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1326, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(45, 47);
+            this.exitBtn.Size = new System.Drawing.Size(46, 47);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -174,7 +174,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1227, 3);
+            this.backBtn.Location = new System.Drawing.Point(1226, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 47);
             this.backBtn.TabIndex = 9;
@@ -202,11 +202,11 @@
             this.TransportDataGridView.ColumnHeadersHeight = 40;
             this.TransportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.TransportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.transportId,
-            this.IdClient,
+            this.id_transport,
+            this.fk_client_id,
             this.client,
-            this.Datum,
-            this.status,
+            this.transport_date,
+            this.transport_status,
             this.previewTransport,
             this.deleteStatus});
             this.crudArticlesFormTblLayout.SetColumnSpan(this.TransportDataGridView, 8);
@@ -244,7 +244,7 @@
             this.searchArticlesLbl.ForeColor = System.Drawing.Color.White;
             this.searchArticlesLbl.Location = new System.Drawing.Point(885, 79);
             this.searchArticlesLbl.Name = "searchArticlesLbl";
-            this.searchArticlesLbl.Size = new System.Drawing.Size(336, 27);
+            this.searchArticlesLbl.Size = new System.Drawing.Size(335, 27);
             this.searchArticlesLbl.TabIndex = 41;
             this.searchArticlesLbl.Text = "Pretraži ";
             this.searchArticlesLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -258,26 +258,26 @@
             this.searchTransportTxtBox.Multiline = true;
             this.searchTransportTxtBox.Name = "searchTransportTxtBox";
             this.searchTransportTxtBox.ShortcutsEnabled = false;
-            this.searchTransportTxtBox.Size = new System.Drawing.Size(336, 31);
+            this.searchTransportTxtBox.Size = new System.Drawing.Size(335, 31);
             this.searchTransportTxtBox.TabIndex = 5;
             this.searchTransportTxtBox.TextChanged += new System.EventHandler(this.searchTransportxtBox_TextChanged);
             this.searchTransportTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
-            // transportId
+            // id_transport
             // 
-            this.transportId.DataPropertyName = "id_transport";
-            this.transportId.HeaderText = "ID";
-            this.transportId.Name = "transportId";
-            this.transportId.ReadOnly = true;
-            this.transportId.Visible = false;
+            this.id_transport.DataPropertyName = "id_transport";
+            this.id_transport.HeaderText = "ID";
+            this.id_transport.Name = "id_transport";
+            this.id_transport.ReadOnly = true;
+            this.id_transport.Visible = false;
             // 
-            // IdClient
+            // fk_client_id
             // 
-            this.IdClient.DataPropertyName = "fk_client_id";
-            this.IdClient.HeaderText = "ID Klijenta";
-            this.IdClient.Name = "IdClient";
-            this.IdClient.ReadOnly = true;
-            this.IdClient.Visible = false;
+            this.fk_client_id.DataPropertyName = "fk_client_id";
+            this.fk_client_id.HeaderText = "ID Klijenta";
+            this.fk_client_id.Name = "fk_client_id";
+            this.fk_client_id.ReadOnly = true;
+            this.fk_client_id.Visible = false;
             // 
             // client
             // 
@@ -287,19 +287,19 @@
             this.client.Name = "client";
             this.client.ReadOnly = true;
             // 
-            // Datum
+            // transport_date
             // 
-            this.Datum.DataPropertyName = "transport_date";
-            this.Datum.HeaderText = "Datum";
-            this.Datum.Name = "Datum";
-            this.Datum.ReadOnly = true;
+            this.transport_date.DataPropertyName = "transport_date";
+            this.transport_date.HeaderText = "Datum";
+            this.transport_date.Name = "transport_date";
+            this.transport_date.ReadOnly = true;
             // 
-            // status
+            // transport_status
             // 
-            this.status.DataPropertyName = "transport_status";
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
+            this.transport_status.DataPropertyName = "transport_status";
+            this.transport_status.HeaderText = "Status";
+            this.transport_status.Name = "transport_status";
+            this.transport_status.ReadOnly = true;
             // 
             // previewTransport
             // 
@@ -358,11 +358,11 @@
         private System.Windows.Forms.DataGridView TransportDataGridView;
         private System.Windows.Forms.Label searchArticlesLbl;
         private System.Windows.Forms.TextBox searchTransportTxtBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn transportId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdClient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_transport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fk_client_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn client;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transport_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transport_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn previewTransport;
         private System.Windows.Forms.DataGridViewTextBoxColumn deleteStatus;
     }

@@ -16,8 +16,9 @@ namespace Freshivoje.Transport
     {
         private int _selectedTransportId;
         private string _selectedTransportStatus;
-        private readonly string _fillDGVQuery = "SELECT CONCAT(`clients`.`first_name`,' ',`clients`.`last_name`) as client, `clients`.`id_client` as fk_client_id, `transport`.`id_transport`, `transport`.`transport_date`" +
-            ",`transport`.`transport_status` FROM `transport` JOIN `clients` ON `clients`.`id_client` = `transport`.`fk_client_id`";
+         string _fillDGVQuery = @"SELECT CONCAT(`clients`.`first_name`,' ',`clients`.`last_name`) as client, `clients`.`id_client` as fk_client_id, `transport`.`id_transport`, `transport`.`transport_date`,`transport`.`transport_status` 
+                                                    FROM `transport` 
+                                                    JOIN `clients` ON `clients`.`id_client` = `transport`.`fk_client_id`";
 
         public TransportRecordForm()
         {
@@ -25,6 +26,7 @@ namespace Freshivoje.Transport
             WindowState = FormWindowState.Maximized;
             TransportDataGridView.AutoGenerateColumns = false;
             DbConnection.fillDGV(TransportDataGridView, _fillDGVQuery);
+            
         }
 
         protected override CreateParams CreateParams
@@ -73,19 +75,16 @@ namespace Freshivoje.Transport
                 return;
             }
 
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 6)
             { 
-                _selectedTransportId = Convert.ToInt32(TransportDataGridView.Rows[e.RowIndex].Cells["transportId"].Value);
-                _selectedTransportStatus = TransportDataGridView.Rows[e.RowIndex].Cells["status"].Value.ToString();
+                _selectedTransportId = Convert.ToInt32(TransportDataGridView.Rows[e.RowIndex].Cells["id_transport"].Value);
+                _selectedTransportStatus = TransportDataGridView.Rows[e.RowIndex].Cells["transport_status"].Value.ToString();
                 if (_selectedTransportStatus == "plaćeno")
                 {
                     CustomMessageBox.ShowDialog(this, $"Ovaj putni nalog je već plaćen!");
                     return;
                 }
-            }
          
-            if (e.ColumnIndex == 6)
-            {
                 DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da ste platili putni nalog?");
                 if (result == DialogResult.No || result == DialogResult.Cancel)
                 {
@@ -93,11 +92,13 @@ namespace Freshivoje.Transport
                 }
                 MySqlCommand mySqlCommand = new MySqlCommand
                 {
-                    CommandText = "UPDATE `transport` SET `transport_status`='1' WHERE id_transport=@id"
+                    CommandText = "UPDATE `transport` SET transport_status='plaćeno' WHERE `id_transport`=@id"
                 };
                 mySqlCommand.Parameters.AddWithValue("@id", _selectedTransportId);
                 DbConnection.executeQuery(mySqlCommand);
+                DbConnection.fillDGV(TransportDataGridView, _fillDGVQuery);
             } 
         }
+     
     }
 }

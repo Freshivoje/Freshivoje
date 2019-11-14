@@ -69,7 +69,11 @@ namespace Freshivoje.Options_Forms
             createArticleForm.ShowDialog(this);
         }
 
-     
+        private void articlesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void CRUDArticlesForm_Activated(object sender, EventArgs e)
         {
             DbConnection.fillDGV(articlesDataGridView, _fillDGVQuery);

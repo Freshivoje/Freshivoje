@@ -17,9 +17,9 @@ namespace Freshivoje
         private static readonly string _database = "freshivoje";
         private static readonly string _username = "root";
         //private static string password = "";
-        private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username}";
+        private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username};convert zero datetime=True";
         public static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
-
+       
         public static void fillCmbBox(ComboBox cmbBox, string table, params string[] columns)
         {
             try
@@ -82,7 +82,7 @@ namespace Freshivoje
             }
         }
 
-        public static void executeTransportQuery(List<TransportItems> transportItems, int clientId)
+        public static void executeTransportQuery(List<TransportItem> transportItem, int clientId)
         {
             MySqlCommand mySqlCommand = new MySqlCommand();
             mySqlCommand.Connection = _databaseConnection;
@@ -112,7 +112,7 @@ namespace Freshivoje
                 mySqlCommand.Parameters.Clear();
 
                 mySqlCommand.CommandText = "INSERT INTO `transport_items` (`fk_transport_id`, `price`, `quantity`, `traveled`) VALUES ( @fkTransportId, @price, @quantity, @traveled)";
-                foreach (TransportItems item in transportItems)
+                foreach (TransportItem item in transportItem)
                 {
                     mySqlCommand.Parameters.AddWithValue("@fkTransportId", transportId);
                     mySqlCommand.Parameters.AddWithValue("@price", item._price);
@@ -149,12 +149,13 @@ namespace Freshivoje
                 table.Load(reader);
                 dataGridView.DataSource = table;
             }
-            catch
+            catch(Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
                     return;
                 }
+                throw e;
             }
             finally
             {

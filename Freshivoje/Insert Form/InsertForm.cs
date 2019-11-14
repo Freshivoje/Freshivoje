@@ -161,8 +161,8 @@ namespace Freshivoje
         {
             if (insertedArticlesDataGridView.Rows.Count < 1)
             {
-                CustomMessageBox.ShowDialog(this, Properties.Resources.emptyDGVMsg);
-                return;
+                //CustomMessageBox.ShowDialog(this, Properties.Resources.emptyDGVMsg);
+                //return;
             }
 
             DialogResult result = CustomDialog.ShowDialog(this, "Da li ste sigurni da želite da unesete ove artikle u magacin?");

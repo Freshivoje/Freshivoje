@@ -7,17 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Freshivoje.Insert;
-using Freshivoje.Insert_Form;
 
-namespace Freshivoje
+namespace Freshivoje.Insert_Form
 {
-    public partial class InsertMethodForm : Form
+    public partial class ChooseStorageRentingMethodForm : Form
     {
-        public InsertMethodForm()
+        public ChooseStorageRentingMethodForm()
         {
             InitializeComponent();
         }
+
         protected override CreateParams CreateParams
         {
             get
@@ -27,12 +26,6 @@ namespace Freshivoje
                 return cp;
             }
         }
-        private void repurchaseBtn_Click(object sender, EventArgs e)
-        {
-            ChooseClientForm chooseClientForm = new ChooseClientForm();
-            chooseClientForm.ShowDialog(this);
-        }
-
         private void backBtn_Click(object sender, EventArgs e)
         {
             Close();
@@ -48,10 +41,16 @@ namespace Freshivoje
             Application.Exit();
         }
 
+        private void newStorageRentingBtn_Click(object sender, EventArgs e)
+        {
+            ChooseClientForRentingForm chooseClientForRentingForm = new ChooseClientForRentingForm();
+            chooseClientForRentingForm.ShowDialog(this);
+        }
+
         private void storageRentBtn_Click(object sender, EventArgs e)
         {
-            ChooseStorageRentingMethodForm chooseStorageRentingMethodForm = new ChooseStorageRentingMethodForm();
-            chooseStorageRentingMethodForm.ShowDialog(this);
+            StorageRentingRecordsForm storageRentingRecordsForm = new StorageRentingRecordsForm();
+            storageRentingRecordsForm.Show(this);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Freshivoje.Insert_Form
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             DbConnection.fillCmbBox(storagePositionCmbBox, "storage", "id_storage", "storage_position", "article_quantity",  "package_quantity");
-            storagePositionCmbBox.SelectedIndex = 0;
+            storagePositionCmbBox.SelectedIndex = 1;
             rentingDataPicker.MinDate = DateTime.Now;
             fkClientId = clientId;
         }
@@ -82,8 +82,19 @@ namespace Freshivoje.Insert_Form
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
             //odavde proveravaj
-
-                string dateOfRenting = rentingDataPicker.Value.Date.ToString("yyyy-MM-dd");
+            if (string.IsNullOrWhiteSpace(storagePositionCmbBox.Text) || string.IsNullOrWhiteSpace(pricelTxtBox.Text)
+           || string.IsNullOrWhiteSpace(rentingDataPicker.Text) || string.IsNullOrWhiteSpace(endDataOfRentPicker.Text)
+           )
+            {
+                CustomMessageBox.ShowDialog(this, Properties.Resources.emptyInputErrorMsg);
+                return;
+            }
+            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da iznajmite\n Odeljak : {storagePositionCmbBox.Text}\nCena : {pricelTxtBox.Text} RSD\n Od : {rentingDataPicker.Text}\n Do : {endDataOfRentPicker.Text}\n");
+            if (result == DialogResult.No || result == DialogResult.Cancel)
+            {
+                return;
+            }
+            string dateOfRenting = rentingDataPicker.Value.Date.ToString("yyyy-MM-dd");
                 string dateOfRentingEnd = endDataOfRentPicker.Value.Date.ToString("yyyy-MM-dd");
                 storageId = (storagePositionCmbBox.SelectedItem as ComboBoxItem).Value;
 
@@ -96,9 +107,9 @@ namespace Freshivoje.Insert_Form
                 mySqlCommand.Parameters.AddWithValue("@dateOfRenting", dateOfRenting);
                 mySqlCommand.Parameters.AddWithValue("@end_of_renting_data", dateOfRentingEnd);
                 mySqlCommand.Parameters.AddWithValue("@clientId", fkClientId);
-
-            DbConnection.executeQuery(mySqlCommand);
-            
+                
+                DbConnection.executeQuery(mySqlCommand);
+                Close();
         }
     }
 }

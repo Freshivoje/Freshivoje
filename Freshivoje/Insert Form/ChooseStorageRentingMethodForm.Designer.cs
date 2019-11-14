@@ -1,6 +1,6 @@
-﻿namespace Freshivoje
+﻿namespace Freshivoje.Insert_Form
 {
-    partial class InsertMethodForm
+    partial class ChooseStorageRentingMethodForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,44 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.insertMethodFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.ChooseStorageRentingMethodTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.backBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
-            this.purchaseArticlesBtn = new System.Windows.Forms.Button();
+            this.newStorageRentingBtn = new System.Windows.Forms.Button();
             this.storageRentBtn = new System.Windows.Forms.Button();
-            this.insertMethodFormTblLayout.SuspendLayout();
+            this.ChooseStorageRentingMethodTblLayout.SuspendLayout();
             this.SuspendLayout();
             // 
-            // insertMethodFormTblLayout
+            // ChooseStorageRentingMethodTblLayout
             // 
-            this.insertMethodFormTblLayout.BackColor = System.Drawing.Color.Transparent;
-            this.insertMethodFormTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
-            this.insertMethodFormTblLayout.ColumnCount = 5;
-            this.insertMethodFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.insertMethodFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.insertMethodFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.insertMethodFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.insertMethodFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.insertMethodFormTblLayout.Controls.Add(this.backBtn, 2, 0);
-            this.insertMethodFormTblLayout.Controls.Add(this.minimizeBtn, 3, 0);
-            this.insertMethodFormTblLayout.Controls.Add(this.exitBtn, 4, 0);
-            this.insertMethodFormTblLayout.Controls.Add(this.purchaseArticlesBtn, 1, 2);
-            this.insertMethodFormTblLayout.Controls.Add(this.storageRentBtn, 1, 4);
-            this.insertMethodFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.insertMethodFormTblLayout.Location = new System.Drawing.Point(5, 5);
-            this.insertMethodFormTblLayout.Name = "insertMethodFormTblLayout";
-            this.insertMethodFormTblLayout.RowCount = 7;
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.insertMethodFormTblLayout.Size = new System.Drawing.Size(611, 618);
-            this.insertMethodFormTblLayout.TabIndex = 1;
+            this.ChooseStorageRentingMethodTblLayout.BackColor = System.Drawing.Color.Transparent;
+            this.ChooseStorageRentingMethodTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
+            this.ChooseStorageRentingMethodTblLayout.ColumnCount = 5;
+            this.ChooseStorageRentingMethodTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.ChooseStorageRentingMethodTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ChooseStorageRentingMethodTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.ChooseStorageRentingMethodTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.ChooseStorageRentingMethodTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.ChooseStorageRentingMethodTblLayout.Controls.Add(this.backBtn, 2, 0);
+            this.ChooseStorageRentingMethodTblLayout.Controls.Add(this.minimizeBtn, 3, 0);
+            this.ChooseStorageRentingMethodTblLayout.Controls.Add(this.exitBtn, 4, 0);
+            this.ChooseStorageRentingMethodTblLayout.Controls.Add(this.newStorageRentingBtn, 1, 2);
+            this.ChooseStorageRentingMethodTblLayout.Controls.Add(this.storageRentBtn, 1, 4);
+            this.ChooseStorageRentingMethodTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChooseStorageRentingMethodTblLayout.Location = new System.Drawing.Point(0, 0);
+            this.ChooseStorageRentingMethodTblLayout.Name = "ChooseStorageRentingMethodTblLayout";
+            this.ChooseStorageRentingMethodTblLayout.RowCount = 7;
+            this.ChooseStorageRentingMethodTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.ChooseStorageRentingMethodTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.ChooseStorageRentingMethodTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.ChooseStorageRentingMethodTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.ChooseStorageRentingMethodTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.ChooseStorageRentingMethodTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.ChooseStorageRentingMethodTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.ChooseStorageRentingMethodTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.ChooseStorageRentingMethodTblLayout.Size = new System.Drawing.Size(654, 624);
+            this.ChooseStorageRentingMethodTblLayout.TabIndex = 2;
             // 
             // backBtn
             // 
@@ -81,7 +81,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(464, 3);
+            this.backBtn.Location = new System.Drawing.Point(507, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 54);
             this.backBtn.TabIndex = 11;
@@ -104,7 +104,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(514, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(557, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(44, 54);
             this.minimizeBtn.TabIndex = 5;
@@ -126,7 +126,7 @@
             this.exitBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(564, 3);
+            this.exitBtn.Location = new System.Drawing.Point(607, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.exitBtn.Size = new System.Drawing.Size(44, 54);
@@ -136,25 +136,25 @@
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
-            // purchaseArticlesBtn
+            // newStorageRentingBtn
             // 
-            this.purchaseArticlesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.purchaseArticlesBtn.BackColor = System.Drawing.Color.Transparent;
-            this.purchaseArticlesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.purchaseArticlesBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.purchaseArticlesBtn.FlatAppearance.BorderSize = 5;
-            this.purchaseArticlesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.purchaseArticlesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.purchaseArticlesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.purchaseArticlesBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.purchaseArticlesBtn.ForeColor = System.Drawing.Color.White;
-            this.purchaseArticlesBtn.Location = new System.Drawing.Point(191, 172);
-            this.purchaseArticlesBtn.Name = "purchaseArticlesBtn";
-            this.purchaseArticlesBtn.Size = new System.Drawing.Size(228, 72);
-            this.purchaseArticlesBtn.TabIndex = 0;
-            this.purchaseArticlesBtn.Text = "OTKUP ARTIKALA";
-            this.purchaseArticlesBtn.UseVisualStyleBackColor = false;
-            this.purchaseArticlesBtn.Click += new System.EventHandler(this.repurchaseBtn_Click);
+            this.newStorageRentingBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.newStorageRentingBtn.BackColor = System.Drawing.Color.Transparent;
+            this.newStorageRentingBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.newStorageRentingBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.newStorageRentingBtn.FlatAppearance.BorderSize = 5;
+            this.newStorageRentingBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.newStorageRentingBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.newStorageRentingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newStorageRentingBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newStorageRentingBtn.ForeColor = System.Drawing.Color.White;
+            this.newStorageRentingBtn.Location = new System.Drawing.Point(213, 174);
+            this.newStorageRentingBtn.Name = "newStorageRentingBtn";
+            this.newStorageRentingBtn.Size = new System.Drawing.Size(228, 72);
+            this.newStorageRentingBtn.TabIndex = 0;
+            this.newStorageRentingBtn.Text = "NOVO LAGEROVANJE";
+            this.newStorageRentingBtn.UseVisualStyleBackColor = false;
+            this.newStorageRentingBtn.Click += new System.EventHandler(this.newStorageRentingBtn_Click);
             // 
             // storageRentBtn
             // 
@@ -168,38 +168,36 @@
             this.storageRentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.storageRentBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.storageRentBtn.ForeColor = System.Drawing.Color.White;
-            this.storageRentBtn.Location = new System.Drawing.Point(191, 370);
+            this.storageRentBtn.Location = new System.Drawing.Point(213, 374);
             this.storageRentBtn.Name = "storageRentBtn";
             this.storageRentBtn.Size = new System.Drawing.Size(228, 72);
             this.storageRentBtn.TabIndex = 1;
-            this.storageRentBtn.Text = "LAGEROVANJE";
+            this.storageRentBtn.Text = "EVIDENCIJA";
             this.storageRentBtn.UseVisualStyleBackColor = false;
             this.storageRentBtn.Click += new System.EventHandler(this.storageRentBtn_Click);
             // 
-            // InsertMethodForm
+            // ChooseStorageRentingMethodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(621, 628);
-            this.Controls.Add(this.insertMethodFormTblLayout);
+            this.ClientSize = new System.Drawing.Size(654, 624);
+            this.Controls.Add(this.ChooseStorageRentingMethodTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "InsertMethodForm";
-            this.Padding = new System.Windows.Forms.Padding(5);
+            this.Name = "ChooseStorageRentingMethodForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ChooseInsertMethodForm";
-            this.insertMethodFormTblLayout.ResumeLayout(false);
+            this.Text = "ChooseStorageRentingMethodForm";
+            this.ChooseStorageRentingMethodTblLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel insertMethodFormTblLayout;
+        private System.Windows.Forms.TableLayoutPanel ChooseStorageRentingMethodTblLayout;
+        private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button exitBtn;
-        private System.Windows.Forms.Button purchaseArticlesBtn;
+        private System.Windows.Forms.Button newStorageRentingBtn;
         private System.Windows.Forms.Button storageRentBtn;
-        private System.Windows.Forms.Button backBtn;
     }
 }
