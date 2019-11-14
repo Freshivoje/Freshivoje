@@ -32,8 +32,8 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
-            this.storegeOfGoodsBtn = new System.Windows.Forms.Button();
             this.repurchaseBtn = new System.Windows.Forms.Button();
+            this.storegeOfGoodsBtn = new System.Windows.Forms.Button();
             this.chooseTransportFormTblLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +64,7 @@
             this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.chooseTransportFormTblLayout.Size = new System.Drawing.Size(624, 620);
+            this.chooseTransportFormTblLayout.Size = new System.Drawing.Size(601, 608);
             this.chooseTransportFormTblLayout.TabIndex = 2;
             // 
             // backBtn
@@ -81,7 +81,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(477, 3);
+            this.backBtn.Location = new System.Drawing.Point(454, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 54);
             this.backBtn.TabIndex = 11;
@@ -104,7 +104,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(527, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(504, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(44, 54);
             this.minimizeBtn.TabIndex = 5;
@@ -126,7 +126,7 @@
             this.exitBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(577, 3);
+            this.exitBtn.Location = new System.Drawing.Point(554, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.exitBtn.Size = new System.Drawing.Size(44, 54);
@@ -135,26 +135,6 @@
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
-            // 
-            // storegeOfGoodsBtn
-            // 
-            this.storegeOfGoodsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.storegeOfGoodsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.storegeOfGoodsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.storegeOfGoodsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.storegeOfGoodsBtn.FlatAppearance.BorderSize = 5;
-            this.storegeOfGoodsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.storegeOfGoodsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.storegeOfGoodsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.storegeOfGoodsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.storegeOfGoodsBtn.ForeColor = System.Drawing.Color.White;
-            this.storegeOfGoodsBtn.Location = new System.Drawing.Point(198, 314);
-            this.storegeOfGoodsBtn.Name = "storegeOfGoodsBtn";
-            this.storegeOfGoodsBtn.Size = new System.Drawing.Size(228, 72);
-            this.storegeOfGoodsBtn.TabIndex = 1;
-            this.storegeOfGoodsBtn.Text = "EVIDENCIJA";
-            this.storegeOfGoodsBtn.UseVisualStyleBackColor = false;
-            this.storegeOfGoodsBtn.Click += new System.EventHandler(this.storegeOfGoodsBtn_Click);
             // 
             // repurchaseBtn
             // 
@@ -168,7 +148,7 @@
             this.repurchaseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.repurchaseBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.repurchaseBtn.ForeColor = System.Drawing.Color.White;
-            this.repurchaseBtn.Location = new System.Drawing.Point(198, 148);
+            this.repurchaseBtn.Location = new System.Drawing.Point(186, 145);
             this.repurchaseBtn.Name = "repurchaseBtn";
             this.repurchaseBtn.Size = new System.Drawing.Size(228, 72);
             this.repurchaseBtn.TabIndex = 0;
@@ -176,12 +156,32 @@
             this.repurchaseBtn.UseVisualStyleBackColor = false;
             this.repurchaseBtn.Click += new System.EventHandler(this.repurchaseBtn_Click);
             // 
+            // storegeOfGoodsBtn
+            // 
+            this.storegeOfGoodsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.storegeOfGoodsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.storegeOfGoodsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.storegeOfGoodsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.storegeOfGoodsBtn.FlatAppearance.BorderSize = 5;
+            this.storegeOfGoodsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.storegeOfGoodsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.storegeOfGoodsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.storegeOfGoodsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.storegeOfGoodsBtn.ForeColor = System.Drawing.Color.White;
+            this.storegeOfGoodsBtn.Location = new System.Drawing.Point(186, 307);
+            this.storegeOfGoodsBtn.Name = "storegeOfGoodsBtn";
+            this.storegeOfGoodsBtn.Size = new System.Drawing.Size(228, 72);
+            this.storegeOfGoodsBtn.TabIndex = 1;
+            this.storegeOfGoodsBtn.Text = "EVIDENCIJA";
+            this.storegeOfGoodsBtn.UseVisualStyleBackColor = false;
+            this.storegeOfGoodsBtn.Click += new System.EventHandler(this.storegeOfGoodsBtn_Click);
+            // 
             // ChooseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(634, 630);
+            this.ClientSize = new System.Drawing.Size(611, 618);
             this.Controls.Add(this.chooseTransportFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChooseForm";
