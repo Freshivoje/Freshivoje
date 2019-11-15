@@ -73,14 +73,14 @@ namespace Freshivoje.Transport
                 CustomMessageBox.ShowDialog(this, Properties.Resources.emptyInputErrorMsg);
                 return;
             }
-            decimal price = Convert.ToDecimal(priceTxtBox.Text);
+            decimal priceSingle = Convert.ToDecimal(priceTxtBox.Text);
             decimal quantity = Convert.ToDecimal(quantityTxtBox.Text);
             decimal travel = Convert.ToDecimal(travelTxtBox.Text);
-            decimal totalPrice = price * quantity * travel;
+            decimal price = priceSingle * quantity * travel;
 
-            TransportItem transportItem = new TransportItem(0, _clientId, price, quantity, travel, totalPrice);
+            TransportItem transportItem = new TransportItem(0, _clientId, priceSingle, quantity, travel, price);
 
-            transportDataGridView.Rows.Add(transportItem._id, transportItem._price, transportItem._quantity, transportItem._traveled, transportItem._totalPrice);
+            transportDataGridView.Rows.Add(transportItem._id, transportItem._priceSingle, transportItem._quantity, transportItem._traveled, transportItem._price);
 
             priceTxtBox.ResetText();
             quantityTxtBox.ResetText();
@@ -103,18 +103,21 @@ namespace Freshivoje.Transport
                 return;
             }
 
+            decimal totalPrice = 0;
             foreach (DataGridViewRow row in transportDataGridView.Rows)
             {
-                decimal price = Convert.ToDecimal(row.Cells["price"].Value);
+                decimal priceSingle = Convert.ToDecimal(row.Cells["price"].Value);
                 decimal quantity = Convert.ToDecimal(row.Cells["quantity"].Value);
                 decimal traveled = Convert.ToDecimal(row.Cells["traveled"].Value);
-                decimal totalPrice = Convert.ToDecimal(row.Cells["totalPrice"].Value);
+                decimal price = Convert.ToDecimal(row.Cells["totalPrice"].Value);
 
-                TransportItem item = new TransportItem(0, _clientId, price, quantity, traveled, totalPrice);
+                totalPrice += price;
+
+                TransportItem item = new TransportItem(0, _clientId, priceSingle, quantity, traveled, price);
                 transportItems.Add(item);
             }
 
-            DbConnection.executeTransportQuery(transportItems);
+            DbConnection.executeTransportQuery(transportItems, totalPrice);
             transportDataGridView.Rows.Clear();
         }
 

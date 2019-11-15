@@ -59,30 +59,19 @@ namespace Freshivoje.Transport
         }
         private void backBtn_Click(object sender, EventArgs e)
         {
-           
+            Close();
+
         }
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            
+            Application.Exit();
+
         }
         private void minimizeBtn_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
-        private void exitBtn_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
-        private void minimizeBtn_Click_1(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void backBtn_Click_1(object sender, EventArgs e)
-        {
-            Close();
-        }
     }
 }

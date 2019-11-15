@@ -32,7 +32,7 @@ namespace Freshivoje
         private CustomMessageBox(string text)
         {
             InitializeComponent();
-            errorMsgLbl.Text = text;
+            msgLbl.Text = text;
         }
 
         private void confirmButton_Click(object sender, EventArgs e)

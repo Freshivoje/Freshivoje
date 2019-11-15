@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Freshivoje.Transport;
+using System;
 using System.Windows.Forms;
 
 namespace Freshivoje
@@ -67,7 +68,7 @@ namespace Freshivoje
 
         private void transportBtn_Click(object sender, EventArgs e)
         {
-            using Transport.ChooseForm chooseForm = new Transport.ChooseForm();
+            using ChooseForm chooseForm = new ChooseForm();
             chooseForm.ShowDialog(this);
         }
     }

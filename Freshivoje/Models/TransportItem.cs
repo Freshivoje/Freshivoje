@@ -4,10 +4,10 @@
     {
         public int _id { get; private set; }
         public int _clientId { get; private set; }
-        public decimal _price { get; private set; }
+        public decimal _priceSingle { get; private set; }
         public decimal _quantity { get; private set; }
         public decimal _traveled { get; private set; }
-        public decimal _totalPrice { get; private set; }
+        public decimal _price { get; private set; }
 
         public TransportItem (
             int id,
@@ -20,10 +20,10 @@
         {
             _id = id;
             _clientId = fkClientId;
-            _price = price;
+            _priceSingle = price;
             _quantity = quantity;
             _traveled = traveled;
-            _totalPrice = totalPrice;
+            _price = totalPrice;
         }
                             
     }

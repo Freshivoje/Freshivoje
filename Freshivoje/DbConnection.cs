@@ -82,7 +82,7 @@ namespace Freshivoje
             }
         }
 
-        public static void executeTransportQuery(List<TransportItem> transportItems)
+        public static void executeTransportQuery(List<TransportItem> transportItems, decimal totalPrice)
         {
             MySqlCommand mySqlCommand = new MySqlCommand
             {
@@ -95,7 +95,7 @@ namespace Freshivoje
 
             try
             {
-                mySqlCommand.CommandText = "SELECT `transport_number` FROM `transport` ORDER BY `transport_number` DESC LIMIT 1";
+                mySqlCommand.CommandText = "SELECT `transport_number` FROM `transport` ORDER BY `id_transport` DESC LIMIT 1";
 
                 int? transportNumber = Convert.ToInt32(mySqlCommand.ExecuteScalar());
                 if (transportNumber == null)
@@ -107,21 +107,23 @@ namespace Freshivoje
 
                 int clientId = transportItems[0]._clientId;
 
-                mySqlCommand.CommandText = "INSERT INTO `transport` (`fk_client_id`, `transport_number`) VALUES (@clientId, @transportNumber); SELECT LAST_INSERT_ID()";
+                mySqlCommand.CommandText = "INSERT INTO `transport` (`fk_client_id`, `transport_number`, `total_price`) VALUES (@clientId, @transportNumber, @totalPrice); SELECT LAST_INSERT_ID()";
                 mySqlCommand.Parameters.AddWithValue("@clientId", clientId);
                 mySqlCommand.Parameters.AddWithValue("@transportNumber", transportNumber);
+                mySqlCommand.Parameters.AddWithValue("@totalPrice", totalPrice);
 
                 int? transportId = Convert.ToInt32(mySqlCommand.ExecuteScalar());
 
                 mySqlCommand.Parameters.Clear();
 
-                mySqlCommand.CommandText = "INSERT INTO `transport_items` (`fk_transport_id`, `price`, `quantity`, `traveled`) VALUES ( @fkTransportId, @price, @quantity, @traveled)";
+                mySqlCommand.CommandText = "INSERT INTO `transport_items` (`fk_transport_id`, `price_single`, `quantity`, `traveled`, `price`) VALUES (@fkTransportId, @priceSingle, @quantity, @traveled, @price)";
                 foreach (TransportItem item in transportItems)
                 {
                     mySqlCommand.Parameters.AddWithValue("@fkTransportId", transportId);
-                    mySqlCommand.Parameters.AddWithValue("@price", item._price);
+                    mySqlCommand.Parameters.AddWithValue("@priceSingle", item._priceSingle);
                     mySqlCommand.Parameters.AddWithValue("@quantity", item._quantity);
                     mySqlCommand.Parameters.AddWithValue("@traveled", item._traveled);
+                    mySqlCommand.Parameters.AddWithValue("@price", item._price);
 
                     mySqlCommand.ExecuteNonQuery();
 
@@ -144,7 +146,41 @@ namespace Freshivoje
             }
         }
 
+        public static string getTransportDetails(MySqlCommand mySqlCommand)
+        {
+            string result = string.Empty;
+            try
+            {
+                mySqlCommand.Connection = _databaseConnection;
+                _databaseConnection.Open();
+                MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
 
+                int articleNum = 1;
+                while (mySqlDataReader.Read())
+                {
+                    string priceSingle = mySqlDataReader.GetDecimal("price_single").ToString("0.00");
+                    string quantity = mySqlDataReader.GetDecimal("quantity").ToString("0.00");
+                    string traveled = mySqlDataReader.GetDecimal("traveled").ToString("0.00");
+                    string price = mySqlDataReader.GetDecimal("price").ToString("0.00");
+
+
+                    result += $"Artikal {articleNum}\n{priceSingle} / {quantity} / {traveled} / {price}\n";
+
+                    articleNum = articleNum + 1;
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
+            return result;
+
+        }
         public static void fillDGV(DataGridView dataGridView, string query)
         {
             DataTable table = new DataTable();

@@ -1,12 +1,9 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Forms;
-
 using MySql.Data.MySqlClient;
 using Freshivoje.Models;
 using Freshivoje.Custom_Forms;
-using System.Collections.Generic;
-using System.Diagnostics;
+
 
 namespace Freshivoje
 {
@@ -153,8 +150,8 @@ namespace Freshivoje
                 CommandText = $"SELECT `value` FROM `prices` WHERE `fk_article_id` = {_articleId} AND `status` = 'aktivna' AND fk_category_id = {_articleCategoryId}"
             };
 
-            decimal lastPrice = DbConnection.getValue(mySqlCommand);
-            articlePriceLbl.Text = lastPrice.ToString();
+            _selectedArticlePrice = DbConnection.getValue(mySqlCommand);
+            articlePriceLbl.Text = _selectedArticlePrice.ToString();
         }
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
@@ -178,19 +175,36 @@ namespace Freshivoje
 
             MySqlCommand mySqlCommand1 = new MySqlCommand
             {
-                CommandText = "INSERT INTO `receipts` (`fk_client_id`) VALUES (@clientId); SELECT LAST_INSERT_ID()"
+                 CommandText = "SELECT `receipt_number` FROM `receipts` ORDER BY `id_receipt` DESC LIMIT 1"
             };
 
+            int? receiptNumber = Convert.ToInt32(DbConnection.getValue(mySqlCommand1));
+
+            if (receiptNumber == null)
+            {
+                receiptNumber = 0;
+            }
+            receiptNumber += 1;
+
+            mySqlCommand1.CommandText = "INSERT INTO `receipts` (`fk_client_id`, `receipt_number`) VALUES (@clientId, @receiptNumber); SELECT LAST_INSERT_ID()";
+
             mySqlCommand1.Parameters.AddWithValue("@clientId", _selectedClientId);
+            mySqlCommand1.Parameters.AddWithValue("@receiptNumber", receiptNumber);
 
             int receiptId = Convert.ToInt32(DbConnection.getValue(mySqlCommand1));
+
+            mySqlCommand1.Parameters.Clear();
+
             mySqlCommand1.CommandText = "INSERT INTO `items_receipt` (`fk_receipt_id`, `fk_article_id`, `quantity`, `price`) VALUES (@receiptId, @articleId, @articleQuantity, @articlePrice)";
+
+            decimal totalPrice = 0;
 
             foreach (DataGridViewRow row in insertedArticlesDataGridView.Rows)
             { 
                 int packagingId = Convert.ToInt32(row.Cells["packagingId"].Value);
                 int packagingQuantity = Convert.ToInt32(row.Cells["packagingQuantity"].Value);
                 string packagingOwnership = row.Cells["packagingOwnership"].Value.ToString();
+
 
                 mySqlCommand.Parameters.AddWithValue("@packagingId", packagingId);
                 mySqlCommand.Parameters.AddWithValue("@clientId", _selectedClientId);
@@ -205,6 +219,8 @@ namespace Freshivoje
                 decimal articleQuantity = Convert.ToDecimal(row.Cells["articleQuantity"].Value);
                 decimal articlePrice = Convert.ToDecimal(row.Cells["articlePrice"].Value);
 
+                totalPrice += articlePrice;
+
                 mySqlCommand1.Parameters.AddWithValue("@receiptId", receiptId);
                 mySqlCommand1.Parameters.AddWithValue("@articleId", articleId);
                 mySqlCommand1.Parameters.AddWithValue("@articleQuantity", articleQuantity);
@@ -214,6 +230,12 @@ namespace Freshivoje
 
                 mySqlCommand1.Parameters.Clear();
             }
+            
+            mySqlCommand1.CommandText = "UPDATE `receipts` SET `total_price` = @totalPrice WHERE `id_receipt` = @receiptId";
+            mySqlCommand1.Parameters.AddWithValue("@totalPrice", totalPrice);
+            mySqlCommand1.Parameters.AddWithValue("@receiptId", receiptId);
+
+            DbConnection.executeQuery(mySqlCommand1);
 
             insertedArticlesDataGridView.Rows.Clear();
         }

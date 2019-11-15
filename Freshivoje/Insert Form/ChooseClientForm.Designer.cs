@@ -89,21 +89,19 @@
             this.chooseClientFormTblLayout.Location = new System.Drawing.Point(5, 5);
             this.chooseClientFormTblLayout.Name = "chooseClientFormTblLayout";
             this.chooseClientFormTblLayout.RowCount = 13;
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.701844F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.701844F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.701844F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.701844F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.701844F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.701844F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.701844F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.701844F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.701844F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.166748F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.112975F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.701844F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.701844F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.344526F));
+            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.344526F));
+            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.344526F));
+            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.344526F));
+            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.344526F));
+            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.344526F));
+            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.344526F));
+            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.344526F));
+            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.848225F));
+            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.706519F));
+            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.344526F));
+            this.chooseClientFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.344526F));
             this.chooseClientFormTblLayout.Size = new System.Drawing.Size(1930, 1025);
             this.chooseClientFormTblLayout.TabIndex = 4;
             // 
@@ -124,7 +122,7 @@
             this.minimizeBtn.Location = new System.Drawing.Point(1829, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.minimizeBtn.Size = new System.Drawing.Size(44, 72);
+            this.minimizeBtn.Size = new System.Drawing.Size(44, 54);
             this.minimizeBtn.TabIndex = 5;
             this.minimizeBtn.TabStop = false;
             this.minimizeBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -148,7 +146,7 @@
             this.exitBtn.Location = new System.Drawing.Point(1879, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(48, 72);
+            this.exitBtn.Size = new System.Drawing.Size(48, 54);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -167,7 +165,7 @@
             this.lblTitle.Location = new System.Drawing.Point(3, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblTitle.Size = new System.Drawing.Size(292, 78);
+            this.lblTitle.Size = new System.Drawing.Size(292, 60);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "IZABERI KLIJENATA";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -188,7 +186,7 @@
             this.backBtn.ForeColor = System.Drawing.Color.White;
             this.backBtn.Location = new System.Drawing.Point(1779, 3);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(44, 72);
+            this.backBtn.Size = new System.Drawing.Size(44, 54);
             this.backBtn.TabIndex = 9;
             this.backBtn.TabStop = false;
             this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -200,7 +198,7 @@
             this.searchClientsTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchClientsTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchClientsTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchClientsTxtBox.Location = new System.Drawing.Point(1508, 159);
+            this.searchClientsTxtBox.Location = new System.Drawing.Point(1508, 143);
             this.searchClientsTxtBox.Multiline = true;
             this.searchClientsTxtBox.Name = "searchClientsTxtBox";
             this.searchClientsTxtBox.ShortcutsEnabled = false;
@@ -250,7 +248,7 @@
             this.clientsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clientsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.clientsDataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.clientsDataGridView.Location = new System.Drawing.Point(3, 237);
+            this.clientsDataGridView.Location = new System.Drawing.Point(3, 223);
             this.clientsDataGridView.MultiSelect = false;
             this.clientsDataGridView.Name = "clientsDataGridView";
             this.clientsDataGridView.ReadOnly = true;
@@ -259,7 +257,7 @@
             this.clientsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.chooseClientFormTblLayout.SetRowSpan(this.clientsDataGridView, 10);
             this.clientsDataGridView.RowTemplate.Height = 40;
-            this.clientsDataGridView.Size = new System.Drawing.Size(1924, 785);
+            this.clientsDataGridView.Size = new System.Drawing.Size(1924, 799);
             this.clientsDataGridView.TabIndex = 58;
             this.clientsDataGridView.TabStop = false;
             this.clientsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientsDataGridView_CellContentClick);
@@ -375,7 +373,7 @@
             this.searchClientsLbl.BackColor = System.Drawing.Color.Transparent;
             this.searchClientsLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchClientsLbl.ForeColor = System.Drawing.Color.White;
-            this.searchClientsLbl.Location = new System.Drawing.Point(1535, 129);
+            this.searchClientsLbl.Location = new System.Drawing.Point(1535, 113);
             this.searchClientsLbl.Name = "searchClientsLbl";
             this.searchClientsLbl.Size = new System.Drawing.Size(211, 27);
             this.searchClientsLbl.TabIndex = 57;
