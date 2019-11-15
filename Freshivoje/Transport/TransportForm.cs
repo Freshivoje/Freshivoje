@@ -150,7 +150,6 @@ namespace Freshivoje.Transport
                 pdfTableBlank.AddCell(new Phrase(" "));
                 pdfTableBlank.DefaultCell.Border = 0;
                 #endregion
-                //#region Page
                 #region Section-1
 
                 PdfPTable pdfTable1 = new PdfPTable(1);
@@ -171,8 +170,8 @@ namespace Freshivoje.Transport
                 pdfTable1.WidthPercentage = 80;
                 pdfTable1.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
                 pdfTable1.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
-                //pdfTable1.DefaultCell.BackgroundColor = new iTextSharp.text.BaseColor(64, 134, 170);
                 pdfTable1.DefaultCell.BorderWidth = 0;
+                //pdfTable1.DefaultCell.BackgroundColor = new iTextSharp.text.BaseColor(64, 134, 170);
 
                 pdfTable2.WidthPercentage = 80;
                 pdfTable2.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
@@ -188,7 +187,6 @@ namespace Freshivoje.Transport
                 pdfTable4.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
                 pdfTable4.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
                 pdfTable4.DefaultCell.Padding = 5;
-                //pdfTable4.DefaultCell.BackgroundColor = new iTextSharp.text.BaseColor(64, 134, 170);
 
                 pdfTable6.WidthPercentage = 80;
                 pdfTable6.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -356,7 +354,6 @@ namespace Freshivoje.Transport
 
                 }
 
-
                 Chunk c15 = new Chunk(" ", FontFactory.GetFont("Times New Roman"));
                 c15.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
                 c15.Font.SetStyle(0);
@@ -390,7 +387,6 @@ namespace Freshivoje.Transport
                 pdfTable10.AddCell(p18);
 
                 #endregion
-                //#endregion
                 #region Pdf Generation
                 string folderPath = "D:\\PDF\\";
                 if (!Directory.Exists(folderPath))
@@ -439,13 +435,11 @@ namespace Freshivoje.Transport
                 #region Display PDF
                 System.Diagnostics.Process.Start(folderPath + "\\" + strFileName);
                 #endregion
-
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
         }
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
