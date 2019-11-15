@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Freshivoje.Insert;
 
 namespace Freshivoje
 {
-    public partial class InsertMethodForm : Form
+    public partial class ChoosePackagesMethodForm : Form
     {
-        public InsertMethodForm()
+        public ChoosePackagesMethodForm()
         {
             InitializeComponent();
         }
@@ -28,7 +27,7 @@ namespace Freshivoje
         }
         private void repurchaseBtn_Click(object sender, EventArgs e)
         {
-            ChooseClientForm chooseClientForm = new ChooseClientForm();
+            using ChooseClientForm chooseClientForm = new ChooseClientForm("RentPackagesForm");
             chooseClientForm.ShowDialog(this);
         }
 

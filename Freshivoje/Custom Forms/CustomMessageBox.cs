@@ -12,7 +12,6 @@ namespace Freshivoje
 {
     public partial class CustomMessageBox : Form
     {
-
         public static DialogResult ShowDialog(IWin32Window owner, string text)
         {
             using var customDialog = new CustomMessageBox(text);

@@ -36,8 +36,8 @@ namespace Freshivoje
 
         private void insertBtn_Click(object sender, EventArgs e)
         {
-            using InsertMethodForm chooseInsertMethodForm = new InsertMethodForm();
-            chooseInsertMethodForm.ShowDialog(this);
+            using ChooseInsertMethodForm insertMethodForm = new ChooseInsertMethodForm();
+            insertMethodForm.ShowDialog(this);
         }
 
         private void paymentsBtn_Click(object sender, EventArgs e)
@@ -62,8 +62,8 @@ namespace Freshivoje
 
         private void packagesBtn_Click(object sender, EventArgs e)
         {
-            using PackagesForm packagesForm = new PackagesForm();
-            packagesForm.ShowDialog(this);
+            using ChoosePackagesMethodForm choosePackagesMethodForm = new ChoosePackagesMethodForm();
+            choosePackagesMethodForm.ShowDialog(this);
         }
 
         private void transportBtn_Click(object sender, EventArgs e)

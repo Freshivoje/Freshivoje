@@ -1,24 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Freshivoje.Models;
+using Freshivoje.Transport;
 
-namespace Freshivoje.Insert
+namespace Freshivoje
 {
     public partial class ChooseClientForm : Form
     {
         private int _selectedClientId;
+        private readonly string _parentForm;
         private readonly string _fillDGVQuery = "SELECT * FROM `clients` WHERE type = 'Fizičko lice'";
 
-        public ChooseClientForm()
+        public ChooseClientForm(string parentForm)
         {
             InitializeComponent();
+            _parentForm = parentForm;
             WindowState = FormWindowState.Maximized;
             clientsDataGridView.AutoGenerateColumns = false;
             DbConnection.fillDGV(clientsDataGridView, _fillDGVQuery);
@@ -41,12 +37,31 @@ namespace Freshivoje.Insert
                 return;
             }
 
-            _selectedClientId = Convert.ToInt32(clientsDataGridView.Rows[e.RowIndex].Cells["clientId"].Value);
-
             if (e.ColumnIndex == 8)
             {
-                using InsertForm insertForm = new InsertForm(_selectedClientId);
-                insertForm.ShowDialog(this);
+                _selectedClientId = Convert.ToInt32(clientsDataGridView.Rows[e.RowIndex].Cells["clientId"].Value);
+                switch (_parentForm)
+                {
+                    case "InsertForm":
+                        {
+                            using InsertForm insertForm = new InsertForm(_selectedClientId);
+                            insertForm.ShowDialog(this);
+                            break;
+                        }
+                    case "RentPackagesForm":
+                        {
+                            using RentPackagesForm rentPackagesForm = new RentPackagesForm(_selectedClientId);
+                            rentPackagesForm.ShowDialog(this);
+                            break;
+                        }
+                    case "TransportForm":
+                        {
+                            using TransportForm transportForm = new TransportForm(_selectedClientId);
+                            transportForm.ShowDialog(this);
+                            break;
+                        }
+                    
+                }
             }
         }
         private void searchClientsTxtBox_TextChanged(object sender, EventArgs e)

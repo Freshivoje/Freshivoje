@@ -96,7 +96,7 @@ namespace Freshivoje.Transport
                     
                     string transportDetails = DbConnection.getTransportDetails(mySqlCommand);
 
-                    string message = $"Cena po kilogramu / Količina / Kilometri / Cena\n\n{transportDetails}\nDatum: {_selectedTransportDate}\nStatus: {_selectedTransportStatus}\nUkupna cena: {_selectedTransportTotalPrice}";
+                    string message = $"Cena po kilogramu (RSD) / Količina (kg) / Kilometri / Cena (RSD)\n\n{transportDetails}\nDatum: {_selectedTransportDate}\nStatus: {_selectedTransportStatus}\nUkupna cena: {_selectedTransportTotalPrice}";
 
                     CustomMessageBox.ShowDialog(this, message);
                     return;
