@@ -15,22 +15,28 @@ using System.IO;
 using iTextSharp.text.pdf;
 using DocumentFormat.OpenXml.Bibliography;
 
-
 namespace Freshivoje.Transport
 {
     public partial class TransportForm : Form
     {
         public List<TransportItems> transportItems = new List<TransportItems>();
         int fkClientId;
+        string name, lastName, address, jmbg, bpg, zipCode, phone;
         int idTransport = 0;
         public TransportForm(Client client)
         {
-            
             InitializeComponent();
             transportDataGridView.AutoGenerateColumns = false;
             fkClientId = client._id;
+            name = client._firstName;
+            lastName = client._lastName;
+            address = client._address;
+            jmbg = client._JMBG;
+            bpg = client._BPG;
+            zipCode = client._zipCode;
+            phone = client._phone;
+
             WindowState = FormWindowState.Maximized;
-         
         }
 
         // Disables flickering on FormLoad
@@ -104,7 +110,7 @@ namespace Freshivoje.Transport
         {
             public override void OnEndPage(PdfWriter writer, Document doc)
             {
-                Paragraph footer = new Paragraph("__________                                                                                                                                __________", FontFactory.GetFont(FontFactory.TIMES, 12, iTextSharp.text.Font.NORMAL));
+                Paragraph footer = new Paragraph("________________                                                                                               ________________", FontFactory.GetFont(FontFactory.TIMES, 12, iTextSharp.text.Font.NORMAL));
                 footer.Alignment = Element.ALIGN_CENTER;
                 PdfPTable footerTbl = new PdfPTable(1);
                 footerTbl.TotalWidth = 1000;
@@ -113,7 +119,24 @@ namespace Freshivoje.Transport
                 cell.Border = 0;
                 cell.PaddingLeft = 0;
                 footerTbl.AddCell(cell);
-                footerTbl.WriteSelectedRows(0, -1, 50, 50, writer.DirectContent);
+                footerTbl.WriteSelectedRows(0, -1, 60, 50, writer.DirectContent);
+            }
+        }
+
+        public partial class Footer2 : PdfPageEventHelper
+        {
+            public override void OnEndPage(PdfWriter writer, Document doc)
+            {
+                Paragraph footer2 = new Paragraph("Potpis klijenta:                                                                                                       Potpis izdavaoca:", FontFactory.GetFont(FontFactory.TIMES, 12, iTextSharp.text.Font.NORMAL));
+                footer2.Alignment = Element.ALIGN_CENTER;
+                PdfPTable footerTb2 = new PdfPTable(1);
+                footerTb2.TotalWidth = 1000;
+                footerTb2.HorizontalAlignment = Element.ALIGN_CENTER;
+                PdfPCell cell = new PdfPCell(footer2);
+                cell.Border = 0;
+                cell.PaddingLeft = 0;
+                footerTb2.AddCell(cell);
+                footerTb2.WriteSelectedRows(0, -1, 60, 75, writer.DirectContent);
             }
         }
 
@@ -138,30 +161,34 @@ namespace Freshivoje.Transport
                 PdfPTable pdfTable6 = new PdfPTable(1);
                 PdfPTable pdfTable7 = new PdfPTable(1);
                 PdfPTable pdfTable8 = new PdfPTable(1);
+                PdfPTable pdfTable9 = new PdfPTable(1);
+                PdfPTable pdfTable10 = new PdfPTable(4);
 
                 //Font Style
-                System.Drawing.Font fontH1 = new System.Drawing.Font("Currier", 16);
+                System.Drawing.Font fontH1 = new System.Drawing.Font("Times New Roman", 16);
 
-                //pdfTable1.DefaultCell.Padding = 5;
+                pdfTable1.DefaultCell.Padding = 5;
                 pdfTable1.WidthPercentage = 80;
                 pdfTable1.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
                 pdfTable1.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
                 //pdfTable1.DefaultCell.BackgroundColor = new iTextSharp.text.BaseColor(64, 134, 170);
                 pdfTable1.DefaultCell.BorderWidth = 0;
 
-
-                pdfTable1.DefaultCell.Padding = 5;
                 pdfTable2.WidthPercentage = 80;
                 pdfTable2.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
                 pdfTable2.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
-                //pdfTab2e1.DefaultCell.BackgroundColor = new iTextSharp.text.BaseColor(64, 134, 170);
                 pdfTable2.DefaultCell.BorderWidth = 0;
 
-                //pdfTable3.DefaultCell.Padding = 5;
                 pdfTable3.WidthPercentage = 80;
                 pdfTable3.DefaultCell.BorderWidth = 0;
-                pdfTable6.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT;
-                pdfTable6.DefaultCell.VerticalAlignment = Element.ALIGN_LEFT;
+                pdfTable3.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT;
+                pdfTable3.DefaultCell.VerticalAlignment = Element.ALIGN_LEFT;
+                
+
+                pdfTable4.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                pdfTable4.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
+                pdfTable4.DefaultCell.Padding = 5;
+                //pdfTable4.DefaultCell.BackgroundColor = new iTextSharp.text.BaseColor(64, 134, 170);
 
                 pdfTable6.WidthPercentage = 80;
                 pdfTable6.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -172,6 +199,17 @@ namespace Freshivoje.Transport
                 pdfTable7.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
                 pdfTable7.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
                 pdfTable7.DefaultCell.BorderWidth = 0;
+
+                pdfTable9.WidthPercentage = 80;
+                pdfTable9.DefaultCell.BorderWidth = 0;
+                pdfTable9.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                pdfTable9.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
+
+                pdfTable10.WidthPercentage = 80;
+                pdfTable10.DefaultCell.BorderWidth = 0;
+                pdfTable10.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                pdfTable10.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
+
 
                 pdfTable5.DefaultCell.BorderWidth = 0;
 
@@ -223,7 +261,7 @@ namespace Freshivoje.Transport
                 p7.Add(c7);
                 pdfTable2.AddCell(p7);
                 //////////////////////////////////////////////////////////////////////////////////////////////////
-                Chunk c8 = new Chunk("Ime Firme", FontFactory.GetFont("Times New Roman"));
+                Chunk c8 = new Chunk(("Ime: ")+name, FontFactory.GetFont("Times New Roman"));
                 c8.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
                 c8.Font.SetStyle(0);
                 c8.Font.Size = 11;
@@ -231,7 +269,7 @@ namespace Freshivoje.Transport
                 p8.Add(c8);
                 pdfTable3.AddCell(p8);
 
-                Chunk c9 = new Chunk("Ime i prezime klijenta", FontFactory.GetFont("Times New Roman"));
+                Chunk c9 = new Chunk(("Prezime: ")+lastName, FontFactory.GetFont("Times New Roman"));
                 c9.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
                 c9.Font.SetStyle(0);
                 c9.Font.Size = 11;
@@ -239,7 +277,7 @@ namespace Freshivoje.Transport
                 p9.Add(c9);
                 pdfTable3.AddCell(p9);
 
-                Chunk c10 = new Chunk("PIB klijenta", FontFactory.GetFont("Times New Roman"));
+                Chunk c10 = new Chunk(("Adresa: ")+address, FontFactory.GetFont("Times New Roman"));
                 c10.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
                 c10.Font.SetStyle(0);
                 c10.Font.Size = 11;
@@ -247,7 +285,7 @@ namespace Freshivoje.Transport
                 p10.Add(c10);
                 pdfTable3.AddCell(p10);
 
-                Chunk c11 = new Chunk("Maticni broj klijenta", FontFactory.GetFont("Times New Roman"));
+                Chunk c11 = new Chunk(("JMBG: ")+jmbg, FontFactory.GetFont("Times New Roman"));
                 c11.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
                 c11.Font.SetStyle(0);
                 c11.Font.Size = 11;
@@ -255,7 +293,7 @@ namespace Freshivoje.Transport
                 p11.Add(c11);
                 pdfTable3.AddCell(p11);
 
-                Chunk c12 = new Chunk("Tekuci broj klijenta", FontFactory.GetFont("Times New Roman"));
+                Chunk c12 = new Chunk(("BPG: ")+bpg, FontFactory.GetFont("Times New Roman"));
                 c12.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
                 c12.Font.SetStyle(0);
                 c12.Font.Size = 11;
@@ -263,24 +301,22 @@ namespace Freshivoje.Transport
                 p12.Add(c12);
                 pdfTable3.AddCell(p12);
 
-                Chunk c13 = new Chunk("Adresa klijenta", FontFactory.GetFont("Times New Roman"));
+                Chunk c13 = new Chunk(("Postanski broj: ")+zipCode, FontFactory.GetFont("Times New Roman"));
                 c13.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
                 c13.Font.SetStyle(0);
                 c13.Font.Size = 11;
                 Phrase p13 = new Phrase();
                 p13.Add(c13);
                 pdfTable3.AddCell(p13);
-                #endregion
-                #region Section-1
-                //PdfPTable pdfTable4 = new PdfPTable(4);
-                //pdfTable4.DefaultCell.Padding = 5;
-                //pdfTable4.WidthPercentage = 80;
-                //pdfTable4.DefaultCell.BorderWidth = 0.0f;
 
-                //pdfTable4.AddCell(new Phrase("JEDINICNA CENA"));
-                //pdfTable4.AddCell(new Phrase("KOLICINA"));
-                //pdfTable4.AddCell(new Phrase("KILOMETRI"));
-                //pdfTable4.AddCell(new Phrase("UKUPNA CENA"));
+                Chunk c14 = new Chunk(("Telefon: ")+phone, FontFactory.GetFont("Times New Roman"));
+                c14.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
+                c14.Font.SetStyle(0);
+                c14.Font.Size = 11;
+                Phrase p14 = new Phrase();
+                p14.Add(c14);
+                pdfTable3.AddCell(p14);
+
                 #endregion
                 #region Section-Image
 
@@ -297,20 +333,62 @@ namespace Freshivoje.Transport
                 jpg.Alignment = Element.ALIGN_CENTER;
                 #endregion
                 #region section Table
-                pdfTable4.AddCell(new Phrase("JEDINICNA CENA"));
-                pdfTable4.AddCell(new Phrase("KOLICINA"));
-                pdfTable4.AddCell(new Phrase("KILOMETRI"));
-                pdfTable4.AddCell(new Phrase("UKUPNA CENA"));
+                pdfTable4.AddCell(new Phrase("JEDINICNA CENA (BR.)"));
+                pdfTable4.AddCell(new Phrase("KOLICINA (KG)"));
+                pdfTable4.AddCell(new Phrase("KILOMETRI (KM)"));
+                pdfTable4.AddCell(new Phrase("UKUPNA CENA (RSD)"));
 
                 pdfTable5.AddCell(new Phrase(" "));
 
+                decimal finalPrice = 0;
                 foreach (DataGridViewRow row in dgw.Rows)
                 {
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        pdfTable4.AddCell(new Phrase(cell.Value.ToString()));
-                    }
+                    string price = (row.Cells["price"].Value.ToString());
+                    string quantity = (row.Cells["quantity"].Value.ToString());
+                    string traveled = (row.Cells["traveled"].Value.ToString());
+                    string totalPrice = (row.Cells["totalPrice"].Value.ToString());
+                    decimal totalPrice1 = Convert.ToDecimal(row.Cells["totalPrice"].Value);
+                    pdfTable4.AddCell(new Phrase(price));
+                    pdfTable4.AddCell(new Phrase(quantity));
+                    pdfTable4.AddCell(new Phrase(traveled));
+                    pdfTable4.AddCell(new Phrase(totalPrice));
+                    finalPrice = finalPrice + totalPrice1;
+
                 }
+
+
+                Chunk c15 = new Chunk(" ", FontFactory.GetFont("Times New Roman"));
+                c15.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
+                c15.Font.SetStyle(0);
+                c15.Font.Size = 20;
+                Phrase p15 = new Phrase();
+                p15.Add(c15);
+                pdfTable10.AddCell(p15);
+
+                Chunk c16 = new Chunk(" ", FontFactory.GetFont("Times New Roman"));
+                c16.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
+                c16.Font.SetStyle(0);
+                c16.Font.Size = 18;
+                Phrase p16 = new Phrase();
+                p16.Add(c16);
+                pdfTable10.AddCell(p16);
+
+                Chunk c17 = new Chunk("UKUPNO: ", FontFactory.GetFont("Times New Roman"));
+                c17.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
+                c17.Font.SetStyle(0);
+                c17.Font.Size = 18;
+                Phrase p17 = new Phrase();
+                p17.Add(c17);
+                pdfTable10.AddCell(p17);
+
+                Chunk c18 = new Chunk(finalPrice.ToString() + " RSD", FontFactory.GetFont("Times New Roman"));
+                c18.Font.Color = new iTextSharp.text.BaseColor(0, 0, 0);
+                c18.Font.SetStyle(0);
+                c18.Font.Size = 18;
+                Phrase p18 = new Phrase();
+                p18.Add(c18);
+                pdfTable10.AddCell(p18);
+
                 #endregion
                 //#endregion
                 #region Pdf Generation
@@ -322,15 +400,17 @@ namespace Freshivoje.Transport
  
                 //File Name
                 int fileCount = Directory.GetFiles("D:\\PDF").Length;
-                string strFileName = "Faktura" + (fileCount + 1) + ".pdf";
+                string strFileName = (fileCount + 1) + "-2019" + ".pdf";
+                pdfTable9.AddCell("BROJ FAKTURE: "+((fileCount + 1) + "-2019"));
 
                 using (FileStream stream = new FileStream(folderPath + strFileName, FileMode.Create))
                 {
-                    Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                    Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 60f);
                     PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
                     pdfDoc.Open();
 
                     #region PAGE-1
+                    pdfDoc.Add(pdfTable5);
                     pdfDoc.Add(pdfTable1);
                     pdfDoc.Add(pdfTable5);
                     pdfDoc.Add(pdfTable2);
@@ -339,17 +419,16 @@ namespace Freshivoje.Transport
                     pdfDoc.Add(pdfTable5);
                     pdfDoc.Add(jpg);
                     pdfDoc.Add(pdfTable3);
-                    pdfDoc.Add(pdfTable5);  
+                    pdfDoc.Add(pdfTable5);
+                    pdfDoc.Add(pdfTable5);
+                    pdfDoc.Add(pdfTable5);
+                    pdfDoc.Add(pdfTable9);
                     pdfDoc.Add(pdfTable5);
                     pdfDoc.Add(pdfTable4);
                     pdfDoc.Add(pdfTable5);
+                    pdfDoc.Add(pdfTable10);
                     pdfDoc.Add(pdfTable5);
-                    pdfDoc.Add(pdfTable5);
-                    pdfDoc.Add(pdfTable5);
-                    pdfDoc.Add(pdfTable5);
-                    pdfDoc.Add(pdfTable5);
-                    pdfDoc.Add(pdfTable6);
-                    pdfDoc.Add(pdfTable5);
+                    writer.PageEvent = new Footer2();
                     writer.PageEvent = new Footer();
                     pdfDoc.NewPage();
                     #endregion
