@@ -229,6 +229,18 @@
     <Compile Include="PackagesForm.Designer.cs">
       <DependentUpon>PackagesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Packaging\ChoosePackagingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packaging\ChoosePackagingForm.Designer.cs">
+      <DependentUpon>ChoosePackagingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packaging\PackagesForRentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packaging\PackagesForRentForm.Designer.cs">
+      <DependentUpon>PackagesForRentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PaymentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,6 +338,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PackagesForm.resx">
       <DependentUpon>PackagesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packaging\ChoosePackagingForm.resx">
+      <DependentUpon>ChoosePackagingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packaging\PackagesForRentForm.resx">
+      <DependentUpon>PackagesForRentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentsForm.resx">
       <DependentUpon>PaymentsForm.cs</DependentUpon>

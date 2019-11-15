@@ -165,11 +165,11 @@
             this.partLbl.BackColor = System.Drawing.Color.Transparent;
             this.partLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.partLbl.ForeColor = System.Drawing.Color.White;
-            this.partLbl.Location = new System.Drawing.Point(514, 167);
+            this.partLbl.Location = new System.Drawing.Point(266, 167);
             this.partLbl.Name = "partLbl";
-            this.partLbl.Size = new System.Drawing.Size(97, 27);
+            this.partLbl.Size = new System.Drawing.Size(594, 27);
             this.partLbl.TabIndex = 16;
-            this.partLbl.Text = "Odeljak";
+            this.partLbl.Text = "Ime odeljaka / Količina artikala(kg) / Broj ambalaža";
             this.partLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTitle
@@ -254,11 +254,11 @@
             this.rentingData.BackColor = System.Drawing.Color.Transparent;
             this.rentingData.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rentingData.ForeColor = System.Drawing.Color.White;
-            this.rentingData.Location = new System.Drawing.Point(438, 361);
+            this.rentingData.Location = new System.Drawing.Point(391, 361);
             this.rentingData.Name = "rentingData";
-            this.rentingData.Size = new System.Drawing.Size(250, 27);
+            this.rentingData.Size = new System.Drawing.Size(344, 27);
             this.rentingData.TabIndex = 17;
-            this.rentingData.Text = "Datum iznajmljivanja";
+            this.rentingData.Text = "Datum početka iznajmljivanja";
             this.rentingData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // crateQuantityLbl
@@ -268,11 +268,11 @@
             this.crateQuantityLbl.BackColor = System.Drawing.Color.Transparent;
             this.crateQuantityLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.crateQuantityLbl.ForeColor = System.Drawing.Color.White;
-            this.crateQuantityLbl.Location = new System.Drawing.Point(1478, 361);
+            this.crateQuantityLbl.Location = new System.Drawing.Point(1439, 361);
             this.crateQuantityLbl.Name = "crateQuantityLbl";
-            this.crateQuantityLbl.Size = new System.Drawing.Size(222, 27);
+            this.crateQuantityLbl.Size = new System.Drawing.Size(300, 27);
             this.crateQuantityLbl.TabIndex = 24;
-            this.crateQuantityLbl.Text = "Kraj iznajmljivanja";
+            this.crateQuantityLbl.Text = "Datum kraj iznajmljivanja";
             this.crateQuantityLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // priceTxt
@@ -282,11 +282,11 @@
             this.priceTxt.BackColor = System.Drawing.Color.Transparent;
             this.priceTxt.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceTxt.ForeColor = System.Drawing.Color.White;
-            this.priceTxt.Location = new System.Drawing.Point(1555, 167);
+            this.priceTxt.Location = new System.Drawing.Point(1522, 167);
             this.priceTxt.Name = "priceTxt";
-            this.priceTxt.Size = new System.Drawing.Size(67, 27);
+            this.priceTxt.Size = new System.Drawing.Size(134, 27);
             this.priceTxt.TabIndex = 33;
-            this.priceTxt.Text = "Cena";
+            this.priceTxt.Text = "Cena(RSD)";
             this.priceTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // rentingDataPicker

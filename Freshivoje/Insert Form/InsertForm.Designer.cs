@@ -52,17 +52,6 @@
             this.crateOwnerCmbBox = new System.Windows.Forms.ComboBox();
             this.cratesCmbBox = new System.Windows.Forms.ComboBox();
             this.insertedArticlesDataGridView = new System.Windows.Forms.DataGridView();
-            this.categoryLbl = new System.Windows.Forms.Label();
-            this.priceLbl = new System.Windows.Forms.Label();
-            this.articlePriceLbl = new System.Windows.Forms.Label();
-            this.crateQuantityTxtBox = new System.Windows.Forms.TextBox();
-            this.cratesLbl = new System.Windows.Forms.Label();
-            this.cratesTypeLbl = new System.Windows.Forms.Label();
-            this.articleQuantityLbl = new System.Windows.Forms.Label();
-            this.crateOwnerLbl = new System.Windows.Forms.Label();
-            this.crateQuantityLbl = new System.Windows.Forms.Label();
-            this.insertBtn = new System.Windows.Forms.Button();
-            this.finishInsertBtn = new System.Windows.Forms.Button();
             this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packagingQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packagingOwnership = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +63,17 @@
             this.articleQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articlePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryLbl = new System.Windows.Forms.Label();
+            this.priceLbl = new System.Windows.Forms.Label();
+            this.articlePriceLbl = new System.Windows.Forms.Label();
+            this.crateQuantityTxtBox = new System.Windows.Forms.TextBox();
+            this.cratesLbl = new System.Windows.Forms.Label();
+            this.articleQuantityLbl = new System.Windows.Forms.Label();
+            this.crateOwnerLbl = new System.Windows.Forms.Label();
+            this.crateQuantityLbl = new System.Windows.Forms.Label();
+            this.insertBtn = new System.Windows.Forms.Button();
+            this.finishInsertBtn = new System.Windows.Forms.Button();
+            this.cratesTypeLbl = new System.Windows.Forms.Label();
             this.insertFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.insertedArticlesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -467,6 +467,93 @@
             this.insertedArticlesDataGridView.TabStop = false;
             this.insertedArticlesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.insertedArticlesDataGridView_CellContentClick);
             // 
+            // packagingId
+            // 
+            this.packagingId.HeaderText = "ID ambalaže";
+            this.packagingId.Name = "packagingId";
+            this.packagingId.ReadOnly = true;
+            this.packagingId.Visible = false;
+            // 
+            // packagingQuantity
+            // 
+            this.packagingQuantity.HeaderText = "Broj ambalaža";
+            this.packagingQuantity.Name = "packagingQuantity";
+            this.packagingQuantity.ReadOnly = true;
+            this.packagingQuantity.Visible = false;
+            // 
+            // packagingOwnership
+            // 
+            this.packagingOwnership.HeaderText = "Vlasništvo ambalaže";
+            this.packagingOwnership.Name = "packagingOwnership";
+            this.packagingOwnership.ReadOnly = true;
+            this.packagingOwnership.Visible = false;
+            // 
+            // articleId
+            // 
+            this.articleId.HeaderText = "ID artikla";
+            this.articleId.Name = "articleId";
+            this.articleId.ReadOnly = true;
+            this.articleId.Visible = false;
+            // 
+            // articleName
+            // 
+            this.articleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.articleName.HeaderText = "Ime";
+            this.articleName.Name = "articleName";
+            this.articleName.ReadOnly = true;
+            // 
+            // articleSort
+            // 
+            this.articleSort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.articleSort.HeaderText = "Sorta";
+            this.articleSort.Name = "articleSort";
+            this.articleSort.ReadOnly = true;
+            // 
+            // articleOrganic
+            // 
+            this.articleOrganic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.articleOrganic.HeaderText = "Kontrolisana proizvodnja";
+            this.articleOrganic.Name = "articleOrganic";
+            this.articleOrganic.ReadOnly = true;
+            this.articleOrganic.Width = 317;
+            // 
+            // articleCategory
+            // 
+            this.articleCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.articleCategory.HeaderText = "Klasa";
+            this.articleCategory.Name = "articleCategory";
+            this.articleCategory.ReadOnly = true;
+            // 
+            // articleQuantity
+            // 
+            this.articleQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.articleQuantity.HeaderText = "Neto količina";
+            this.articleQuantity.Name = "articleQuantity";
+            this.articleQuantity.ReadOnly = true;
+            this.articleQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // articlePrice
+            // 
+            this.articlePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.articlePrice.HeaderText = "Cena";
+            this.articlePrice.Name = "articlePrice";
+            this.articlePrice.ReadOnly = true;
+            // 
+            // deleteArticle
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.NullValue = "X";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle2;
+            this.deleteArticle.HeaderText = "";
+            this.deleteArticle.Name = "deleteArticle";
+            this.deleteArticle.ReadOnly = true;
+            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.deleteArticle.Width = 40;
+            // 
             // categoryLbl
             // 
             this.categoryLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -535,21 +622,6 @@
             this.cratesLbl.TabIndex = 18;
             this.cratesLbl.Text = "AMBALAŽE";
             this.cratesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cratesTypeLbl
-            // 
-            this.cratesTypeLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.cratesTypeLbl.AutoSize = true;
-            this.cratesTypeLbl.BackColor = System.Drawing.Color.Transparent;
-            this.insertFormTblLayout.SetColumnSpan(this.cratesTypeLbl, 2);
-            this.cratesTypeLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cratesTypeLbl.ForeColor = System.Drawing.Color.White;
-            this.cratesTypeLbl.Location = new System.Drawing.Point(469, 253);
-            this.cratesTypeLbl.Name = "cratesTypeLbl";
-            this.cratesTypeLbl.Size = new System.Drawing.Size(494, 27);
-            this.cratesTypeLbl.TabIndex = 25;
-            this.cratesTypeLbl.Text = "Nosivost / Kategorija / Težina / Proizvođač";
-            this.cratesTypeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // articleQuantityLbl
             // 
@@ -640,92 +712,20 @@
             this.finishInsertBtn.UseVisualStyleBackColor = false;
             this.finishInsertBtn.Click += new System.EventHandler(this.finishInsertBtn_Click);
             // 
-            // packagingId
+            // cratesTypeLbl
             // 
-            this.packagingId.HeaderText = "ID ambalaže";
-            this.packagingId.Name = "packagingId";
-            this.packagingId.ReadOnly = true;
-            this.packagingId.Visible = false;
-            // 
-            // packagingQuantity
-            // 
-            this.packagingQuantity.HeaderText = "Broj ambalaža";
-            this.packagingQuantity.Name = "packagingQuantity";
-            this.packagingQuantity.ReadOnly = true;
-            this.packagingQuantity.Visible = false;
-            // 
-            // packagingOwnership
-            // 
-            this.packagingOwnership.HeaderText = "Vlasništvo ambalaže";
-            this.packagingOwnership.Name = "packagingOwnership";
-            this.packagingOwnership.ReadOnly = true;
-            this.packagingOwnership.Visible = false;
-            // 
-            // articleId
-            // 
-            this.articleId.HeaderText = "ID artikla";
-            this.articleId.Name = "articleId";
-            this.articleId.ReadOnly = true;
-            this.articleId.Visible = false;
-            // 
-            // articleName
-            // 
-            this.articleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleName.HeaderText = "Ime";
-            this.articleName.Name = "articleName";
-            this.articleName.ReadOnly = true;
-            // 
-            // articleSort
-            // 
-            this.articleSort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleSort.HeaderText = "Sorta";
-            this.articleSort.Name = "articleSort";
-            this.articleSort.ReadOnly = true;
-            // 
-            // articleOrganic
-            // 
-            this.articleOrganic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.articleOrganic.HeaderText = "Kontrolisana proizvodnja";
-            this.articleOrganic.Name = "articleOrganic";
-            this.articleOrganic.ReadOnly = true;
-            this.articleOrganic.Width = 317;
-            // 
-            // articleCategory
-            // 
-            this.articleCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleCategory.HeaderText = "Klasa";
-            this.articleCategory.Name = "articleCategory";
-            this.articleCategory.ReadOnly = true;
-            // 
-            // articleQuantity
-            // 
-            this.articleQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleQuantity.HeaderText = "Neto količina";
-            this.articleQuantity.Name = "articleQuantity";
-            this.articleQuantity.ReadOnly = true;
-            this.articleQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // articlePrice
-            // 
-            this.articlePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articlePrice.HeaderText = "Cena";
-            this.articlePrice.Name = "articlePrice";
-            this.articlePrice.ReadOnly = true;
-            // 
-            // deleteArticle
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.NullValue = "X";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle2;
-            this.deleteArticle.HeaderText = "";
-            this.deleteArticle.Name = "deleteArticle";
-            this.deleteArticle.ReadOnly = true;
-            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deleteArticle.Width = 40;
+            this.cratesTypeLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cratesTypeLbl.AutoSize = true;
+            this.cratesTypeLbl.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.cratesTypeLbl, 2);
+            this.cratesTypeLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cratesTypeLbl.ForeColor = System.Drawing.Color.White;
+            this.cratesTypeLbl.Location = new System.Drawing.Point(469, 253);
+            this.cratesTypeLbl.Name = "cratesTypeLbl";
+            this.cratesTypeLbl.Size = new System.Drawing.Size(494, 27);
+            this.cratesTypeLbl.TabIndex = 25;
+            this.cratesTypeLbl.Text = "Nosivost / Kategorija / Težina / Proizvođač";
+            this.cratesTypeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InsertForm
             // 
@@ -765,7 +765,6 @@
         private System.Windows.Forms.TextBox articleQuantityTxtBox;
         private System.Windows.Forms.TextBox crateQuantityTxtBox;
         private System.Windows.Forms.Label crateQuantityLbl;
-        private System.Windows.Forms.Label cratesTypeLbl;
         private System.Windows.Forms.Label crateOwnerLbl;
         private System.Windows.Forms.Button insertBtn;
         private System.Windows.Forms.ComboBox cratesCmbBox;
@@ -790,5 +789,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn articleQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn articlePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn deleteArticle;
+        private System.Windows.Forms.Label cratesTypeLbl;
     }
 }
