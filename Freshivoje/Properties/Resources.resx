@@ -166,4 +166,9 @@ POŠTANSKI BROJ MORA IMATI 5 CIFARA!</value>
     <value>DOŠLO JE DO GREŠKE.
 UNESITE VREDNOSTI U POLJE!</value>
   </data>
+  <data name="packagingAvailabiltyErrorMsg" xml:space="preserve">
+    <value>NEDOVOLJAN BROJ RASPOLOŽIVIH AMBALAŽA 
+ILI STE VEĆ IZDALI SVE RASPOLOŽIVE AMBALAŽE! 
+</value>
+  </data>
 </root>

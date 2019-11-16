@@ -63,13 +63,11 @@ namespace Freshivoje.Options_Forms
             (articlesDataGridView.DataSource as DataTable).DefaultView.RowFilter = $"`article_name` LIKE '%{searchValue}%' OR `sort` LIKE '%{searchValue}%' OR `organic` LIKE '%{searchValue}%'";
         }
 
-        private void insertArticleBtn_Click(object sender, EventArgs e)
+        private void createArticleBtn_Click(object sender, EventArgs e)
         {
             using CreateArticleForm createArticleForm = new CreateArticleForm();
             createArticleForm.ShowDialog(this);
         }
-
-     
         private void CRUDArticlesForm_Activated(object sender, EventArgs e)
         {
             DbConnection.fillDGV(articlesDataGridView, _fillDGVQuery);
@@ -97,7 +95,7 @@ namespace Freshivoje.Options_Forms
                     _selectedArticleOrganic
                     );
 
-                EditArticleForm editArticle = new EditArticleForm(article);
+                using EditArticleForm editArticle = new EditArticleForm(article);
                 editArticle.ShowDialog(this);
             }
 

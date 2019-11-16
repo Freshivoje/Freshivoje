@@ -9,9 +9,10 @@ namespace Freshivoje
 {
     public partial class InsertForm : Form
     {
-        private int _selectedClientId, _articleId, _articleCategoryId, _packagingId;
+        private readonly int _selectedClientId;
+        private int _articleId, _articleCategoryId, _packagingId;
         private decimal _palletWeight = 1M, _packagingWeight, _selectedArticlePrice;
-        private string _selectedArticleName = string.Empty,
+        private readonly string _selectedArticleName = string.Empty,
                         _selectedArticleSort = string.Empty, 
                         _selectedArticleOrganic = string.Empty,
                         _selectedArticleCategory = string.Empty;
@@ -170,7 +171,7 @@ namespace Freshivoje
 
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = "INSERT INTO `packaging_records` (`fk_packaging_id`, `fk_client_id`, `packaging_ownership`, `packaging_record_quantity`) VALUES (@packagingId, @clientId, @packagingOwnership, @packagingQuantity)"
+                CommandText = "INSERT INTO `packaging_records` (`fk_packaging_id`, `fk_client_id`, `ownership`, `quantity`) VALUES (@packagingId, @clientId, @packagingOwnership, @packagingQuantity)"
             };
 
             MySqlCommand mySqlCommand1 = new MySqlCommand

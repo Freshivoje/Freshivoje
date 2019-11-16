@@ -27,8 +27,10 @@ namespace Freshivoje
         }
         private void repurchaseBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             using ChooseClientForm chooseClientForm = new ChooseClientForm("RentPackagesForm");
             chooseClientForm.ShowDialog(this);
+            Show();
         }
 
         private void backBtn_Click(object sender, EventArgs e)

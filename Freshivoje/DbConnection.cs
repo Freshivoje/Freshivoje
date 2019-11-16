@@ -166,7 +166,7 @@ namespace Freshivoje
 
                     result += $"Artikal {articleNum}\n{priceSingle} / {quantity} / {traveled} / {price}\n";
 
-                    articleNum = articleNum + 1;
+                    articleNum += 1;
                 }
 
             }

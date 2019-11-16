@@ -210,12 +210,6 @@
     <Compile Include="Packages Forms\ChoosePackagesMethodForm.Designer.cs">
       <DependentUpon>ChoosePackagesMethodForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PackagesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PackagesForm.Designer.cs">
-      <DependentUpon>PackagesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="PaymentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,9 +292,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Packages Forms\ChoosePackagesMethodForm.resx">
       <DependentUpon>ChoosePackagesMethodForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PackagesForm.resx">
-      <DependentUpon>PackagesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentsForm.resx">
       <DependentUpon>PaymentsForm.cs</DependentUpon>

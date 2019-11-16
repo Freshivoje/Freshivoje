@@ -12,14 +12,18 @@ namespace Freshivoje.Transport
 
         private void repurchaseBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             using ChooseClientForm chooseClientForm = new ChooseClientForm("TransportForm");
             chooseClientForm.ShowDialog(this);
+            Show();
         }
 
         private void storegeOfGoodsBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             TransportRecordForm transportRecordForm = new TransportRecordForm();
             transportRecordForm.ShowDialog(this);
+            Show();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)

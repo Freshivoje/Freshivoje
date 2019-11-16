@@ -20,8 +20,10 @@ namespace Freshivoje
         }
         private void repurchaseBtn_Click(object sender, EventArgs e)
         {
-            ChooseClientForm chooseClientForm = new ChooseClientForm("InsertForm");
+            Hide();
+            using ChooseClientForm chooseClientForm = new ChooseClientForm("InsertForm");
             chooseClientForm.ShowDialog(this);
+            Show();
         }
 
         private void backBtn_Click(object sender, EventArgs e)

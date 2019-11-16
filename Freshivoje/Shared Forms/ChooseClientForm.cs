@@ -8,13 +8,12 @@ namespace Freshivoje
     public partial class ChooseClientForm : Form
     {
         private int _selectedClientId;
-        private readonly string _parentForm;
-        private readonly string _fillDGVQuery = "SELECT * FROM `clients` WHERE type = 'Fizičko lice'";
-
-        public ChooseClientForm(string parentForm)
+        private readonly string _childForm,_fillDGVQuery = "SELECT * FROM `clients` WHERE type = 'Fizičko lice'";
+        private string _clientInfo;
+        public ChooseClientForm(string childForm)
         {
             InitializeComponent();
-            _parentForm = parentForm;
+            _childForm = childForm;
             WindowState = FormWindowState.Maximized;
             clientsDataGridView.AutoGenerateColumns = false;
             DbConnection.fillDGV(clientsDataGridView, _fillDGVQuery);
@@ -40,24 +39,31 @@ namespace Freshivoje
             if (e.ColumnIndex == 8)
             {
                 _selectedClientId = Convert.ToInt32(clientsDataGridView.Rows[e.RowIndex].Cells["clientId"].Value);
-                switch (_parentForm)
+                _clientInfo = $"{clientsDataGridView.Rows[e.RowIndex].Cells["firstName"].Value.ToString()} {clientsDataGridView.Rows[e.RowIndex].Cells["lastName"].Value.ToString()} ({clientsDataGridView.Rows[e.RowIndex].Cells["JMBG"].Value.ToString()})";
+                switch (_childForm)
                 {
                     case "InsertForm":
                         {
+                            Hide();
                             using InsertForm insertForm = new InsertForm(_selectedClientId);
                             insertForm.ShowDialog(this);
+                            Show();
                             break;
                         }
                     case "RentPackagesForm":
                         {
-                            using RentPackagesForm rentPackagesForm = new RentPackagesForm(_selectedClientId);
+                            Hide();
+                            using RentPackagesForm rentPackagesForm = new RentPackagesForm(_selectedClientId, _clientInfo);
                             rentPackagesForm.ShowDialog(this);
+                            Show();
                             break;
                         }
                     case "TransportForm":
                         {
+                            Hide();
                             using TransportForm transportForm = new TransportForm(_selectedClientId);
                             transportForm.ShowDialog(this);
+                            Show();
                             break;
                         }
                     

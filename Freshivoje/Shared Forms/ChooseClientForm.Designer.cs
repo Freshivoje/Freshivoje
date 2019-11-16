@@ -48,16 +48,16 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.searchClientsTxtBox = new System.Windows.Forms.TextBox();
             this.clientsDataGridView = new System.Windows.Forms.DataGridView();
+            this.searchClientsLbl = new System.Windows.Forms.Label();
             this.clientId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JMBG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zip_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchClientsLbl = new System.Windows.Forms.Label();
             this.chooseClientFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +76,7 @@
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.chooseClientFormTblLayout.Controls.Add(this.minimizeBtn, 8, 0);
             this.chooseClientFormTblLayout.Controls.Add(this.exitBtn, 9, 0);
             this.chooseClientFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
@@ -119,7 +119,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1829, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(1823, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.minimizeBtn.Size = new System.Drawing.Size(44, 54);
@@ -143,10 +143,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1879, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1873, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(48, 54);
+            this.exitBtn.Size = new System.Drawing.Size(54, 54);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -184,7 +184,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1779, 3);
+            this.backBtn.Location = new System.Drawing.Point(1773, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 54);
             this.backBtn.TabIndex = 9;
@@ -198,11 +198,11 @@
             this.searchClientsTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchClientsTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchClientsTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchClientsTxtBox.Location = new System.Drawing.Point(1508, 143);
+            this.searchClientsTxtBox.Location = new System.Drawing.Point(1503, 143);
             this.searchClientsTxtBox.Multiline = true;
             this.searchClientsTxtBox.Name = "searchClientsTxtBox";
             this.searchClientsTxtBox.ShortcutsEnabled = false;
-            this.searchClientsTxtBox.Size = new System.Drawing.Size(265, 31);
+            this.searchClientsTxtBox.Size = new System.Drawing.Size(264, 31);
             this.searchClientsTxtBox.TabIndex = 11;
             this.searchClientsTxtBox.TextChanged += new System.EventHandler(this.searchClientsTxtBox_TextChanged);
             // 
@@ -227,8 +227,8 @@
             this.clientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.clientsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clientId,
-            this.first_name,
-            this.last_name,
+            this.firstName,
+            this.lastName,
             this.address,
             this.JMBG,
             this.BPG,
@@ -262,6 +262,20 @@
             this.clientsDataGridView.TabStop = false;
             this.clientsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientsDataGridView_CellContentClick);
             // 
+            // searchClientsLbl
+            // 
+            this.searchClientsLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.searchClientsLbl.AutoSize = true;
+            this.searchClientsLbl.BackColor = System.Drawing.Color.Transparent;
+            this.searchClientsLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchClientsLbl.ForeColor = System.Drawing.Color.White;
+            this.searchClientsLbl.Location = new System.Drawing.Point(1529, 113);
+            this.searchClientsLbl.Name = "searchClientsLbl";
+            this.searchClientsLbl.Size = new System.Drawing.Size(211, 27);
+            this.searchClientsLbl.TabIndex = 57;
+            this.searchClientsLbl.Text = "Pretraga klijenata";
+            this.searchClientsLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // clientId
             // 
             this.clientId.DataPropertyName = "id_client";
@@ -273,27 +287,27 @@
             this.clientId.ReadOnly = true;
             this.clientId.Visible = false;
             // 
-            // first_name
+            // firstName
             // 
-            this.first_name.DataPropertyName = "first_name";
+            this.firstName.DataPropertyName = "first_name";
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.first_name.DefaultCellStyle = dataGridViewCellStyle3;
-            this.first_name.FillWeight = 91.08049F;
-            this.first_name.HeaderText = "Ime";
-            this.first_name.Name = "first_name";
-            this.first_name.ReadOnly = true;
+            this.firstName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.firstName.FillWeight = 91.08049F;
+            this.firstName.HeaderText = "Ime";
+            this.firstName.Name = "firstName";
+            this.firstName.ReadOnly = true;
             // 
-            // last_name
+            // lastName
             // 
-            this.last_name.DataPropertyName = "last_name";
+            this.lastName.DataPropertyName = "last_name";
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.last_name.DefaultCellStyle = dataGridViewCellStyle4;
-            this.last_name.FillWeight = 91.08049F;
-            this.last_name.HeaderText = "Prezime";
-            this.last_name.Name = "last_name";
-            this.last_name.ReadOnly = true;
+            this.lastName.DefaultCellStyle = dataGridViewCellStyle4;
+            this.lastName.FillWeight = 91.08049F;
+            this.lastName.HeaderText = "Prezime";
+            this.lastName.Name = "lastName";
+            this.lastName.ReadOnly = true;
             // 
             // address
             // 
@@ -366,20 +380,6 @@
             this.selectClient.ReadOnly = true;
             this.selectClient.Width = 40;
             // 
-            // searchClientsLbl
-            // 
-            this.searchClientsLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.searchClientsLbl.AutoSize = true;
-            this.searchClientsLbl.BackColor = System.Drawing.Color.Transparent;
-            this.searchClientsLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchClientsLbl.ForeColor = System.Drawing.Color.White;
-            this.searchClientsLbl.Location = new System.Drawing.Point(1535, 113);
-            this.searchClientsLbl.Name = "searchClientsLbl";
-            this.searchClientsLbl.Size = new System.Drawing.Size(211, 27);
-            this.searchClientsLbl.TabIndex = 57;
-            this.searchClientsLbl.Text = "Pretraga klijenata";
-            this.searchClientsLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // ChooseClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,8 +410,8 @@
         private System.Windows.Forms.Label searchClientsLbl;
         private System.Windows.Forms.DataGridView clientsDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn clientId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
         private System.Windows.Forms.DataGridViewTextBoxColumn JMBG;
         private System.Windows.Forms.DataGridViewTextBoxColumn BPG;

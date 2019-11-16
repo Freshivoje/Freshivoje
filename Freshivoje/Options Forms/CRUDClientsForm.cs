@@ -103,7 +103,6 @@ namespace Freshivoje.Options_Forms
                     _selectedClientZipCode, _selectedClientBankAccount, _selectedClientPhone, 
                     _selectedClientPIB, _selectedClientSPO, _selectedClientCompanyName
                     );
-
                 using EditClientForm editClientForm = new EditClientForm(client);
                 editClientForm.ShowDialog(this);
             }

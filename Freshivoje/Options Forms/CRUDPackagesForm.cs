@@ -82,7 +82,7 @@ namespace Freshivoje.Options_Forms
                      _selectedPackageProducer,
                      _selectedPackageStatus
                      );
-                EditPackageForm editPackage = new EditPackageForm(package);
+                using EditPackageForm editPackage = new EditPackageForm(package);
                 editPackage.ShowDialog(this);
             }
            
@@ -99,7 +99,7 @@ namespace Freshivoje.Options_Forms
             }
         }
 
-        private void insertPackageBtn_Click(object sender, EventArgs e)
+        private void createPackageBtn_Click(object sender, EventArgs e)
         {
             using CreatePackageForm createPackageForm = new CreatePackageForm();
             createPackageForm.ShowDialog(this);

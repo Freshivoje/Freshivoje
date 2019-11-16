@@ -36,14 +36,18 @@ namespace Freshivoje
 
         private void insertBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             using ChooseInsertMethodForm insertMethodForm = new ChooseInsertMethodForm();
             insertMethodForm.ShowDialog(this);
+            Show();
         }
 
         private void paymentsBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             using PaymentsForm insertForm = new PaymentsForm();
             insertForm.ShowDialog(this);
+            Show();
         }
 
         private void logoutBtn_Click(object sender, EventArgs e)
@@ -56,20 +60,26 @@ namespace Freshivoje
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             using OptionsForm optionsForm = new OptionsForm();
             optionsForm.ShowDialog(this);
+            Show();
         }
 
         private void packagesBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             using ChoosePackagesMethodForm choosePackagesMethodForm = new ChoosePackagesMethodForm();
             choosePackagesMethodForm.ShowDialog(this);
+            Show();
         }
 
         private void transportBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             using ChooseForm chooseForm = new ChooseForm();
             chooseForm.ShowDialog(this);
+            Show();
         }
     }
 }

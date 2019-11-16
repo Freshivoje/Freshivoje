@@ -35,21 +35,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RentPackagesForm));
             this.rentPackagesFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.rentedPackagesDataGridView = new System.Windows.Forms.DataGridView();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.cratesCmbBox = new System.Windows.Forms.ComboBox();
-            this.rentedPackagesDataGridView = new System.Windows.Forms.DataGridView();
             this.cratesTypeLbl = new System.Windows.Forms.Label();
             this.availablePackages = new System.Windows.Forms.Label();
             this.availablePackagesLbl = new System.Windows.Forms.Label();
             this.packagingPriceLbl = new System.Windows.Forms.Label();
             this.price = new System.Windows.Forms.Label();
-            this.insertBtn = new System.Windows.Forms.Button();
             this.crateQuantityTxtBox = new System.Windows.Forms.TextBox();
             this.crateQuantityLbl = new System.Windows.Forms.Label();
-            this.finishInsertBtn = new System.Windows.Forms.Button();
+            this.finishRentPackagesBtn = new System.Windows.Forms.Button();
+            this.rentPackagesBtn = new System.Windows.Forms.Button();
             this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +57,8 @@
             this.producer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packagingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.available = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rentPackagesFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rentedPackagesDataGridView)).BeginInit();
@@ -76,22 +77,22 @@
             this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.rentPackagesFormTblLayout.Controls.Add(this.rentedPackagesDataGridView, 0, 6);
             this.rentPackagesFormTblLayout.Controls.Add(this.minimizeBtn, 7, 0);
             this.rentPackagesFormTblLayout.Controls.Add(this.exitBtn, 8, 0);
             this.rentPackagesFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
             this.rentPackagesFormTblLayout.Controls.Add(this.backBtn, 6, 0);
             this.rentPackagesFormTblLayout.Controls.Add(this.cratesCmbBox, 1, 2);
-            this.rentPackagesFormTblLayout.Controls.Add(this.rentedPackagesDataGridView, 0, 6);
             this.rentPackagesFormTblLayout.Controls.Add(this.cratesTypeLbl, 1, 1);
             this.rentPackagesFormTblLayout.Controls.Add(this.availablePackages, 4, 2);
             this.rentPackagesFormTblLayout.Controls.Add(this.availablePackagesLbl, 4, 1);
             this.rentPackagesFormTblLayout.Controls.Add(this.packagingPriceLbl, 5, 1);
             this.rentPackagesFormTblLayout.Controls.Add(this.price, 5, 2);
-            this.rentPackagesFormTblLayout.Controls.Add(this.insertBtn, 3, 5);
-            this.rentPackagesFormTblLayout.Controls.Add(this.crateQuantityTxtBox, 3, 4);
-            this.rentPackagesFormTblLayout.Controls.Add(this.crateQuantityLbl, 3, 3);
-            this.rentPackagesFormTblLayout.Controls.Add(this.finishInsertBtn, 2, 14);
+            this.rentPackagesFormTblLayout.Controls.Add(this.crateQuantityTxtBox, 2, 4);
+            this.rentPackagesFormTblLayout.Controls.Add(this.crateQuantityLbl, 2, 3);
+            this.rentPackagesFormTblLayout.Controls.Add(this.finishRentPackagesBtn, 2, 14);
+            this.rentPackagesFormTblLayout.Controls.Add(this.rentPackagesBtn, 2, 5);
             this.rentPackagesFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rentPackagesFormTblLayout.Location = new System.Drawing.Point(5, 5);
             this.rentPackagesFormTblLayout.Name = "rentPackagesFormTblLayout";
@@ -114,6 +115,61 @@
             this.rentPackagesFormTblLayout.Size = new System.Drawing.Size(1433, 873);
             this.rentPackagesFormTblLayout.TabIndex = 1;
             // 
+            // rentedPackagesDataGridView
+            // 
+            this.rentedPackagesDataGridView.AllowUserToAddRows = false;
+            this.rentedPackagesDataGridView.AllowUserToDeleteRows = false;
+            this.rentedPackagesDataGridView.AllowUserToResizeColumns = false;
+            this.rentedPackagesDataGridView.AllowUserToResizeRows = false;
+            this.rentedPackagesDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.rentedPackagesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rentedPackagesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.rentedPackagesDataGridView.ColumnHeadersHeight = 40;
+            this.rentedPackagesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.rentedPackagesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.packagingId,
+            this.capacity,
+            this.category,
+            this.weight,
+            this.producer,
+            this.state,
+            this.quantity,
+            this.available,
+            this.totalCost,
+            this.deleteArticle});
+            this.rentPackagesFormTblLayout.SetColumnSpan(this.rentedPackagesDataGridView, 9);
+            this.rentedPackagesDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.rentedPackagesDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.rentedPackagesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rentedPackagesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.rentedPackagesDataGridView.Location = new System.Drawing.Point(3, 303);
+            this.rentedPackagesDataGridView.MultiSelect = false;
+            this.rentedPackagesDataGridView.Name = "rentedPackagesDataGridView";
+            this.rentedPackagesDataGridView.ReadOnly = true;
+            this.rentedPackagesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.rentedPackagesDataGridView.RowHeadersWidth = 40;
+            this.rentedPackagesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.rentPackagesFormTblLayout.SetRowSpan(this.rentedPackagesDataGridView, 8);
+            this.rentedPackagesDataGridView.RowTemplate.Height = 30;
+            this.rentedPackagesDataGridView.Size = new System.Drawing.Size(1427, 506);
+            this.rentedPackagesDataGridView.TabIndex = 34;
+            this.rentedPackagesDataGridView.TabStop = false;
+            this.rentedPackagesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.insertedArticlesDataGridView_CellContentClick);
+            // 
             // minimizeBtn
             // 
             this.minimizeBtn.BackColor = System.Drawing.Color.Transparent;
@@ -128,7 +184,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1332, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(1327, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.minimizeBtn.Size = new System.Drawing.Size(44, 54);
@@ -152,10 +208,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1382, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1377, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(48, 54);
+            this.exitBtn.Size = new System.Drawing.Size(53, 54);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -193,7 +249,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1282, 3);
+            this.backBtn.Location = new System.Drawing.Point(1277, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 54);
             this.backBtn.TabIndex = 9;
@@ -212,64 +268,10 @@
             this.cratesCmbBox.FormattingEnabled = true;
             this.cratesCmbBox.Location = new System.Drawing.Point(153, 93);
             this.cratesCmbBox.Name = "cratesCmbBox";
-            this.cratesCmbBox.Size = new System.Drawing.Size(711, 31);
+            this.cratesCmbBox.Size = new System.Drawing.Size(708, 31);
             this.cratesCmbBox.TabIndex = 7;
             this.cratesCmbBox.TabStop = false;
             this.cratesCmbBox.SelectedIndexChanged += new System.EventHandler(this.cratesCmbBox_SelectedIndexChanged);
-            // 
-            // rentedPackagesDataGridView
-            // 
-            this.rentedPackagesDataGridView.AllowUserToAddRows = false;
-            this.rentedPackagesDataGridView.AllowUserToDeleteRows = false;
-            this.rentedPackagesDataGridView.AllowUserToResizeColumns = false;
-            this.rentedPackagesDataGridView.AllowUserToResizeRows = false;
-            this.rentedPackagesDataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.rentedPackagesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.rentedPackagesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.rentedPackagesDataGridView.ColumnHeadersHeight = 40;
-            this.rentedPackagesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.rentedPackagesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.packagingId,
-            this.capacity,
-            this.category,
-            this.weight,
-            this.producer,
-            this.state,
-            this.quantity,
-            this.packagingPrice,
-            this.deleteArticle});
-            this.rentPackagesFormTblLayout.SetColumnSpan(this.rentedPackagesDataGridView, 9);
-            this.rentedPackagesDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.rentedPackagesDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.rentedPackagesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rentedPackagesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.rentedPackagesDataGridView.Location = new System.Drawing.Point(3, 303);
-            this.rentedPackagesDataGridView.MultiSelect = false;
-            this.rentedPackagesDataGridView.Name = "rentedPackagesDataGridView";
-            this.rentedPackagesDataGridView.ReadOnly = true;
-            this.rentedPackagesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.rentedPackagesDataGridView.RowHeadersWidth = 40;
-            this.rentedPackagesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.rentPackagesFormTblLayout.SetRowSpan(this.rentedPackagesDataGridView, 8);
-            this.rentedPackagesDataGridView.RowTemplate.Height = 30;
-            this.rentedPackagesDataGridView.Size = new System.Drawing.Size(1427, 506);
-            this.rentedPackagesDataGridView.TabIndex = 34;
-            this.rentedPackagesDataGridView.TabStop = false;
-            this.rentedPackagesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.insertedArticlesDataGridView_CellContentClick);
             // 
             // cratesTypeLbl
             // 
@@ -279,7 +281,7 @@
             this.rentPackagesFormTblLayout.SetColumnSpan(this.cratesTypeLbl, 3);
             this.cratesTypeLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cratesTypeLbl.ForeColor = System.Drawing.Color.White;
-            this.cratesTypeLbl.Location = new System.Drawing.Point(173, 63);
+            this.cratesTypeLbl.Location = new System.Drawing.Point(172, 63);
             this.cratesTypeLbl.Name = "cratesTypeLbl";
             this.cratesTypeLbl.Size = new System.Drawing.Size(670, 27);
             this.cratesTypeLbl.TabIndex = 25;
@@ -293,9 +295,9 @@
             this.availablePackages.Dock = System.Windows.Forms.DockStyle.Top;
             this.availablePackages.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.availablePackages.ForeColor = System.Drawing.Color.White;
-            this.availablePackages.Location = new System.Drawing.Point(870, 90);
+            this.availablePackages.Location = new System.Drawing.Point(867, 90);
             this.availablePackages.Name = "availablePackages";
-            this.availablePackages.Size = new System.Drawing.Size(180, 27);
+            this.availablePackages.Size = new System.Drawing.Size(179, 27);
             this.availablePackages.TabIndex = 42;
             this.availablePackages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -306,7 +308,7 @@
             this.availablePackagesLbl.BackColor = System.Drawing.Color.Transparent;
             this.availablePackagesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.availablePackagesLbl.ForeColor = System.Drawing.Color.White;
-            this.availablePackagesLbl.Location = new System.Drawing.Point(886, 63);
+            this.availablePackagesLbl.Location = new System.Drawing.Point(883, 63);
             this.availablePackagesLbl.Name = "availablePackagesLbl";
             this.availablePackagesLbl.Size = new System.Drawing.Size(147, 27);
             this.availablePackagesLbl.TabIndex = 41;
@@ -320,7 +322,7 @@
             this.packagingPriceLbl.BackColor = System.Drawing.Color.Transparent;
             this.packagingPriceLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.packagingPriceLbl.ForeColor = System.Drawing.Color.White;
-            this.packagingPriceLbl.Location = new System.Drawing.Point(1096, 63);
+            this.packagingPriceLbl.Location = new System.Drawing.Point(1091, 63);
             this.packagingPriceLbl.Name = "packagingPriceLbl";
             this.packagingPriceLbl.Size = new System.Drawing.Size(140, 27);
             this.packagingPriceLbl.TabIndex = 43;
@@ -334,84 +336,87 @@
             this.price.Dock = System.Windows.Forms.DockStyle.Top;
             this.price.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.price.ForeColor = System.Drawing.Color.White;
-            this.price.Location = new System.Drawing.Point(1056, 90);
+            this.price.Location = new System.Drawing.Point(1052, 90);
             this.price.Name = "price";
-            this.price.Size = new System.Drawing.Size(220, 27);
+            this.price.Size = new System.Drawing.Size(219, 27);
             this.price.TabIndex = 44;
             this.price.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // insertBtn
-            // 
-            this.insertBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.insertBtn.BackColor = System.Drawing.Color.Transparent;
-            this.insertBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.insertBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.insertBtn.FlatAppearance.BorderSize = 5;
-            this.insertBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.insertBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.insertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.insertBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.insertBtn.ForeColor = System.Drawing.Color.White;
-            this.insertBtn.Location = new System.Drawing.Point(607, 247);
-            this.insertBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.insertBtn.Name = "insertBtn";
-            this.insertBtn.Size = new System.Drawing.Size(255, 46);
-            this.insertBtn.TabIndex = 30;
-            this.insertBtn.TabStop = false;
-            this.insertBtn.Text = "Iznajmi ambalaže";
-            this.insertBtn.UseVisualStyleBackColor = false;
-            this.insertBtn.Click += new System.EventHandler(this.insertBtn_Click);
             // 
             // crateQuantityTxtBox
             // 
             this.crateQuantityTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.crateQuantityTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rentPackagesFormTblLayout.SetColumnSpan(this.crateQuantityTxtBox, 3);
             this.crateQuantityTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crateQuantityTxtBox.Location = new System.Drawing.Point(605, 193);
+            this.crateQuantityTxtBox.Location = new System.Drawing.Point(568, 193);
             this.crateQuantityTxtBox.MaxLength = 8;
             this.crateQuantityTxtBox.Multiline = true;
             this.crateQuantityTxtBox.Name = "crateQuantityTxtBox";
             this.crateQuantityTxtBox.ShortcutsEnabled = false;
-            this.crateQuantityTxtBox.Size = new System.Drawing.Size(259, 31);
+            this.crateQuantityTxtBox.Size = new System.Drawing.Size(287, 31);
             this.crateQuantityTxtBox.TabIndex = 0;
-            this.crateQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
+            this.crateQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // crateQuantityLbl
             // 
             this.crateQuantityLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.crateQuantityLbl.AutoSize = true;
             this.crateQuantityLbl.BackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesFormTblLayout.SetColumnSpan(this.crateQuantityLbl, 3);
             this.crateQuantityLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.crateQuantityLbl.ForeColor = System.Drawing.Color.White;
-            this.crateQuantityLbl.Location = new System.Drawing.Point(649, 163);
+            this.crateQuantityLbl.Location = new System.Drawing.Point(626, 163);
             this.crateQuantityLbl.Name = "crateQuantityLbl";
             this.crateQuantityLbl.Size = new System.Drawing.Size(171, 27);
             this.crateQuantityLbl.TabIndex = 24;
             this.crateQuantityLbl.Text = "Broj ambalaža";
             this.crateQuantityLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // finishInsertBtn
+            // finishRentPackagesBtn
             // 
-            this.finishInsertBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.finishInsertBtn.BackColor = System.Drawing.Color.Transparent;
-            this.rentPackagesFormTblLayout.SetColumnSpan(this.finishInsertBtn, 3);
-            this.finishInsertBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.finishInsertBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.finishInsertBtn.FlatAppearance.BorderSize = 5;
-            this.finishInsertBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.finishInsertBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.finishInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.finishInsertBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.finishInsertBtn.ForeColor = System.Drawing.Color.White;
-            this.finishInsertBtn.Location = new System.Drawing.Point(557, 817);
-            this.finishInsertBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.finishInsertBtn.Name = "finishInsertBtn";
-            this.finishInsertBtn.Size = new System.Drawing.Size(314, 50);
-            this.finishInsertBtn.TabIndex = 40;
-            this.finishInsertBtn.TabStop = false;
-            this.finishInsertBtn.Text = "Završi iznajmljivanje";
-            this.finishInsertBtn.UseVisualStyleBackColor = false;
-            this.finishInsertBtn.Click += new System.EventHandler(this.finishInsertBtn_Click);
+            this.finishRentPackagesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.finishRentPackagesBtn.BackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesFormTblLayout.SetColumnSpan(this.finishRentPackagesBtn, 3);
+            this.finishRentPackagesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.finishRentPackagesBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.finishRentPackagesBtn.FlatAppearance.BorderSize = 5;
+            this.finishRentPackagesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.finishRentPackagesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.finishRentPackagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.finishRentPackagesBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.finishRentPackagesBtn.ForeColor = System.Drawing.Color.White;
+            this.finishRentPackagesBtn.Location = new System.Drawing.Point(568, 817);
+            this.finishRentPackagesBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.finishRentPackagesBtn.Name = "finishRentPackagesBtn";
+            this.finishRentPackagesBtn.Size = new System.Drawing.Size(287, 50);
+            this.finishRentPackagesBtn.TabIndex = 40;
+            this.finishRentPackagesBtn.TabStop = false;
+            this.finishRentPackagesBtn.Text = "Završi iznajmljivanje";
+            this.finishRentPackagesBtn.UseVisualStyleBackColor = false;
+            this.finishRentPackagesBtn.Click += new System.EventHandler(this.finishInsertBtn_Click);
+            // 
+            // rentPackagesBtn
+            // 
+            this.rentPackagesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rentPackagesBtn.BackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesFormTblLayout.SetColumnSpan(this.rentPackagesBtn, 3);
+            this.rentPackagesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rentPackagesBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.rentPackagesBtn.FlatAppearance.BorderSize = 5;
+            this.rentPackagesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rentPackagesBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.rentPackagesBtn.ForeColor = System.Drawing.Color.White;
+            this.rentPackagesBtn.Location = new System.Drawing.Point(568, 245);
+            this.rentPackagesBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.rentPackagesBtn.Name = "rentPackagesBtn";
+            this.rentPackagesBtn.Size = new System.Drawing.Size(287, 50);
+            this.rentPackagesBtn.TabIndex = 30;
+            this.rentPackagesBtn.TabStop = false;
+            this.rentPackagesBtn.Text = "Iznajmi ambalaže";
+            this.rentPackagesBtn.UseVisualStyleBackColor = false;
+            this.rentPackagesBtn.Click += new System.EventHandler(this.rentPackagesBtn_Click);
             // 
             // packagingId
             // 
@@ -457,19 +462,26 @@
             // 
             // quantity
             // 
-            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.quantity.HeaderText = "Količina";
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
-            this.quantity.Width = 126;
             // 
-            // packagingPrice
+            // available
             // 
-            this.packagingPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.packagingPrice.HeaderText = "Cena";
-            this.packagingPrice.Name = "packagingPrice";
-            this.packagingPrice.ReadOnly = true;
-            this.packagingPrice.Width = 92;
+            this.available.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.available.HeaderText = "Raspoloživo";
+            this.available.Name = "available";
+            this.available.ReadOnly = true;
+            this.available.Width = 172;
+            // 
+            // totalCost
+            // 
+            this.totalCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.totalCost.HeaderText = "Ukupna cena (RSD)";
+            this.totalCost.Name = "totalCost";
+            this.totalCost.ReadOnly = true;
+            this.totalCost.Width = 252;
             // 
             // deleteArticle
             // 
@@ -517,10 +529,10 @@
         private System.Windows.Forms.TextBox crateQuantityTxtBox;
         private System.Windows.Forms.Label crateQuantityLbl;
         private System.Windows.Forms.Label cratesTypeLbl;
-        private System.Windows.Forms.Button insertBtn;
+        private System.Windows.Forms.Button rentPackagesBtn;
         private System.Windows.Forms.ComboBox cratesCmbBox;
         private System.Windows.Forms.DataGridView rentedPackagesDataGridView;
-        private System.Windows.Forms.Button finishInsertBtn;
+        private System.Windows.Forms.Button finishRentPackagesBtn;
         private System.Windows.Forms.Label availablePackagesLbl;
         private System.Windows.Forms.Label availablePackages;
         private System.Windows.Forms.Label packagingPriceLbl;
@@ -532,7 +544,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn producer;
         private System.Windows.Forms.DataGridViewTextBoxColumn state;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn packagingPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn available;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn deleteArticle;
     }
 }

@@ -188,6 +188,17 @@ namespace Freshivoje.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to NEDOVOLJAN BROJ RASPOLOŽIVIH AMBALAŽA 
+        ///ILI STE VEĆ IZDALI SVE RASPOLOŽIVE AMBALAŽE! 
+        ///.
+        /// </summary>
+        internal static string packagingAvailabiltyErrorMsg {
+            get {
+                return ResourceManager.GetString("packagingAvailabiltyErrorMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap x {

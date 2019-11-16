@@ -16,7 +16,7 @@ namespace Freshivoje.Transport
     public partial class TransportForm : Form
     {
         public List<TransportItem> transportItems = new List<TransportItem>();
-        private int _clientId;
+        private readonly int _clientId;
         
         public TransportForm(int clientId)
         {    
