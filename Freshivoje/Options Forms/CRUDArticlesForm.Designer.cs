@@ -323,7 +323,7 @@
             this.insertArticleBtn.TabStop = false;
             this.insertArticleBtn.Text = "Kreiraj artikal";
             this.insertArticleBtn.UseVisualStyleBackColor = false;
-            this.insertArticleBtn.Click += new System.EventHandler(this.insertArticleBtn_Click);
+            this.insertArticleBtn.Click += new System.EventHandler(this.createArticleBtn_Click);
             // 
             // searchArticlesTxtBox
             // 

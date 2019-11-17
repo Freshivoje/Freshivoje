@@ -10,14 +10,12 @@ using System.Windows.Forms;
 
 namespace Freshivoje
 {
-    public partial class PackagesForm : Form
+    public partial class ChoosePackagesMethodForm : Form
     {
-        public PackagesForm()
+        public ChoosePackagesMethodForm()
         {
             InitializeComponent();
         }
-
-        // Disables flickering on FormLoad
         protected override CreateParams CreateParams
         {
             get
@@ -26,6 +24,13 @@ namespace Freshivoje
                 cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
                 return cp;
             }
+        }
+        private void repurchaseBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            using ChooseClientForm chooseClientForm = new ChooseClientForm("RentPackagesForm");
+            chooseClientForm.ShowDialog(this);
+            Show();
         }
 
         private void backBtn_Click(object sender, EventArgs e)

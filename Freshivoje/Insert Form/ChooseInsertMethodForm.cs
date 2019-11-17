@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Freshivoje.Insert;
 
 namespace Freshivoje
 {
-    public partial class InsertMethodForm : Form
+    public partial class ChooseInsertMethodForm : Form
     {
-        public InsertMethodForm()
+        public ChooseInsertMethodForm()
         {
             InitializeComponent();
         }
@@ -28,8 +20,10 @@ namespace Freshivoje
         }
         private void repurchaseBtn_Click(object sender, EventArgs e)
         {
-            ChooseClientForm chooseClientForm = new ChooseClientForm();
+            Hide();
+            using ChooseClientForm chooseClientForm = new ChooseClientForm("InsertForm");
             chooseClientForm.ShowDialog(this);
+            Show();
         }
 
         private void backBtn_Click(object sender, EventArgs e)

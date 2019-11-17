@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Freshivoje.Transport
@@ -19,14 +12,18 @@ namespace Freshivoje.Transport
 
         private void repurchaseBtn_Click(object sender, EventArgs e)
         {
-            ChooseClientTransportForm chooseClientTransportForm = new ChooseClientTransportForm();
-            chooseClientTransportForm.ShowDialog(this);
+            Hide();
+            using ChooseClientForm chooseClientForm = new ChooseClientForm("TransportForm");
+            chooseClientForm.ShowDialog(this);
+            Show();
         }
 
         private void storegeOfGoodsBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             TransportRecordForm transportRecordForm = new TransportRecordForm();
             transportRecordForm.ShowDialog(this);
+            Show();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)

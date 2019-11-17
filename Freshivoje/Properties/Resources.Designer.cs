@@ -80,6 +80,16 @@ namespace Freshivoje.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DOŠLO JE DO GREŠKE.
+        ///UNESITE VREDNOSTI U POLJE!.
+        /// </summary>
+        internal static string emptyDGVMsg {
+            get {
+                return ResourceManager.GetString("emptyDGVMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MOLIMO POPUNITE SVA POLJA!.
         /// </summary>
         internal static string emptyInputErrorMsg {
@@ -95,6 +105,16 @@ namespace Freshivoje.Properties {
         internal static string errorMsg {
             get {
                 return ResourceManager.GetString("errorMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon freshivoje_ikona {
+            get {
+                object obj = ResourceManager.GetObject("freshivoje_ikona", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -139,7 +159,7 @@ namespace Freshivoje.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to NEPRAVILAN POŠTANSKI BROJ!
-        ///POŠTANSKI BROJ MORA IMA 5 CIFARA!.
+        ///POŠTANSKI BROJ MORA IMATI 5 CIFARA!.
         /// </summary>
         internal static string invalidZipCodeMsg {
             get {
@@ -164,6 +184,17 @@ namespace Freshivoje.Properties {
             get {
                 object obj = ResourceManager.GetObject("minimize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NEDOVOLJAN BROJ RASPOLOŽIVIH AMBALAŽA 
+        ///ILI STE VEĆ IZDALI SVE RASPOLOŽIVE AMBALAŽE! 
+        ///.
+        /// </summary>
+        internal static string packagingAvailabiltyErrorMsg {
+            get {
+                return ResourceManager.GetString("packagingAvailabiltyErrorMsg", resourceCulture);
             }
         }
         

@@ -29,10 +29,20 @@ namespace Freshivoje
                 using MySqlDataReader reader = mySqlCommand.ExecuteReader();
                 while (reader.Read())
                 {
+                    string text = string.Empty;
+                    foreach(string column in columns)
+                    {
+                        if(column == columns[0])
+                        {
+                            continue;
+                        }
+                        text += $"{ reader.GetString(column)} / ";
+                    }
+                    text = text.Trim(' ', '/');
                     ComboBoxItem item = new ComboBoxItem
                     {
                         Value = reader.GetInt32(columns[0]),
-                        Text = reader.GetString(columns[1])
+                        Text = text
                     };
                     cmbBox.Items.Add(item);
                 }
@@ -58,12 +68,13 @@ namespace Freshivoje
                 _databaseConnection.Open();
                 mySqlCommand.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
                     return;
                 }
+                throw e;
             }
             finally
             {
@@ -71,74 +82,105 @@ namespace Freshivoje
             }
         }
 
-        public static void executeTransportQuery(List<TransportItems> transportItems)
+        public static void executeTransportQuery(List<TransportItem> transportItems, decimal totalPrice)
         {
+            MySqlCommand mySqlCommand = new MySqlCommand
+            {
+                Connection = _databaseConnection
+            };
             _databaseConnection.Open();
+
             MySqlTransaction transaction = _databaseConnection.BeginTransaction();
+            mySqlCommand.Transaction = transaction;
+
             try
             {
+                mySqlCommand.CommandText = "SELECT `transport_number` FROM `transport` ORDER BY `id_transport` DESC LIMIT 1";
 
-                MySqlCommand mySqlCommand2 = new MySqlCommand();
-                mySqlCommand2.CommandText = "SELECT transport_number FROM transport ORDER BY id_transport DESC LIMIT 1";
-                mySqlCommand2.Connection = _databaseConnection;
-                mySqlCommand2.Transaction = transaction;
+                int? transportNumber = Convert.ToInt32(mySqlCommand.ExecuteScalar());
+                if (transportNumber == null)
+                {
+                    transportNumber = 0;
+                }
 
-                dynamic transportNumber = mySqlCommand2.ExecuteScalar();
-                if (transportNumber == null) transportNumber = 0;
                 transportNumber += 1;
 
-                MySqlCommand mySqlCommand1 = new MySqlCommand();
+                int clientId = transportItems[0]._clientId;
 
-                DateTime today = DateTime.Today;
-                string date = today.ToString("yyyy-MM-dd");
-                mySqlCommand1.CommandText = @"INSERT INTO `transport` (`fk_client_id`, `transport_number`, `transport_date`, `transport_year`) VALUES (@clientId, @transportNumber, @transportDate, @transportYear); SELECT LAST_INSERT_ID()";
-                mySqlCommand1.Connection = _databaseConnection;
-                mySqlCommand1.Transaction = transaction;
-                mySqlCommand1.Parameters.AddWithValue("@clientId", transportItems[0]._clientId);
-                mySqlCommand1.Parameters.AddWithValue("@transportNumber", transportNumber);
-                mySqlCommand1.Parameters.AddWithValue("@transportDate",date);
-                mySqlCommand1.Parameters.AddWithValue("@transportYear", today.ToString("yyyy"));
-             
+                mySqlCommand.CommandText = "INSERT INTO `transport` (`fk_client_id`, `transport_number`, `total_price`) VALUES (@clientId, @transportNumber, @totalPrice); SELECT LAST_INSERT_ID()";
+                mySqlCommand.Parameters.AddWithValue("@clientId", clientId);
+                mySqlCommand.Parameters.AddWithValue("@transportNumber", transportNumber);
+                mySqlCommand.Parameters.AddWithValue("@totalPrice", totalPrice);
 
+                int? transportId = Convert.ToInt32(mySqlCommand.ExecuteScalar());
 
-                dynamic transportId = mySqlCommand1.ExecuteScalar();
+                mySqlCommand.Parameters.Clear();
 
-
-                for (int i = 0; i < transportItems.Count; i++)
+                mySqlCommand.CommandText = "INSERT INTO `transport_items` (`fk_transport_id`, `price_single`, `quantity`, `traveled`, `price`) VALUES (@fkTransportId, @priceSingle, @quantity, @traveled, @price)";
+                foreach (TransportItem item in transportItems)
                 {
-
-                    string query = "INSERT INTO `transport_items` (`fk_transport_id`, `price`, `quantity`, `traveled`) VALUES ( @fkTransportId, @price, @quantity, @travel)";
-                    MySqlCommand mySqlCommand = new MySqlCommand();
-                    mySqlCommand.Connection = _databaseConnection;
-                    mySqlCommand.CommandText = query;
-                    mySqlCommand.Transaction = transaction;
                     mySqlCommand.Parameters.AddWithValue("@fkTransportId", transportId);
-                    mySqlCommand.Parameters.AddWithValue("@price", transportItems[i]._price);
-                    mySqlCommand.Parameters.AddWithValue("@quantity", transportItems[i]._quantity);
-                    mySqlCommand.Parameters.AddWithValue("@travel", transportItems[i]._traveled);
-              
+                    mySqlCommand.Parameters.AddWithValue("@priceSingle", item._priceSingle);
+                    mySqlCommand.Parameters.AddWithValue("@quantity", item._quantity);
+                    mySqlCommand.Parameters.AddWithValue("@traveled", item._traveled);
+                    mySqlCommand.Parameters.AddWithValue("@price", item._price);
 
-                    int result = mySqlCommand.ExecuteNonQuery();
-                    if (result <= 0)
-                    {
-                        throw new InvalidProgramException();
-                    }
+                    mySqlCommand.ExecuteNonQuery();
+
+                    mySqlCommand.Parameters.Clear();
                 }
-                transaction.Commit();
 
+                transaction.Commit();
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
+                if (_databaseConnection.State != ConnectionState.Open)
+                {
+                    return;
+                }
                 throw new Exception(ex.Message);
             }
             finally
             {
-                DbConnection._databaseConnection.Close();
+                _databaseConnection.Close();
             }
         }
 
+        public static string getTransportDetails(MySqlCommand mySqlCommand)
+        {
+            string result = string.Empty;
+            try
+            {
+                mySqlCommand.Connection = _databaseConnection;
+                _databaseConnection.Open();
+                MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
 
+                int articleNum = 1;
+                while (mySqlDataReader.Read())
+                {
+                    string priceSingle = mySqlDataReader.GetDecimal("price_single").ToString("0.00");
+                    string quantity = mySqlDataReader.GetDecimal("quantity").ToString("0.00");
+                    string traveled = mySqlDataReader.GetDecimal("traveled").ToString("0.00");
+                    string price = mySqlDataReader.GetDecimal("price").ToString("0.00");
+
+
+                    result += $"Artikal {articleNum}\n{priceSingle} / {quantity} / {traveled} / {price}\n";
+
+                    articleNum += 1;
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
+            return result;
+
+        }
         public static void fillDGV(DataGridView dataGridView, string query)
         {
             DataTable table = new DataTable();
@@ -196,98 +238,19 @@ namespace Freshivoje
                 _databaseConnection.Open();
                 value = mySqlCommand.ExecuteScalar();
             }
-            catch
+            catch(Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
                     return -1;
                 }
+                throw e;
             }
             finally
             {
                 _databaseConnection.Close();
             }
             return value;
-        }
-
-        public static dynamic getQuery(MySqlCommand mySqlCommand)
-        {
-            dynamic value = null;
-            try
-            {
-                mySqlCommand.Connection = _databaseConnection;
-                _databaseConnection.Open();
-                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
-                reader.Read();
-                value = reader.GetString(0);
-            }
-            catch
-            {
-                if (_databaseConnection.State != ConnectionState.Open)
-                {
-                    return -1;
-                }
-            }
-            finally
-            {
-                _databaseConnection.Close();
-            }
-            return value;
-        }
-        public static dynamic getQueryValues(MySqlCommand mySqlCommand)
-        {
-            dynamic value = null;
-            try
-            {
-                mySqlCommand.Connection = _databaseConnection;
-                _databaseConnection.Open();
-                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
-                reader.Read();
-                value = reader.GetString(0) + "," + reader.GetString(1) + "," + reader.GetString(2);
-            }
-            catch
-            {
-                if (_databaseConnection.State != ConnectionState.Open)
-                {
-                    return -1;
-                }
-            }
-            finally
-            {
-                _databaseConnection.Close();
-            }
-            return value;
-        }
-
-        public static void fillCustomCmbBox(ComboBox cmbBox, string table, params string[] columns)
-        {
-            try
-            {
-                _databaseConnection.Open();
-                MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
-                mySqlCommand.CommandText = $"SELECT * FROM `{table}`";
-                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
-                while (reader.Read())
-                {
-                    ComboBoxItem item = new ComboBoxItem
-                    {
-                        Value = reader.GetInt32(columns[0]),
-                        Text = reader.GetString(columns[1]) + " / " + reader.GetString(columns[2]) + " / " + reader.GetString(columns[3])
-                    };
-                    cmbBox.Items.Add(item);
-                }
-            }
-            catch
-            {
-                if (_databaseConnection.State != ConnectionState.Open)
-                {
-                    return;
-                }
-            }
-            finally
-            {
-                _databaseConnection.Close();
-            }
         }
     }
 }

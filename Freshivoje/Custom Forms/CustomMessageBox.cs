@@ -12,7 +12,6 @@ namespace Freshivoje
 {
     public partial class CustomMessageBox : Form
     {
-
         public static DialogResult ShowDialog(IWin32Window owner, string text)
         {
             using var customDialog = new CustomMessageBox(text);
@@ -32,7 +31,7 @@ namespace Freshivoje
         private CustomMessageBox(string text)
         {
             InitializeComponent();
-            errorMsgLbl.Text = text;
+            msgLbl.Text = text;
         }
 
         private void confirmButton_Click(object sender, EventArgs e)

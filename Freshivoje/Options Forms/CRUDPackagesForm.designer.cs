@@ -273,7 +273,7 @@
             this.insertPackageBtn.TabStop = false;
             this.insertPackageBtn.Text = "Kreiraj ambalažu";
             this.insertPackageBtn.UseVisualStyleBackColor = false;
-            this.insertPackageBtn.Click += new System.EventHandler(this.insertPackageBtn_Click);
+            this.insertPackageBtn.Click += new System.EventHandler(this.createPackageBtn_Click);
             // 
             // searchPackagesLbl
             // 
@@ -300,7 +300,7 @@
             // 
             this.capacity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.capacity.DataPropertyName = "capacity";
-            this.capacity.HeaderText = "Nosivost";
+            this.capacity.HeaderText = "Nosivost (g)";
             this.capacity.Name = "capacity";
             // 
             // category
@@ -314,7 +314,7 @@
             // 
             this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.quantity.DataPropertyName = "quantity";
-            this.quantity.HeaderText = "Količina";
+            this.quantity.HeaderText = "Raspoloživo";
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
             // 
@@ -322,14 +322,14 @@
             // 
             this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.price.DataPropertyName = "price";
-            this.price.HeaderText = "Cena";
+            this.price.HeaderText = "Cena (RSD)";
             this.price.Name = "price";
             // 
             // weight
             // 
             this.weight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.weight.DataPropertyName = "weight";
-            this.weight.HeaderText = "Težina";
+            this.weight.HeaderText = "Težina (g)";
             this.weight.Name = "weight";
             // 
             // producer
@@ -342,7 +342,7 @@
             // Status
             // 
             this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Status.DataPropertyName = "status";
+            this.Status.DataPropertyName = "state";
             this.Status.HeaderText = "Status";
             this.Status.Name = "Status";
             // 

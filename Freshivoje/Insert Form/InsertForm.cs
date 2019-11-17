@@ -1,20 +1,18 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Forms;
-
 using MySql.Data.MySqlClient;
 using Freshivoje.Models;
 using Freshivoje.Custom_Forms;
-using System.Collections.Generic;
-using System.Diagnostics;
+
 
 namespace Freshivoje
 {
     public partial class InsertForm : Form
     {
-        private int _selectedClientId, _articleId, _articleCategoryId, _packagingId;
+        private readonly int _selectedClientId;
+        private int _articleId, _articleCategoryId, _packagingId;
         private decimal _palletWeight = 1M, _packagingWeight, _selectedArticlePrice;
-        private string _selectedArticleName = string.Empty,
+        private readonly string _selectedArticleName = string.Empty,
                         _selectedArticleSort = string.Empty, 
                         _selectedArticleOrganic = string.Empty,
                         _selectedArticleCategory = string.Empty;
@@ -119,10 +117,13 @@ namespace Freshivoje
 
             decimal price = Math.Round(netoWeight * articlePrice, 2);
 
+            int articleId = (articlesCmbBox.SelectedItem as ComboBoxItem).Value;
             string[] articleFields = articlesCmbBox.Text.Split('/');
             string articleCategory = articleCategoryCmbBox.Text;
 
-            Article article = new Article(0, articleFields[0], articleFields[1], articleFields[2], price);
+            string packageOwnership = crateOwnerCmbBox.Text;
+
+            Article article = new Article(_articleId, articleFields[0], articleFields[1], articleFields[2], price);
 
             DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da unesete artikal?\n{articlesCmbBox.Text}\nKlasa: {articleCategory}\nNeto kilaža: {netoWeight.ToString("0.00")}\nCena: {article._priceI} RSD");
             if (result == DialogResult.No || result == DialogResult.Cancel)
@@ -130,7 +131,11 @@ namespace Freshivoje
                 return;
             }
 
-            insertedArticlesDataGridView.Rows.Add(_packagingId, numOfCrates, article._name, article._sort, article._organic, articleCategory, article._priceI);
+            insertedArticlesDataGridView.Rows.Add(_packagingId, numOfCrates, packageOwnership, articleId, article._name, article._sort, article._organic, articleCategory, netoWeight.ToString("0.00"), article._priceI);
+
+            crateQuantityTxtBox.ResetText();
+            articleQuantityTxtBox.ResetText();
+            crateQuantityTxtBox.Select();
         }
 
         public void getArticlePrice()
@@ -146,58 +151,113 @@ namespace Freshivoje
                 CommandText = $"SELECT `value` FROM `prices` WHERE `fk_article_id` = {_articleId} AND `status` = 'aktivna' AND fk_category_id = {_articleCategoryId}"
             };
 
-            decimal lastPrice = DbConnection.getValue(mySqlCommand);
-            articlePriceLbl.Text = lastPrice.ToString();
+            _selectedArticlePrice = DbConnection.getValue(mySqlCommand);
+            articlePriceLbl.Text = _selectedArticlePrice.ToString();
         }
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
             if (insertedArticlesDataGridView.Rows.Count < 1)
             {
-                //CustomMessageBox.ShowDialog(this, Properties.Resources.emptyDGVMsg);
-                //return;
+                CustomMessageBox.ShowDialog(this, Properties.Resources.emptyDGVMsg);
+                return;
+            }
+
+            DialogResult result = CustomDialog.ShowDialog(this, "Da li ste sigurni da želite da unesete ove artikle u magacin?");
+            if (result == DialogResult.No || result == DialogResult.Cancel)
+            {
+                return;
             }
 
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = @"INSERT INTO `packaging_records` (`fk_packaging_id`, `fk_client_id`, `packaging_record_quantity`) VALUES (@packagingId, @clientId, @packagingQuantity)"
+                CommandText = "INSERT INTO `packaging_records` (`fk_packaging_id`, `fk_client_id`, `ownership`, `quantity`) VALUES (@packagingId, @clientId, @packagingOwnership, @packagingQuantity)"
             };
 
+            MySqlCommand mySqlCommand1 = new MySqlCommand
+            {
+                 CommandText = "SELECT `receipt_number` FROM `receipts` ORDER BY `id_receipt` DESC LIMIT 1"
+            };
+
+            int? receiptNumber = Convert.ToInt32(DbConnection.getValue(mySqlCommand1));
+
+            if (receiptNumber == null)
+            {
+                receiptNumber = 0;
+            }
+            receiptNumber += 1;
+
+            mySqlCommand1.CommandText = "INSERT INTO `receipts` (`fk_client_id`, `receipt_number`) VALUES (@clientId, @receiptNumber); SELECT LAST_INSERT_ID()";
+
+            mySqlCommand1.Parameters.AddWithValue("@clientId", _selectedClientId);
+            mySqlCommand1.Parameters.AddWithValue("@receiptNumber", receiptNumber);
+
+            int receiptId = Convert.ToInt32(DbConnection.getValue(mySqlCommand1));
+
+            mySqlCommand1.Parameters.Clear();
+
+            mySqlCommand1.CommandText = "INSERT INTO `items_receipt` (`fk_receipt_id`, `fk_article_id`, `quantity`, `price`) VALUES (@receiptId, @articleId, @articleQuantity, @articlePrice)";
+
+            decimal totalPrice = 0;
 
             foreach (DataGridViewRow row in insertedArticlesDataGridView.Rows)
-            {
-
+            { 
                 int packagingId = Convert.ToInt32(row.Cells["packagingId"].Value);
                 int packagingQuantity = Convert.ToInt32(row.Cells["packagingQuantity"].Value);
+                string packagingOwnership = row.Cells["packagingOwnership"].Value.ToString();
 
-                mySqlCommand.Parameters.Clear();
 
                 mySqlCommand.Parameters.AddWithValue("@packagingId", packagingId);
                 mySqlCommand.Parameters.AddWithValue("@clientId", _selectedClientId);
+                mySqlCommand.Parameters.AddWithValue("@packagingOwnership", packagingOwnership);
                 mySqlCommand.Parameters.AddWithValue("@packagingQuantity", packagingQuantity);
 
                 DbConnection.executeQuery(mySqlCommand);
+
+                mySqlCommand.Parameters.Clear();
+
+                decimal articleId = Convert.ToInt32(row.Cells["articleId"].Value);
+                decimal articleQuantity = Convert.ToDecimal(row.Cells["articleQuantity"].Value);
+                decimal articlePrice = Convert.ToDecimal(row.Cells["articlePrice"].Value);
+
+                totalPrice += articlePrice;
+
+                mySqlCommand1.Parameters.AddWithValue("@receiptId", receiptId);
+                mySqlCommand1.Parameters.AddWithValue("@articleId", articleId);
+                mySqlCommand1.Parameters.AddWithValue("@articleQuantity", articleQuantity);
+                mySqlCommand1.Parameters.AddWithValue("@articlePrice", articlePrice);
+
+                DbConnection.executeQuery(mySqlCommand1);
+
+                mySqlCommand1.Parameters.Clear();
             }
+            
+            mySqlCommand1.CommandText = "UPDATE `receipts` SET `total_price` = @totalPrice WHERE `id_receipt` = @receiptId";
+            mySqlCommand1.Parameters.AddWithValue("@totalPrice", totalPrice);
+            mySqlCommand1.Parameters.AddWithValue("@receiptId", receiptId);
+
+            DbConnection.executeQuery(mySqlCommand1);
+
+            insertedArticlesDataGridView.Rows.Clear();
         }
 
         private void insertedArticlesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 10)
             {
+                //_selectedArticleName = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleName"].Value.ToString();
+                //_selectedArticleSort = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleSort"].Value.ToString();
+                //_selectedArticleOrganic = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleOrganic"].Value.ToString();
+                //_selectedArticleCategory = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleCategory"].Value.ToString();
+                //_selectedArticlePrice = Convert.ToDecimal(insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articlePrice"].Value);
 
-                DataGridViewRow _selectedRow = insertedArticlesDataGridView.CurrentRow;
-
-                _selectedArticleName = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleName"].Value.ToString();
-                _selectedArticleSort = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleSort"].Value.ToString();
-                _selectedArticleOrganic = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleOrganic"].Value.ToString();
-                _selectedArticleCategory = insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articleCategory"].Value.ToString();
-                _selectedArticlePrice = Convert.ToDecimal(insertedArticlesDataGridView.Rows[e.RowIndex].Cells["articlePrice"].Value);
-
-                DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da obrišete artikal iz unosa?\n{_selectedArticleName}/{_selectedArticleSort}/{_selectedArticleOrganic}\nKlasa: {_selectedArticleCategory}\nCena: {_selectedArticlePrice}");
+                DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da obrišete ovaj artikal iz unosa?"); //\n{_selectedArticleName}/{_selectedArticleSort}/{_selectedArticleOrganic}\nKlasa: {_selectedArticleCategory}\nCena: {_selectedArticlePrice}");
                 if (result == DialogResult.No || result == DialogResult.Cancel)
                 {
                     return;
                 }
+
+                DataGridViewRow _selectedRow = insertedArticlesDataGridView.CurrentRow;
                 insertedArticlesDataGridView.Rows.Remove(_selectedRow);
             }
         }
@@ -207,9 +267,11 @@ namespace Freshivoje
             _packagingId = (cratesCmbBox.SelectedItem as ComboBoxItem).Value;
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = $"SELECT `weight` FROM `packaging` WHERE `id_packaging` = {_packagingId}"
+                CommandText = $"SELECT `weight` FROM `packaging` WHERE `id_packaging` = @packagingId"
             };
-            _packagingWeight = (decimal) DbConnection.getValue(mySqlCommand) / 1000;
+
+            mySqlCommand.Parameters.AddWithValue("@packagingId", _packagingId);
+            _packagingWeight = Convert.ToDecimal(DbConnection.getValue(mySqlCommand)) / 1000;
         }
 
         private void articlesCmbBox_SelectedIndexChanged(object sender, EventArgs e)

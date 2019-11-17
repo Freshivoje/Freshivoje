@@ -1,6 +1,6 @@
 ﻿namespace Freshivoje
 {
-    partial class InsertMethodForm
+    partial class ChooseInsertMethodForm
     {
         /// <summary>
         /// Required designer variable.
@@ -186,7 +186,7 @@
             this.Name = "InsertMethodForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ChooseInsertMethodForm";
+            this.Text = "InsertMethodForm";
             this.insertMethodFormTblLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 

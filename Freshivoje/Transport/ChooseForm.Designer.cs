@@ -32,8 +32,8 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
-            this.repurchaseBtn = new System.Windows.Forms.Button();
-            this.storegeOfGoodsBtn = new System.Windows.Forms.Button();
+            this.transportPaymentsBtn = new System.Windows.Forms.Button();
+            this.transportRecordsBtn = new System.Windows.Forms.Button();
             this.chooseTransportFormTblLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,18 +50,21 @@
             this.chooseTransportFormTblLayout.Controls.Add(this.backBtn, 2, 0);
             this.chooseTransportFormTblLayout.Controls.Add(this.minimizeBtn, 3, 0);
             this.chooseTransportFormTblLayout.Controls.Add(this.exitBtn, 4, 0);
-            this.chooseTransportFormTblLayout.Controls.Add(this.repurchaseBtn, 1, 1);
-            this.chooseTransportFormTblLayout.Controls.Add(this.storegeOfGoodsBtn, 1, 2);
+            this.chooseTransportFormTblLayout.Controls.Add(this.transportPaymentsBtn, 1, 2);
+            this.chooseTransportFormTblLayout.Controls.Add(this.transportRecordsBtn, 1, 4);
             this.chooseTransportFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chooseTransportFormTblLayout.Location = new System.Drawing.Point(0, 0);
+            this.chooseTransportFormTblLayout.Location = new System.Drawing.Point(5, 5);
             this.chooseTransportFormTblLayout.Name = "chooseTransportFormTblLayout";
-            this.chooseTransportFormTblLayout.RowCount = 4;
+            this.chooseTransportFormTblLayout.RowCount = 8;
             this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.chooseTransportFormTblLayout.Size = new System.Drawing.Size(634, 630);
+            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.chooseTransportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.chooseTransportFormTblLayout.Size = new System.Drawing.Size(611, 618);
             this.chooseTransportFormTblLayout.TabIndex = 2;
             // 
             // backBtn
@@ -78,7 +81,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(487, 3);
+            this.backBtn.Location = new System.Drawing.Point(464, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 54);
             this.backBtn.TabIndex = 11;
@@ -101,7 +104,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(537, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(514, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(44, 54);
             this.minimizeBtn.TabIndex = 5;
@@ -123,7 +126,7 @@
             this.exitBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(587, 3);
+            this.exitBtn.Location = new System.Drawing.Point(564, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.exitBtn.Size = new System.Drawing.Size(44, 54);
@@ -133,56 +136,58 @@
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
-            // repurchaseBtn
+            // transportPaymentsBtn
             // 
-            this.repurchaseBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.repurchaseBtn.BackColor = System.Drawing.Color.Transparent;
-            this.repurchaseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.repurchaseBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.repurchaseBtn.FlatAppearance.BorderSize = 5;
-            this.repurchaseBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.repurchaseBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.repurchaseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.repurchaseBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.repurchaseBtn.ForeColor = System.Drawing.Color.White;
-            this.repurchaseBtn.Location = new System.Drawing.Point(203, 161);
-            this.repurchaseBtn.Name = "repurchaseBtn";
-            this.repurchaseBtn.Size = new System.Drawing.Size(228, 72);
-            this.repurchaseBtn.TabIndex = 0;
-            this.repurchaseBtn.Text = "PLAĆANJE PUTNIH TROŠKOVA";
-            this.repurchaseBtn.UseVisualStyleBackColor = false;
-            this.repurchaseBtn.Click += new System.EventHandler(this.repurchaseBtn_Click);
+            this.transportPaymentsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.transportPaymentsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.transportPaymentsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.transportPaymentsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.transportPaymentsBtn.FlatAppearance.BorderSize = 5;
+            this.transportPaymentsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.transportPaymentsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.transportPaymentsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.transportPaymentsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transportPaymentsBtn.ForeColor = System.Drawing.Color.White;
+            this.transportPaymentsBtn.Location = new System.Drawing.Point(191, 147);
+            this.transportPaymentsBtn.Name = "transportPaymentsBtn";
+            this.transportPaymentsBtn.Size = new System.Drawing.Size(228, 72);
+            this.transportPaymentsBtn.TabIndex = 0;
+            this.transportPaymentsBtn.Text = "PLAĆANJE PUTNIH TROŠKOVA";
+            this.transportPaymentsBtn.UseVisualStyleBackColor = false;
+            this.transportPaymentsBtn.Click += new System.EventHandler(this.repurchaseBtn_Click);
             // 
-            // storegeOfGoodsBtn
+            // transportRecordsBtn
             // 
-            this.storegeOfGoodsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.storegeOfGoodsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.storegeOfGoodsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.storegeOfGoodsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.storegeOfGoodsBtn.FlatAppearance.BorderSize = 5;
-            this.storegeOfGoodsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.storegeOfGoodsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.storegeOfGoodsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.storegeOfGoodsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.storegeOfGoodsBtn.ForeColor = System.Drawing.Color.White;
-            this.storegeOfGoodsBtn.Location = new System.Drawing.Point(203, 436);
-            this.storegeOfGoodsBtn.Name = "storegeOfGoodsBtn";
-            this.storegeOfGoodsBtn.Size = new System.Drawing.Size(228, 72);
-            this.storegeOfGoodsBtn.TabIndex = 1;
-            this.storegeOfGoodsBtn.Text = "EVIDENCIJA";
-            this.storegeOfGoodsBtn.UseVisualStyleBackColor = false;
-            this.storegeOfGoodsBtn.Click += new System.EventHandler(this.storegeOfGoodsBtn_Click);
+            this.transportRecordsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.transportRecordsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.transportRecordsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.transportRecordsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.transportRecordsBtn.FlatAppearance.BorderSize = 5;
+            this.transportRecordsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.transportRecordsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.transportRecordsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.transportRecordsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transportRecordsBtn.ForeColor = System.Drawing.Color.White;
+            this.transportRecordsBtn.Location = new System.Drawing.Point(191, 311);
+            this.transportRecordsBtn.Name = "transportRecordsBtn";
+            this.transportRecordsBtn.Size = new System.Drawing.Size(228, 72);
+            this.transportRecordsBtn.TabIndex = 1;
+            this.transportRecordsBtn.Text = "EVIDENCIJA";
+            this.transportRecordsBtn.UseVisualStyleBackColor = false;
+            this.transportRecordsBtn.Click += new System.EventHandler(this.storegeOfGoodsBtn_Click);
             // 
             // ChooseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 630);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(621, 628);
             this.Controls.Add(this.chooseTransportFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChooseForm";
+            this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ChooseForm";
+            this.Text = "IZBOR OPCIJA PUTA";
             this.chooseTransportFormTblLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -194,7 +199,7 @@
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button exitBtn;
-        private System.Windows.Forms.Button repurchaseBtn;
-        private System.Windows.Forms.Button storegeOfGoodsBtn;
+        private System.Windows.Forms.Button transportPaymentsBtn;
+        private System.Windows.Forms.Button transportRecordsBtn;
     }
 }
