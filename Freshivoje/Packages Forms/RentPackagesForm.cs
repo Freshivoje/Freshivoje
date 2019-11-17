@@ -97,7 +97,7 @@ namespace Freshivoje
 
             Package package = new Package(packagingId, Convert.ToInt32(packagingFields[0]), packagingPrice, packagingFields[1], packagingQuantity, Convert.ToInt32(packagingFields[2]), packagingFields[3], packagingFields[4]);
 
-            if (!checkAvailabilty(package._quantity, available)) 
+            if (!checkAvailability(package._quantity, available)) 
             {
                 CustomMessageBox.ShowDialog(this, Properties.Resources.packagingAvailabiltyErrorMsg);
                 return;
@@ -114,7 +114,7 @@ namespace Freshivoje
                     int sumQuantity = Convert.ToInt32(row.Cells["quantity"].Value) + package._quantity;
                     decimal sumCost = Convert.ToDecimal(row.Cells["totalCost"].Value) + package._price;
 
-                    if (!checkAvailabilty(sumQuantity, available))
+                    if (!checkAvailability(sumQuantity, available))
                     {
                         CustomMessageBox.ShowDialog(this, Properties.Resources.packagingAvailabiltyErrorMsg);
                         return;
@@ -159,7 +159,7 @@ namespace Freshivoje
 
                 mySqlCommand.Parameters.AddWithValue("@packagingId", packagingId);
                 mySqlCommand.Parameters.AddWithValue("@clientId", _selectedClientId);
-                mySqlCommand.Parameters.AddWithValue("@type", "IZLAZ");
+                mySqlCommand.Parameters.AddWithValue("@type", -1);
                 mySqlCommand.Parameters.AddWithValue("@quantity", packagingQuantity);
                 mySqlCommand.Parameters.AddWithValue("@cost", cost);
 
@@ -169,12 +169,7 @@ namespace Freshivoje
 
             }
 
-            //mySqlCommand1.CommandText = "UPDATE `receipts` SET `total_price` = @totalPrice WHERE `id_receipt` = @receiptId";
-            //mySqlCommand1.Parameters.AddWithValue("@totalPrice", totalPrice);
-            //mySqlCommand1.Parameters.AddWithValue("@receiptId", receiptId);
-
-            //DbConnection.executeQuery(mySqlCommand1);
-
+            updatePackageDetails();
             rentedPackagesDataGridView.Rows.Clear();
         }
 
@@ -195,13 +190,22 @@ namespace Freshivoje
 
         private void cratesCmbBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            updatePackageDetails();
+        }
+        private void updatePackageDetails()
+        {
             _selectedPackagingId = (cratesCmbBox.SelectedItem as ComboBoxItem).Value;
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = "SELECT `quantity` FROM `packaging` WHERE `id_packaging` = @packagingId"
+                CommandText = @"SELECT IF(`packaging_records`.`quantity` IS NULL, `packaging`.`quantity`, `packaging`.`quantity` + SUM(`type` * `packaging_records`.`quantity`)) as 'Available'
+                                FROM `packaging_records`
+                                RIGHT JOIN `packaging`
+                                ON `packaging_records`.`fk_packaging_id` = `packaging`.`id_packaging`
+                                WHERE `packaging`.`id_packaging` = @packagingId
+                                GROUP BY `packaging`.`id_packaging`"
             };
 
-            mySqlCommand.Parameters.AddWithValue("@packagingId", _selectedPackagingId);
+             mySqlCommand.Parameters.AddWithValue("@packagingId", _selectedPackagingId);
 
             int packagingQuantity = Convert.ToInt32(DbConnection.getValue(mySqlCommand));
             availablePackages.Text = packagingQuantity.ToString();
@@ -210,8 +214,7 @@ namespace Freshivoje
             decimal packagingPrice = Convert.ToDecimal(DbConnection.getValue(mySqlCommand));
             price.Text = packagingPrice.ToString();
         }
-
-        private bool checkAvailabilty(int quantity, int availablePackages)
+        private bool checkAvailability(int quantity, int availablePackages)
         {
             return quantity <= availablePackages ? true : false;
         }

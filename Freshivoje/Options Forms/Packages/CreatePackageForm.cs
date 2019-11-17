@@ -70,7 +70,7 @@ namespace Freshivoje.Options_Forms
 
             Package package = new Package(0, Convert.ToInt32(packageCapacityTxtBox.Text), Convert.ToDecimal(packagePriceTxtBox.Text), Convert.ToString(packageCategoryTxtBox.Text), Convert.ToInt32(packageQuantityTxtBox.Text), Convert.ToInt32(packageWeightTxtBox.Text), Convert.ToString(packageProducerTxtBox.Text), Convert.ToString(packageStatusCmbBox.Text));
 
-            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da kreirate ambalažu?\nNosivost: {package._capacity} grama\nKategorija: {packageCategoryTxtBox.Text}\nKoličina: {package._quantity}\nCena: {package._price} RSD\nTežina: {package._weight}grama\nProizvođač: {package._producer}\nStatus: {package._state}");
+            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da kreirate ambalažu?\nNosivost: {package._capacity} g\nKategorija: {packageCategoryTxtBox.Text}\nKoličina: {package._quantity}\nCena: {package._price} RSD\nTežina: {package._weight} g\nProizvođač: {package._producer}\nStatus: {package._state}");
             if (result == DialogResult.No || result == DialogResult.Cancel)
             {
                 return;
@@ -78,7 +78,8 @@ namespace Freshivoje.Options_Forms
 
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = "INSERT INTO `packaging` (`capacity`, `price`, `quantity`, `category`, `weight`, `producer`, `state`) VALUES (@packageCapacity, @packagePrice, @packageQuantity, @packageCategory, @packageWeight, @packageProducer, @packageStatus);"
+                CommandText = @"INSERT INTO `packaging` (`capacity`, `price`, `quantity`, `category`, `weight`, `producer`, `state`) 
+                                VALUES (@packageCapacity, @packagePrice, @packageQuantity, @packageCategory, @packageWeight, @packageProducer, @packageStatus)"
             };
             mySqlCommand.Parameters.AddWithValue("@packageCapacity", package._capacity);
             mySqlCommand.Parameters.AddWithValue("@packagePrice", package._price);

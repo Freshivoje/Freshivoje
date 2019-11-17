@@ -8,7 +8,7 @@ namespace Freshivoje
     public partial class ChooseClientForm : Form
     {
         private int _selectedClientId;
-        private readonly string _childForm,_fillDGVQuery = "SELECT * FROM `clients` WHERE type = 'Fizičko lice'";
+        private readonly string _childForm, _fillDGVQuery = "SELECT * FROM `clients` WHERE type = 'Fizičko lice'";
         private string _clientInfo;
         public ChooseClientForm(string childForm)
         {
@@ -90,6 +90,15 @@ namespace Freshivoje
         {
             Application.Exit();
         }
+
+        private void blockEnter(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                e.Handled = true;
+            }
+        }
+
         private void minimizeBtn_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
