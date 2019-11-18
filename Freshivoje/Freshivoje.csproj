@@ -102,8 +102,20 @@
     <Compile Include="Shared Forms\ChooseClientForm.Designer.cs">
       <DependentUpon>ChooseClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Insert Form\ChooseClientForRentingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Insert Form\ChooseClientForRentingForm.Designer.cs">
+      <DependentUpon>ChooseClientForRentingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Insert Form\ChooseInsertMethodForm.Designer.cs">
       <DependentUpon>ChooseInsertMethodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Insert Form\ChooseStorageRentingMethodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Insert Form\ChooseStorageRentingMethodForm.Designer.cs">
+      <DependentUpon>ChooseStorageRentingMethodForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Insert Form\InsertForm.cs">
       <SubType>Form</SubType>
@@ -113,6 +125,18 @@
     </Compile>
     <Compile Include="Insert Form\ChooseInsertMethodForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Insert Form\StorageForRentingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Insert Form\StorageForRentingForm.Designer.cs">
+      <DependentUpon>StorageForRentingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Insert Form\StorageRentingRecordsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Insert Form\StorageRentingRecordsForm.Designer.cs">
+      <DependentUpon>StorageRentingRecordsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Package.cs" />
@@ -210,6 +234,18 @@
     <Compile Include="Packages Forms\ChoosePackagesMethodForm.Designer.cs">
       <DependentUpon>ChoosePackagesMethodForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Packaging\ChoosePackagingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packaging\ChoosePackagingForm.Designer.cs">
+      <DependentUpon>ChoosePackagingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packaging\PackagesForRentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packaging\PackagesForRentForm.Designer.cs">
+      <DependentUpon>PackagesForRentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PaymentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,11 +278,23 @@
     <EmbeddedResource Include="Shared Forms\ChooseClientForm.resx">
       <DependentUpon>ChooseClientForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Insert Form\ChooseClientForRentingForm.resx">
+      <DependentUpon>ChooseClientForRentingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insert Form\ChooseStorageRentingMethodForm.resx">
+      <DependentUpon>ChooseStorageRentingMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Insert Form\InsertForm.resx">
       <DependentUpon>InsertForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Insert Form\ChooseInsertMethodForm.resx">
       <DependentUpon>ChooseInsertMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insert Form\StorageForRentingForm.resx">
+      <DependentUpon>StorageForRentingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insert Form\StorageRentingRecordsForm.resx">
+      <DependentUpon>StorageRentingRecordsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options Forms\Articles\EditArticleForm.resx">
       <DependentUpon>EditArticleForm.cs</DependentUpon>
@@ -292,6 +340,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Packages Forms\ChoosePackagesMethodForm.resx">
       <DependentUpon>ChoosePackagesMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packaging\ChoosePackagingForm.resx">
+      <DependentUpon>ChoosePackagingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packaging\PackagesForRentForm.resx">
+      <DependentUpon>PackagesForRentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentsForm.resx">
       <DependentUpon>PaymentsForm.cs</DependentUpon>
