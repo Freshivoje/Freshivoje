@@ -216,7 +216,7 @@
             this.CRUDArticlesBtn.TabIndex = 1;
             this.CRUDArticlesBtn.Text = "ARTIKLI";
             this.CRUDArticlesBtn.UseVisualStyleBackColor = false;
-            this.CRUDArticlesBtn.Click += new System.EventHandler(this.insertBtn_Click);
+            this.CRUDArticlesBtn.Click += new System.EventHandler(this.articlesBtn_Click);
             // 
             // OptionsForm
             // 

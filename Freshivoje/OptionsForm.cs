@@ -44,23 +44,29 @@ namespace Freshivoje
             Close();
         }
 
-        private void insertBtn_Click(object sender, EventArgs e)
+        private void articlesBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             using CRUDArticlesForm CRUDArticlesForm = new CRUDArticlesForm();
             CRUDArticlesForm.ShowDialog(this);
+            Show();
         }
 
         private void packagesBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             using CRUDPackagesForm CRUDPackagesForm = new CRUDPackagesForm();
             CRUDPackagesForm.ShowDialog(this);
+            Show();
         }
 
 
         private void clientsBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             using CRUDClientsForm CRUDClientsForm = new CRUDClientsForm();
             CRUDClientsForm.ShowDialog(this);
+            Show();
         }
     }
 }

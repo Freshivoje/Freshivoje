@@ -65,7 +65,7 @@
             this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.crudArticlesFormTblLayout.Controls.Add(this.minimizeBtn, 6, 0);
             this.crudArticlesFormTblLayout.Controls.Add(this.exitBtn, 7, 0);
             this.crudArticlesFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
@@ -323,7 +323,7 @@
             this.insertArticleBtn.TabStop = false;
             this.insertArticleBtn.Text = "Kreiraj artikal";
             this.insertArticleBtn.UseVisualStyleBackColor = false;
-            this.insertArticleBtn.Click += new System.EventHandler(this.insertArticleBtn_Click);
+            this.insertArticleBtn.Click += new System.EventHandler(this.createArticleBtn_Click);
             // 
             // searchArticlesTxtBox
             // 

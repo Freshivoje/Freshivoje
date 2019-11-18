@@ -187,7 +187,6 @@
             this.packageWeightTxtBox.ShortcutsEnabled = false;
             this.packageWeightTxtBox.Size = new System.Drawing.Size(438, 31);
             this.packageWeightTxtBox.TabIndex = 4;
-            this.packageWeightTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             this.packageWeightTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // packageWeightLbl
@@ -202,7 +201,7 @@
             this.packageWeightLbl.Name = "packageWeightLbl";
             this.packageWeightLbl.Size = new System.Drawing.Size(660, 27);
             this.packageWeightLbl.TabIndex = 23;
-            this.packageWeightLbl.Text = "Težina ambalaže";
+            this.packageWeightLbl.Text = "Težina ambalaže (g)";
             this.packageWeightLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // packageCapacityLbl
@@ -217,7 +216,7 @@
             this.packageCapacityLbl.Name = "packageCapacityLbl";
             this.packageCapacityLbl.Size = new System.Drawing.Size(216, 27);
             this.packageCapacityLbl.TabIndex = 10;
-            this.packageCapacityLbl.Text = "Nosivost (grama)";
+            this.packageCapacityLbl.Text = "Nosivost (g)";
             this.packageCapacityLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // packageCapacityTxtBox
@@ -234,7 +233,6 @@
             this.packageCapacityTxtBox.ShortcutsEnabled = false;
             this.packageCapacityTxtBox.Size = new System.Drawing.Size(438, 31);
             this.packageCapacityTxtBox.TabIndex = 0;
-            this.packageCapacityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             this.packageCapacityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // cancelBtn
@@ -326,7 +324,6 @@
             this.packageQuantityTxtBox.ShortcutsEnabled = false;
             this.packageQuantityTxtBox.Size = new System.Drawing.Size(438, 31);
             this.packageQuantityTxtBox.TabIndex = 2;
-            this.packageQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             this.packageQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // packageQuantityLbl
@@ -357,7 +354,6 @@
             this.packagePriceTxtBox.ShortcutsEnabled = false;
             this.packagePriceTxtBox.Size = new System.Drawing.Size(438, 31);
             this.packagePriceTxtBox.TabIndex = 3;
-            this.packagePriceTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             this.packagePriceTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // CreatePackageForm

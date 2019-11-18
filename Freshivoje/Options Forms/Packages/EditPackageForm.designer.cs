@@ -204,7 +204,7 @@
             this.packageWeightLbl.Name = "packageWeightLbl";
             this.packageWeightLbl.Size = new System.Drawing.Size(660, 27);
             this.packageWeightLbl.TabIndex = 23;
-            this.packageWeightLbl.Text = "Težina ambalaže";
+            this.packageWeightLbl.Text = "Težina ambalaže (g)";
             this.packageWeightLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // packageCapacityLbl
@@ -219,7 +219,7 @@
             this.packageCapacityLbl.Name = "packageCapacityLbl";
             this.packageCapacityLbl.Size = new System.Drawing.Size(216, 27);
             this.packageCapacityLbl.TabIndex = 10;
-            this.packageCapacityLbl.Text = "Nosivost (grama)";
+            this.packageCapacityLbl.Text = "Nosivost (g)";
             this.packageCapacityLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // packageCapacityTxtBox

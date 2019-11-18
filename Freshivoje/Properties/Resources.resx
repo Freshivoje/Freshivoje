@@ -159,11 +159,16 @@ BANKOVNI RAČUN MORA IMATI 13 CIFARA!</value>
     <value>NEPRAVILAN POŠTANSKI BROJ!
 POŠTANSKI BROJ MORA IMATI 5 CIFARA!</value>
   </data>
-  <data name="emptyDGVMsg" xml:space="preserve">
-    <value>DOŠLO JE DO GREŠKE.
-UNESITE BAR JEDAN ARTIKAL U POLJE!</value>
-  </data>
   <data name="freshivoje_ikona" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\freshivoje-ikona.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="emptyDGVMsg" xml:space="preserve">
+    <value>DOŠLO JE DO GREŠKE.
+UNESITE VREDNOSTI U POLJE!</value>
+  </data>
+  <data name="packagingAvailabiltyErrorMsg" xml:space="preserve">
+    <value>NEDOVOLJAN BROJ RASPOLOŽIVIH AMBALAŽA 
+ILI STE VEĆ IZDALI SVE RASPOLOŽIVE AMBALAŽE! 
+</value>
   </data>
 </root>

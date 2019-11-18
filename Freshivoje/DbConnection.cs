@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using Freshivoje.Custom_Forms;
 using MySql.Data.MySqlClient;
+using Freshivoje.Models;
+using System.Collections.Generic;
 
 namespace Freshivoje
 {
@@ -14,8 +16,8 @@ namespace Freshivoje
         private static readonly string _database = "freshivoje";
         private static readonly string _username = "root";
         //private static string password = "";
-        private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username}";
-        private static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
+        private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username};charset=utf8;";
+        public static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
 
         public static void fillCmbBox(ComboBox cmbBox, string table, params string[] columns)
         {
@@ -66,12 +68,13 @@ namespace Freshivoje
                 _databaseConnection.Open();
                 mySqlCommand.ExecuteNonQuery();
             }
-            catch
+            catch(Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
                     return;
                 }
+                throw e;
             }
             finally
             {
@@ -79,6 +82,105 @@ namespace Freshivoje
             }
         }
 
+        public static void executeTransportQuery(List<TransportItem> transportItems, decimal totalPrice)
+        {
+            MySqlCommand mySqlCommand = new MySqlCommand
+            {
+                Connection = _databaseConnection
+            };
+            _databaseConnection.Open();
+
+            MySqlTransaction transaction = _databaseConnection.BeginTransaction();
+            mySqlCommand.Transaction = transaction;
+
+            try
+            {
+                mySqlCommand.CommandText = "SELECT `transport_number` FROM `transport` ORDER BY `id_transport` DESC LIMIT 1";
+
+                int? transportNumber = Convert.ToInt32(mySqlCommand.ExecuteScalar());
+                if (transportNumber == null)
+                {
+                    transportNumber = 0;
+                }
+
+                transportNumber += 1;
+
+                int clientId = transportItems[0]._clientId;
+
+                mySqlCommand.CommandText = "INSERT INTO `transport` (`fk_client_id`, `transport_number`, `total_price`) VALUES (@clientId, @transportNumber, @totalPrice); SELECT LAST_INSERT_ID()";
+                mySqlCommand.Parameters.AddWithValue("@clientId", clientId);
+                mySqlCommand.Parameters.AddWithValue("@transportNumber", transportNumber);
+                mySqlCommand.Parameters.AddWithValue("@totalPrice", totalPrice);
+
+                int? transportId = Convert.ToInt32(mySqlCommand.ExecuteScalar());
+
+                mySqlCommand.Parameters.Clear();
+
+                mySqlCommand.CommandText = "INSERT INTO `transport_items` (`fk_transport_id`, `price_single`, `quantity`, `traveled`, `price`) VALUES (@fkTransportId, @priceSingle, @quantity, @traveled, @price)";
+                foreach (TransportItem item in transportItems)
+                {
+                    mySqlCommand.Parameters.AddWithValue("@fkTransportId", transportId);
+                    mySqlCommand.Parameters.AddWithValue("@priceSingle", item._priceSingle);
+                    mySqlCommand.Parameters.AddWithValue("@quantity", item._quantity);
+                    mySqlCommand.Parameters.AddWithValue("@traveled", item._traveled);
+                    mySqlCommand.Parameters.AddWithValue("@price", item._price);
+
+                    mySqlCommand.ExecuteNonQuery();
+
+                    mySqlCommand.Parameters.Clear();
+                }
+
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (_databaseConnection.State != ConnectionState.Open)
+                {
+                    return;
+                }
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
+        }
+
+        public static string getTransportDetails(MySqlCommand mySqlCommand)
+        {
+            string result = string.Empty;
+            try
+            {
+                mySqlCommand.Connection = _databaseConnection;
+                _databaseConnection.Open();
+                MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+
+                int articleNum = 1;
+                while (mySqlDataReader.Read())
+                {
+                    string priceSingle = mySqlDataReader.GetDecimal("price_single").ToString("0.00");
+                    string quantity = mySqlDataReader.GetDecimal("quantity").ToString("0.00");
+                    string traveled = mySqlDataReader.GetDecimal("traveled").ToString("0.00");
+                    string price = mySqlDataReader.GetDecimal("price").ToString("0.00");
+
+
+                    result += $"Artikal {articleNum}\n{priceSingle} / {quantity} / {traveled} / {price}\n";
+
+                    articleNum += 1;
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
+            return result;
+
+        }
         public static void fillDGV(DataGridView dataGridView, string query)
         {
             DataTable table = new DataTable();
@@ -136,12 +238,13 @@ namespace Freshivoje
                 _databaseConnection.Open();
                 value = mySqlCommand.ExecuteScalar();
             }
-            catch
+            catch(Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
                     return -1;
                 }
+                throw e;
             }
             finally
             {

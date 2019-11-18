@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Freshivoje.Insert_Form;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,14 +11,13 @@ using System.Windows.Forms;
 
 namespace Freshivoje
 {
-    public partial class PackagesForm : Form
+    public partial class ChooseStorageRentingMethodForm : Form
     {
-        public PackagesForm()
+        public ChooseStorageRentingMethodForm()
         {
             InitializeComponent();
         }
 
-        // Disables flickering on FormLoad
         protected override CreateParams CreateParams
         {
             get
@@ -27,7 +27,6 @@ namespace Freshivoje
                 return cp;
             }
         }
-
         private void backBtn_Click(object sender, EventArgs e)
         {
             Close();
@@ -41,6 +40,18 @@ namespace Freshivoje
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void newStorageRentingBtn_Click(object sender, EventArgs e)
+        {
+            ChooseClientForRentingForm chooseClientForRentingForm = new ChooseClientForRentingForm();
+            chooseClientForRentingForm.ShowDialog(this);
+        }
+
+        private void storageRentBtn_Click(object sender, EventArgs e)
+        {
+            StorageRentingRecordsForm storageRentingRecordsForm = new StorageRentingRecordsForm();
+            storageRentingRecordsForm.Show(this);
         }
     }
 }

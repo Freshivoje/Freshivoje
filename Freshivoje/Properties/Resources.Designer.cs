@@ -81,7 +81,7 @@ namespace Freshivoje.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to DOŠLO JE DO GREŠKE.
-        ///UNESITE BAR JEDAN ARTIKAL U POLJE!.
+        ///UNESITE VREDNOSTI U POLJE!.
         /// </summary>
         internal static string emptyDGVMsg {
             get {
@@ -184,6 +184,17 @@ namespace Freshivoje.Properties {
             get {
                 object obj = ResourceManager.GetObject("minimize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NEDOVOLJAN BROJ RASPOLOŽIVIH AMBALAŽA 
+        ///ILI STE VEĆ IZDALI SVE RASPOLOŽIVE AMBALAŽE! 
+        ///.
+        /// </summary>
+        internal static string packagingAvailabiltyErrorMsg {
+            get {
+                return ResourceManager.GetString("packagingAvailabiltyErrorMsg", resourceCulture);
             }
         }
         

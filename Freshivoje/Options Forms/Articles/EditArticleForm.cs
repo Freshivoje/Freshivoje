@@ -11,7 +11,6 @@ namespace Freshivoje.Custom_Forms
         public EditArticleForm(Article article)
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
             _articleId = article._id;
             articleNameTxtBox.Text = article._name;
             articleSortTxtBox.Text = article._sort;

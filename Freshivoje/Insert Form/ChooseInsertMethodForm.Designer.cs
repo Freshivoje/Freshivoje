@@ -1,6 +1,6 @@
 ﻿namespace Freshivoje
 {
-    partial class InsertMethodForm
+    partial class ChooseInsertMethodForm
     {
         /// <summary>
         /// Required designer variable.
@@ -55,15 +55,15 @@
             this.insertMethodFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insertMethodFormTblLayout.Location = new System.Drawing.Point(5, 5);
             this.insertMethodFormTblLayout.Name = "insertMethodFormTblLayout";
-            this.insertMethodFormTblLayout.RowCount = 8;
+            this.insertMethodFormTblLayout.RowCount = 7;
             this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.insertMethodFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.insertMethodFormTblLayout.Size = new System.Drawing.Size(611, 618);
             this.insertMethodFormTblLayout.TabIndex = 1;
             // 
@@ -148,7 +148,7 @@
             this.purchaseArticlesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.purchaseArticlesBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.purchaseArticlesBtn.ForeColor = System.Drawing.Color.White;
-            this.purchaseArticlesBtn.Location = new System.Drawing.Point(191, 147);
+            this.purchaseArticlesBtn.Location = new System.Drawing.Point(191, 172);
             this.purchaseArticlesBtn.Name = "purchaseArticlesBtn";
             this.purchaseArticlesBtn.Size = new System.Drawing.Size(228, 72);
             this.purchaseArticlesBtn.TabIndex = 0;
@@ -168,14 +168,15 @@
             this.storageRentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.storageRentBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.storageRentBtn.ForeColor = System.Drawing.Color.White;
-            this.storageRentBtn.Location = new System.Drawing.Point(191, 311);
+            this.storageRentBtn.Location = new System.Drawing.Point(191, 370);
             this.storageRentBtn.Name = "storageRentBtn";
             this.storageRentBtn.Size = new System.Drawing.Size(228, 72);
             this.storageRentBtn.TabIndex = 1;
             this.storageRentBtn.Text = "LAGEROVANJE";
             this.storageRentBtn.UseVisualStyleBackColor = false;
+            this.storageRentBtn.Click += new System.EventHandler(this.storageRentBtn_Click);
             // 
-            // InsertMethodForm
+            // ChooseInsertMethodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -183,10 +184,10 @@
             this.ClientSize = new System.Drawing.Size(621, 628);
             this.Controls.Add(this.insertMethodFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "InsertMethodForm";
+            this.Name = "ChooseInsertMethodForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ChooseInsertMethodForm";
+            this.Text = "InsertMethodForm";
             this.insertMethodFormTblLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 

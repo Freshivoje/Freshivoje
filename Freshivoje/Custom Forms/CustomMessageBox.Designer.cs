@@ -28,17 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomMessageBox));
             this.customMessageBoxTblLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.errorMsgLbl = new System.Windows.Forms.Label();
+            this.msgLbl = new System.Windows.Forms.Label();
             this.confirmBtn = new System.Windows.Forms.Button();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.customMessageBoxTblLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // customMessageBoxTblLayout
             // 
+            this.customMessageBoxTblLayout.AutoSize = true;
             this.customMessageBoxTblLayout.BackColor = System.Drawing.Color.Transparent;
             this.customMessageBoxTblLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("customMessageBoxTblLayout.BackgroundImage")));
             this.customMessageBoxTblLayout.ColumnCount = 1;
@@ -46,7 +45,7 @@
             this.customMessageBoxTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.customMessageBoxTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.customMessageBoxTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.customMessageBoxTblLayout.Controls.Add(this.errorMsgLbl, 0, 0);
+            this.customMessageBoxTblLayout.Controls.Add(this.msgLbl, 0, 0);
             this.customMessageBoxTblLayout.Controls.Add(this.confirmBtn, 0, 1);
             this.customMessageBoxTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customMessageBoxTblLayout.Location = new System.Drawing.Point(5, 5);
@@ -60,24 +59,24 @@
             this.customMessageBoxTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.customMessageBoxTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.customMessageBoxTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.customMessageBoxTblLayout.Size = new System.Drawing.Size(521, 315);
+            this.customMessageBoxTblLayout.Size = new System.Drawing.Size(678, 357);
             this.customMessageBoxTblLayout.TabIndex = 2;
             // 
-            // errorMsgLbl
+            // msgLbl
             // 
-            this.errorMsgLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.msgLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.errorMsgLbl.AutoEllipsis = true;
-            this.errorMsgLbl.AutoSize = true;
-            this.errorMsgLbl.BackColor = System.Drawing.Color.Transparent;
-            this.errorMsgLbl.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errorMsgLbl.ForeColor = System.Drawing.Color.White;
-            this.errorMsgLbl.Location = new System.Drawing.Point(3, 0);
-            this.errorMsgLbl.Name = "errorMsgLbl";
-            this.errorMsgLbl.Size = new System.Drawing.Size(515, 180);
-            this.errorMsgLbl.TabIndex = 10;
-            this.errorMsgLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.msgLbl.AutoEllipsis = true;
+            this.msgLbl.AutoSize = true;
+            this.msgLbl.BackColor = System.Drawing.Color.Transparent;
+            this.msgLbl.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msgLbl.ForeColor = System.Drawing.Color.White;
+            this.msgLbl.Location = new System.Drawing.Point(3, 0);
+            this.msgLbl.Name = "msgLbl";
+            this.msgLbl.Size = new System.Drawing.Size(672, 204);
+            this.msgLbl.TabIndex = 10;
+            this.msgLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // confirmBtn
             // 
@@ -91,7 +90,7 @@
             this.confirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmBtn.ForeColor = System.Drawing.Color.White;
-            this.confirmBtn.Location = new System.Drawing.Point(183, 211);
+            this.confirmBtn.Location = new System.Drawing.Point(262, 244);
             this.confirmBtn.Margin = new System.Windows.Forms.Padding(5);
             this.confirmBtn.Name = "confirmBtn";
             this.confirmBtn.Size = new System.Drawing.Size(154, 72);
@@ -104,8 +103,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(531, 325);
+            this.ClientSize = new System.Drawing.Size(688, 367);
             this.Controls.Add(this.customMessageBoxTblLayout);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -117,6 +117,7 @@
             this.customMessageBoxTblLayout.ResumeLayout(false);
             this.customMessageBoxTblLayout.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -124,7 +125,6 @@
 
         private System.Windows.Forms.TableLayoutPanel customMessageBoxTblLayout;
         private System.Windows.Forms.Button confirmBtn;
-        private System.Windows.Forms.Label errorMsgLbl;
-        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label msgLbl;
     }
 }
