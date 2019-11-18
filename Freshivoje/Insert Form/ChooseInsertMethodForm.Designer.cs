@@ -176,7 +176,7 @@
             this.storageRentBtn.UseVisualStyleBackColor = false;
             this.storageRentBtn.Click += new System.EventHandler(this.storageRentBtn_Click);
             // 
-            // InsertMethodForm
+            // ChooseInsertMethodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -184,7 +184,7 @@
             this.ClientSize = new System.Drawing.Size(621, 628);
             this.Controls.Add(this.insertMethodFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "InsertMethodForm";
+            this.Name = "ChooseInsertMethodForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InsertMethodForm";

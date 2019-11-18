@@ -231,7 +231,6 @@
             this.articlesDataGridView.TabIndex = 6;
             this.articlesDataGridView.TabStop = false;
             this.articlesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.articlesDataGridView_CellClick);
-            this.articlesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.articlesDataGridView_CellContentClick);
             // 
             // articleId
             // 

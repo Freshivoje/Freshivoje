@@ -1,5 +1,4 @@
-﻿namespace Freshivoje.Insert_Form
-{
+﻿namespace Freshivoje { 
     partial class ChooseStorageRentingMethodForm
     {
         /// <summary>

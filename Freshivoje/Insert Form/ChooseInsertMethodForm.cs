@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Freshivoje;
 
 namespace Freshivoje
 {
@@ -39,6 +40,14 @@ namespace Freshivoje
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void storageRentBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            using ChooseStorageRentingMethodForm chooseStorageRentingMethodForm = new ChooseStorageRentingMethodForm();
+            chooseStorageRentingMethodForm.ShowDialog(this);
+            Show();
         }
     }
 }
