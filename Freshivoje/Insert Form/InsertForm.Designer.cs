@@ -606,6 +606,7 @@
             this.crateQuantityTxtBox.Size = new System.Drawing.Size(277, 31);
             this.crateQuantityTxtBox.TabIndex = 2;
             this.crateQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
+            this.crateQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // cratesLbl
             // 

@@ -76,7 +76,7 @@
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.chooseClientFormTblLayout.Controls.Add(this.minimizeBtn, 8, 0);
             this.chooseClientFormTblLayout.Controls.Add(this.exitBtn, 9, 0);
             this.chooseClientFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
@@ -119,7 +119,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1817, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(1811, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.minimizeBtn.Size = new System.Drawing.Size(44, 54);
@@ -143,10 +143,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1867, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1861, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(60, 54);
+            this.exitBtn.Size = new System.Drawing.Size(66, 54);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -155,20 +155,18 @@
             // 
             // lblTitle
             // 
-            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.chooseClientFormTblLayout.SetColumnSpan(this.lblTitle, 3);
+            this.chooseClientFormTblLayout.SetColumnSpan(this.lblTitle, 4);
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(3, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblTitle.Size = new System.Drawing.Size(292, 60);
+            this.lblTitle.Size = new System.Drawing.Size(948, 38);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "IZABERI KLIJENATA";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // backBtn
             // 
@@ -184,7 +182,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1767, 3);
+            this.backBtn.Location = new System.Drawing.Point(1761, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 54);
             this.backBtn.TabIndex = 9;
@@ -198,11 +196,11 @@
             this.searchClientsTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchClientsTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchClientsTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchClientsTxtBox.Location = new System.Drawing.Point(1498, 143);
+            this.searchClientsTxtBox.Location = new System.Drawing.Point(1493, 143);
             this.searchClientsTxtBox.Multiline = true;
             this.searchClientsTxtBox.Name = "searchClientsTxtBox";
             this.searchClientsTxtBox.ShortcutsEnabled = false;
-            this.searchClientsTxtBox.Size = new System.Drawing.Size(263, 31);
+            this.searchClientsTxtBox.Size = new System.Drawing.Size(262, 31);
             this.searchClientsTxtBox.TabIndex = 11;
             this.searchClientsTxtBox.TextChanged += new System.EventHandler(this.searchClientsTxtBox_TextChanged);
             this.searchClientsTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
@@ -374,7 +372,7 @@
             this.searchClientsLbl.BackColor = System.Drawing.Color.Transparent;
             this.searchClientsLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchClientsLbl.ForeColor = System.Drawing.Color.White;
-            this.searchClientsLbl.Location = new System.Drawing.Point(1524, 113);
+            this.searchClientsLbl.Location = new System.Drawing.Point(1518, 113);
             this.searchClientsLbl.Name = "searchClientsLbl";
             this.searchClientsLbl.Size = new System.Drawing.Size(211, 27);
             this.searchClientsLbl.TabIndex = 57;

@@ -16,7 +16,7 @@ namespace Freshivoje
         private static readonly string _database = "freshivoje";
         private static readonly string _username = "root";
         //private static string password = "";
-        private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username}";
+        private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username};charset=utf8;";
         public static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
 
         public static void fillCmbBox(ComboBox cmbBox, string table, params string[] columns)

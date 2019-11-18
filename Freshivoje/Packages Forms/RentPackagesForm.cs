@@ -12,7 +12,7 @@ namespace Freshivoje
         private int _selectedClientId, _selectedPackagingId;
         private string _selectedClientInfo = string.Empty;
 
-        public RentPackagesForm(int clientId, string clientInfo)
+        public RentPackagesForm(int clientId, string clientInfo = "")
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
@@ -92,7 +92,7 @@ namespace Freshivoje
             int packagingId = (cratesCmbBox.SelectedItem as ComboBoxItem).Value;
             string[] packagingFields = cratesCmbBox.Text.Split('/');
             int packagingQuantity = Convert.ToInt32(crateQuantityTxtBox.Text);
-            decimal packagingPrice = Convert.ToDecimal(price.Text) * packagingQuantity;
+            decimal packagingPrice = Convert.ToDecimal(price.Text);
             int available = Convert.ToInt32(availablePackages.Text);
 
             Package package = new Package(packagingId, Convert.ToInt32(packagingFields[0]), packagingPrice, packagingFields[1], packagingQuantity, Convert.ToInt32(packagingFields[2]), packagingFields[3], packagingFields[4]);
@@ -112,7 +112,6 @@ namespace Freshivoje
                 if (Convert.ToInt32(row.Cells["packagingId"].Value) == package._id) 
                 {
                     int sumQuantity = Convert.ToInt32(row.Cells["quantity"].Value) + package._quantity;
-                    decimal sumCost = Convert.ToDecimal(row.Cells["totalCost"].Value) + package._price;
 
                     if (!checkAvailability(sumQuantity, available))
                     {
@@ -121,12 +120,11 @@ namespace Freshivoje
                     }
 
                     row.Cells["quantity"].Value = sumQuantity;
-                    row.Cells["totalCost"].Value = sumCost;
                     return;
                 }
             }
 
-            rentedPackagesDataGridView.Rows.Add(package._id, package._capacity, package._category, package._weight, package._producer, package._state, package._quantity, available, package._price);
+            rentedPackagesDataGridView.Rows.Add(package._id, package._capacity, package._category, package._weight, package._producer, package._state, package._quantity, available);
            
         }
 
@@ -146,38 +144,41 @@ namespace Freshivoje
 
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = "INSERT INTO `packaging_records` (`fk_packaging_id`, `fk_client_id`, `type`, `quantity`, `cost`) VALUES (@packagingId, @clientId, @type, @quantity, @cost)"
+                CommandText = "INSERT INTO `packaging_records` (`fk_client_id`, `type`) VALUES (@clientId, @type); SELECT LAST_INSERT_ID();"
             };
+            mySqlCommand.Parameters.AddWithValue("@clientId", _selectedClientId);
+            mySqlCommand.Parameters.AddWithValue("@type", -1);
 
+            int packagingRecordsId = Convert.ToInt32(DbConnection.getValue(mySqlCommand));
 
+            mySqlCommand.Parameters.Clear();
+
+            mySqlCommand.CommandText = "INSERT INTO `packaging_record_items` (`fk_packaging_records_id`, `fk_packaging_id`, `quantity`) VALUES (@packagingRecordsId, @packagingId, @quantity);";
 
             foreach (DataGridViewRow row in rentedPackagesDataGridView.Rows)
             {
                 int packagingId = Convert.ToInt32(row.Cells["packagingId"].Value);
                 int packagingQuantity = Convert.ToInt32(row.Cells["quantity"].Value);
-                decimal cost = Convert.ToInt32(row.Cells["totalCost"].Value);
 
+                mySqlCommand.Parameters.AddWithValue("@packagingRecordsId", packagingRecordsId);
                 mySqlCommand.Parameters.AddWithValue("@packagingId", packagingId);
-                mySqlCommand.Parameters.AddWithValue("@clientId", _selectedClientId);
-                mySqlCommand.Parameters.AddWithValue("@type", -1);
                 mySqlCommand.Parameters.AddWithValue("@quantity", packagingQuantity);
-                mySqlCommand.Parameters.AddWithValue("@cost", cost);
 
                 DbConnection.executeQuery(mySqlCommand);
 
                 mySqlCommand.Parameters.Clear();
-
             }
 
             updatePackageDetails();
             rentedPackagesDataGridView.Rows.Clear();
+            Close();
         }
 
         private void insertedArticlesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 9)
+            if (e.ColumnIndex == 8)
             {
-                DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da uklonite ove ambalaže iz iznajmljivanja?"); //\n{_selectedArticleName}/{_selectedArticleSort}/{_selectedArticleOrganic}\nKlasa: {_selectedArticleCategory}\nCena: {_selectedArticlePrice}");
+                DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da uklonite ove ambalaže?");
                 if (result == DialogResult.No || result == DialogResult.Cancel)
                 {
                     return;
@@ -197,10 +198,10 @@ namespace Freshivoje
             _selectedPackagingId = (cratesCmbBox.SelectedItem as ComboBoxItem).Value;
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = @"SELECT IF(`packaging_records`.`quantity` IS NULL, `packaging`.`quantity`, `packaging`.`quantity` + SUM(`type` * `packaging_records`.`quantity`)) as 'Available'
-                                FROM `packaging_records`
-                                RIGHT JOIN `packaging`
-                                ON `packaging_records`.`fk_packaging_id` = `packaging`.`id_packaging`
+                CommandText = @"SELECT IF(`packaging_record_items`.`quantity` IS NULL, `packaging`.`quantity`, `packaging`.`quantity` + SUM(`type` * `packaging_record_items`.`quantity`)) as 'Available' 
+                                FROM `packaging_record_items` 
+                                RIGHT JOIN `packaging_records` ON `packaging_record_items`.`fk_packaging_records_id` = `packaging_records`.`id_packaging_record` 
+                                RIGHT JOIN `packaging` ON `packaging_record_items`.`fk_packaging_id` = `packaging`.`id_packaging`
                                 WHERE `packaging`.`id_packaging` = @packagingId
                                 GROUP BY `packaging`.`id_packaging`"
             };

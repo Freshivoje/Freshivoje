@@ -17,7 +17,26 @@ namespace Freshivoje
             WindowState = FormWindowState.Maximized;
             clientsDataGridView.AutoGenerateColumns = false;
             DbConnection.fillDGV(clientsDataGridView, _fillDGVQuery);
-            
+
+            switch (_childForm)
+            {
+                case "InsertForm":
+                    {
+                        lblTitle.Text += " ZA UNOS ARTIKALA";
+                        break;
+                    }
+                case "RentPackagesForm":
+                    {
+                        lblTitle.Text += " ZA IZNAJMLJIVANJE AMBALAŽA";
+                        break;
+                    }
+                case "TransportForm":
+                    {
+                        lblTitle.Text += " ZA PLAĆANJE PUTNIH NALOGA";
+                        break;
+                    }
+            }
+
         }
         // Disables flickering on FormLoad
         protected override CreateParams CreateParams
@@ -66,7 +85,6 @@ namespace Freshivoje
                             Show();
                             break;
                         }
-                    
                 }
             }
         }

@@ -123,7 +123,7 @@ namespace Freshivoje.Transport
 
                 MySqlCommand mySqlCommand = new MySqlCommand
                 {
-                    CommandText = "UPDATE `transport` SET `transport_status` = 1 WHERE `id_transport` = @id"
+                    CommandText = "UPDATE `transport` SET `transport_status` = 'plaćeno' WHERE `id_transport` = @id"
                 };
                 mySqlCommand.Parameters.AddWithValue("@id", _selectedTransportId);
                 DbConnection.executeQuery(mySqlCommand);
