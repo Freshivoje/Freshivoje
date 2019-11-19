@@ -90,13 +90,13 @@ namespace Freshivoje.Transport
             
                     MySqlCommand mySqlCommand = new MySqlCommand
                     {
-                        CommandText = "SELECT * FROM `transport_items` WHERE `fk_transport_id` = @fkTransportId"
+                        CommandText = "SELECT CONCAT_WS(' / ', `price_single`, `quantity`, `traveled`, `price`) as `details` FROM `transport_items` WHERE `fk_transport_id` = @fkTransportId"
                     };
                     mySqlCommand.Parameters.AddWithValue("@fkTransportId", _selectedTransportId);
                     
                     string transportDetails = DbConnection.getTransportDetails(mySqlCommand);
 
-                    string message = $"Cena po kilogramu (RSD) / Količina (kg) / Kilometri / Cena (RSD)\n\n{transportDetails}\nDatum: {_selectedTransportDate}\nStatus: {_selectedTransportStatus}\nUkupna cena: {_selectedTransportTotalPrice}";
+                    string message = $"Cena po kilogramu (RSD) / Količina (kg) / Kilometri / Cena (RSD)\n\n{transportDetails}\nDatum: {_selectedTransportDate}\nStatus: {_selectedTransportStatus}\nUkupna cena: {_selectedTransportTotalPrice} RSD";
 
                     CustomMessageBox.ShowDialog(this, message);
                     return;

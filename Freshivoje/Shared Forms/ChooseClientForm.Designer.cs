@@ -1,4 +1,4 @@
-﻿namespace Freshivoje
+﻿namespace Freshivoje.Shared_Forms
 {
     partial class ChooseClientForm
     {

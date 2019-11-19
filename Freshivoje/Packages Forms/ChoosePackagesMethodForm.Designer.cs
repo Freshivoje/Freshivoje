@@ -32,8 +32,8 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
-            this.purchaseArticlesBtn = new System.Windows.Forms.Button();
-            this.storageRentBtn = new System.Windows.Forms.Button();
+            this.packagesRecordBtn = new System.Windows.Forms.Button();
+            this.rentPackagesBtn = new System.Windows.Forms.Button();
             this.insertMethodFormTblLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,8 +50,8 @@
             this.insertMethodFormTblLayout.Controls.Add(this.backBtn, 2, 0);
             this.insertMethodFormTblLayout.Controls.Add(this.minimizeBtn, 3, 0);
             this.insertMethodFormTblLayout.Controls.Add(this.exitBtn, 4, 0);
-            this.insertMethodFormTblLayout.Controls.Add(this.storageRentBtn, 1, 4);
-            this.insertMethodFormTblLayout.Controls.Add(this.purchaseArticlesBtn, 1, 2);
+            this.insertMethodFormTblLayout.Controls.Add(this.packagesRecordBtn, 1, 4);
+            this.insertMethodFormTblLayout.Controls.Add(this.rentPackagesBtn, 1, 2);
             this.insertMethodFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insertMethodFormTblLayout.Location = new System.Drawing.Point(5, 5);
             this.insertMethodFormTblLayout.Name = "insertMethodFormTblLayout";
@@ -136,44 +136,45 @@
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
-            // purchaseArticlesBtn
+            // packagesRecordBtn
             // 
-            this.purchaseArticlesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.purchaseArticlesBtn.BackColor = System.Drawing.Color.Transparent;
-            this.purchaseArticlesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.purchaseArticlesBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.purchaseArticlesBtn.FlatAppearance.BorderSize = 5;
-            this.purchaseArticlesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.purchaseArticlesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.purchaseArticlesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.purchaseArticlesBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.purchaseArticlesBtn.ForeColor = System.Drawing.Color.White;
-            this.purchaseArticlesBtn.Location = new System.Drawing.Point(191, 147);
-            this.purchaseArticlesBtn.Name = "purchaseArticlesBtn";
-            this.purchaseArticlesBtn.Size = new System.Drawing.Size(228, 72);
-            this.purchaseArticlesBtn.TabIndex = 0;
-            this.purchaseArticlesBtn.Text = "IZNAJMLJIVANJE AMBALAŽA";
-            this.purchaseArticlesBtn.UseVisualStyleBackColor = false;
-            this.purchaseArticlesBtn.Click += new System.EventHandler(this.repurchaseBtn_Click);
+            this.packagesRecordBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.packagesRecordBtn.BackColor = System.Drawing.Color.Transparent;
+            this.packagesRecordBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.packagesRecordBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.packagesRecordBtn.FlatAppearance.BorderSize = 5;
+            this.packagesRecordBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.packagesRecordBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.packagesRecordBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.packagesRecordBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.packagesRecordBtn.ForeColor = System.Drawing.Color.White;
+            this.packagesRecordBtn.Location = new System.Drawing.Point(191, 311);
+            this.packagesRecordBtn.Name = "packagesRecordBtn";
+            this.packagesRecordBtn.Size = new System.Drawing.Size(228, 72);
+            this.packagesRecordBtn.TabIndex = 1;
+            this.packagesRecordBtn.Text = "EVIDENCIJA AMBALAŽA";
+            this.packagesRecordBtn.UseVisualStyleBackColor = false;
+            this.packagesRecordBtn.Click += new System.EventHandler(this.packagesRecordBtn_Click);
             // 
-            // storageRentBtn
+            // rentPackagesBtn
             // 
-            this.storageRentBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.storageRentBtn.BackColor = System.Drawing.Color.Transparent;
-            this.storageRentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.storageRentBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.storageRentBtn.FlatAppearance.BorderSize = 5;
-            this.storageRentBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.storageRentBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.storageRentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.storageRentBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.storageRentBtn.ForeColor = System.Drawing.Color.White;
-            this.storageRentBtn.Location = new System.Drawing.Point(191, 311);
-            this.storageRentBtn.Name = "storageRentBtn";
-            this.storageRentBtn.Size = new System.Drawing.Size(228, 72);
-            this.storageRentBtn.TabIndex = 1;
-            this.storageRentBtn.Text = "EVIDENCIJA AMBALAŽA";
-            this.storageRentBtn.UseVisualStyleBackColor = false;
+            this.rentPackagesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rentPackagesBtn.BackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rentPackagesBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.rentPackagesBtn.FlatAppearance.BorderSize = 5;
+            this.rentPackagesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rentPackagesBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rentPackagesBtn.ForeColor = System.Drawing.Color.White;
+            this.rentPackagesBtn.Location = new System.Drawing.Point(191, 147);
+            this.rentPackagesBtn.Name = "rentPackagesBtn";
+            this.rentPackagesBtn.Size = new System.Drawing.Size(228, 72);
+            this.rentPackagesBtn.TabIndex = 0;
+            this.rentPackagesBtn.Text = "IZNAJMLJIVANJE AMBALAŽA";
+            this.rentPackagesBtn.UseVisualStyleBackColor = false;
+            this.rentPackagesBtn.Click += new System.EventHandler(this.repurchaseBtn_Click);
             // 
             // ChoosePackagesMethodForm
             // 
@@ -197,8 +198,8 @@
         private System.Windows.Forms.TableLayoutPanel insertMethodFormTblLayout;
         private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button exitBtn;
-        private System.Windows.Forms.Button purchaseArticlesBtn;
-        private System.Windows.Forms.Button storageRentBtn;
+        private System.Windows.Forms.Button rentPackagesBtn;
+        private System.Windows.Forms.Button packagesRecordBtn;
         private System.Windows.Forms.Button backBtn;
     }
 }

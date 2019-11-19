@@ -19,26 +19,29 @@ namespace Freshivoje
         private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username};charset=utf8;";
         public static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
 
-        public static void fillCmbBox(ComboBox cmbBox, string table, params string[] columns)
+        public static void fillCmbBox(ComboBox cmbBox, string table, char separator, params string[] columns)
         {
+            string tables = string.Empty;
+            foreach(string column in columns)
+            {
+                if (column == columns[0])
+                {
+                    continue;
+                }
+                tables += $"{ column}, ";
+            }
+
+            tables = tables.Trim(',', ' ');
+
             try
             {
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
-                mySqlCommand.CommandText = $"SELECT * FROM `{table}`";
+                mySqlCommand.CommandText = $"SELECT {columns[0]}, CONCAT_WS(' {separator} ', {tables}) as `details` FROM `{table}`";
                 using MySqlDataReader reader = mySqlCommand.ExecuteReader();
                 while (reader.Read())
                 {
-                    string text = string.Empty;
-                    foreach(string column in columns)
-                    {
-                        if(column == columns[0])
-                        {
-                            continue;
-                        }
-                        text += $"{ reader.GetString(column)} / ";
-                    }
-                    text = text.Trim(' ', '/');
+                    string text = reader.GetString("details");
                     ComboBoxItem item = new ComboBoxItem
                     {
                         Value = reader.GetInt32(columns[0]),
@@ -47,12 +50,13 @@ namespace Freshivoje
                     cmbBox.Items.Add(item);
                 }
             }
-            catch
+            catch(Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
                     return;
                 }
+                throw e;
             }
             finally
             {
@@ -158,13 +162,14 @@ namespace Freshivoje
                 int articleNum = 1;
                 while (mySqlDataReader.Read())
                 {
-                    string priceSingle = mySqlDataReader.GetDecimal("price_single").ToString("0.00");
-                    string quantity = mySqlDataReader.GetDecimal("quantity").ToString("0.00");
-                    string traveled = mySqlDataReader.GetDecimal("traveled").ToString("0.00");
-                    string price = mySqlDataReader.GetDecimal("price").ToString("0.00");
+                    //string priceSingle = mySqlDataReader.GetDecimal("price_single").ToString("0.00");
+                    //string quantity = mySqlDataReader.GetDecimal("quantity").ToString("0.00");
+                    //string traveled = mySqlDataReader.GetDecimal("traveled").ToString("0.00");
+                    //string price = mySqlDataReader.GetDecimal("price").ToString("0.00");
 
+                    result += $"Artikal {articleNum}\n{mySqlDataReader.GetString("details")}\n";
 
-                    result += $"Artikal {articleNum}\n{priceSingle} / {quantity} / {traveled} / {price}\n";
+                    // result += $"Artikal {articleNum}\n{priceSingle} / {quantity} / {traveled} / {price}\n";
 
                     articleNum += 1;
                 }

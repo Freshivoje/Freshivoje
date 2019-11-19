@@ -21,7 +21,7 @@ namespace Freshivoje
             _selectedClientId = clientId;
             _selectedClientInfo = clientInfo;
             
-            DbConnection.fillCmbBox(cratesCmbBox, "packaging", "id_packaging", "capacity", "category", "weight", "producer", "state");
+            DbConnection.fillCmbBox(cratesCmbBox, "packaging", '/', "id_packaging", "capacity", "category", "weight", "producer", "state");
 
             cratesCmbBox.SelectedIndex = 0;
         }

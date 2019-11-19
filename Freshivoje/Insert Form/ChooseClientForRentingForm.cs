@@ -43,8 +43,10 @@ namespace Freshivoje.Insert_Form
 
             if (e.ColumnIndex == 10)
             {
-                StorageForRentingForm storageForRentingForm = new StorageForRentingForm(_selectedClientId);
+                Hide();
+                using StorageForRentingForm storageForRentingForm = new StorageForRentingForm(_selectedClientId);
                 storageForRentingForm.Show(this);
+                Show();
             }
         }
 
@@ -64,7 +66,7 @@ namespace Freshivoje.Insert_Form
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Minimized;
+            Application.Exit();
         }
 
         private void minimizeBtn_Click(object sender, EventArgs e)

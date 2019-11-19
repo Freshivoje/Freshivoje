@@ -3,7 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using Freshivoje.Transport;
 
-namespace Freshivoje
+namespace Freshivoje.Shared_Forms
 {
     public partial class ChooseClientForm : Form
     {

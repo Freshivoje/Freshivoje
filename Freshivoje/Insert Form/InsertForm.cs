@@ -25,8 +25,8 @@ namespace Freshivoje
 
             _selectedClientId = clientId;
             
-            DbConnection.fillCmbBox(articlesCmbBox, "articles", "id_article", "article_name", "sort", "organic");
-            DbConnection.fillCmbBox(cratesCmbBox, "packaging", "id_packaging", "capacity", "category", "weight", "producer");
+            DbConnection.fillCmbBox(articlesCmbBox, "articles", '/', "id_article", "article_name", "sort", "organic");
+            DbConnection.fillCmbBox(cratesCmbBox, "packaging",  '/', "id_packaging", "capacity", "category", "weight", "producer", "state");
 
             palletCmbBox.SelectedIndex = 1;
             articleCategoryCmbBox.SelectedIndex = 0;
