@@ -254,6 +254,12 @@
     <Compile Include="Shared Forms\ChooseClientForm.Designer.cs">
       <DependentUpon>ChooseClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Storage\StorageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Storage\StorageForm.Designer.cs">
+      <DependentUpon>StorageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transport\ChooseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +365,9 @@
     </Compile>
     <EmbeddedResource Include="Shared Forms\ChooseClientForm.resx">
       <DependentUpon>ChooseClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Storage\StorageForm.resx">
+      <DependentUpon>StorageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transport\ChooseForm.resx">
       <DependentUpon>ChooseForm.cs</DependentUpon>
