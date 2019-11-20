@@ -1,4 +1,5 @@
-﻿using Freshivoje.Transport;
+﻿using Freshivoje.Storage;
+using Freshivoje.Transport;
 using System;
 using System.Windows.Forms;
 
@@ -79,6 +80,14 @@ namespace Freshivoje
             Hide();
             using ChooseForm chooseForm = new ChooseForm();
             chooseForm.ShowDialog(this);
+            Show();
+        }
+
+        private void inventoryBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            using StorageForm storageForm = new StorageForm();
+            storageForm.ShowDialog(this);
             Show();
         }
     }

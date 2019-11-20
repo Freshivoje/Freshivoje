@@ -36,11 +36,12 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.chambersLbl = new System.Windows.Forms.Label();
-            this.finishInsertBtn = new System.Windows.Forms.Button();
-            this.clientsBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.a1Btn = new System.Windows.Forms.Button();
+            this.b1Btn = new System.Windows.Forms.Button();
+            this.a2Btn = new System.Windows.Forms.Button();
+            this.b2Btn = new System.Windows.Forms.Button();
+            this.outputBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.StorageFormTblLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,18 +59,19 @@
             this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.12651F));
             this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.StorageFormTblLayout.Controls.Add(this.label1, 7, 1);
             this.StorageFormTblLayout.Controls.Add(this.tunnelLbl, 1, 2);
             this.StorageFormTblLayout.Controls.Add(this.recivedArticlesLbl, 1, 1);
             this.StorageFormTblLayout.Controls.Add(this.exitBtn, 9, 0);
             this.StorageFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
             this.StorageFormTblLayout.Controls.Add(this.backBtn, 8, 0);
             this.StorageFormTblLayout.Controls.Add(this.chambersLbl, 3, 1);
-            this.StorageFormTblLayout.Controls.Add(this.finishInsertBtn, 3, 2);
-            this.StorageFormTblLayout.Controls.Add(this.clientsBtn, 3, 9);
-            this.StorageFormTblLayout.Controls.Add(this.button1, 5, 2);
-            this.StorageFormTblLayout.Controls.Add(this.button2, 5, 9);
-            this.StorageFormTblLayout.Controls.Add(this.button3, 7, 2);
+            this.StorageFormTblLayout.Controls.Add(this.a1Btn, 3, 2);
+            this.StorageFormTblLayout.Controls.Add(this.b1Btn, 3, 9);
+            this.StorageFormTblLayout.Controls.Add(this.a2Btn, 5, 2);
+            this.StorageFormTblLayout.Controls.Add(this.b2Btn, 5, 9);
+            this.StorageFormTblLayout.Controls.Add(this.outputBtn, 7, 2);
             this.StorageFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StorageFormTblLayout.Location = new System.Drawing.Point(0, 0);
             this.StorageFormTblLayout.Name = "StorageFormTblLayout";
@@ -102,7 +104,7 @@
             this.tunnelLbl.Location = new System.Drawing.Point(153, 114);
             this.tunnelLbl.Name = "tunnelLbl";
             this.StorageFormTblLayout.SetRowSpan(this.tunnelLbl, 12);
-            this.tunnelLbl.Size = new System.Drawing.Size(323, 684);
+            this.tunnelLbl.Size = new System.Drawing.Size(322, 684);
             this.tunnelLbl.TabIndex = 43;
             this.tunnelLbl.Text = "1.";
             this.tunnelLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -116,7 +118,7 @@
             this.recivedArticlesLbl.ForeColor = System.Drawing.Color.White;
             this.recivedArticlesLbl.Location = new System.Drawing.Point(153, 87);
             this.recivedArticlesLbl.Name = "recivedArticlesLbl";
-            this.recivedArticlesLbl.Size = new System.Drawing.Size(323, 27);
+            this.recivedArticlesLbl.Size = new System.Drawing.Size(322, 27);
             this.recivedArticlesLbl.TabIndex = 42;
             this.recivedArticlesLbl.Text = "Primljeni artikli :";
             this.recivedArticlesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -135,14 +137,15 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1983, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1981, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(48, 51);
+            this.exitBtn.Size = new System.Drawing.Size(50, 51);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // lblTitle
             // 
@@ -175,13 +178,14 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1933, 3);
+            this.backBtn.Location = new System.Drawing.Point(1931, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 51);
             this.backBtn.TabIndex = 9;
             this.backBtn.TabStop = false;
             this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // chambersLbl
             // 
@@ -191,115 +195,126 @@
             this.chambersLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chambersLbl.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chambersLbl.ForeColor = System.Drawing.Color.White;
-            this.chambersLbl.Location = new System.Drawing.Point(502, 57);
+            this.chambersLbl.Location = new System.Drawing.Point(501, 57);
             this.chambersLbl.Name = "chambersLbl";
             this.chambersLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.chambersLbl.Size = new System.Drawing.Size(1059, 57);
+            this.chambersLbl.Size = new System.Drawing.Size(1058, 57);
             this.chambersLbl.TabIndex = 44;
             this.chambersLbl.Text = "KOMORE ";
             this.chambersLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // finishInsertBtn
+            // a1Btn
             // 
-            this.finishInsertBtn.BackColor = System.Drawing.Color.Transparent;
-            this.finishInsertBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.finishInsertBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.finishInsertBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.finishInsertBtn.FlatAppearance.BorderSize = 5;
-            this.finishInsertBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.finishInsertBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.finishInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.finishInsertBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finishInsertBtn.ForeColor = System.Drawing.Color.White;
-            this.finishInsertBtn.Location = new System.Drawing.Point(504, 119);
-            this.finishInsertBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.finishInsertBtn.Name = "finishInsertBtn";
-            this.StorageFormTblLayout.SetRowSpan(this.finishInsertBtn, 5);
-            this.finishInsertBtn.Size = new System.Drawing.Size(516, 275);
-            this.finishInsertBtn.TabIndex = 45;
-            this.finishInsertBtn.TabStop = false;
-            this.finishInsertBtn.Text = "A1";
-            this.finishInsertBtn.UseVisualStyleBackColor = false;
+            this.a1Btn.BackColor = System.Drawing.Color.Transparent;
+            this.a1Btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.a1Btn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.a1Btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.a1Btn.FlatAppearance.BorderSize = 5;
+            this.a1Btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.a1Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.a1Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.a1Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.a1Btn.ForeColor = System.Drawing.Color.White;
+            this.a1Btn.Location = new System.Drawing.Point(503, 119);
+            this.a1Btn.Margin = new System.Windows.Forms.Padding(5);
+            this.a1Btn.Name = "a1Btn";
+            this.StorageFormTblLayout.SetRowSpan(this.a1Btn, 5);
+            this.a1Btn.Size = new System.Drawing.Size(515, 275);
+            this.a1Btn.TabIndex = 45;
+            this.a1Btn.TabStop = false;
+            this.a1Btn.UseVisualStyleBackColor = false;
             // 
-            // clientsBtn
+            // b1Btn
             // 
-            this.clientsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.clientsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clientsBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clientsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.clientsBtn.FlatAppearance.BorderSize = 5;
-            this.clientsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.clientsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.clientsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clientsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clientsBtn.ForeColor = System.Drawing.Color.White;
-            this.clientsBtn.Location = new System.Drawing.Point(502, 516);
-            this.clientsBtn.Name = "clientsBtn";
-            this.StorageFormTblLayout.SetRowSpan(this.clientsBtn, 5);
-            this.clientsBtn.Size = new System.Drawing.Size(520, 279);
-            this.clientsBtn.TabIndex = 46;
-            this.clientsBtn.Text = "B1";
-            this.clientsBtn.UseVisualStyleBackColor = false;
+            this.b1Btn.BackColor = System.Drawing.Color.Transparent;
+            this.b1Btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.b1Btn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.b1Btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.b1Btn.FlatAppearance.BorderSize = 5;
+            this.b1Btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.b1Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.b1Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.b1Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b1Btn.ForeColor = System.Drawing.Color.White;
+            this.b1Btn.Location = new System.Drawing.Point(501, 516);
+            this.b1Btn.Name = "b1Btn";
+            this.StorageFormTblLayout.SetRowSpan(this.b1Btn, 5);
+            this.b1Btn.Size = new System.Drawing.Size(519, 279);
+            this.b1Btn.TabIndex = 46;
+            this.b1Btn.UseVisualStyleBackColor = false;
+            this.b1Btn.Click += new System.EventHandler(this.b1Btn_Click);
             // 
-            // button1
+            // a2Btn
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 5;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1048, 117);
-            this.button1.Name = "button1";
-            this.StorageFormTblLayout.SetRowSpan(this.button1, 5);
-            this.button1.Size = new System.Drawing.Size(513, 279);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "A2";
-            this.button1.UseVisualStyleBackColor = false;
+            this.a2Btn.BackColor = System.Drawing.Color.Transparent;
+            this.a2Btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.a2Btn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.a2Btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.a2Btn.FlatAppearance.BorderSize = 5;
+            this.a2Btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.a2Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.a2Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.a2Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.a2Btn.ForeColor = System.Drawing.Color.White;
+            this.a2Btn.Location = new System.Drawing.Point(1046, 117);
+            this.a2Btn.Name = "a2Btn";
+            this.StorageFormTblLayout.SetRowSpan(this.a2Btn, 5);
+            this.a2Btn.Size = new System.Drawing.Size(513, 279);
+            this.a2Btn.TabIndex = 47;
+            this.a2Btn.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // b2Btn
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 5;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(1048, 516);
-            this.button2.Name = "button2";
-            this.StorageFormTblLayout.SetRowSpan(this.button2, 5);
-            this.button2.Size = new System.Drawing.Size(513, 279);
-            this.button2.TabIndex = 48;
-            this.button2.Text = "B2";
-            this.button2.UseVisualStyleBackColor = false;
+            this.b2Btn.BackColor = System.Drawing.Color.Transparent;
+            this.b2Btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.b2Btn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.b2Btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.b2Btn.FlatAppearance.BorderSize = 5;
+            this.b2Btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.b2Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.b2Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.b2Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b2Btn.ForeColor = System.Drawing.Color.White;
+            this.b2Btn.Location = new System.Drawing.Point(1046, 516);
+            this.b2Btn.Name = "b2Btn";
+            this.StorageFormTblLayout.SetRowSpan(this.b2Btn, 5);
+            this.b2Btn.Size = new System.Drawing.Size(513, 279);
+            this.b2Btn.TabIndex = 48;
+            this.b2Btn.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // outputBtn
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 5;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1587, 117);
-            this.button3.Name = "button3";
-            this.StorageFormTblLayout.SetRowSpan(this.button3, 12);
-            this.button3.Size = new System.Drawing.Size(340, 678);
-            this.button3.TabIndex = 49;
-            this.button3.Text = "IZLAZ";
-            this.button3.UseVisualStyleBackColor = false;
+            this.outputBtn.BackColor = System.Drawing.Color.Transparent;
+            this.outputBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.outputBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.outputBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.outputBtn.FlatAppearance.BorderSize = 5;
+            this.outputBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.outputBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.outputBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.outputBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outputBtn.ForeColor = System.Drawing.Color.White;
+            this.outputBtn.Location = new System.Drawing.Point(1585, 117);
+            this.outputBtn.Name = "outputBtn";
+            this.StorageFormTblLayout.SetRowSpan(this.outputBtn, 12);
+            this.outputBtn.Size = new System.Drawing.Size(340, 678);
+            this.outputBtn.TabIndex = 49;
+            this.outputBtn.Text = "IZLAZ";
+            this.outputBtn.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(1585, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(340, 27);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "Prodaja artikla ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // StorageForm
             // 
@@ -325,10 +340,11 @@
         private System.Windows.Forms.Label tunnelLbl;
         private System.Windows.Forms.Label recivedArticlesLbl;
         private System.Windows.Forms.Label chambersLbl;
-        private System.Windows.Forms.Button finishInsertBtn;
-        private System.Windows.Forms.Button clientsBtn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button a1Btn;
+        private System.Windows.Forms.Button b1Btn;
+        private System.Windows.Forms.Button a2Btn;
+        private System.Windows.Forms.Button b2Btn;
+        private System.Windows.Forms.Button outputBtn;
+        private System.Windows.Forms.Label label1;
     }
 }
