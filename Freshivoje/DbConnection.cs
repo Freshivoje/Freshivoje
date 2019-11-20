@@ -19,7 +19,54 @@ namespace Freshivoje
         private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username};charset=utf8;";
         public static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
 
-        public static void fillCmbBox(ComboBox cmbBox, string table, char separator, params string[] columns)
+
+        public static void fillBtnText(Button button, string table, string position, params string[] columns)
+        {
+            try
+                {
+
+                _databaseConnection.Open();
+                MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
+                mySqlCommand.CommandText = $"SELECT * FROM `{table}` WHERE storage_position='{position}'";
+                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
+               if(reader.Read())
+                {
+                    string text = string.Empty;
+                    foreach (string column in columns)
+                    {
+                        switch (column)
+                        {
+                            case "storage_position":
+                                text += $"{ reader.GetString(column)} \n ";
+                                break;
+                            case "article_quantity":
+                                text += $"{ reader.GetString(column)} KG \n ";
+                                break;
+                            case "package_quantity":
+                                text += $"{ reader.GetString(column)} BR \n ";
+                                break;
+                            default:
+                                
+                                break;
+                        }
+                    }
+                    text = text.Trim(' ', '/');
+                    button.Text = text;
+                }
+            }
+            catch
+            {
+                if (_databaseConnection.State != ConnectionState.Open)
+                {
+                    return;
+                }
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
+        }
+        public static void fillCmbBox(ComboBox cmbBox, string table, params string[] columns)
         {
             string tables = string.Empty;
             foreach(string column in columns)
@@ -64,6 +111,88 @@ namespace Freshivoje
             }
         }
 
+        public static void tunnel(TextBox textBox, string query)
+        {
+           
+            try
+            {
+                string[] columns;
+                _databaseConnection.Open();
+                MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
+                mySqlCommand.CommandText = query;
+                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    string text = string.Empty;
+                    foreach (string column in columns)
+                    {
+                        if (column == columns[0])
+                        {
+                            continue;
+                        }
+                        text += $"{ reader.GetString(column)} / ";
+                    }
+                    text = text.Trim(' ', '/');
+                    ComboBoxItem item = new ComboBoxItem
+                    {
+                        Value = reader.GetInt32(columns[0]),
+                        Text = text
+                    };
+                    
+                }
+            }
+            catch
+            {
+                if (_databaseConnection.State != ConnectionState.Open)
+                {
+                    return;
+                }
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
+        }
+        public static void fillWhereCmbBox(ComboBox cmbBox, string table, params string[] columns)
+        {
+            try
+            {
+                _databaseConnection.Open();
+                MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
+                mySqlCommand.CommandText = $"SELECT * FROM `{table}` WHERE status=1";
+                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
+                while(reader.Read())
+                {
+                    string text = string.Empty;
+                    foreach (string column in columns)
+                    {
+                        if (column == columns[0])
+                        {
+                            continue;
+                        }
+                        text += $"{ reader.GetString(column)} / ";
+                    }
+                    text = text.Trim(' ', '/');
+                    ComboBoxItem item = new ComboBoxItem
+                    {
+                        Value = reader.GetInt32(columns[0]),
+                        Text = text
+                    };
+                    cmbBox.Items.Add(item);
+                }
+            }
+            catch
+            {
+                if (_databaseConnection.State != ConnectionState.Open)
+                {
+                    return;
+                }
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
+        }
         public static void executeQuery(MySqlCommand mySqlCommand)
         {
             try

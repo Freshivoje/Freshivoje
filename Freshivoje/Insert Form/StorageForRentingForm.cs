@@ -19,7 +19,7 @@ namespace Freshivoje.Insert_Form
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
-            DbConnection.fillCmbBox(storagePositionCmbBox, "storage", '/', "id_storage", "storage_position", "article_quantity",  "package_quantity");
+            DbConnection.fillWhereCmbBox(storagePositionCmbBox, "storage", "id_storage", "storage_position", "article_quantity", "package_quantity");
             storagePositionCmbBox.SelectedIndex = 1;
             rentingDataPicker.MinDate = DateTime.Now;
             fkClientId = clientId;
@@ -102,12 +102,18 @@ namespace Freshivoje.Insert_Form
                 {
                     CommandText = "INSERT INTO `renting_storage` (`fk_storage_id`, `price`, `renting_data`, `end_of_renting_data`, `fk_client_id`) VALUES (@storageId, @price, @dateOfRenting, @end_of_renting_data, @clientId);"
                 };
+                MySqlCommand mySqlCommand1 = new MySqlCommand
+                {
+                    CommandText = "UPDATE `storage` SET `status`=2 WHERE id_storage=@storageId;"
+                };
                 mySqlCommand.Parameters.AddWithValue("@storageId", storageId);
+                mySqlCommand1.Parameters.AddWithValue("@storageId", storageId);
                 mySqlCommand.Parameters.AddWithValue("@price", Decimal.Parse(pricelTxtBox.Text));
                 mySqlCommand.Parameters.AddWithValue("@dateOfRenting", dateOfRenting);
                 mySqlCommand.Parameters.AddWithValue("@end_of_renting_data", dateOfRentingEnd);
                 mySqlCommand.Parameters.AddWithValue("@clientId", fkClientId);
-                
+               
+                DbConnection.executeQuery(mySqlCommand1);
                 DbConnection.executeQuery(mySqlCommand);
                 Close();
         }

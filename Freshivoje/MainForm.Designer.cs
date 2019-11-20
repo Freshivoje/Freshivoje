@@ -279,6 +279,7 @@
             this.inventoryBtn.TabIndex = 3;
             this.inventoryBtn.Text = "MAGACIN";
             this.inventoryBtn.UseVisualStyleBackColor = false;
+            this.inventoryBtn.Click += new System.EventHandler(this.inventoryBtn_Click);
             // 
             // MainForm
             // 
