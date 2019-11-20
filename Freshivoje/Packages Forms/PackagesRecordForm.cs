@@ -14,13 +14,11 @@ using System.Windows.Threading;
 namespace Freshivoje.Packages
 {
     public partial class PackagesRecordForm : Form
-    {
-        private int _selectedTransportId;
-        private decimal _selectedTransportTotalPrice;
-        private string _selectedTransportStatus, _selectedTransportDate;
+    {    
         private readonly string _fillDGVQuery = @"SELECT 
 		                                                    `clients`.`id_client` as `fk_client_id`,
-		                                                    CONCAT_WS(' ', `clients`.`first_name`,`clients`.`last_name`,' (', `clients`.`JMBG`, ')') as `client`, 
+                                                            `packaging`.`id_packaging` as `packaging_id`,
+		                                                    CONCAT(`clients`.`first_name`, ' ', `clients`.`last_name`, ' (', `clients`.`JMBG`, ')') as `client`, 
 		                                                    CONCAT_WS(' / ',`packaging`.`capacity`, `packaging`.`category`, `packaging`.`weight`, `packaging`.`producer`,`packaging`.`state`) as `packaging`,                                                            `packaging_record_items`.`quantity`,
                                                             IF (`packaging_records`.`type` = -1, 'IZNAJMLJENO', 'VRAĆENO') as `type`,
                                                             DATE_FORMAT(`packaging_records`.`date`, '%d.%m.%Y. %H:%i') as `datetime`
@@ -30,13 +28,28 @@ namespace Freshivoje.Packages
                                                     JOIN `packaging` ON `packaging_record_items`.`fk_packaging_id` = `packaging`.`id_packaging`
                                                     GROUP BY `clients`.`id_client`, `packaging_records`.`id_packaging_record`, `packaging`.`id_packaging`, `type`
                                                     ORDER BY `date` DESC";
+        private readonly string _totaDebtByPackagingIdAndClientQuery = @"SELECT 
+		                                                    `clients`.`id_client` as `fk_client_id`,
+                                                            `packaging`.`id_packaging` as `packaging_id`,
+		                                                    CONCAT_WS(' ', `clients`.`first_name`,`clients`.`last_name`,' (', `clients`.`JMBG`, ')') as `client`, 
+		                                                    CONCAT_WS(' / ',`packaging`.`capacity`, `packaging`.`category`, `packaging`.`weight`, `packaging`.`producer`,`packaging`.`state`) as `packaging`, 
+                                                            SUM(`packaging_record_items`.`quantity` * `packaging_records`.`type` * -1) as `quantity`                         
+                                                    FROM `packaging_records`
+                                                    JOIN `clients` ON `clients`.`id_client` = `packaging_records`.`fk_client_id`
+                                                    JOIN `packaging_record_items` ON `packaging_records`.`id_packaging_record` = `packaging_record_items`.`fk_packaging_records_id`
+                                                    JOIN `packaging` ON `packaging_record_items`.`fk_packaging_id` = `packaging`.`id_packaging`
+                                                    GROUP BY `clients`.`id_client`, `packaging`.`id_packaging`
+                                                    HAVING `quantity` > 0";
 
         public PackagesRecordForm()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
-            //packagesRecordsDataGridView.AutoGenerateColumns = false;
-            DbConnection.fillDGV(packagesRecordsDataGridView, _fillDGVQuery);
+            packagesRecordsDataGridView.AutoGenerateColumns = false;
+
+            searchRecordTypeComboBox.SelectedIndex = 0;
+
+          
         }
     
         protected override CreateParams CreateParams
@@ -57,7 +70,7 @@ namespace Freshivoje.Packages
             }
         }
 
-        private void searchTransportxtBox_TextChanged(object sender, EventArgs e)
+        private void searchRentPackagesRecordTxtBox_TextChanged(object sender, EventArgs e)
         {
             string searchValue = searchRentPackagesRecordTxtBox.Text;
             (packagesRecordsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"Convert(`datetime`, 'System.String') LIKE '%{searchValue}%' 
@@ -79,61 +92,66 @@ namespace Freshivoje.Packages
             Application.Exit();
         }
 
-        private void TransportDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void searchRecordTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (e.RowIndex < 0)
+            if (searchRecordTypeComboBox.SelectedIndex == 0)
             {
-                return;
+                DbConnection.fillDGV(packagesRecordsDataGridView, _fillDGVQuery);
+                packagesRecordsDataGridView.Columns["datetime"].Visible = true;
+                packagesRecordsDataGridView.Columns[7].Visible = false;
             }
-
-            if (e.ColumnIndex == 6)
+            else if (searchRecordTypeComboBox.SelectedIndex == 1)
             {
-                _selectedTransportId = Convert.ToInt32(packagesRecordsDataGridView.Rows[e.RowIndex].Cells["transportId"].Value);
-                _selectedTransportStatus = packagesRecordsDataGridView.Rows[e.RowIndex].Cells["status"].Value.ToString();
-                _selectedTransportTotalPrice = Convert.ToDecimal(packagesRecordsDataGridView.Rows[e.RowIndex].Cells["totalPrice"].Value);
-                _selectedTransportDate = Convert.ToDateTime(packagesRecordsDataGridView.Rows[e.RowIndex].Cells["transportDate"].Value).ToString("dd.MM.yyyy.");
-            
-                    MySqlCommand mySqlCommand = new MySqlCommand
-                    {
-                        CommandText = "SELECT * FROM `transport_items` WHERE `fk_transport_id` = @fkTransportId"
-                    };
-                    mySqlCommand.Parameters.AddWithValue("@fkTransportId", _selectedTransportId);
-                    
-                    string transportDetails = DbConnection.getTransportDetails(mySqlCommand);
-
-                    string message = $"Cena po kilogramu (RSD) / Količina (kg) / Kilometri / Cena (RSD)\n\n{transportDetails}\nDatum: {_selectedTransportDate}\nStatus: {_selectedTransportStatus}\nUkupna cena: {_selectedTransportTotalPrice}";
-
-                    CustomMessageBox.ShowDialog(this, message);
-                    return;
-               
+                DbConnection.fillDGV(packagesRecordsDataGridView, _totaDebtByPackagingIdAndClientQuery);
+                packagesRecordsDataGridView.Columns["datetime"].Visible = false;
+                packagesRecordsDataGridView.Columns[7].Visible = true;
             }
-         
+        }
+
+        private void packagesRecordsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.ColumnIndex == 7)
             {
-                _selectedTransportStatus = packagesRecordsDataGridView.Rows[e.RowIndex].Cells["status"].Value.ToString();
-               
-                if(_selectedTransportStatus == "plaćeno")
-                {
-                    CustomMessageBox.ShowDialog(this, "Ovaj putni nalog je plaćen!");
-                    return;
-                }
-                DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da ste platili putni nalog?");
+                int clientId = Convert.ToInt32(packagesRecordsDataGridView.Rows[e.RowIndex].Cells["idClient"].Value);
+                int packagingId = Convert.ToInt32(packagesRecordsDataGridView.Rows[e.RowIndex].Cells["packagingId"].Value);
+                int debt = Convert.ToInt32(packagesRecordsDataGridView.Rows[e.RowIndex].Cells["quantity"].Value);
+
+                DialogResult result = CustomTextBoxDialog.ShowDialog(this, $"Klijent trenutno duguje {debt} ambalaža.\nKoliko sada vraća?");
                 if (result == DialogResult.No || result == DialogResult.Cancel)
                 {
                     return;
                 }
+                
+                int quantity = CustomTextBoxDialog._value;
 
-                _selectedTransportId = Convert.ToInt32(packagesRecordsDataGridView.Rows[e.RowIndex].Cells["transportId"].Value);
-
+                if (quantity > debt)
+                {
+                    CustomMessageBox.ShowDialog(this, "Broj ambalaža koje klijent vraća premašuje ukupan broj ovih ambalaža koje duguje.\nMolimo pokušajte ponovo sa manjim brojem.");
+                    return;
+                }
 
                 MySqlCommand mySqlCommand = new MySqlCommand
                 {
-                    CommandText = "UPDATE `transport` SET `transport_status` = 'plaćeno' WHERE `id_transport` = @id"
+                    CommandText = "INSERT INTO `packaging_records` (`fk_client_id`, `type`) VALUES (@clientId, @type); SELECT LAST_INSERT_ID();"
                 };
-                mySqlCommand.Parameters.AddWithValue("@id", _selectedTransportId);
+                mySqlCommand.Parameters.AddWithValue("@clientId", clientId);
+                mySqlCommand.Parameters.AddWithValue("@type", 1);
+
+                int packagingRecordsId = Convert.ToInt32(DbConnection.getValue(mySqlCommand));
+
+                mySqlCommand.Parameters.Clear();
+
+                mySqlCommand.CommandText = "INSERT INTO `packaging_record_items` (`fk_packaging_records_id`, `fk_packaging_id`, `quantity`) VALUES (@packagingRecordsId, @packagingId, @quantity);";
+                mySqlCommand.Parameters.AddWithValue("@packagingRecordsId", packagingRecordsId);
+                mySqlCommand.Parameters.AddWithValue("@packagingId", packagingId);
+                mySqlCommand.Parameters.AddWithValue("@quantity", quantity);
+
                 DbConnection.executeQuery(mySqlCommand);
-                DbConnection.fillDGV(packagesRecordsDataGridView, _fillDGVQuery);
+                mySqlCommand.Parameters.Clear();
+
+                DbConnection.fillDGV(packagesRecordsDataGridView, _totaDebtByPackagingIdAndClientQuery);
             }
+
         }
     }
 }
