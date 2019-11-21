@@ -47,13 +47,31 @@ namespace Freshivoje.Storage
 
         private void b1Btn_Click(object sender, EventArgs e)
         {
+            ButtonsStorageOnClick(sender);
+        }
 
+        private void ButtonsStorageOnClick(object sender)
+        {
+            Button btn = sender as Button;
+            int storage_id = Convert.ToInt32(btn.Tag.ToString());
+            ChooseStorageMethodForm chooseStorageMethodForm = new ChooseStorageMethodForm(storage_id);
+            chooseStorageMethodForm.ShowDialog(this);
+            Show();
         }
 
         private void a1Btn_Click(object sender, EventArgs e)
         {
-            DbConnection.StorageId("A1", "id_storage");
-           // ChooseStorageMethodForm chooseStorageMethodForm = new ChooseStorageMethodForm();
+            ButtonsStorageOnClick(sender);
+        }
+
+        private void a2Btn_Click(object sender, EventArgs e)
+        {
+            ButtonsStorageOnClick(sender);
+        }
+
+        private void b2Btn_Click(object sender, EventArgs e)
+        {
+            ButtonsStorageOnClick(sender);
         }
     }
 }

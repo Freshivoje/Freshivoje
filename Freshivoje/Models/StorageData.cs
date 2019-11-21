@@ -28,6 +28,11 @@ namespace Freshivoje.Models
 
         }
 
+        public string getName()
+        {
+            return _name;
+        }
+
         public void setId(int id)
         {
             _id = id;
