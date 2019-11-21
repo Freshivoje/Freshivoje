@@ -19,47 +19,7 @@ namespace Freshivoje
         private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username};charset=utf8;";
         public static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
 
-        public static int StorageId(string position, params string[] columns)
-        {
-            try
-            {
-
-                _databaseConnection.Open();
-                MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
-                mySqlCommand.CommandText = $"SELECT * FROM storage WHERE storage_position='{position}'";
-                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
-                if (reader.Read())
-                {
-                    StorageData storage = new StorageData(0, "" , 0, 0);
-                    foreach (string column in columns)
-                    {
-                        switch (column)
-                        {
-                            case "id_storage":
-                                int _storageId = reader.GetInt32(column);
-                                return _storageId;
-                                break;
-                            default:
-                                return -1;
-                                break;
-                        }
-                    }
-                   
-                }
-            }
-            catch
-            {
-                if (_databaseConnection.State != ConnectionState.Open)
-                {
-                    return -1;
-                }
-            }
-            finally
-            {
-                _databaseConnection.Close();
-                return -1;
-            }
-        }
+       
         public static void fillBtnText(Button button, string table, string position, params string[] columns)
         {
             try
@@ -78,6 +38,7 @@ namespace Freshivoje
                         {
                             case "id_storage":
                                 int _storageId = reader.GetInt32(column);
+                                button.Tag = _storageId;
                                 break;
                             case "storage_position":
                                 text += $"{ reader.GetString(column)} \n ";
@@ -92,7 +53,8 @@ namespace Freshivoje
                                 button.Text = text;
                                 break;
                             case "status":
-                                if (reader.GetString(column) == "nekativna")
+                                string test = reader.GetString(column);
+                                if (test == "neaktivna")
                                 {
                                     button.Enabled = false;
                                     button.Text = "Komora je izdrata za lagerovanje";
@@ -341,6 +303,41 @@ namespace Freshivoje
             }
         }
 
+        public static dynamic getStorageData(MySqlCommand mySqlCommand,int id)
+        {
+            dynamic result = null;
+            try
+            {
+                mySqlCommand.Connection = _databaseConnection;
+                _databaseConnection.Open();
+                MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+
+                
+                if (mySqlDataReader.Read())
+                {
+                    
+                    decimal article_quantity = mySqlDataReader.GetDecimal("article_quantity");
+                    string storage_position = mySqlDataReader.GetString("storage_position");
+                    decimal package_quantity = mySqlDataReader.GetDecimal("package_quantity");
+
+                    StorageData storageData = new StorageData(id, storage_position, article_quantity,package_quantity);
+
+                    result = storageData;
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
+            return result;
+
+        }
+
         public static string getTransportDetails(MySqlCommand mySqlCommand)
         {
             string result = string.Empty;
@@ -440,7 +437,7 @@ namespace Freshivoje
                 {
                     return -1;
                 }
-                throw e;
+                 throw e;
             }
             finally
             {
