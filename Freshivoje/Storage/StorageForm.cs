@@ -13,14 +13,17 @@ namespace Freshivoje.Storage
 {
     public partial class StorageForm : Form
     {
+        string _fillTextBox = "SELECT `articles`.`article_name`, `articles`.`sort`, `articles`.`organic`, SUM(`items_receipt`.`quantity`) as quantityArts, DATE_FORMAT(`date`, ' % d.% m.% Y. ') as date FROM `receipts` JOIN `items_receipt` ON `items_receipt`.`fk_receipt_id` = `receipts`.`id_receipt` JOIN `articles` ON `articles`.`id_article` = `items_receipt`.`fk_article_id` WHERE `date` >= CURDATE() GROUP BY `articles`.`id_article`";
         public StorageForm()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
-            DbConnection.fillBtnText(a1Btn, "storage", "A1", "id_storage", "storage_position", "article_quantity",  "package_quantity");
-            DbConnection.fillBtnText(a2Btn, "storage", "A2", "id_storage", "storage_position", "article_quantity", "package_quantity");
-            DbConnection.fillBtnText(b1Btn, "storage", "B1", "id_storage", "storage_position", "article_quantity", "package_quantity");
-            DbConnection.fillBtnText(b2Btn, "storage", "B2", "id_storage", "storage_position", "article_quantity", "package_quantity");
+            DbConnection.fillBtnText(a1Btn, "storage", "A1", "id_storage", "storage_position", "article_quantity",  "package_quantity", "status");
+            DbConnection.fillBtnText(a2Btn, "storage", "A2", "id_storage", "storage_position", "article_quantity", "package_quantity", "status");
+            DbConnection.fillBtnText(b1Btn, "storage", "B1", "id_storage", "storage_position", "article_quantity", "package_quantity", "status");
+            DbConnection.fillBtnText(b2Btn, "storage", "B2", "id_storage", "storage_position", "article_quantity", "package_quantity", "status");
+            DbConnection.tunnel(tunnelLbl, _fillTextBox,  "article_name", "sort", "organic", "quantityArts");
+
         }
         protected override CreateParams CreateParams
         {
@@ -45,6 +48,12 @@ namespace Freshivoje.Storage
         private void b1Btn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void a1Btn_Click(object sender, EventArgs e)
+        {
+            DbConnection.StorageId("A1", "id_storage");
+           // ChooseStorageMethodForm chooseStorageMethodForm = new ChooseStorageMethodForm();
         }
     }
 }
