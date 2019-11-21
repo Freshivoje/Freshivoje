@@ -10,8 +10,9 @@ namespace Freshivoje.Models
     {
         public int _id { get; private set; }
         public string _name { get; private set; }
-        public string _sort { get; set; }
+        public string _sort { get; private set; }
        
+        public string _category { get; private set; }
         public string _organic { get; private set; }
         public decimal _priceI { get; private set; }
         public decimal _priceII { get; private set; }
@@ -20,7 +21,8 @@ namespace Freshivoje.Models
 
         public Article(int articleId, 
             string articleName, 
-            string articleSort,     
+            string articleSort,
+            string category,
             string organic, 
             decimal priceI = 1,
             decimal priceII = 1,
@@ -29,6 +31,7 @@ namespace Freshivoje.Models
             _id = articleId;
             _name = articleName;
             _sort = articleSort;
+            _category = category;
             _organic = organic;
             _priceI = priceI;
             _priceII = priceII;

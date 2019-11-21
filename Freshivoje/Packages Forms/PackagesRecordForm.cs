@@ -124,6 +124,12 @@ namespace Freshivoje.Packages
                 
                 int quantity = CustomTextBoxDialog._value;
 
+                if (quantity < 1)
+                {
+                    CustomMessageBox.ShowDialog(this, "Molimo pokušajte ponovo sa odgovarajućim brojem.");
+                    return;
+                }
+
                 if (quantity > debt)
                 {
                     CustomMessageBox.ShowDialog(this, "Broj ambalaža koje klijent vraća premašuje ukupan broj ovih ambalaža koje duguje.\nMolimo pokušajte ponovo sa manjim brojem.");

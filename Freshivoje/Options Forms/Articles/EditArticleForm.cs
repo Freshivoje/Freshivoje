@@ -8,21 +8,26 @@ namespace Freshivoje.Custom_Forms
     public partial class EditArticleForm : Form
     {
         private readonly int _articleId;
+        private readonly string _articleCategory;
         public EditArticleForm(Article article)
         {
             InitializeComponent();
             _articleId = article._id;
             articleNameTxtBox.Text = article._name;
             articleSortTxtBox.Text = article._sort;
+            articleCategoryTxtBox.Text = article._category;
             articleOrganicCmbBox.SelectedIndex = article._organic == "Da" ? 0 : 1;
-            articleCategoryCmbBox.SelectedIndex = 0;
             fillPrice();
             fillDGV();
         }
 
         private void fillDGV()
         {
-            string _fillDGVquery = $"SELECT * FROM prices WHERE `fk_article_id` = {_articleId} AND `fk_category_id` = {articleCategoryCmbBox.SelectedIndex + 1} ORDER BY `date` DESC";
+            // ORDER BY ID jer kolona `date` ne hvata sate pri sortiranju
+            string _fillDGVquery = @$"SELECT `prices`.`id_price`, `value`,  DATE_FORMAT(`date`, '%d.%m.%Y') as `date`, `status` FROM `prices` 
+                                    JOIN `articles` ON `prices`.`fk_article_id` = `articles`.`id_article`
+                                    WHERE `fk_article_id` = {_articleId}
+                                    ORDER BY `prices`.`id_price` DESC";
             DbConnection.fillDGV(articlePricesDataGridView, _fillDGVquery);
         }
 
@@ -30,9 +35,11 @@ namespace Freshivoje.Custom_Forms
         {
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = $"SELECT `value` FROM `prices` WHERE `fk_article_id` = {_articleId} AND `fk_category_id` = {articleCategoryCmbBox.SelectedIndex + 1} AND `status` = 'aktivna'"
+                CommandText = @$"SELECT `value` FROM `prices` 
+                                JOIN `articles` ON `prices`.`fk_article_id` = `articles`.`id_article` 
+                                WHERE `fk_article_id` = {_articleId} AND `status` = 'aktivna'"
             };
-            decimal price = DbConnection.getValue(mySqlCommand);
+            decimal price = Convert.ToDecimal(DbConnection.getValue(mySqlCommand));
             articlePriceTxtBox.Text = price.ToString();
         }
         
@@ -91,10 +98,14 @@ namespace Freshivoje.Custom_Forms
 
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = $"SELECT `value` FROM `prices` WHERE `fk_article_id` = {_articleId} AND `status` = 'aktivna' AND fk_category_id = {articleCategoryCmbBox.SelectedIndex + 1}"
+                CommandText = @$"SELECT `value` FROM `prices` 
+                                JOIN `articles` ON `prices`.`fk_article_id` = `articles`.`id_article` 
+                                WHERE `fk_article_id` = @fkArticleId AND `status` = 'aktivna'"
             };
 
-            decimal lastPrice = DbConnection.getValue(mySqlCommand);
+            mySqlCommand.Parameters.AddWithValue("@fkArticleId", _articleId);
+
+            decimal lastPrice = Convert.ToDecimal(DbConnection.getValue(mySqlCommand));
 
             if (lastPrice == (Convert.ToDecimal(articlePriceTxtBox.Text)))
             {
@@ -102,14 +113,11 @@ namespace Freshivoje.Custom_Forms
                 return;
             }
            
-            mySqlCommand.CommandText = "UPDATE `prices` SET `status` = 'neaktivna' WHERE `fk_article_id` = @articleId AND `fk_category_id` = @fkCategoryId";
-            mySqlCommand.Parameters.AddWithValue("@articleId", _articleId);
-            mySqlCommand.Parameters.AddWithValue("@fkCategoryId", articleCategoryCmbBox.SelectedIndex + 1);
-
+            mySqlCommand.CommandText = "UPDATE `prices` SET `status` = 'neaktivna' WHERE `fk_article_id` = @fkArticleId";
 
             DbConnection.executeQuery(mySqlCommand);
 
-            mySqlCommand.CommandText = "INSERT INTO `prices` (`value`, `fk_article_id`, `fk_category_id`) VALUES (@articlePrice, @articleId, @fkCategoryId)";
+            mySqlCommand.CommandText = "INSERT INTO `prices` (`value`, `fk_article_id`) VALUES (@articlePrice, @fkArticleId)";
             mySqlCommand.Parameters.AddWithValue("@articlePrice", articlePriceTxtBox.Text);
             DbConnection.executeQuery(mySqlCommand);
             

@@ -15,8 +15,8 @@ namespace Freshivoje.Options_Forms
         private int _selectedArticleId;
         private string _selectedArticleName = string.Empty,
                         _selectedArticleSort = string.Empty,
-                        _selectedArticleOrganic = string.Empty;
-  
+                        _selectedArticleOrganic = string.Empty,
+                        _selectedArticleCategory = string.Empty;
         public CRUDArticlesForm()
         {
             InitializeComponent();
@@ -60,7 +60,7 @@ namespace Freshivoje.Options_Forms
         private void searchArticlesTxtBox_TextChanged(object sender, EventArgs e)
         {
             string searchValue = searchArticlesTxtBox.Text;
-            (articlesDataGridView.DataSource as DataTable).DefaultView.RowFilter = $"`article_name` LIKE '%{searchValue}%' OR `sort` LIKE '%{searchValue}%' OR `organic` LIKE '%{searchValue}%'";
+            (articlesDataGridView.DataSource as DataTable).DefaultView.RowFilter = $"`article_name` LIKE '%{searchValue}%' OR `sort` LIKE '%{searchValue}%' OR `organic` LIKE '%{searchValue}%' OR `category` LIKE '%{searchValue}%'";
         }
 
         private void createArticleBtn_Click(object sender, EventArgs e)
@@ -84,14 +84,16 @@ namespace Freshivoje.Options_Forms
             _selectedArticleName = articlesDataGridView.Rows[e.RowIndex].Cells["articleName"].Value.ToString();
             _selectedArticleSort = articlesDataGridView.Rows[e.RowIndex].Cells["articleSort"].Value.ToString();
             _selectedArticleOrganic = articlesDataGridView.Rows[e.RowIndex].Cells["articleOrganic"].Value.ToString();
+            _selectedArticleCategory = articlesDataGridView.Rows[e.RowIndex].Cells["articleCategory"].Value.ToString();
 
 
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 6)
             {
                 Article article = new Article(
                     _selectedArticleId,
                     _selectedArticleName,
                     _selectedArticleSort,
+                    _selectedArticleCategory,
                     _selectedArticleOrganic
                     );
 
@@ -99,7 +101,7 @@ namespace Freshivoje.Options_Forms
                 editArticle.ShowDialog(this);
             }
 
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 7)
             {
                 DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da obrišete artikal?\nIme: {_selectedArticleName}\nSorta: {_selectedArticleSort}\nKontrolisana proizvodnja: {_selectedArticleOrganic}");
                 if (result == DialogResult.No || result == DialogResult.Cancel)

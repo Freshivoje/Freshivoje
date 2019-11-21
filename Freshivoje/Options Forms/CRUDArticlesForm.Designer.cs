@@ -40,15 +40,17 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.articlesDataGridView = new System.Windows.Forms.DataGridView();
-            this.articleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleOrganic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updateArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchArticlesLbl = new System.Windows.Forms.Label();
             this.insertArticleBtn = new System.Windows.Forms.Button();
             this.searchArticlesTxtBox = new System.Windows.Forms.TextBox();
+            this.articleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articleSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articleOrganic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articleCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updateArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.crudArticlesFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.articlesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -202,9 +204,11 @@
             this.articlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.articlesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.articleId,
+            this.categoryId,
             this.articleName,
             this.articleSort,
             this.articleOrganic,
+            this.articleCategory,
             this.updateArticle,
             this.deleteArticle});
             this.crudArticlesFormTblLayout.SetColumnSpan(this.articlesDataGridView, 8);
@@ -231,64 +235,6 @@
             this.articlesDataGridView.TabIndex = 6;
             this.articlesDataGridView.TabStop = false;
             this.articlesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.articlesDataGridView_CellClick);
-            // 
-            // articleId
-            // 
-            this.articleId.DataPropertyName = "id_article";
-            this.articleId.HeaderText = "ID";
-            this.articleId.Name = "articleId";
-            this.articleId.Visible = false;
-            // 
-            // articleName
-            // 
-            this.articleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleName.DataPropertyName = "article_name";
-            this.articleName.HeaderText = "Ime";
-            this.articleName.Name = "articleName";
-            // 
-            // articleSort
-            // 
-            this.articleSort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleSort.DataPropertyName = "sort";
-            this.articleSort.HeaderText = "Sorta";
-            this.articleSort.Name = "articleSort";
-            // 
-            // articleOrganic
-            // 
-            this.articleOrganic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.articleOrganic.DataPropertyName = "organic";
-            this.articleOrganic.HeaderText = "Kontrolisana proizvodnja";
-            this.articleOrganic.Name = "articleOrganic";
-            this.articleOrganic.Width = 317;
-            // 
-            // updateArticle
-            // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.NullValue = "💵";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.updateArticle.DefaultCellStyle = dataGridViewCellStyle2;
-            this.updateArticle.HeaderText = "";
-            this.updateArticle.Name = "updateArticle";
-            this.updateArticle.ReadOnly = true;
-            this.updateArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.updateArticle.Width = 40;
-            // 
-            // deleteArticle
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle3.NullValue = "X";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
-            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle3;
-            this.deleteArticle.HeaderText = "";
-            this.deleteArticle.Name = "deleteArticle";
-            this.deleteArticle.ReadOnly = true;
-            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deleteArticle.Width = 40;
             // 
             // searchArticlesLbl
             // 
@@ -338,6 +284,79 @@
             this.searchArticlesTxtBox.TextChanged += new System.EventHandler(this.searchArticlesTxtBox_TextChanged);
             this.searchArticlesTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
+            // articleId
+            // 
+            this.articleId.DataPropertyName = "id_article";
+            this.articleId.HeaderText = "ID";
+            this.articleId.Name = "articleId";
+            this.articleId.Visible = false;
+            // 
+            // categoryId
+            // 
+            this.categoryId.HeaderText = "ID Klase";
+            this.categoryId.Name = "categoryId";
+            this.categoryId.ReadOnly = true;
+            this.categoryId.Visible = false;
+            // 
+            // articleName
+            // 
+            this.articleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.articleName.DataPropertyName = "article_name";
+            this.articleName.HeaderText = "Ime";
+            this.articleName.Name = "articleName";
+            // 
+            // articleSort
+            // 
+            this.articleSort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.articleSort.DataPropertyName = "sort";
+            this.articleSort.HeaderText = "Sorta";
+            this.articleSort.Name = "articleSort";
+            // 
+            // articleOrganic
+            // 
+            this.articleOrganic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.articleOrganic.DataPropertyName = "organic";
+            this.articleOrganic.HeaderText = "Kontrolisana proizvodnja";
+            this.articleOrganic.Name = "articleOrganic";
+            this.articleOrganic.Width = 317;
+            // 
+            // articleCategory
+            // 
+            this.articleCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.articleCategory.DataPropertyName = "category";
+            this.articleCategory.HeaderText = "Klasa";
+            this.articleCategory.Name = "articleCategory";
+            this.articleCategory.ReadOnly = true;
+            // 
+            // updateArticle
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.NullValue = "💵";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.updateArticle.DefaultCellStyle = dataGridViewCellStyle2;
+            this.updateArticle.HeaderText = "";
+            this.updateArticle.Name = "updateArticle";
+            this.updateArticle.ReadOnly = true;
+            this.updateArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.updateArticle.Width = 40;
+            // 
+            // deleteArticle
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.NullValue = "X";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
+            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle3;
+            this.deleteArticle.HeaderText = "";
+            this.deleteArticle.Name = "deleteArticle";
+            this.deleteArticle.ReadOnly = true;
+            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.deleteArticle.Width = 40;
+            // 
             // CRUDArticlesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -372,9 +391,11 @@
         private System.Windows.Forms.Label searchArticlesLbl;
         private System.Windows.Forms.DataGridView articlesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleName;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleSort;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleOrganic;
+        private System.Windows.Forms.DataGridViewTextBoxColumn articleCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn updateArticle;
         private System.Windows.Forms.DataGridViewTextBoxColumn deleteArticle;
     }
