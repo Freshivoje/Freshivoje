@@ -19,7 +19,47 @@ namespace Freshivoje
         private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username};charset=utf8;";
         public static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
 
+        public static int StorageId(string position, params string[] columns)
+        {
+            try
+            {
 
+                _databaseConnection.Open();
+                MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
+                mySqlCommand.CommandText = $"SELECT * FROM storage WHERE storage_position='{position}'";
+                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
+                if (reader.Read())
+                {
+                    StorageData storage = new StorageData(0, "" , 0, 0);
+                    foreach (string column in columns)
+                    {
+                        switch (column)
+                        {
+                            case "id_storage":
+                                int _storageId = reader.GetInt32(column);
+                                return _storageId;
+                                break;
+                            default:
+                                return -1;
+                                break;
+                        }
+                    }
+                   
+                }
+            }
+            catch
+            {
+                if (_databaseConnection.State != ConnectionState.Open)
+                {
+                    return -1;
+                }
+            }
+            finally
+            {
+                _databaseConnection.Close();
+                return -1;
+            }
+        }
         public static void fillBtnText(Button button, string table, string position, params string[] columns)
         {
             try
@@ -36,14 +76,27 @@ namespace Freshivoje
                     {
                         switch (column)
                         {
+                            case "id_storage":
+                                int _storageId = reader.GetInt32(column);
+                                break;
                             case "storage_position":
                                 text += $"{ reader.GetString(column)} \n ";
+                                button.Text = text;
                                 break;
                             case "article_quantity":
                                 text += $"{ reader.GetString(column)} KG \n ";
+                                button.Text = text;
                                 break;
                             case "package_quantity":
                                 text += $"{ reader.GetString(column)} BR \n ";
+                                button.Text = text;
+                                break;
+                            case "status":
+                                if (reader.GetString(column) == "nekativna")
+                                {
+                                    button.Enabled = false;
+                                    button.Text = "Komora je izdrata za lagerovanje";
+                                }
                                 break;
                             default:
                                 
@@ -51,7 +104,7 @@ namespace Freshivoje
                         }
                     }
                     text = text.Trim(' ', '/');
-                    button.Text = text;
+                
                 }
             }
             catch
@@ -111,12 +164,12 @@ namespace Freshivoje
             }
         }
 
-        public static void tunnel(TextBox textBox, string query)
+        public static void tunnel(Label label, string query, params string[] columns)
         {
-           
+
             try
             {
-                string[] columns;
+                
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
                 mySqlCommand.CommandText = query;
@@ -126,19 +179,28 @@ namespace Freshivoje
                     string text = string.Empty;
                     foreach (string column in columns)
                     {
-                        if (column == columns[0])
+                        switch (column)
                         {
-                            continue;
+                            case "article_name":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "sort":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "organic":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "quantityArts":
+                                text += $"{reader.GetString(column)}\n";
+                                break;
+                            default:
+
+                                break;
                         }
-                        text += $"{ reader.GetString(column)} / ";
+                      
                     }
-                    text = text.Trim(' ', '/');
-                    ComboBoxItem item = new ComboBoxItem
-                    {
-                        Value = reader.GetInt32(columns[0]),
-                        Text = text
-                    };
-                    
+                    label.Text += text;
+
                 }
             }
             catch
