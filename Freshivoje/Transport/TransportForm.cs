@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Freshivoje.Custom_Classes;
 using Freshivoje.Custom_Forms;
 using Freshivoje.Models;
-using Freshivoje.
 
 namespace Freshivoje.Transport
 {
     public partial class TransportForm : Form
     {
         public List<TransportItem> transportItems = new List<TransportItem>();
-        private readonly int _clientId;
+        private readonly Client _selectedClient;
         
-        public TransportForm(int clientId)
+        public TransportForm(Client client)
         {    
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             transportDataGridView.AutoGenerateColumns = false;
-            _clientId = clientId;   
+            _selectedClient = client;
+
         }
 
         // Disables flickering on FormLoad
@@ -72,7 +73,7 @@ namespace Freshivoje.Transport
             decimal travel = Convert.ToDecimal(travelTxtBox.Text);
             decimal price = priceSingle * quantity * travel;
 
-            TransportItem transportItem = new TransportItem(0, _clientId, priceSingle, quantity, travel, price);
+            TransportItem transportItem = new TransportItem(0, _selectedClient._id, priceSingle, quantity, travel, price);
 
             transportDataGridView.Rows.Add(transportItem._id, transportItem._priceSingle, transportItem._quantity, transportItem._traveled, transportItem._price);
 
@@ -107,13 +108,14 @@ namespace Freshivoje.Transport
 
                 totalPrice += price;
 
-                TransportItem item = new TransportItem(0, _clientId, priceSingle, quantity, traveled, price);
+                TransportItem item = new TransportItem(0, _selectedClient._id, priceSingle, quantity, traveled, price);
                 transportItems.Add(item);
             }
 
             DbConnection.executeTransportQuery(transportItems, totalPrice);
             transportDataGridView.Rows.Clear();
-            CreatePDF c = new CreatePDF();
+            CreatePDF createPDF = new CreatePDF(_selectedClient);
+            createPDF.exportgridview(transportDataGridView);
         }
 
         private void backBtn_Click(object sender, EventArgs e)
