@@ -1,13 +1,19 @@
-﻿using Freshivoje.Packages;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Freshivoje.Insert;
 
 namespace Freshivoje
 {
-    public partial class ChoosePackagesMethodForm : Form
+    public partial class InsertMethodForm : Form
     {
-        public ChoosePackagesMethodForm()
+        public InsertMethodForm()
         {
             InitializeComponent();
         }
@@ -22,10 +28,8 @@ namespace Freshivoje
         }
         private void repurchaseBtn_Click(object sender, EventArgs e)
         {
-            Hide();
-            using ChooseClientForm chooseClientForm = new ChooseClientForm("RentPackagesForm");
+            ChooseClientForm chooseClientForm = new ChooseClientForm();
             chooseClientForm.ShowDialog(this);
-            Show();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -41,14 +45,6 @@ namespace Freshivoje
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void packagesRecordBtn_Click(object sender, EventArgs e)
-        {
-            Hide();
-            using PackagesRecordForm packagesRecordForm = new PackagesRecordForm();
-            packagesRecordForm.ShowDialog(this);
-            Show();
         }
     }
 }

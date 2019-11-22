@@ -57,7 +57,7 @@ namespace Freshivoje
                                 if (test == "neaktivna")
                                 {
                                     button.Enabled = false;
-                                    button.Text = "Komora je izdrata za lagerovanje";
+                                    button.Text = "Komora je izdata za lagerovanje";
                                 }
                                 break;
                             default:
@@ -81,26 +81,29 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-        public static void fillCmbBox(ComboBox cmbBox, string table, params string[] columns)
+        public static void fillCmbBox(ComboBox cmbBox, string table, char separator, params string[] columns)
         {
+            string tables = string.Empty;
+            foreach (string column in columns)
+            {
+                if (column == columns[0])
+                {
+                    continue;
+                }
+                tables += $"{ column}, ";
+            }
+
+            tables = tables.Trim(',', ' ');
+
             try
             {
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
-                mySqlCommand.CommandText = $"SELECT * FROM `{table}`";
+                mySqlCommand.CommandText = $"SELECT {columns[0]}, CONCAT_WS(' {separator} ', {tables}) as `details` FROM `{table}`";
                 using MySqlDataReader reader = mySqlCommand.ExecuteReader();
                 while (reader.Read())
                 {
-                    string text = string.Empty;
-                    foreach(string column in columns)
-                    {
-                        if(column == columns[0])
-                        {
-                            continue;
-                        }
-                        text += $"{ reader.GetString(column)} / ";
-                    }
-                    text = text.Trim(' ', '/');
+                    string text = reader.GetString("details");
                     ComboBoxItem item = new ComboBoxItem
                     {
                         Value = reader.GetInt32(columns[0]),
@@ -109,19 +112,19 @@ namespace Freshivoje
                     cmbBox.Items.Add(item);
                 }
             }
-            catch
+            catch (Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
                     return;
                 }
+                throw e;
             }
             finally
             {
                 _databaseConnection.Close();
             }
         }
-
         public static void tunnel(Label label, string query, params string[] columns)
         {
 
@@ -148,7 +151,25 @@ namespace Freshivoje
                             case "organic":
                                 text += $"{reader.GetString(column)}/";
                                 break;
+                            case "category":
+                                text += $"{reader.GetString(column)}/";
+                                break;
                             case "quantityArts":
+                                text += $"{reader.GetString(column)}\n";
+                                break;
+                            case "capacity":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "weight":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "producer":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "state":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "quantityPackg":
                                 text += $"{reader.GetString(column)}\n";
                                 break;
                             default:

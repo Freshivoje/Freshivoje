@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.updatePriceBtn = new System.Windows.Forms.Button();
             this.articleOrganicLbl = new System.Windows.Forms.Label();
@@ -42,15 +42,14 @@
             this.articlePricesDataGridView = new System.Windows.Forms.DataGridView();
             this.id_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fkArticleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FkKategorija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.editArticleFormTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.articlePriceLbl = new System.Windows.Forms.Label();
             this.articlePriceTxtBox = new System.Windows.Forms.TextBox();
+            this.articlePriceLbl = new System.Windows.Forms.Label();
             this.articleCategoryLbl = new System.Windows.Forms.Label();
-            this.articleCategoryCmbBox = new System.Windows.Forms.ComboBox();
+            this.articleCategoryTxtBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.articlePricesDataGridView)).BeginInit();
             this.editArticleFormTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -205,33 +204,32 @@
             this.articlePricesDataGridView.AllowUserToResizeRows = false;
             this.articlePricesDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.articlePricesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.articlePricesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.articlePricesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.articlePricesDataGridView.ColumnHeadersHeight = 40;
             this.articlePricesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.articlePricesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_price,
             this.fkArticleId,
-            this.FkKategorija,
             this.priceValue,
             this.priceDate,
             this.status});
             this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articlePricesDataGridView, 4);
             this.articlePricesDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.articlePricesDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.articlePricesDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.articlePricesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.articlePricesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.articlePricesDataGridView.Location = new System.Drawing.Point(675, 47);
@@ -260,14 +258,6 @@
             this.fkArticleId.ReadOnly = true;
             this.fkArticleId.Visible = false;
             // 
-            // FkKategorija
-            // 
-            this.FkKategorija.DataPropertyName = "fk_category_id";
-            this.FkKategorija.HeaderText = "";
-            this.FkKategorija.Name = "FkKategorija";
-            this.FkKategorija.ReadOnly = true;
-            this.FkKategorija.Visible = false;
-            // 
             // priceValue
             // 
             this.priceValue.DataPropertyName = "value";
@@ -285,8 +275,8 @@
             // 
             this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.status.DataPropertyName = "status";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status.DefaultCellStyle = dataGridViewCellStyle5;
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             // 
@@ -305,10 +295,8 @@
             this.editArticleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.80157F));
             this.editArticleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.80157F));
             this.editArticleFormTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.80157F));
-            this.editArticleFormTableLayoutPanel.Controls.Add(this.articlePriceLbl, 1, 8);
+            this.editArticleFormTableLayoutPanel.Controls.Add(this.articleCategoryTxtBox, 1, 7);
             this.editArticleFormTableLayoutPanel.Controls.Add(this.articlePriceTxtBox, 1, 9);
-            this.editArticleFormTableLayoutPanel.Controls.Add(this.articleCategoryLbl, 1, 6);
-            this.editArticleFormTableLayoutPanel.Controls.Add(this.articleCategoryCmbBox, 1, 7);
             this.editArticleFormTableLayoutPanel.Controls.Add(this.articlePricesDataGridView, 6, 1);
             this.editArticleFormTableLayoutPanel.Controls.Add(this.articleNameLbl, 2, 0);
             this.editArticleFormTableLayoutPanel.Controls.Add(this.articleSortLbl, 2, 2);
@@ -318,6 +306,8 @@
             this.editArticleFormTableLayoutPanel.Controls.Add(this.articleOrganicLbl, 1, 4);
             this.editArticleFormTableLayoutPanel.Controls.Add(this.updatePriceBtn, 1, 11);
             this.editArticleFormTableLayoutPanel.Controls.Add(this.cancelBtn, 3, 11);
+            this.editArticleFormTableLayoutPanel.Controls.Add(this.articlePriceLbl, 1, 8);
+            this.editArticleFormTableLayoutPanel.Controls.Add(this.articleCategoryLbl, 2, 6);
             this.editArticleFormTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editArticleFormTableLayoutPanel.Location = new System.Drawing.Point(5, 5);
             this.editArticleFormTableLayoutPanel.Name = "editArticleFormTableLayoutPanel";
@@ -340,21 +330,6 @@
             this.editArticleFormTableLayoutPanel.Size = new System.Drawing.Size(1472, 668);
             this.editArticleFormTableLayoutPanel.TabIndex = 1;
             // 
-            // articlePriceLbl
-            // 
-            this.articlePriceLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.articlePriceLbl.AutoSize = true;
-            this.articlePriceLbl.BackColor = System.Drawing.Color.Transparent;
-            this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articlePriceLbl, 4);
-            this.articlePriceLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.articlePriceLbl.ForeColor = System.Drawing.Color.White;
-            this.articlePriceLbl.Location = new System.Drawing.Point(266, 369);
-            this.articlePriceLbl.Name = "articlePriceLbl";
-            this.articlePriceLbl.Size = new System.Drawing.Size(140, 27);
-            this.articlePriceLbl.TabIndex = 65;
-            this.articlePriceLbl.Text = "Cena (RSD)";
-            this.articlePriceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // articlePriceTxtBox
             // 
             this.articlePriceTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -370,38 +345,51 @@
             this.articlePriceTxtBox.TabIndex = 64;
             this.articlePriceTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
+            // articlePriceLbl
+            // 
+            this.articlePriceLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.articlePriceLbl.AutoSize = true;
+            this.articlePriceLbl.BackColor = System.Drawing.Color.Transparent;
+            this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articlePriceLbl, 4);
+            this.articlePriceLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.articlePriceLbl.ForeColor = System.Drawing.Color.White;
+            this.articlePriceLbl.Location = new System.Drawing.Point(266, 369);
+            this.articlePriceLbl.Name = "articlePriceLbl";
+            this.articlePriceLbl.Size = new System.Drawing.Size(140, 27);
+            this.articlePriceLbl.TabIndex = 65;
+            this.articlePriceLbl.Text = "Cena (RSD)";
+            this.articlePriceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // articleCategoryLbl
             // 
+            this.articleCategoryLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.articleCategoryLbl.AutoSize = true;
             this.articleCategoryLbl.BackColor = System.Drawing.Color.Transparent;
-            this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articleCategoryLbl, 4);
-            this.articleCategoryLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articleCategoryLbl, 2);
+            this.articleCategoryLbl.Enabled = false;
             this.articleCategoryLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articleCategoryLbl.ForeColor = System.Drawing.Color.White;
-            this.articleCategoryLbl.Location = new System.Drawing.Point(115, 281);
+            this.articleCategoryLbl.Location = new System.Drawing.Point(301, 281);
             this.articleCategoryLbl.Name = "articleCategoryLbl";
-            this.articleCategoryLbl.Size = new System.Drawing.Size(442, 27);
-            this.articleCategoryLbl.TabIndex = 63;
-            this.articleCategoryLbl.Text = "Klasa";
+            this.articleCategoryLbl.Size = new System.Drawing.Size(72, 27);
+            this.articleCategoryLbl.TabIndex = 66;
+            this.articleCategoryLbl.Text = "Sorta";
             this.articleCategoryLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // articleCategoryCmbBox
+            // articleCategoryTxtBox
             // 
-            this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articleCategoryCmbBox, 4);
-            this.articleCategoryCmbBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.articleCategoryCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.articleCategoryCmbBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.articleCategoryCmbBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.articleCategoryCmbBox.FormattingEnabled = true;
-            this.articleCategoryCmbBox.Items.AddRange(new object[] {
-            "I",
-            "II",
-            "III"});
-            this.articleCategoryCmbBox.Location = new System.Drawing.Point(115, 311);
-            this.articleCategoryCmbBox.Name = "articleCategoryCmbBox";
-            this.articleCategoryCmbBox.Size = new System.Drawing.Size(442, 31);
-            this.articleCategoryCmbBox.TabIndex = 62;
-            this.articleCategoryCmbBox.SelectedIndexChanged += new System.EventHandler(this.articleCategoryCmbBox_SelectedIndexChanged);
+            this.articleCategoryTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articleCategoryTxtBox, 4);
+            this.articleCategoryTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.articleCategoryTxtBox.Enabled = false;
+            this.articleCategoryTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.articleCategoryTxtBox.Location = new System.Drawing.Point(115, 311);
+            this.articleCategoryTxtBox.MaxLength = 8;
+            this.articleCategoryTxtBox.Multiline = true;
+            this.articleCategoryTxtBox.Name = "articleCategoryTxtBox";
+            this.articleCategoryTxtBox.ShortcutsEnabled = false;
+            this.articleCategoryTxtBox.Size = new System.Drawing.Size(442, 31);
+            this.articleCategoryTxtBox.TabIndex = 67;
             // 
             // EditArticleForm
             // 
@@ -434,15 +422,14 @@
         private System.Windows.Forms.TextBox articleNameTxtBox;
         private System.Windows.Forms.Label articleOrganicLbl;
         private System.Windows.Forms.Button updatePriceBtn;
-        private System.Windows.Forms.Label articleCategoryLbl;
-        private System.Windows.Forms.ComboBox articleCategoryCmbBox;
         private System.Windows.Forms.Label articlePriceLbl;
         private System.Windows.Forms.TextBox articlePriceTxtBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn fkArticleId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FkKategorija;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceValue;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.TextBox articleCategoryTxtBox;
+        private System.Windows.Forms.Label articleCategoryLbl;
     }
 }

@@ -10,7 +10,7 @@ namespace Freshivoje
     public partial class InsertForm : Form
     {
         private readonly int _selectedClientId;
-        private int _articleId, _articleCategoryId, _packagingId;
+        private int _articleId, _packagingId;
         private decimal _palletWeight = 1M, _packagingWeight, _selectedArticlePrice;
         private readonly string _selectedArticleName = string.Empty,
                         _selectedArticleSort = string.Empty, 
@@ -25,11 +25,10 @@ namespace Freshivoje
 
             _selectedClientId = clientId;
             
-            DbConnection.fillCmbBox(articlesCmbBox, "articles", "id_article", "article_name", "sort", "organic");
-            DbConnection.fillCmbBox(cratesCmbBox, "packaging", "id_packaging", "capacity", "category", "weight", "producer");
+            DbConnection.fillCmbBox(articlesCmbBox, "articles", '/', "id_article", "article_name", "sort", "organic", "category");
+            DbConnection.fillCmbBox(cratesCmbBox, "packaging",  '/', "id_packaging", "capacity", "category", "weight", "producer", "state");
 
             palletCmbBox.SelectedIndex = 1;
-            articleCategoryCmbBox.SelectedIndex = 0;
             articlesCmbBox.SelectedIndex = 0;
 
             crateOwnerCmbBox.SelectedIndex = 0;
@@ -119,19 +118,19 @@ namespace Freshivoje
 
             int articleId = (articlesCmbBox.SelectedItem as ComboBoxItem).Value;
             string[] articleFields = articlesCmbBox.Text.Split('/');
-            string articleCategory = articleCategoryCmbBox.Text;
 
             string packageOwnership = crateOwnerCmbBox.Text;
 
-            Article article = new Article(_articleId, articleFields[0], articleFields[1], articleFields[2], price);
+            Article article = new Article(_articleId, articleFields[0], articleFields[1], string.Empty, articleFields[2], price);
 
-            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da unesete artikal?\n{articlesCmbBox.Text}\nKlasa: {articleCategory}\nNeto kilaža: {netoWeight.ToString("0.00")}\nCena: {article._priceI} RSD");
+
+            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da unesete artikal?\n{articlesCmbBox.Text}\nKlasa: {articleFields[3]}\nNeto kilaža: {netoWeight.ToString("0.00")}\nCena: {article._priceI} RSD");
             if (result == DialogResult.No || result == DialogResult.Cancel)
             {
                 return;
             }
 
-            insertedArticlesDataGridView.Rows.Add(_packagingId, numOfCrates, packageOwnership, articleId, article._name, article._sort, article._organic, articleCategory, netoWeight.ToString("0.00"), article._priceI);
+            insertedArticlesDataGridView.Rows.Add(_packagingId, numOfCrates, packageOwnership, articleId, article._name, article._sort, article._organic, articleFields[3], netoWeight.ToString("0.00"), article._priceI);
 
             crateQuantityTxtBox.ResetText();
             articleQuantityTxtBox.ResetText();
@@ -145,10 +144,9 @@ namespace Freshivoje
                 return;
             }
             _articleId = ((ComboBoxItem)articlesCmbBox.SelectedItem).Value;
-            _articleCategoryId = articleCategoryCmbBox.SelectedIndex + 1;
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = $"SELECT `value` FROM `prices` WHERE `fk_article_id` = {_articleId} AND `status` = 'aktivna' AND fk_category_id = {_articleCategoryId}"
+                CommandText = $"SELECT `value` FROM `prices` WHERE `fk_article_id` = {_articleId} AND `status` = 'aktivna'"
             };
 
             _selectedArticlePrice = DbConnection.getValue(mySqlCommand);
@@ -163,7 +161,7 @@ namespace Freshivoje
                 return;
             }
 
-            DialogResult result = CustomDialog.ShowDialog(this, "Da li ste sigurni da želite da unesete ove artikle u magacin?");
+            DialogResult result = CustomDialog.ShowDialog(this, "Da li ste sigurni da želite da otkupite ove artikle?");
             if (result == DialogResult.No || result == DialogResult.Cancel)
             {
                 return;

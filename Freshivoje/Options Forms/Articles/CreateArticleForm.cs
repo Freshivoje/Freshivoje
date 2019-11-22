@@ -63,49 +63,53 @@ namespace Freshivoje.Custom_Forms
                 return;
             }
 
-            Article article = new Article(0, articleNameTxtBox.Text, articleSortTxtBox.Text,  articleOrganicCmbBox.Text, Convert.ToDecimal(articlePriceITxtBox.Text), Convert.ToDecimal(articlePriceIITxtBox.Text), Convert.ToDecimal(articlePriceIIITxtBox.Text));
+            Article article = new Article(0, articleNameTxtBox.Text, articleSortTxtBox.Text, string.Empty, articleOrganicCmbBox.Text, Convert.ToDecimal(articlePriceITxtBox.Text), Convert.ToDecimal(articlePriceIITxtBox.Text), Convert.ToDecimal(articlePriceIIITxtBox.Text));
 
             DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da kreirate artikal\nIme: {article._name}\nSorta: {article._sort}\nKontrolisana proizvodnja: {article._organic}\nCena I klase: {article._priceI} RSD\nCena II klase: {article._priceII} RSD\nCena III klase: {article._priceIII} RSD\n");
-             if (result == DialogResult.No || result == DialogResult.Cancel)
+            if (result == DialogResult.No || result == DialogResult.Cancel)
             {
                 return;
             }
 
 
-            MySqlCommand mySqlCommand = new MySqlCommand
-            {
-                CommandText = "INSERT INTO `articles` (`article_name`, `sort`, `organic`) VALUES (@articleName, @articleSort, @articleOrganic); SELECT LAST_INSERT_ID()"
-            };
+            MySqlCommand mySqlCommand = new MySqlCommand{};
+
+        
+            mySqlCommand.CommandText = "INSERT INTO `articles` (`article_name`, `sort`, `organic`, `category`) VALUES (@articleName, @articleSort, @articleOrganic, @category); SELECT LAST_INSERT_ID()";
             mySqlCommand.Parameters.AddWithValue("@articleName", article._name);
             mySqlCommand.Parameters.AddWithValue("@articleSort", article._sort);
             mySqlCommand.Parameters.AddWithValue("@articleOrganic", article._organic);
-            
+            mySqlCommand.Parameters.AddWithValue("@category", "I");
+  
+            int articleId1 = Convert.ToInt32(DbConnection.getValue(mySqlCommand));
 
-            int articleId = (int) DbConnection.getValue(mySqlCommand);
-            article.setId(articleId);
-         
-            if (article._id < 1)
-            {
-                CustomMessageBox.ShowDialog(this, Properties.Resources.errorMsg);
-                return;
-            }
+            mySqlCommand.Parameters.RemoveAt("@category");
+            mySqlCommand.Parameters.AddWithValue("@category", "II");
 
-            mySqlCommand.CommandText = @"INSERT INTO `prices` (`value`, `fk_article_id`, `fk_category_id`) VALUES (@articlePriceI, @insertedArticleId, @categoryIdI);
-                                         INSERT INTO `prices` (`value`, `fk_article_id`, `fk_category_id`) VALUES (@articlePriceII, @insertedArticleId, @categoryIdII);
-                                         INSERT INTO `prices` (`value`, `fk_article_id`, `fk_category_id`) VALUES (@articlePriceIII, @insertedArticleId, @categoryIdIII);";
 
-            mySqlCommand.Parameters.AddWithValue("@insertedArticleId", article._id);
+            int articleId2 = Convert.ToInt32(DbConnection.getValue(mySqlCommand));
 
+            mySqlCommand.Parameters.RemoveAt("@category");
+            mySqlCommand.Parameters.AddWithValue("@category", "III");
+
+            int articleId3 = Convert.ToInt32(DbConnection.getValue(mySqlCommand));
+
+            mySqlCommand.CommandText = @"INSERT INTO `prices` (`value`, `fk_article_id`) VALUES (@articlePriceI, @articleId1);
+                                         INSERT INTO `prices` (`value`, `fk_article_id`) VALUES (@articlePriceII, @articleId2);
+                                         INSERT INTO `prices` (`value`, `fk_article_id`) VALUES (@articlePriceIII, @articleId3);";
+
+            mySqlCommand.Parameters.AddWithValue("@articleId1", articleId1);
             mySqlCommand.Parameters.AddWithValue("@articlePriceI", article._priceI);
-            mySqlCommand.Parameters.AddWithValue("@categoryIdI", 1);
 
+            mySqlCommand.Parameters.AddWithValue("@articleId2", articleId2);
             mySqlCommand.Parameters.AddWithValue("@articlePriceII", article._priceII);
-            mySqlCommand.Parameters.AddWithValue("@categoryIdII", 2);
 
+            mySqlCommand.Parameters.AddWithValue("@articleId3", articleId3);
             mySqlCommand.Parameters.AddWithValue("@articlePriceIII", article._priceIII);
-            mySqlCommand.Parameters.AddWithValue("@categoryIdIII", 3);
 
             DbConnection.executeQuery(mySqlCommand);
+
+            mySqlCommand.Parameters.Clear();
 
             Close();
         }

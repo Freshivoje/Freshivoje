@@ -142,6 +142,7 @@
             this.recordBtn.TabIndex = 1;
             this.recordBtn.Text = "EVIDENCIJA ";
             this.recordBtn.UseVisualStyleBackColor = false;
+            this.recordBtn.Click += new System.EventHandler(this.recordBtn_Click);
             // 
             // outBtn
             // 
@@ -161,6 +162,7 @@
             this.outBtn.TabIndex = 2;
             this.outBtn.Text = "IZLAZ";
             this.outBtn.UseVisualStyleBackColor = false;
+            this.outBtn.Click += new System.EventHandler(this.outBtn_Click);
             // 
             // ChooseStorageMethodForm
             // 

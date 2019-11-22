@@ -90,24 +90,33 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\StorageData.cs" />
-    <Compile Include="Packages Forms\RentPackagesForm.cs">
+    <Compile Include="Custom Forms\ComboBoxItem.cs" />
+    <Compile Include="Custom Forms\CustomDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Packages Forms\RentPackagesForm.Designer.cs">
-      <DependentUpon>RentPackagesForm.cs</DependentUpon>
+    <Compile Include="Custom Forms\CustomDialog.Designer.cs">
+      <DependentUpon>CustomDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Shared Forms\ChooseClientForm.cs">
+    <Compile Include="Custom Forms\CustomMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Shared Forms\ChooseClientForm.Designer.cs">
-      <DependentUpon>ChooseClientForm.cs</DependentUpon>
+    <Compile Include="Custom Forms\CustomMessageBox.Designer.cs">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Forms\CustomTextBoxDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Custom Forms\CustomTextBoxDialog.Designer.cs">
+      <DependentUpon>CustomTextBoxDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Insert Form\ChooseClientForRentingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Insert Form\ChooseClientForRentingForm.Designer.cs">
       <DependentUpon>ChooseClientForRentingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Insert Form\ChooseInsertMethodForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Insert Form\ChooseInsertMethodForm.Designer.cs">
       <DependentUpon>ChooseInsertMethodForm.cs</DependentUpon>
@@ -124,9 +133,6 @@
     <Compile Include="Insert Form\InsertForm.Designer.cs">
       <DependentUpon>InsertForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Insert Form\ChooseInsertMethodForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Insert Form\StorageForRentingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,25 @@
     </Compile>
     <Compile Include="Insert Form\StorageRentingRecordsForm.Designer.cs">
       <DependentUpon>StorageRentingRecordsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StorageData.cs" />
+    <Compile Include="Packages Forms\PackagesRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packages Forms\PackagesRecordForm.Designer.cs">
+      <DependentUpon>PackagesRecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Packages Forms\RentPackagesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Packages Forms\RentPackagesForm.Designer.cs">
+      <DependentUpon>RentPackagesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared Forms\ChooseClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shared Forms\ChooseClientForm.Designer.cs">
+      <DependentUpon>ChooseClientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Package.cs" />
@@ -153,19 +178,6 @@
     </Compile>
     <Compile Include="Options Forms\Articles\CreateArticleForm.Designer.cs">
       <DependentUpon>CreateArticleForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Custom Forms\ComboBoxItem.cs" />
-    <Compile Include="Custom Forms\CustomDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Custom Forms\CustomDialog.Designer.cs">
-      <DependentUpon>CustomDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Custom Forms\CustomMessageBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Custom Forms\CustomMessageBox.Designer.cs">
-      <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </Compile>
     <Compile Include="DbConnection.cs" />
     <Compile Include="LoginForm.cs">
@@ -303,14 +315,20 @@
     <Compile Include="Transport\TransportRecordForm.Designer.cs">
       <DependentUpon>TransportRecordForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Packages Forms\RentPackagesForm.resx">
-      <DependentUpon>RentPackagesForm.cs</DependentUpon>
+    <EmbeddedResource Include="Custom Forms\CustomDialog.resx">
+      <DependentUpon>CustomDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Shared Forms\ChooseClientForm.resx">
-      <DependentUpon>ChooseClientForm.cs</DependentUpon>
+    <EmbeddedResource Include="Custom Forms\CustomMessageBox.resx">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Forms\CustomTextBoxDialog.resx">
+      <DependentUpon>CustomTextBoxDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Insert Form\ChooseClientForRentingForm.resx">
       <DependentUpon>ChooseClientForRentingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insert Form\ChooseInsertMethodForm.resx">
+      <DependentUpon>ChooseInsertMethodForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Insert Form\ChooseStorageRentingMethodForm.resx">
       <DependentUpon>ChooseStorageRentingMethodForm.cs</DependentUpon>
@@ -318,26 +336,26 @@
     <EmbeddedResource Include="Insert Form\InsertForm.resx">
       <DependentUpon>InsertForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Insert Form\ChooseInsertMethodForm.resx">
-      <DependentUpon>ChooseInsertMethodForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Insert Form\StorageForRentingForm.resx">
       <DependentUpon>StorageForRentingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Insert Form\StorageRentingRecordsForm.resx">
       <DependentUpon>StorageRentingRecordsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Packages Forms\PackagesRecordForm.resx">
+      <DependentUpon>PackagesRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Packages Forms\RentPackagesForm.resx">
+      <DependentUpon>RentPackagesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shared Forms\ChooseClientForm.resx">
+      <DependentUpon>ChooseClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Options Forms\Articles\EditArticleForm.resx">
       <DependentUpon>EditArticleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options Forms\Articles\CreateArticleForm.resx">
       <DependentUpon>CreateArticleForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Custom Forms\CustomDialog.resx">
-      <DependentUpon>CustomDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Custom Forms\CustomMessageBox.resx">
-      <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -393,6 +411,9 @@
     </Compile>
     <EmbeddedResource Include="Storage\ChooseStorageMethodForm.resx">
       <DependentUpon>ChooseStorageMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Storage\InsertStorageForm.resx">
+      <DependentUpon>InsertStorageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Storage\OutStorageForm.resx">
       <DependentUpon>OutStorageForm.cs</DependentUpon>
