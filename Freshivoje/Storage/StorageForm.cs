@@ -73,6 +73,7 @@ namespace Freshivoje.Storage
         private void b2Btn_Click(object sender, EventArgs e)
         {
             ButtonsStorageOnClick(sender);
+            
         }
     }
 }
