@@ -224,6 +224,7 @@
             this.pricelTxtBox.Size = new System.Drawing.Size(820, 31);
             this.pricelTxtBox.TabIndex = 6;
             this.pricelTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
+            this.pricelTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // finishInsertBtn
             // 

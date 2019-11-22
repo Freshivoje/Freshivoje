@@ -45,7 +45,7 @@ namespace Freshivoje.Insert_Form
             {
                 Hide();
                 using StorageForRentingForm storageForRentingForm = new StorageForRentingForm(_selectedClientId);
-                storageForRentingForm.Show(this);
+                storageForRentingForm.ShowDialog(this);
                 Show();
             }
         }
