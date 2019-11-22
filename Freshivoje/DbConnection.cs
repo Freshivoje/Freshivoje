@@ -23,13 +23,12 @@ namespace Freshivoje
         public static void fillBtnText(Button button, string table, string position, params string[] columns)
         {
             try
-                {
-
+            {
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
                 mySqlCommand.CommandText = $"SELECT * FROM `{table}` WHERE storage_position='{position}'";
                 using MySqlDataReader reader = mySqlCommand.ExecuteReader();
-               if(reader.Read())
+                if(reader.Read())
                 {
                     string text = string.Empty;
                     foreach (string column in columns)
@@ -65,7 +64,7 @@ namespace Freshivoje
                                 break;
                         }
                     }
-                    text = text.Trim(' ', '/');
+                text = text.Trim(' ', '/');
                 
                 }
             }

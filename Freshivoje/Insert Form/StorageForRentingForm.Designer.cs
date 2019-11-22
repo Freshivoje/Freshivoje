@@ -83,7 +83,7 @@
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.77203F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.07391F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.07391F));
-            this.insertFormTblLayout.Size = new System.Drawing.Size(2159, 879);
+            this.insertFormTblLayout.Size = new System.Drawing.Size(1940, 879);
             this.insertFormTblLayout.TabIndex = 3;
             // 
             // endDataOfRentPicker
@@ -92,9 +92,9 @@
             this.endDataOfRentPicker.Dock = System.Windows.Forms.DockStyle.Top;
             this.endDataOfRentPicker.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endDataOfRentPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.endDataOfRentPicker.Location = new System.Drawing.Point(1179, 391);
+            this.endDataOfRentPicker.Location = new System.Drawing.Point(1069, 391);
             this.endDataOfRentPicker.Name = "endDataOfRentPicker";
-            this.endDataOfRentPicker.Size = new System.Drawing.Size(820, 30);
+            this.endDataOfRentPicker.Size = new System.Drawing.Size(710, 30);
             this.endDataOfRentPicker.TabIndex = 36;
             // 
             // storagePositionCmbBox
@@ -106,7 +106,7 @@
             this.storagePositionCmbBox.FormattingEnabled = true;
             this.storagePositionCmbBox.Location = new System.Drawing.Point(153, 197);
             this.storagePositionCmbBox.Name = "storagePositionCmbBox";
-            this.storagePositionCmbBox.Size = new System.Drawing.Size(820, 31);
+            this.storagePositionCmbBox.Size = new System.Drawing.Size(710, 31);
             this.storagePositionCmbBox.TabIndex = 34;
             this.storagePositionCmbBox.TabStop = false;
             // 
@@ -124,7 +124,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(2055, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(1835, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.minimizeBtn.Size = new System.Drawing.Size(50, 91);
@@ -148,10 +148,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(2111, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1891, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(45, 91);
+            this.exitBtn.Size = new System.Drawing.Size(46, 91);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -165,7 +165,7 @@
             this.partLbl.BackColor = System.Drawing.Color.Transparent;
             this.partLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.partLbl.ForeColor = System.Drawing.Color.White;
-            this.partLbl.Location = new System.Drawing.Point(266, 167);
+            this.partLbl.Location = new System.Drawing.Point(211, 167);
             this.partLbl.Name = "partLbl";
             this.partLbl.Size = new System.Drawing.Size(594, 27);
             this.partLbl.TabIndex = 16;
@@ -203,7 +203,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(2005, 3);
+            this.backBtn.Location = new System.Drawing.Point(1785, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 91);
             this.backBtn.TabIndex = 9;
@@ -217,11 +217,11 @@
             this.pricelTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pricelTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.pricelTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pricelTxtBox.Location = new System.Drawing.Point(1179, 197);
+            this.pricelTxtBox.Location = new System.Drawing.Point(1069, 197);
             this.pricelTxtBox.Multiline = true;
             this.pricelTxtBox.Name = "pricelTxtBox";
             this.pricelTxtBox.ShortcutsEnabled = false;
-            this.pricelTxtBox.Size = new System.Drawing.Size(820, 31);
+            this.pricelTxtBox.Size = new System.Drawing.Size(710, 31);
             this.pricelTxtBox.TabIndex = 6;
             this.pricelTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
@@ -237,7 +237,7 @@
             this.finishInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.finishInsertBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.finishInsertBtn.ForeColor = System.Drawing.Color.White;
-            this.finishInsertBtn.Location = new System.Drawing.Point(981, 687);
+            this.finishInsertBtn.Location = new System.Drawing.Point(871, 687);
             this.finishInsertBtn.Margin = new System.Windows.Forms.Padding(5);
             this.finishInsertBtn.Name = "finishInsertBtn";
             this.finishInsertBtn.Size = new System.Drawing.Size(190, 87);
@@ -254,7 +254,7 @@
             this.rentingData.BackColor = System.Drawing.Color.Transparent;
             this.rentingData.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rentingData.ForeColor = System.Drawing.Color.White;
-            this.rentingData.Location = new System.Drawing.Point(391, 361);
+            this.rentingData.Location = new System.Drawing.Point(336, 361);
             this.rentingData.Name = "rentingData";
             this.rentingData.Size = new System.Drawing.Size(344, 27);
             this.rentingData.TabIndex = 17;
@@ -268,7 +268,7 @@
             this.crateQuantityLbl.BackColor = System.Drawing.Color.Transparent;
             this.crateQuantityLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.crateQuantityLbl.ForeColor = System.Drawing.Color.White;
-            this.crateQuantityLbl.Location = new System.Drawing.Point(1439, 361);
+            this.crateQuantityLbl.Location = new System.Drawing.Point(1274, 361);
             this.crateQuantityLbl.Name = "crateQuantityLbl";
             this.crateQuantityLbl.Size = new System.Drawing.Size(300, 27);
             this.crateQuantityLbl.TabIndex = 24;
@@ -282,7 +282,7 @@
             this.priceTxt.BackColor = System.Drawing.Color.Transparent;
             this.priceTxt.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceTxt.ForeColor = System.Drawing.Color.White;
-            this.priceTxt.Location = new System.Drawing.Point(1522, 167);
+            this.priceTxt.Location = new System.Drawing.Point(1357, 167);
             this.priceTxt.Name = "priceTxt";
             this.priceTxt.Size = new System.Drawing.Size(134, 27);
             this.priceTxt.TabIndex = 33;
@@ -297,14 +297,14 @@
             this.rentingDataPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.rentingDataPicker.Location = new System.Drawing.Point(153, 391);
             this.rentingDataPicker.Name = "rentingDataPicker";
-            this.rentingDataPicker.Size = new System.Drawing.Size(820, 30);
+            this.rentingDataPicker.Size = new System.Drawing.Size(710, 30);
             this.rentingDataPicker.TabIndex = 35;
             // 
             // StorageForRentingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2159, 879);
+            this.ClientSize = new System.Drawing.Size(1940, 879);
             this.Controls.Add(this.insertFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StorageForRentingForm";

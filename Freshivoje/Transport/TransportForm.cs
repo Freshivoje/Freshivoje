@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using Freshivoje.Custom_Forms;
 using Freshivoje.Models;
 
+
+
 namespace Freshivoje.Transport
 {
     public partial class TransportForm : Form
@@ -112,6 +114,7 @@ namespace Freshivoje.Transport
 
             DbConnection.executeTransportQuery(transportItems, totalPrice);
             transportDataGridView.Rows.Clear();
+            CreatePDF createPDF = new CreatePDF();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
