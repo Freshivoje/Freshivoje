@@ -90,6 +90,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Custom Classes\CreatePDF.cs" />
     <Compile Include="Custom Forms\ComboBoxItem.cs" />
     <Compile Include="Custom Forms\CustomDialog.cs">
       <SubType>Form</SubType>
@@ -247,18 +248,6 @@
     <Compile Include="Packages Forms\ChoosePackagesMethodForm.Designer.cs">
       <DependentUpon>ChoosePackagesMethodForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Packaging\ChoosePackagingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Packaging\ChoosePackagingForm.Designer.cs">
-      <DependentUpon>ChoosePackagingForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Packaging\PackagesForRentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Packaging\PackagesForRentForm.Designer.cs">
-      <DependentUpon>PackagesForRentForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="PaymentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -389,12 +378,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Packages Forms\ChoosePackagesMethodForm.resx">
       <DependentUpon>ChoosePackagesMethodForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Packaging\ChoosePackagingForm.resx">
-      <DependentUpon>ChoosePackagingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Packaging\PackagesForRentForm.resx">
-      <DependentUpon>PackagesForRentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentsForm.resx">
       <DependentUpon>PaymentsForm.cs</DependentUpon>
