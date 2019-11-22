@@ -85,6 +85,14 @@ namespace Freshivoje.Shared_Forms
                             Show();
                             break;
                         }
+                    case "ChooseStorageRentingMethodForm":
+                        {
+                            Hide();
+                            using InsertForm insertForm = new InsertForm(_selectedClientId);
+                            insertForm.ShowDialog(this);
+                            Show();
+                            break;
+                        }
                 }
             }
         }
