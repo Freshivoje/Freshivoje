@@ -44,6 +44,7 @@ namespace Freshivoje.Insert_Form
             if (e.ColumnIndex == 10)
             {
                 Hide();
+
                 using StorageForRentingForm storageForRentingForm = new StorageForRentingForm(_selectedClientId);
                 storageForRentingForm.ShowDialog(this);
                 Show();
