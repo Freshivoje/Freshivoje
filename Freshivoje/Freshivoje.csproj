@@ -105,6 +105,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Custom Forms\PDF.cs" />
     <Compile Include="Insert Form\ChooseClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
