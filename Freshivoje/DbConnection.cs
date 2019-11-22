@@ -57,7 +57,7 @@ namespace Freshivoje
                                 if (test == "neaktivna")
                                 {
                                     button.Enabled = false;
-                                    button.Text = "Komora je izdrata za lagerovanje";
+                                    button.Text = "Komora je izdata za lagerovanje";
                                 }
                                 break;
                             default:
@@ -81,10 +81,10 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-        public static void fillCmbBox(ComboBox cmbBox, string table, params string[] columns)
+        public static void fillCmbBox(ComboBox cmbBox, string table, char separator, params string[] columns)
         {
             string tables = string.Empty;
-            foreach(string column in columns)
+            foreach (string column in columns)
             {
                 if (column == columns[0])
                 {
@@ -112,7 +112,7 @@ namespace Freshivoje
                     cmbBox.Items.Add(item);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
@@ -125,7 +125,6 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-
         public static void tunnel(Label label, string query, params string[] columns)
         {
 
@@ -152,7 +151,25 @@ namespace Freshivoje
                             case "organic":
                                 text += $"{reader.GetString(column)}/";
                                 break;
+                            case "category":
+                                text += $"{reader.GetString(column)}/";
+                                break;
                             case "quantityArts":
+                                text += $"{reader.GetString(column)}\n";
+                                break;
+                            case "capacity":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "weight":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "producer":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "state":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "quantityPackg":
                                 text += $"{reader.GetString(column)}\n";
                                 break;
                             default:

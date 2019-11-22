@@ -26,9 +26,29 @@ namespace Freshivoje.Storage
 
         private void insertBtn_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            using InsertStorageForm insertStorageForm = new InsertStorageForm();
+            insertStorageForm.ShowDialog(this);
+            Show();
         }
 
+     
+
+        private void recordBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            using RecordStorageForm recordStorageForm = new RecordStorageForm();
+            recordStorageForm.ShowDialog(this);
+            Show();
+        }
+
+        private void outBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            using OutStorageForm outStorageForm = new OutStorageForm();
+            outStorageForm.ShowDialog(this);
+            Show();
+        }
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Close();

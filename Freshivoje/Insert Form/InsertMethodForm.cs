@@ -1,14 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using Freshivoje;
-using Freshivoje.Shared_Forms;
-
+using Freshivoje.Insert;
 
 namespace Freshivoje
 {
-    public partial class ChooseInsertMethodForm : Form
+    public partial class InsertMethodForm : Form
     {
-        public ChooseInsertMethodForm()
+        public InsertMethodForm()
         {
             InitializeComponent();
         }
@@ -23,10 +28,8 @@ namespace Freshivoje
         }
         private void repurchaseBtn_Click(object sender, EventArgs e)
         {
-            Hide();
-            using ChooseClientForm chooseClientForm = new ChooseClientForm("InsertForm");
+            ChooseClientForm chooseClientForm = new ChooseClientForm();
             chooseClientForm.ShowDialog(this);
-            Show();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -42,14 +45,6 @@ namespace Freshivoje
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void storageRentBtn_Click(object sender, EventArgs e)
-        {
-            Hide();
-            using ChooseStorageRentingMethodForm chooseStorageRentingMethodForm = new ChooseStorageRentingMethodForm();
-            chooseStorageRentingMethodForm.ShowDialog(this);
-            Show();
         }
     }
 }
