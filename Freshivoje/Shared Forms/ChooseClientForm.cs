@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using Freshivoje.Models;
 using Freshivoje.Transport;
 
 namespace Freshivoje.Shared_Forms
@@ -9,13 +8,6 @@ namespace Freshivoje.Shared_Forms
     public partial class ChooseClientForm : Form
     {
         private int _selectedClientId;
-        private string _selectedClientFirstName = string.Empty, 
-                        _selectedClientLastName = string.Empty, 
-                        _selectedClientAddress = string.Empty,
-                        _selectedClientJMBG = string.Empty,
-                        _selectedClientBPG = string.Empty, 
-                        _selectedClientZipCode = string.Empty, 
-                        _selectedClientPhone = string.Empty;
         private readonly string _childForm, _fillDGVQuery = "SELECT * FROM `clients` WHERE type = 'Fizičko lice'";
         private string _clientInfo;
         public ChooseClientForm(string childForm)
@@ -66,16 +58,7 @@ namespace Freshivoje.Shared_Forms
             if (e.ColumnIndex == 8)
             {
                 _selectedClientId = Convert.ToInt32(clientsDataGridView.Rows[e.RowIndex].Cells["clientId"].Value);
-                _selectedClientFirstName = clientsDataGridView.Rows[e.RowIndex].Cells["firstName"].Value.ToString();
-                _selectedClientLastName = clientsDataGridView.Rows[e.RowIndex].Cells["lastName"].Value.ToString();
-                _selectedClientAddress = clientsDataGridView.Rows[e.RowIndex].Cells["address"].Value.ToString();
-                _selectedClientJMBG = clientsDataGridView.Rows[e.RowIndex].Cells["JMBG"].Value.ToString();
-                _selectedClientBPG = clientsDataGridView.Rows[e.RowIndex].Cells["BPG"].Value.ToString();
-                _selectedClientZipCode = clientsDataGridView.Rows[e.RowIndex].Cells["zipCode"].Value.ToString();
-                _selectedClientPhone = clientsDataGridView.Rows[e.RowIndex].Cells["phone"].Value.ToString();
-
-                _clientInfo = $"{_selectedClientFirstName} {_selectedClientLastName} ({_selectedClientJMBG})";
-                
+                _clientInfo = $"{clientsDataGridView.Rows[e.RowIndex].Cells["firstName"].Value.ToString()} {clientsDataGridView.Rows[e.RowIndex].Cells["lastName"].Value.ToString()} ({clientsDataGridView.Rows[e.RowIndex].Cells["JMBG"].Value.ToString()})";
                 switch (_childForm)
                 {
                     case "InsertForm":
@@ -96,11 +79,8 @@ namespace Freshivoje.Shared_Forms
                         }
                     case "TransportForm":
                         {
-                            Client client = new Client(_selectedClientId, _selectedClientFirstName, _selectedClientLastName, _selectedClientAddress,
-                                                        string.Empty, _selectedClientJMBG, _selectedClientBPG, _selectedClientZipCode, string.Empty, _selectedClientPhone,
-                                                        string.Empty, string.Empty, string.Empty);
                             Hide();
-                            using TransportForm transportForm = new TransportForm(client);
+                            using TransportForm transportForm = new TransportForm(_selectedClientId);
                             transportForm.ShowDialog(this);
                             Show();
                             break;
