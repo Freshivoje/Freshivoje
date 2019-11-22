@@ -90,6 +90,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Custom Classes\CreatePDF.cs" />
     <Compile Include="Custom Forms\ComboBoxItem.cs" />
     <Compile Include="Custom Forms\CustomDialog.cs">
     <Compile Include="Models\StorageData.cs" />
