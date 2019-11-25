@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.minimizeBtn = new System.Windows.Forms.Button();
+            this.packagingLbl = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
             this.articlesCmbBox = new System.Windows.Forms.ComboBox();
             this.articleQuantityTxtBox = new System.Windows.Forms.TextBox();
@@ -62,7 +62,6 @@
             this.finishInsertBtn = new System.Windows.Forms.Button();
             this.priceLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.packagingLbl = new System.Windows.Forms.Label();
             this.insertFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.insertedArticlesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -80,26 +79,25 @@
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.insertFormTblLayout.Controls.Add(this.packagingLbl, 5, 7);
-            this.insertFormTblLayout.Controls.Add(this.minimizeBtn, 7, 0);
             this.insertFormTblLayout.Controls.Add(this.exitBtn, 8, 0);
             this.insertFormTblLayout.Controls.Add(this.articlesCmbBox, 1, 4);
             this.insertFormTblLayout.Controls.Add(this.articleQuantityTxtBox, 4, 4);
             this.insertFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
-            this.insertFormTblLayout.Controls.Add(this.backBtn, 6, 0);
+            this.insertFormTblLayout.Controls.Add(this.backBtn, 7, 0);
             this.insertFormTblLayout.Controls.Add(this.articlesLbl, 1, 3);
             this.insertFormTblLayout.Controls.Add(this.cratesCmbBox, 1, 7);
-            this.insertFormTblLayout.Controls.Add(this.insertedArticlesDataGridView, 0, 11);
+            this.insertFormTblLayout.Controls.Add(this.insertedArticlesDataGridView, 0, 10);
             this.insertFormTblLayout.Controls.Add(this.articlePriceLbl, 5, 4);
             this.insertFormTblLayout.Controls.Add(this.crateQuantityTxtBox, 4, 7);
             this.insertFormTblLayout.Controls.Add(this.cratesTypeLbl, 1, 6);
             this.insertFormTblLayout.Controls.Add(this.articleQuantityLbl, 2, 3);
             this.insertFormTblLayout.Controls.Add(this.crateQuantityLbl, 4, 6);
-            this.insertFormTblLayout.Controls.Add(this.insertBtn, 2, 10);
             this.insertFormTblLayout.Controls.Add(this.finishInsertBtn, 2, 14);
             this.insertFormTblLayout.Controls.Add(this.priceLbl, 5, 3);
             this.insertFormTblLayout.Controls.Add(this.label1, 5, 6);
+            this.insertFormTblLayout.Controls.Add(this.insertBtn, 2, 8);
             this.insertFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insertFormTblLayout.Location = new System.Drawing.Point(0, 0);
             this.insertFormTblLayout.Name = "insertFormTblLayout";
@@ -112,38 +110,29 @@
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.insertFormTblLayout.Size = new System.Drawing.Size(1546, 858);
             this.insertFormTblLayout.TabIndex = 2;
             // 
-            // minimizeBtn
+            // packagingLbl
             // 
-            this.minimizeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.BackgroundImage = global::Freshivoje.Properties.Resources.minimize;
-            this.minimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.minimizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.minimizeBtn.FlatAppearance.BorderSize = 0;
-            this.minimizeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1443, 3);
-            this.minimizeBtn.Name = "minimizeBtn";
-            this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.minimizeBtn.Size = new System.Drawing.Size(44, 54);
-            this.minimizeBtn.TabIndex = 5;
-            this.minimizeBtn.TabStop = false;
-            this.minimizeBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.minimizeBtn.UseVisualStyleBackColor = false;
+            this.packagingLbl.AutoSize = true;
+            this.packagingLbl.BackColor = System.Drawing.Color.Transparent;
+            this.packagingLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.packagingLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.packagingLbl.ForeColor = System.Drawing.Color.White;
+            this.packagingLbl.Location = new System.Drawing.Point(1145, 280);
+            this.packagingLbl.Name = "packagingLbl";
+            this.packagingLbl.Size = new System.Drawing.Size(242, 40);
+            this.packagingLbl.TabIndex = 42;
+            this.packagingLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // exitBtn
             // 
@@ -167,6 +156,7 @@
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // articlesCmbBox
             // 
@@ -226,13 +216,14 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1393, 3);
+            this.backBtn.Location = new System.Drawing.Point(1443, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 54);
             this.backBtn.TabIndex = 9;
             this.backBtn.TabStop = false;
             this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // articlesLbl
             // 
@@ -305,16 +296,16 @@
             this.insertedArticlesDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.insertedArticlesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insertedArticlesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.insertedArticlesDataGridView.Location = new System.Drawing.Point(3, 473);
+            this.insertedArticlesDataGridView.Location = new System.Drawing.Point(3, 423);
             this.insertedArticlesDataGridView.MultiSelect = false;
             this.insertedArticlesDataGridView.Name = "insertedArticlesDataGridView";
             this.insertedArticlesDataGridView.ReadOnly = true;
             this.insertedArticlesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.insertedArticlesDataGridView.RowHeadersWidth = 40;
             this.insertedArticlesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.insertFormTblLayout.SetRowSpan(this.insertedArticlesDataGridView, 3);
+            this.insertFormTblLayout.SetRowSpan(this.insertedArticlesDataGridView, 4);
             this.insertedArticlesDataGridView.RowTemplate.Height = 30;
-            this.insertedArticlesDataGridView.Size = new System.Drawing.Size(1540, 322);
+            this.insertedArticlesDataGridView.Size = new System.Drawing.Size(1540, 372);
             this.insertedArticlesDataGridView.TabIndex = 34;
             this.insertedArticlesDataGridView.TabStop = false;
             // 
@@ -409,12 +400,13 @@
             // 
             this.articlePriceLbl.AutoSize = true;
             this.articlePriceLbl.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.articlePriceLbl, 2);
             this.articlePriceLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.articlePriceLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.articlePriceLbl.ForeColor = System.Drawing.Color.White;
             this.articlePriceLbl.Location = new System.Drawing.Point(1145, 160);
             this.articlePriceLbl.Name = "articlePriceLbl";
-            this.articlePriceLbl.Size = new System.Drawing.Size(242, 40);
+            this.articlePriceLbl.Size = new System.Drawing.Size(292, 40);
             this.articlePriceLbl.TabIndex = 35;
             this.articlePriceLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -486,7 +478,7 @@
             this.insertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insertBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.insertBtn.ForeColor = System.Drawing.Color.White;
-            this.insertBtn.Location = new System.Drawing.Point(642, 415);
+            this.insertBtn.Location = new System.Drawing.Point(642, 325);
             this.insertBtn.Margin = new System.Windows.Forms.Padding(5);
             this.insertBtn.Name = "insertBtn";
             this.insertBtn.Size = new System.Drawing.Size(255, 50);
@@ -494,6 +486,7 @@
             this.insertBtn.TabStop = false;
             this.insertBtn.Text = "Unesi artikal";
             this.insertBtn.UseVisualStyleBackColor = false;
+            this.insertBtn.Click += new System.EventHandler(this.insertBtn_Click);
             // 
             // finishInsertBtn
             // 
@@ -516,19 +509,21 @@
             this.finishInsertBtn.TabStop = false;
             this.finishInsertBtn.Text = "Završi unos";
             this.finishInsertBtn.UseVisualStyleBackColor = false;
+            this.finishInsertBtn.Click += new System.EventHandler(this.finishInsertBtn_Click);
             // 
             // priceLbl
             // 
-            this.priceLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.priceLbl.AutoSize = true;
             this.priceLbl.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.priceLbl, 2);
+            this.priceLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.priceLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceLbl.ForeColor = System.Drawing.Color.White;
-            this.priceLbl.Location = new System.Drawing.Point(1196, 133);
+            this.priceLbl.Location = new System.Drawing.Point(1145, 130);
             this.priceLbl.Name = "priceLbl";
-            this.priceLbl.Size = new System.Drawing.Size(140, 27);
+            this.priceLbl.Size = new System.Drawing.Size(292, 30);
             this.priceLbl.TabIndex = 16;
-            this.priceLbl.Text = "Cena (RSD)";
+            this.priceLbl.Text = "Dostupna količina (kg)";
             this.priceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
@@ -544,19 +539,6 @@
             this.label1.TabIndex = 41;
             this.label1.Text = "Zadužene ambalaže";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // packagingLbl
-            // 
-            this.packagingLbl.AutoSize = true;
-            this.packagingLbl.BackColor = System.Drawing.Color.Transparent;
-            this.packagingLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.packagingLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.packagingLbl.ForeColor = System.Drawing.Color.White;
-            this.packagingLbl.Location = new System.Drawing.Point(1145, 280);
-            this.packagingLbl.Name = "packagingLbl";
-            this.packagingLbl.Size = new System.Drawing.Size(242, 40);
-            this.packagingLbl.TabIndex = 42;
-            this.packagingLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // InsertStorageForm
             // 
@@ -578,7 +560,6 @@
 
         private System.Windows.Forms.TableLayoutPanel insertFormTblLayout;
         private System.Windows.Forms.Label packagingLbl;
-        private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.ComboBox articlesCmbBox;
         private System.Windows.Forms.TextBox articleQuantityTxtBox;

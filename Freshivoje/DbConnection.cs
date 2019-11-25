@@ -80,6 +80,67 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
+
+        public static void FillCmbBoxQuery(ComboBox cmbBox, string query, params string[] columns)
+        {
+            try
+            {
+
+                _databaseConnection.Open();
+                MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
+                mySqlCommand.CommandText = query;
+                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    int value = 0;
+                    string text = string.Empty;
+                    foreach (string column in columns)
+                    {
+                        
+                        switch (column)
+                        {
+                            case "id_article":
+                                value = reader.GetInt32(column);
+                                break;
+                            case "article_name":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "sort":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "organic":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "category":
+                                text += $"{reader.GetString(column)}";
+                                break;
+                            default:
+
+                                break;
+                        }
+                       
+                    }
+                    ComboBoxItem item = new ComboBoxItem
+                    {
+                        Value = value,
+                        Text = text
+                    };
+                    cmbBox.Items.Add(item);
+
+                }
+            }
+            catch
+            {
+                if (_databaseConnection.State != ConnectionState.Open)
+                {
+                    return;
+                }
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
+        }
         public static void fillCmbBox(ComboBox cmbBox, string table, char separator, params string[] columns)
         {
             string tables = string.Empty;
