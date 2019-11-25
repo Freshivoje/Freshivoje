@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Freshivoje.Custom_Forms;
 using Freshivoje.Models;
-using Freshivoje.
+
 
 namespace Freshivoje.Transport
 {
@@ -113,7 +113,7 @@ namespace Freshivoje.Transport
 
             DbConnection.executeTransportQuery(transportItems, totalPrice);
             transportDataGridView.Rows.Clear();
-            CreatePDF c = new CreatePDF();
+            //CreatePDF c = new CreatePDF();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
