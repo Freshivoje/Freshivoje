@@ -19,7 +19,56 @@ namespace Freshivoje
         private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username};charset=utf8;";
         public static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
 
-       
+        public static void fillLbl(Label label, int id, params string[] columns)
+        {
+            try
+            {
+               
+                _databaseConnection.Open();
+                MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
+                mySqlCommand.CommandText = $"SELECT `packaging`.`id_packaging`, SUM(`packaging_record_items`.`quantity`) as quantityPackgs, DATE_FORMAT(`date`, ' %d.%m.%Y.') as date FROM `packaging_records` JOIN `packaging_record_items` ON `packaging_record_items`.`fk_packaging_records_id` = `packaging_record_items`.`id_record_item` JOIN `packaging` ON `packaging`.`id_packaging` = `packaging_record_items`.`fk_packaging_id` WHERE `date` >= CURDATE() AND packaging.id_packaging = {id} GROUP BY `packaging`.`id_packaging` ORDER BY `packaging`.`id_packaging` ASC;SELECT SUM(`storage_record_items`.`package_quantity`) as quantityStoragePackages FROM storage_record_items WHERE `storage_record_items`.`fk_storage_id`=5 AND `storage_record_items`.`fk_packaging_id`={id} GROUP BY storage_record_items.fk_packaging_id";
+                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    string text = string.Empty;
+                    int QSP = 0, QP = 0, SUM;
+                    foreach (string column in columns)
+                    {
+                        switch (column)
+                        {
+                            case "quantityStoragePackages":
+                                QP = reader.GetInt32(column);
+                                break;
+                            case "quantityPackgs":
+                                 QSP = reader.GetInt32(column);
+                                break;
+                            default:
+
+                                break;
+                        }
+
+                    }
+                    SUM = QSP - QP;
+                    text = SUM.ToString();
+                    label.Text += text;
+
+                }
+            
+              
+            }
+            catch
+            {
+                if (_databaseConnection.State != ConnectionState.Open)
+                {
+                    return;
+                }
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
+
+        }
         public static void fillBtnText(Button button, string table, string position, params string[] columns)
         {
             try
@@ -94,6 +143,7 @@ namespace Freshivoje
                 {
                     int value = 0;
                     string text = string.Empty;
+                   
                     foreach (string column in columns)
                     {
                         
@@ -112,6 +162,21 @@ namespace Freshivoje
                                 text += $"{reader.GetString(column)}/";
                                 break;
                             case "category":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "id_packaging":
+                                value = reader.GetInt32(column);
+                                break;
+                            case "capacity":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "weight":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "producer":
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "state":
                                 text += $"{reader.GetString(column)}";
                                 break;
                             default:
@@ -185,19 +250,20 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-        public static void tunnel(Label label, string query, params string[] columns)
+        public static void tunnel(Label label, string query, string query1, params string[] columns)
         {
 
             try
             {
-                
+                string text = string.Empty;
+                decimal QSA = 0, QA = 0, SUM;
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
                 mySqlCommand.CommandText = query;
                 using MySqlDataReader reader = mySqlCommand.ExecuteReader();
                 while (reader.Read())
                 {
-                    string text = string.Empty;
+
                     foreach (string column in columns)
                     {
                         switch (column)
@@ -215,7 +281,7 @@ namespace Freshivoje
                                 text += $"{reader.GetString(column)}/";
                                 break;
                             case "quantityArts":
-                                text += $"{reader.GetString(column)}\n";
+                                QA = reader.GetDecimal(column);
                                 break;
                             case "capacity":
                                 text += $"{reader.GetString(column)}/";
@@ -232,17 +298,39 @@ namespace Freshivoje
                             case "quantityPackg":
                                 text += $"{reader.GetString(column)}\n";
                                 break;
+
                             default:
 
                                 break;
                         }
-                      
-                    }
-                    label.Text += text;
 
+                    }
                 }
+                _databaseConnection.Close();
+                _databaseConnection.Open();
+                MySqlCommand mySqlCommand1 = _databaseConnection.CreateCommand();
+                    mySqlCommand1.CommandText = query1;
+                    using MySqlDataReader reader1 = mySqlCommand1.ExecuteReader();
+                    while (reader1.Read())
+                    {
+
+                        foreach (string column in columns)
+                        {
+                            switch (column)
+                            {
+                                case "quantityStorageArticle":
+                                    text += $"{reader1.GetString(column)}/";
+                                    break;
+                            }
+                        }
+                    }
+
+                    label.Text += text;
+                   
+
             }
-            catch
+            
+            catch(Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {

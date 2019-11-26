@@ -42,9 +42,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.packagesRecordsDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchRentPackagesRecordLbl = new System.Windows.Forms.Label();
-            this.searchRentPackagesRecordTxtBox = new System.Windows.Forms.TextBox();
-            this.searchRecordTypeComboBox = new System.Windows.Forms.ComboBox();
             this.IdClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +50,9 @@
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnPackages = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchRentPackagesRecordLbl = new System.Windows.Forms.Label();
+            this.searchRentPackagesRecordTxtBox = new System.Windows.Forms.TextBox();
+            this.searchRecordTypeComboBox = new System.Windows.Forms.ComboBox();
             this.packagesRecordFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.packagesRecordsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -258,52 +258,6 @@
             this.packagesRecordsDataGridView.TabStop = false;
             this.packagesRecordsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.packagesRecordsDataGridView_CellContentClick);
             // 
-            // searchRentPackagesRecordLbl
-            // 
-            this.searchRentPackagesRecordLbl.AutoSize = true;
-            this.searchRentPackagesRecordLbl.BackColor = System.Drawing.Color.Transparent;
-            this.searchRentPackagesRecordLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.searchRentPackagesRecordLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchRentPackagesRecordLbl.ForeColor = System.Drawing.Color.White;
-            this.searchRentPackagesRecordLbl.Location = new System.Drawing.Point(876, 79);
-            this.searchRentPackagesRecordLbl.Name = "searchRentPackagesRecordLbl";
-            this.searchRentPackagesRecordLbl.Size = new System.Drawing.Size(332, 27);
-            this.searchRentPackagesRecordLbl.TabIndex = 41;
-            this.searchRentPackagesRecordLbl.Text = "Pretraži ";
-            this.searchRentPackagesRecordLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // searchRentPackagesRecordTxtBox
-            // 
-            this.searchRentPackagesRecordTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.searchRentPackagesRecordTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchRentPackagesRecordTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchRentPackagesRecordTxtBox.Location = new System.Drawing.Point(876, 109);
-            this.searchRentPackagesRecordTxtBox.Multiline = true;
-            this.searchRentPackagesRecordTxtBox.Name = "searchRentPackagesRecordTxtBox";
-            this.searchRentPackagesRecordTxtBox.ShortcutsEnabled = false;
-            this.searchRentPackagesRecordTxtBox.Size = new System.Drawing.Size(332, 31);
-            this.searchRentPackagesRecordTxtBox.TabIndex = 5;
-            this.searchRentPackagesRecordTxtBox.TextChanged += new System.EventHandler(this.searchRentPackagesRecordTxtBox_TextChanged);
-            this.searchRentPackagesRecordTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
-            // 
-            // searchRecordTypeComboBox
-            // 
-            this.packagesRecordFormTblLayout.SetColumnSpan(this.searchRecordTypeComboBox, 2);
-            this.searchRecordTypeComboBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchRecordTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.searchRecordTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.searchRecordTypeComboBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchRecordTypeComboBox.FormattingEnabled = true;
-            this.searchRecordTypeComboBox.Items.AddRange(new object[] {
-            "Evidencija iznajmljenih i vraćenih ambalaža",
-            "Zaduženja klijenata na osnovu ambalaža"});
-            this.searchRecordTypeComboBox.Location = new System.Drawing.Point(153, 109);
-            this.searchRecordTypeComboBox.Name = "searchRecordTypeComboBox";
-            this.searchRecordTypeComboBox.Size = new System.Drawing.Size(476, 31);
-            this.searchRecordTypeComboBox.TabIndex = 42;
-            this.searchRecordTypeComboBox.TabStop = false;
-            this.searchRecordTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.searchRecordTypeComboBox_SelectedIndexChanged);
-            // 
             // IdClient
             // 
             this.IdClient.DataPropertyName = "fk_client_id";
@@ -374,6 +328,52 @@
             this.returnPackages.Name = "returnPackages";
             this.returnPackages.ReadOnly = true;
             this.returnPackages.Visible = false;
+            // 
+            // searchRentPackagesRecordLbl
+            // 
+            this.searchRentPackagesRecordLbl.AutoSize = true;
+            this.searchRentPackagesRecordLbl.BackColor = System.Drawing.Color.Transparent;
+            this.searchRentPackagesRecordLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.searchRentPackagesRecordLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchRentPackagesRecordLbl.ForeColor = System.Drawing.Color.White;
+            this.searchRentPackagesRecordLbl.Location = new System.Drawing.Point(876, 79);
+            this.searchRentPackagesRecordLbl.Name = "searchRentPackagesRecordLbl";
+            this.searchRentPackagesRecordLbl.Size = new System.Drawing.Size(332, 27);
+            this.searchRentPackagesRecordLbl.TabIndex = 41;
+            this.searchRentPackagesRecordLbl.Text = "Pretraži ";
+            this.searchRentPackagesRecordLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // searchRentPackagesRecordTxtBox
+            // 
+            this.searchRentPackagesRecordTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.searchRentPackagesRecordTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchRentPackagesRecordTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchRentPackagesRecordTxtBox.Location = new System.Drawing.Point(876, 109);
+            this.searchRentPackagesRecordTxtBox.Multiline = true;
+            this.searchRentPackagesRecordTxtBox.Name = "searchRentPackagesRecordTxtBox";
+            this.searchRentPackagesRecordTxtBox.ShortcutsEnabled = false;
+            this.searchRentPackagesRecordTxtBox.Size = new System.Drawing.Size(332, 31);
+            this.searchRentPackagesRecordTxtBox.TabIndex = 5;
+            this.searchRentPackagesRecordTxtBox.TextChanged += new System.EventHandler(this.searchRentPackagesRecordTxtBox_TextChanged);
+            this.searchRentPackagesRecordTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
+            // 
+            // searchRecordTypeComboBox
+            // 
+            this.packagesRecordFormTblLayout.SetColumnSpan(this.searchRecordTypeComboBox, 2);
+            this.searchRecordTypeComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchRecordTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchRecordTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.searchRecordTypeComboBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchRecordTypeComboBox.FormattingEnabled = true;
+            this.searchRecordTypeComboBox.Items.AddRange(new object[] {
+            "Evidencija iznajmljenih i vraćenih ambalaža",
+            "Zaduženja klijenata na osnovu ambalaža"});
+            this.searchRecordTypeComboBox.Location = new System.Drawing.Point(153, 109);
+            this.searchRecordTypeComboBox.Name = "searchRecordTypeComboBox";
+            this.searchRecordTypeComboBox.Size = new System.Drawing.Size(476, 31);
+            this.searchRecordTypeComboBox.TabIndex = 42;
+            this.searchRecordTypeComboBox.TabStop = false;
+            this.searchRecordTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.searchRecordTypeComboBox_SelectedIndexChanged);
             // 
             // PackagesRecordForm
             // 
