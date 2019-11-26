@@ -31,8 +31,8 @@ namespace Freshivoje
             palletCmbBox.SelectedIndex = 1;
             articlesCmbBox.SelectedIndex = 0;
 
-            crateOwnerCmbBox.SelectedIndex = 0;
-            cratesCmbBox.SelectedIndex = 0;
+            //crateOwnerCmbBox.SelectedIndex = 0;
+            //cratesCmbBox.SelectedIndex = 0;
         }
 
         // Disables flickering on FormLoad
@@ -139,8 +139,9 @@ namespace Freshivoje
 
         public void getArticlePrice()
         {
-            if (articlesCmbBox.SelectedIndex < 0)
+            if (articlesCmbBox.SelectedIndex < 1)
             {
+                articlePriceLbl.Text = string.Empty;
                 return;
             }
             _articleId = ((ComboBoxItem)articlesCmbBox.SelectedItem).Value;

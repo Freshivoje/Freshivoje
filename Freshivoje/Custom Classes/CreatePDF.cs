@@ -12,10 +12,13 @@ namespace Freshivoje.Custom_Classes
         private int _fkClientId;
         private string _clientFirstName, _clientLastName, _clientAddress, _clientJMBG, _clientBPG, _clientZipCode, _clientPhone;
 
-
-
+        Font font = new Font();
         public CreatePDF(Client client)
         {
+            font = GetTahoma();
+
+
+
             _fkClientId = client._id;
             _clientFirstName = client._firstName;
             _clientLastName = client._lastName;
@@ -26,10 +29,21 @@ namespace Freshivoje.Custom_Classes
             _clientPhone = client._phone;
         }
 
+        public static Font GetTahoma()
+        {
+            var fontName = "Tahoma";
+            if (!FontFactory.IsRegistered(fontName))
+            {
+                var fontPath = Environment.GetEnvironmentVariable("SystemRoot") + "\\fonts\\tahoma.ttf";
+                FontFactory.Register(fontPath);
+            }
+            return FontFactory.GetFont(fontName, BaseFont.CP1250, 11, Font.NORMAL);
+        }
+
         public void OnEndPage(PdfWriter writer)
         {
-            Paragraph footer = new Paragraph("________________                                                                          ________________", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
-            footer.Alignment = Element.ALIGN_CENTER;
+            Paragraph footer = new Paragraph("________________                                                                                  ________________", font);
+            footer.Alignment = Element.ALIGN_CENTER;    
             PdfPTable footerTbl = new PdfPTable(1);
             footerTbl.TotalWidth = 1000;
             footerTbl.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -41,7 +55,7 @@ namespace Freshivoje.Custom_Classes
         }
         public void OnEndPage1(PdfWriter writer)
         {
-            Paragraph footer2 = new Paragraph("Potpis klijenta:                                                                                 Potpis izdavaoca:", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+            Paragraph footer2 = new Paragraph("Potpis klijenta:                                                                                         Potpis izdavaoca:", font);
             footer2.Alignment = Element.ALIGN_CENTER;
             PdfPTable footerTb2 = new PdfPTable(1);
             footerTb2.TotalWidth = 1000;
@@ -101,10 +115,10 @@ namespace Freshivoje.Custom_Classes
                 total.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
 
                 
-                data.AddCell(new Phrase("JEDINIČNA CENA \n(BR.)", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL)));
-                data.AddCell(new Phrase("KOLIČINA \n(KG)", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL)));
-                data.AddCell(new Phrase("KILOMETRI \n(KM)", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL)));
-                data.AddCell(new Phrase("UKUPNA CENA \n(RSD)", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL)));
+                data.AddCell(new Phrase("JEDINIČNA CENA \n(BR.)", font));
+                data.AddCell(new Phrase("KOLIČINA \n(KG)", font));
+                data.AddCell(new Phrase("KILOMETRI \n(KM)", font));
+                data.AddCell(new Phrase("UKUPNA CENA \n(RSD)", font));
               
 
                 foreach (DataGridViewRow row in dgw.Rows)
@@ -114,116 +128,116 @@ namespace Freshivoje.Custom_Classes
                     traveled = (row.Cells["traveled"].Value.ToString());
                     totalPrice = (row.Cells["totalPrice"].Value.ToString());
                     totalPrice1 = Convert.ToDecimal(row.Cells["totalPrice"].Value);
-                    data.AddCell(new Phrase(price, FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL)));
-                    data.AddCell(new Phrase(quantity, FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL)));
-                    data.AddCell(new Phrase(traveled, FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL)));
-                    data.AddCell(new Phrase(totalPrice, FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL)));
+                    data.AddCell(new Phrase(price, font));
+                    data.AddCell(new Phrase(quantity, font));
+                    data.AddCell(new Phrase(traveled, font));
+                    data.AddCell(new Phrase(totalPrice, font));
                     finalPrice = finalPrice + totalPrice1;
                 }
 
                 
-                Chunk c1 = new Chunk("REŠIVOJE", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c1 = new Chunk("REŠIVOJE", font);
                 c1.Font.Color = new BaseColor(0, 0, 0);
                 c1.Font.SetStyle(0);
                 Phrase p1 = new Phrase();
                 p1.Add(c1);
                 companyName.AddCell(p1);
-                Chunk c3 = new Chunk("Aleksandar Đorđević", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c3 = new Chunk("Aleksandar Đorđević", font);
                 c3.Font.Color = new BaseColor(0, 0, 0);
                 c3.Font.SetStyle(0);
            
                 Phrase p3 = new Phrase();
                 p3.Add(c3);
                 companyData.AddCell(p3);
-                Chunk c4 = new Chunk("PIB: 1118657152", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c4 = new Chunk("PIB: 1118657152", font);
                 c3.Font.Color = new BaseColor(0, 0, 0);
                 c3.Font.SetStyle(0);
           
                 Phrase p4 = new Phrase();
                 p4.Add(c4);
                 companyData.AddCell(p4);
-                Chunk c5 = new Chunk("Matični broj: 65511037", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c5 = new Chunk("Matični broj: 65511037", font);
                 c3.Font.Color = new BaseColor(0, 0, 0);
                 c3.Font.SetStyle(0);
             
                 Phrase p5 = new Phrase();
                 p5.Add(c5);
                 companyData.AddCell(p5);
-                Chunk c6 = new Chunk("Tekući račun: 205-0000000270172-07", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c6 = new Chunk("Tekući račun: 205-0000000270172-07", font);
                 c3.Font.Color = new BaseColor(0, 0, 0);
                 c3.Font.SetStyle(0);
                 Phrase p6 = new Phrase();
                 p6.Add(c6);
                 companyData.AddCell(p6);
-                Chunk c7 = new Chunk("Adresa: Jasički put 9, 37000, Kruševac", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c7 = new Chunk("Adresa: Jasički put 9, 37000, Kruševac", font);
                 c3.Font.Color = new BaseColor(0, 0, 0);
                 c3.Font.SetStyle(0);
                 Phrase p7 = new Phrase();
                 p7.Add(c7);
                 companyData.AddCell(p7);
                 //////////////////////////////////////////////////////////////////////////////////////////////////
-                Chunk c8 = new Chunk(("Ime: ") + _clientFirstName, FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c8 = new Chunk(("Ime: ") + _clientFirstName, font);
                 c8.Font.Color = new BaseColor(0, 0, 0);
                 c8.Font.SetStyle(0);
                 Phrase p8 = new Phrase();
                 p8.Add(c8);
                 clientData.AddCell(p8);
-                Chunk c9 = new Chunk(("Prezime: ") + _clientLastName, FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c9 = new Chunk(("Prezime: ") + _clientLastName, font);
                 c9.Font.Color = new BaseColor(0, 0, 0);
                 c9.Font.SetStyle(0);
                 Phrase p9 = new Phrase();
                 p9.Add(c9);
                 clientData.AddCell(p9);
-                Chunk c10 = new Chunk(("Adresa: ") + _clientAddress, FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c10 = new Chunk(("Adresa: ") + _clientAddress, font);
                 c10.Font.Color = new BaseColor(0, 0, 0);
                 c10.Font.SetStyle(0);
                 Phrase p10 = new Phrase();
                 p10.Add(c10);
                 clientData.AddCell(p10);
-                Chunk c11 = new Chunk(("JMBG: ") + _clientJMBG, FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c11 = new Chunk(("JMBG: ") + _clientJMBG, font);
                 c11.Font.Color = new BaseColor(0, 0, 0);
                 c11.Font.SetStyle(0);
                 Phrase p11 = new Phrase();
                 p11.Add(c11);
                 clientData.AddCell(p11);
-                Chunk c12 = new Chunk(("BPG: ") + _clientBPG, FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c12 = new Chunk(("BPG: ") + _clientBPG, font);
                 c12.Font.Color = new BaseColor(0, 0, 0);
                 c12.Font.SetStyle(0);
                 Phrase p12 = new Phrase();
                 p12.Add(c12);
                 clientData.AddCell(p12);
-                Chunk c13 = new Chunk(("Poštanski broj: ") + _clientZipCode, FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c13 = new Chunk(("Poštanski broj: ") + _clientZipCode, font);
                 c13.Font.Color = new BaseColor(0, 0, 0);
                 c13.Font.SetStyle(0);
                 Phrase p13 = new Phrase();
                 p13.Add(c13);
                 clientData.AddCell(p13);
-                Chunk c14 = new Chunk(("Telefon: ") + _clientPhone, FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c14 = new Chunk(("Telefon: ") + _clientPhone, font);
                 c14.Font.Color = new BaseColor(0, 0, 0);
                 c14.Font.SetStyle(0);
                 Phrase p14 = new Phrase();
                 p14.Add(c14);
                 clientData.AddCell(p14);
                 //////////////////////////////////////////////////////////////////////////////////////////////////
-                Chunk c15 = new Chunk(" ", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c15 = new Chunk(" ", font);
                 c15.Font.Color = new BaseColor(0, 0, 0);
                 c15.Font.SetStyle(0);
                 Phrase p15 = new Phrase();
                 p15.Add(c15);
                 total.AddCell(p15);
-                Chunk c16 = new Chunk(" ", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c16 = new Chunk(" ", font);
                 c16.Font.Color = new BaseColor(0, 0, 0);
                 c16.Font.SetStyle(0);
                 Phrase p16 = new Phrase();
                 p16.Add(c16);
                 total.AddCell(p16);
-                Chunk c17 = new Chunk("UKUPNO: ", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c17 = new Chunk("UKUPNO: ", font);
                 c17.Font.Color = new BaseColor(0, 0, 0);
                 c17.Font.SetStyle(0);
                 Phrase p17 = new Phrase();
                 p17.Add(c17);
                 total.AddCell(p17);
-                Chunk c18 = new Chunk(finalPrice.ToString() + " RSD", FontFactory.GetFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, 10, Font.NORMAL));
+                Chunk c18 = new Chunk(finalPrice.ToString() + " RSD", font);
                 c18.Font.Color = new BaseColor(0, 0, 0);
                 c18.Font.SetStyle(0);
                 Phrase p18 = new Phrase();
@@ -245,6 +259,7 @@ namespace Freshivoje.Custom_Classes
                 {
                     Directory.CreateDirectory(folderPath);
                 }
+
                 fileCount = Directory.GetFiles("C:\\PDF").Length;
                 strFileName = (fileCount + 1) + "-2019" + ".pdf";
                 invoiceNumber.AddCell("BROJ FAKTURE: TR" + ((fileCount + 1) + "-2019"));

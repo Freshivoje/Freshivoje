@@ -194,6 +194,8 @@
             this.articlesCmbBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.articlesCmbBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articlesCmbBox.FormattingEnabled = true;
+            this.articlesCmbBox.Items.AddRange(new object[] {
+            "---"});
             this.articlesCmbBox.Location = new System.Drawing.Point(153, 163);
             this.articlesCmbBox.Name = "articlesCmbBox";
             this.articlesCmbBox.Size = new System.Drawing.Size(672, 31);
