@@ -250,13 +250,13 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-        public static void tunnel(Label label, string query, string query1, params string[] columns)
+        public static void tunnel(Label label, Label label1, string query, string query1, params string[] columns)
         {
 
             try
             {
                 string text = string.Empty;
-                decimal QSA = 0, QA = 0, SUM;
+                decimal QSA = 0, QA = 0, QSP = 0, QP = 0, SUM, Q = 0;
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
                 mySqlCommand.CommandText = query;
@@ -278,10 +278,11 @@ namespace Freshivoje
                                 text += $"{reader.GetString(column)}/";
                                 break;
                             case "category":
-                                text += $"{reader.GetString(column)}/";
+                                text += $"{reader.GetString(column)}\n";
                                 break;
                             case "quantityArts":
                                 QA = reader.GetDecimal(column);
+                                Q = QA;
                                 break;
                             case "capacity":
                                 text += $"{reader.GetString(column)}/";
@@ -293,10 +294,11 @@ namespace Freshivoje
                                 text += $"{reader.GetString(column)}/";
                                 break;
                             case "state":
-                                text += $"{reader.GetString(column)}/";
+                                text += $"{reader.GetString(column)}\n";
                                 break;
                             case "quantityPackg":
-                                text += $"{reader.GetString(column)}\n";
+                                QP = reader.GetDecimal(column);
+                                Q = QP;
                                 break;
 
                             default:
@@ -304,29 +306,43 @@ namespace Freshivoje
                                 break;
                         }
 
-                    }
-                }
-                _databaseConnection.Close();
-                _databaseConnection.Open();
-                MySqlCommand mySqlCommand1 = _databaseConnection.CreateCommand();
-                    mySqlCommand1.CommandText = query1;
-                    using MySqlDataReader reader1 = mySqlCommand1.ExecuteReader();
-                    while (reader1.Read())
-                    {
 
-                        foreach (string column in columns)
-                        {
-                            switch (column)
-                            {
-                                case "quantityStorageArticle":
-                                    text += $"{reader1.GetString(column)}/";
-                                    break;
-                            }
-                        }
                     }
 
                     label.Text += text;
-                   
+
+                }
+                _databaseConnection.Close();
+                _databaseConnection.Open();
+                text = string.Empty;
+                MySqlCommand mySqlCommand1 = _databaseConnection.CreateCommand();
+                mySqlCommand1.CommandText = query1;
+                using MySqlDataReader reader1 = mySqlCommand1.ExecuteReader();
+                if (reader1.Read())
+                {
+                    foreach (string column in columns)
+                    {
+                        switch (column)
+                        {
+                            case "quantityStorageArticle":
+                                QSA = reader1.GetDecimal(column);
+                                SUM = QA - QSA;
+                                text += $"{SUM.ToString()}\n";
+                                break;
+                            case "quantityStoragePackaging":
+                                QSP = reader1.GetDecimal(column);
+                                SUM = QP - QSP;
+                                text += $"{SUM.ToString()}\n";
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+                    text += $"{Q.ToString()}\n";
+                }
+
+                label1.Text += text;
 
             }
             

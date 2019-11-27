@@ -65,7 +65,7 @@ namespace Freshivoje.Storage
             }
             packagingLbl.Text = string.Empty;
             _packagingId = ((ComboBoxItem)packagingCmbBox.SelectedItem).Value;
-            DbConnection.fillLbl(packagingLbl, _packagingId, "quantityPackgs", "quantityStoragePackages");
+           
         }
     }
 }
