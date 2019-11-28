@@ -384,6 +384,8 @@
             this.cratesCmbBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cratesCmbBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cratesCmbBox.FormattingEnabled = true;
+            this.cratesCmbBox.Items.AddRange(new object[] {
+            "---"});
             this.cratesCmbBox.Location = new System.Drawing.Point(379, 283);
             this.cratesCmbBox.Name = "cratesCmbBox";
             this.cratesCmbBox.Size = new System.Drawing.Size(672, 31);

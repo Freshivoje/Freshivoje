@@ -31,8 +31,8 @@ namespace Freshivoje
             palletCmbBox.SelectedIndex = 1;
             articlesCmbBox.SelectedIndex = 0;
 
-            //crateOwnerCmbBox.SelectedIndex = 0;
-            //cratesCmbBox.SelectedIndex = 0;
+            crateOwnerCmbBox.SelectedIndex = 0;
+            cratesCmbBox.SelectedIndex = 0;
         }
 
         // Disables flickering on FormLoad
@@ -271,6 +271,10 @@ namespace Freshivoje
 
         private void cratesCmbBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (crateOwnerCmbBox.SelectedIndex == 0)
+            {
+                return;
+            }
             _packagingId = (cratesCmbBox.SelectedItem as ComboBoxItem).Value;
             MySqlCommand mySqlCommand = new MySqlCommand
             {

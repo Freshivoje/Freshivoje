@@ -40,15 +40,21 @@ namespace Freshivoje
             Hide();
             using ChooseInsertMethodForm insertMethodForm = new ChooseInsertMethodForm();
             insertMethodForm.ShowDialog(this);
-            Show();
+            if (!IsDisposed)
+            {
+                Show();
+            }
         }
 
         private void paymentsBtn_Click(object sender, EventArgs e)
         {
             Hide();
-            using PaymentsForm insertForm = new PaymentsForm();
+            using ReceiptsForm insertForm = new ReceiptsForm();
             insertForm.ShowDialog(this);
-            Show();
+            if (!IsDisposed)
+            {
+                Show();
+            }
         }
 
         private void logoutBtn_Click(object sender, EventArgs e)
@@ -56,7 +62,10 @@ namespace Freshivoje
             Hide();
             using LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog(this);
-            Show();
+            if (!IsDisposed)
+            {
+                Show();
+            }
         }
 
         private void settingsBtn_Click(object sender, EventArgs e)
@@ -64,7 +73,10 @@ namespace Freshivoje
             Hide();
             using OptionsForm optionsForm = new OptionsForm();
             optionsForm.ShowDialog(this);
-            Show();
+            if (!IsDisposed)
+            {
+                Show();
+            }
         }
 
         private void packagesBtn_Click(object sender, EventArgs e)
@@ -72,7 +84,10 @@ namespace Freshivoje
             Hide();
             using ChoosePackagesMethodForm choosePackagesMethodForm = new ChoosePackagesMethodForm();
             choosePackagesMethodForm.ShowDialog(this);
-            Show();
+            if (!IsDisposed)
+            {
+                Show();
+            }
         }
 
         private void transportBtn_Click(object sender, EventArgs e)
@@ -80,7 +95,10 @@ namespace Freshivoje
             Hide();
             using ChooseForm chooseForm = new ChooseForm();
             chooseForm.ShowDialog(this);
-            Show();
+            if (!IsDisposed)
+            {
+                Show();
+            }
         }
 
         private void inventoryBtn_Click(object sender, EventArgs e)
@@ -88,7 +106,10 @@ namespace Freshivoje
             Hide();
             using StorageForm storageForm = new StorageForm();
             storageForm.ShowDialog(this);
-            Show();
+            if (!IsDisposed)
+            {
+                Show();
+            }
         }
     }
 }

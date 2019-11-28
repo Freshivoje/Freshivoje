@@ -531,14 +531,39 @@ namespace Freshivoje
                 int articleNum = 1;
                 while (mySqlDataReader.Read())
                 {
-                    //string priceSingle = mySqlDataReader.GetDecimal("price_single").ToString("0.00");
-                    //string quantity = mySqlDataReader.GetDecimal("quantity").ToString("0.00");
-                    //string traveled = mySqlDataReader.GetDecimal("traveled").ToString("0.00");
-                    //string price = mySqlDataReader.GetDecimal("price").ToString("0.00");
 
                     result += $"Artikal {articleNum}\n{mySqlDataReader.GetString("details")}\n";
 
-                    // result += $"Artikal {articleNum}\n{priceSingle} / {quantity} / {traveled} / {price}\n";
+                    articleNum += 1;
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
+            return result;
+
+        }
+
+        public static string getReceiptDetails(MySqlCommand mySqlCommand)
+        {
+            string result = string.Empty;
+            try
+            {
+                mySqlCommand.Connection = _databaseConnection;
+                _databaseConnection.Open();
+                MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+
+                int articleNum = 1;
+                while (mySqlDataReader.Read())
+                {
+
+                    result += $"Artikal {articleNum}\n{mySqlDataReader.GetString("article")}\n{mySqlDataReader.GetString("quantity")} kg\n{mySqlDataReader.GetString("price")} RSD\n";
 
                     articleNum += 1;
                 }

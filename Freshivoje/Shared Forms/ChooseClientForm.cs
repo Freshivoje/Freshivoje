@@ -82,7 +82,10 @@ namespace Freshivoje.Shared_Forms
                             Hide();
                             using InsertForm insertForm = new InsertForm(_selectedClientId);
                             insertForm.ShowDialog(this);
-                            Show();
+                            if (!IsDisposed)
+                            {
+                                Show();
+                            }
                             break;
                         }
                     case "RentPackagesForm":
@@ -90,7 +93,10 @@ namespace Freshivoje.Shared_Forms
                             Hide();
                             using RentPackagesForm rentPackagesForm = new RentPackagesForm(_selectedClientId, _clientInfo);
                             rentPackagesForm.ShowDialog(this);
-                            Show();
+                            if (!IsDisposed)
+                            {
+                                Show();
+                            }
                             break;
                         }
                     case "TransportForm":
@@ -101,7 +107,7 @@ namespace Freshivoje.Shared_Forms
                             Hide();
                             using TransportForm transportForm = new TransportForm(client);
                             transportForm.ShowDialog(this);
-                            if (IsDisposed)
+                            if (!IsDisposed)
                             {
                                 Show();
                             }
@@ -112,7 +118,10 @@ namespace Freshivoje.Shared_Forms
                             Hide();
                             using InsertForm insertForm = new InsertForm(_selectedClientId);
                             insertForm.ShowDialog(this);
-                            Show();
+                            if (!IsDisposed)
+                            {
+                                Show();
+                            }
                             break;
                         }
                 }

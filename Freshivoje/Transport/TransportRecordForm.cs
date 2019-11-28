@@ -23,7 +23,8 @@ namespace Freshivoje.Transport
                                                 `transport`.`id_transport`, 
                                                 DATE_FORMAT(`transport`.`transport_date`, '%d.%m.%Y.') as `transport_date`, `transport`.`total_price`, `transport`.`transport_status` 
                                                 FROM `transport`
-                                                JOIN `clients` ON `clients`.`id_client` = `transport`.`fk_client_id`";
+                                                JOIN `clients` ON `clients`.`id_client` = `transport`.`fk_client_id`
+                                                ORDER BY `transport`.`transport_date` DESC";
 
         public TransportRecordForm()
         {
