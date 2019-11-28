@@ -82,6 +82,7 @@
             this.travelTxtBox.Size = new System.Drawing.Size(537, 31);
             this.travelTxtBox.TabIndex = 6;
             this.travelTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
+            this.travelTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // backBtn
             // 
@@ -179,6 +180,7 @@
             this.quantityTxtBox.Size = new System.Drawing.Size(537, 31);
             this.quantityTxtBox.TabIndex = 5;
             this.quantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
+            this.quantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // priceTxtBox
             // 
@@ -192,6 +194,7 @@
             this.priceTxtBox.Size = new System.Drawing.Size(537, 31);
             this.priceTxtBox.TabIndex = 4;
             this.priceTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
+            this.priceTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // quantityLbl
             // 

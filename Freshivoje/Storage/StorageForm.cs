@@ -15,18 +15,22 @@ namespace Freshivoje.Storage
     {
         string _fillTextBox = "SELECT `articles`.`article_name`, `articles`.`sort`, `articles`.`organic`, `articles`.`category`, SUM(`items_receipt`.`quantity`) as quantityArts, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `receipts` JOIN `items_receipt` ON `items_receipt`.`fk_receipt_id` = `receipts`.`id_receipt` JOIN `articles` ON `articles`.`id_article` = `items_receipt`.`fk_article_id` WHERE `date` >= CURDATE() GROUP BY `articles`.`id_article`";
         string _query1 = "SELECT SUM(`storage_record_items`.`article_quantity`) as quantityStorageArticle, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM storage_record_items JOIN articles ON articles.id_article = storage_record_items.fk_article_id WHERE `date` >= CURDATE() AND `storage_record_items`.`fk_storage_id`=5 GROUP BY articles.id_article";
-        string _fillTextBox1 = "SELECT `packaging`.`capacity`, `packaging`.`category`, `packaging`.`weight`, `packaging`.`producer`, `packaging`.`state`, SUM(`packaging_record_items`.`quantity`) as quantityPackg, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `packaging_records` JOIN `packaging_record_items` ON `packaging_record_items`.`fk_packaging_records_id` = `packaging_record_items`.`id_record_item` JOIN `packaging` ON `packaging`.`id_packaging` = `packaging_record_items`.`fk_packaging_id` WHERE `date` >= CURDATE() GROUP BY `packaging`.`id_packaging`";
+        string _fillTextBox1 = "SELECT  `packaging`.`capacity`, `packaging`.`category`, `packaging`.`state`, SUM(`packaging_record_items`.`quantity`) as `quantityPackg`, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `packaging_records` JOIN `packaging_record_items` ON `packaging_record_items`.`fk_packaging_records_id` = `packaging_records`.`id_packaging_record` JOIN `packaging` ON `packaging`.`id_packaging` = `packaging_record_items`.`fk_packaging_id` WHERE `packaging_records`.`type` = 1 AND `packaging_records`.`date` >= CURDATE() GROUP BY `packaging`.`id_packaging`";
         string _query2 = "SELECT SUM(`storage_record_items`.`package_quantity`) as quantityStoragePackaging, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM storage_record_items JOIN packaging ON packaging.id_packaging = storage_record_items.fk_packaging_id WHERE `date` >= CURDATE() AND `storage_record_items`.`fk_storage_id`=5 GROUP BY packaging.id_packaging";
         public StorageForm()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
+            tunnelLbl.Text = "";
+            articlequantityLbl.Text = "";
+            packagingQuantityLbl.Text = "";
+            packagingTunnelLbl.Text = "";
             DbConnection.fillBtnText(a1Btn, "storage", "A1", "id_storage", "storage_position", "article_quantity",  "package_quantity", "status");
             DbConnection.fillBtnText(a2Btn, "storage", "A2", "id_storage", "storage_position", "article_quantity", "package_quantity", "status");
             DbConnection.fillBtnText(b1Btn, "storage", "B1", "id_storage", "storage_position", "article_quantity", "package_quantity", "status");
             DbConnection.fillBtnText(b2Btn, "storage", "B2", "id_storage", "storage_position", "article_quantity", "package_quantity", "status");
             DbConnection.tunnel(tunnelLbl, articlequantityLbl, _fillTextBox, _query1, "article_name", "sort", "organic", "category", "quantityArts", "quantityStorageArticle");
-            DbConnection.tunnel(packagingTunnelLbl, packagingQuantityLbl, _fillTextBox1, _query2, "capacity", "weight", "producer", "category", "state", "quantityPackg", "quantityStoragePackaging");
+            DbConnection.tunnel(packagingTunnelLbl, packagingQuantityLbl, _fillTextBox1, _query2, "capacity",  "state", "category", "quantityPackg", "quantityStoragePackaging");
            
         }
         protected override CreateParams CreateParams
@@ -77,6 +81,11 @@ namespace Freshivoje.Storage
         {
             ButtonsStorageOnClick(sender);
             
+        }
+
+        private void outputBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

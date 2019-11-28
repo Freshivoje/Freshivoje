@@ -12,7 +12,7 @@ namespace Freshivoje
             InitializeComponent();
             using LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog(this);
-            // titleLbl.Text += Properties.Settings.Default.currentUserId.ToString();
+           
         }
 
         // Disables flickering on FormLoad

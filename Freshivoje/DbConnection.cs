@@ -256,7 +256,10 @@ namespace Freshivoje
             try
             {
                 string text = string.Empty;
-                decimal QSA = 0, QA = 0, QSP = 0, QP = 0, SUM, Q = 0;
+                var ListOfArticleQuantity = new List<Decimal>();
+                var ListOfPackagingQuantity = new List<Int32>();
+               
+                decimal QSA = 0, QA = 0, QSP = 0, QP = 0, SUM;
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
                 mySqlCommand.CommandText = query;
@@ -281,8 +284,8 @@ namespace Freshivoje
                                 text += $"{reader.GetString(column)}\n";
                                 break;
                             case "quantityArts":
-                                QA = reader.GetDecimal(column);
-                                Q = QA;
+                                QA = reader.GetDecimal(column);    
+                                ListOfArticleQuantity.Add(QA);
                                 break;
                             case "capacity":
                                 text += $"{reader.GetString(column)}/";
@@ -294,11 +297,11 @@ namespace Freshivoje
                                 text += $"{reader.GetString(column)}/";
                                 break;
                             case "state":
-                                text += $"{reader.GetString(column)}\n";
+                                text += $"{reader.GetString(column)}/";
                                 break;
                             case "quantityPackg":
                                 QP = reader.GetDecimal(column);
-                                Q = QP;
+                                ListOfPackagingQuantity.Add(Convert.ToInt32(QP));
                                 break;
 
                             default:
@@ -309,38 +312,62 @@ namespace Freshivoje
 
                     }
 
-                    label.Text += text;
+                    
 
                 }
+                label.Text = text;
                 _databaseConnection.Close();
                 _databaseConnection.Open();
                 text = string.Empty;
+                int i = 0;
+                int j ;
                 MySqlCommand mySqlCommand1 = _databaseConnection.CreateCommand();
                 mySqlCommand1.CommandText = query1;
                 using MySqlDataReader reader1 = mySqlCommand1.ExecuteReader();
-                if (reader1.Read())
+                while(reader1.Read())
                 {
+                   
                     foreach (string column in columns)
                     {
                         switch (column)
                         {
                             case "quantityStorageArticle":
-                                QSA = reader1.GetDecimal(column);
-                                SUM = QA - QSA;
-                                text += $"{SUM.ToString()}\n";
+                                if (ListOfArticleQuantity.Count > 0)
+                                {
+                                    for (j = 0; j < ListOfArticleQuantity.Count; j++) { 
+                                    QSA = reader1.GetDecimal(column);
+                                    SUM = ListOfArticleQuantity[j] - QSA;
+                                    text += $"/{SUM.ToString()}\n";
+                                    }
+
+                                }
+                                else {
+                                    text += $"/{ListOfArticleQuantity[i].ToString()}\n";
+                                    i++;
+                                }
                                 break;
                             case "quantityStoragePackaging":
-                                QSP = reader1.GetDecimal(column);
-                                SUM = QP - QSP;
-                                text += $"{SUM.ToString()}\n";
+                                if (ListOfPackagingQuantity.Count > 0)
+                                {
+                                    for (j = 0; j < ListOfPackagingQuantity.Count; j++)
+                                    {
+                                        QSA = reader1.GetDecimal(column);
+                                        SUM = ListOfPackagingQuantity[j] - QSA;
+                                        text += $"/{SUM.ToString()}\n";
+                                    }
+
+                                }
+                                else
+                                {
+                                    text += $"/{ListOfPackagingQuantity[i].ToString()}\n";
+                                    i++;
+                                }
                                 break;
                         }
                     }
+                
                 }
-                else
-                {
-                    text += $"{Q.ToString()}\n";
-                }
+              
 
                 label1.Text += text;
 
