@@ -70,12 +70,10 @@ namespace Freshivoje.Custom_Classes
         public void exportgridview(DataGridView dgw)
         {
             int fileCount;
-            decimal finalPrice = 0, totalPrice1;
-            string price, quantity, traveled, totalPrice, pictureURL, folderPath, strFileName;
+            decimal price, finalPrice = 0, totalPrice1, totalPrice;
+            string quantity, traveled, pictureURL, folderPath, strFileName;
             try
             {
-                //pdfTable1.DefaultCell.BackgroundColor = new iTextSharp.text.BaseColor(64, 134, 170);
-                //System.Drawing.Font fontH1 = new System.Drawing.Font("Times New Roman", 16);
                 #region SECTION-1
 
                 PdfPTable companyName = new PdfPTable(1);
@@ -100,7 +98,7 @@ namespace Freshivoje.Custom_Classes
                 clientData.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT;
                 clientData.DefaultCell.VerticalAlignment = Element.ALIGN_LEFT;
                 data.WidthPercentage = 80;
-                data.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                data.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 data.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
                 data.DefaultCell.Padding = 3;
                 blank.DefaultCell.BorderWidth = 0;
@@ -114,24 +112,24 @@ namespace Freshivoje.Custom_Classes
                 total.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
                 total.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
 
-                
+
                 data.AddCell(new Phrase("JEDINIČNA CENA \n(BR.)", font));
                 data.AddCell(new Phrase("KOLIČINA \n(KG)", font));
                 data.AddCell(new Phrase("KILOMETRI \n(KM)", font));
                 data.AddCell(new Phrase("UKUPNA CENA \n(RSD)", font));
-              
 
+                data.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
                 foreach (DataGridViewRow row in dgw.Rows)
                 {
-                    price = (row.Cells["price"].Value.ToString());
-                    quantity = (row.Cells["quantity"].Value.ToString());
-                    traveled = (row.Cells["traveled"].Value.ToString());
-                    totalPrice = (row.Cells["totalPrice"].Value.ToString());
+                    price = Convert.ToDecimal(row.Cells["price"].Value);
+                    quantity = row.Cells["quantity"].Value.ToString();
+                    traveled = row.Cells["traveled"].Value.ToString();
+                    totalPrice = Convert.ToDecimal(row.Cells["totalPrice"].Value);
                     totalPrice1 = Convert.ToDecimal(row.Cells["totalPrice"].Value);
-                    data.AddCell(new Phrase(price, font));
+                    data.AddCell(new Phrase(price.ToString("0.00"), font));
                     data.AddCell(new Phrase(quantity, font));
                     data.AddCell(new Phrase(traveled, font));
-                    data.AddCell(new Phrase(totalPrice, font));
+                    data.AddCell(new Phrase(totalPrice.ToString("0.00"), font));
                     finalPrice = finalPrice + totalPrice1;
                 }
 
@@ -237,7 +235,7 @@ namespace Freshivoje.Custom_Classes
                 Phrase p17 = new Phrase();
                 p17.Add(c17);
                 total.AddCell(p17);
-                Chunk c18 = new Chunk(finalPrice.ToString() + " RSD", font);
+                Chunk c18 = new Chunk(finalPrice.ToString("0.00") + " RSD", font);
                 c18.Font.Color = new BaseColor(0, 0, 0);
                 c18.Font.SetStyle(0);
                 Phrase p18 = new Phrase();

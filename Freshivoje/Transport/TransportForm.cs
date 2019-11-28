@@ -68,10 +68,10 @@ namespace Freshivoje.Transport
                 CustomMessageBox.ShowDialog(this, Properties.Resources.emptyInputErrorMsg);
                 return;
             }
-            decimal priceSingle = Convert.ToDecimal(priceTxtBox.Text);
-            decimal quantity = Convert.ToDecimal(quantityTxtBox.Text);
-            decimal travel = Convert.ToDecimal(travelTxtBox.Text);
-            decimal price = priceSingle * quantity * travel;
+            decimal priceSingle = Math.Round(Convert.ToDecimal(priceTxtBox.Text), 2);
+            decimal quantity = Math.Round(Convert.ToDecimal(quantityTxtBox.Text), 2);
+            decimal travel = Math.Round(Convert.ToDecimal(travelTxtBox.Text), 2);
+            decimal price = Math.Round((priceSingle * quantity * travel), 2);
 
             TransportItem transportItem = new TransportItem(0, _selectedClient._id, priceSingle, quantity, travel, price);
 

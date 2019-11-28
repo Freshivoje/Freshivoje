@@ -101,7 +101,10 @@ namespace Freshivoje.Shared_Forms
                             Hide();
                             using TransportForm transportForm = new TransportForm(client);
                             transportForm.ShowDialog(this);
-                            Show();
+                            if (IsDisposed)
+                            {
+                                Show();
+                            }
                             break;
                         }
                     case "ChooseStorageRentingMethodForm":

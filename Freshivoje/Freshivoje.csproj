@@ -93,9 +93,6 @@
     <Compile Include="Custom Classes\CreatePDF.cs" />
     <Compile Include="Custom Forms\ComboBoxItem.cs" />
     <Compile Include="Custom Forms\CustomDialog.cs">
-    <Compile Include="Models\StorageData.cs" />
-    <Compile Include="Packages Forms\RentPackagesForm.cs">
-    <Compile Include="Custom Forms\CustomTextBoxDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Custom Forms\CustomDialog.Designer.cs">
@@ -251,18 +248,6 @@
     <Compile Include="Packages Forms\ChoosePackagesMethodForm.Designer.cs">
       <DependentUpon>ChoosePackagesMethodForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Packages Forms\PackagesRecordForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Packages Forms\PackagesRecordForm.Designer.cs">
-      <DependentUpon>PackagesRecordForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Packages Forms\RentPackagesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Packages Forms\RentPackagesForm.Designer.cs">
-      <DependentUpon>RentPackagesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="PaymentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -394,12 +379,6 @@
     <EmbeddedResource Include="Packages Forms\ChoosePackagesMethodForm.resx">
       <DependentUpon>ChoosePackagesMethodForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Packages Forms\PackagesRecordForm.resx">
-      <DependentUpon>PackagesRecordForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Packages Forms\RentPackagesForm.resx">
-      <DependentUpon>RentPackagesForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PaymentsForm.resx">
       <DependentUpon>PaymentsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -421,9 +400,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Storage\OutStorageForm.resx">
       <DependentUpon>OutStorageForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Shared Forms\ChooseClientForm.resx">
-      <DependentUpon>ChooseClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Storage\StorageForm.resx">
       <DependentUpon>StorageForm.cs</DependentUpon>
