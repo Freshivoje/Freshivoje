@@ -36,6 +36,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RentPackagesForm));
             this.rentPackagesFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.rentedPackagesDataGridView = new System.Windows.Forms.DataGridView();
+            this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.producer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.available = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -50,15 +59,6 @@
             this.crateQuantityLbl = new System.Windows.Forms.Label();
             this.finishRentPackagesBtn = new System.Windows.Forms.Button();
             this.rentPackagesBtn = new System.Windows.Forms.Button();
-            this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.producer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.available = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rentPackagesFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rentedPackagesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +76,7 @@
             this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.rentPackagesFormTblLayout.Controls.Add(this.rentedPackagesDataGridView, 0, 6);
             this.rentPackagesFormTblLayout.Controls.Add(this.minimizeBtn, 7, 0);
             this.rentPackagesFormTblLayout.Controls.Add(this.exitBtn, 8, 0);
@@ -166,256 +166,7 @@
             this.rentedPackagesDataGridView.Size = new System.Drawing.Size(1427, 506);
             this.rentedPackagesDataGridView.TabIndex = 34;
             this.rentedPackagesDataGridView.TabStop = false;
-            this.rentedPackagesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.insertedArticlesDataGridView_CellContentClick);
-            // 
-            // minimizeBtn
-            // 
-            this.minimizeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.BackgroundImage = global::Freshivoje.Properties.Resources.minimize;
-            this.minimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.minimizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.minimizeBtn.FlatAppearance.BorderSize = 0;
-            this.minimizeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1324, 3);
-            this.minimizeBtn.Name = "minimizeBtn";
-            this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.minimizeBtn.Size = new System.Drawing.Size(44, 54);
-            this.minimizeBtn.TabIndex = 5;
-            this.minimizeBtn.TabStop = false;
-            this.minimizeBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.minimizeBtn.UseVisualStyleBackColor = false;
-            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
-            // 
-            // exitBtn
-            // 
-            this.exitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.exitBtn.BackgroundImage = global::Freshivoje.Properties.Resources.x;
-            this.exitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.exitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exitBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exitBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.exitBtn.FlatAppearance.BorderSize = 0;
-            this.exitBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.exitBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1374, 3);
-            this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(56, 54);
-            this.exitBtn.TabIndex = 6;
-            this.exitBtn.TabStop = false;
-            this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.exitBtn.UseVisualStyleBackColor = false;
-            this.exitBtn.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.rentPackagesFormTblLayout.SetColumnSpan(this.lblTitle, 3);
-            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(3, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblTitle.Size = new System.Drawing.Size(407, 60);
-            this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "IZNAJMLJIVANJE AMBALAŽA";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // backBtn
-            // 
-            this.backBtn.BackColor = System.Drawing.Color.Transparent;
-            this.backBtn.BackgroundImage = global::Freshivoje.Properties.Resources.left_arrow;
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1274, 3);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(44, 54);
-            this.backBtn.TabIndex = 9;
-            this.backBtn.TabStop = false;
-            this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.backBtn.UseVisualStyleBackColor = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
-            // 
-            // cratesCmbBox
-            // 
-            this.rentPackagesFormTblLayout.SetColumnSpan(this.cratesCmbBox, 3);
-            this.cratesCmbBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cratesCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cratesCmbBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cratesCmbBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cratesCmbBox.FormattingEnabled = true;
-            this.cratesCmbBox.Location = new System.Drawing.Point(153, 93);
-            this.cratesCmbBox.Name = "cratesCmbBox";
-            this.cratesCmbBox.Size = new System.Drawing.Size(706, 31);
-            this.cratesCmbBox.TabIndex = 7;
-            this.cratesCmbBox.TabStop = false;
-            this.cratesCmbBox.SelectedIndexChanged += new System.EventHandler(this.cratesCmbBox_SelectedIndexChanged);
-            // 
-            // cratesTypeLbl
-            // 
-            this.cratesTypeLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.cratesTypeLbl.AutoSize = true;
-            this.cratesTypeLbl.BackColor = System.Drawing.Color.Transparent;
-            this.rentPackagesFormTblLayout.SetColumnSpan(this.cratesTypeLbl, 3);
-            this.cratesTypeLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cratesTypeLbl.ForeColor = System.Drawing.Color.White;
-            this.cratesTypeLbl.Location = new System.Drawing.Point(171, 63);
-            this.cratesTypeLbl.Name = "cratesTypeLbl";
-            this.cratesTypeLbl.Size = new System.Drawing.Size(670, 27);
-            this.cratesTypeLbl.TabIndex = 25;
-            this.cratesTypeLbl.Text = "Nosivost (g) / Kategorija / Težina (g) / Proizvođač / Stanje";
-            this.cratesTypeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // availablePackages
-            // 
-            this.availablePackages.AutoSize = true;
-            this.availablePackages.BackColor = System.Drawing.Color.Transparent;
-            this.availablePackages.Dock = System.Windows.Forms.DockStyle.Top;
-            this.availablePackages.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.availablePackages.ForeColor = System.Drawing.Color.White;
-            this.availablePackages.Location = new System.Drawing.Point(865, 90);
-            this.availablePackages.Name = "availablePackages";
-            this.availablePackages.Size = new System.Drawing.Size(179, 27);
-            this.availablePackages.TabIndex = 42;
-            this.availablePackages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // availablePackagesLbl
-            // 
-            this.availablePackagesLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.availablePackagesLbl.AutoSize = true;
-            this.availablePackagesLbl.BackColor = System.Drawing.Color.Transparent;
-            this.availablePackagesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.availablePackagesLbl.ForeColor = System.Drawing.Color.White;
-            this.availablePackagesLbl.Location = new System.Drawing.Point(881, 63);
-            this.availablePackagesLbl.Name = "availablePackagesLbl";
-            this.availablePackagesLbl.Size = new System.Drawing.Size(147, 27);
-            this.availablePackagesLbl.TabIndex = 41;
-            this.availablePackagesLbl.Text = "Raspoloživo";
-            this.availablePackagesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // packagingPriceLbl
-            // 
-            this.packagingPriceLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.packagingPriceLbl.AutoSize = true;
-            this.packagingPriceLbl.BackColor = System.Drawing.Color.Transparent;
-            this.packagingPriceLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.packagingPriceLbl.ForeColor = System.Drawing.Color.White;
-            this.packagingPriceLbl.Location = new System.Drawing.Point(1089, 63);
-            this.packagingPriceLbl.Name = "packagingPriceLbl";
-            this.packagingPriceLbl.Size = new System.Drawing.Size(140, 27);
-            this.packagingPriceLbl.TabIndex = 43;
-            this.packagingPriceLbl.Text = "Cena (RSD)";
-            this.packagingPriceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // price
-            // 
-            this.price.AutoSize = true;
-            this.price.BackColor = System.Drawing.Color.Transparent;
-            this.price.Dock = System.Windows.Forms.DockStyle.Top;
-            this.price.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.price.ForeColor = System.Drawing.Color.White;
-            this.price.Location = new System.Drawing.Point(1050, 90);
-            this.price.Name = "price";
-            this.price.Size = new System.Drawing.Size(218, 27);
-            this.price.TabIndex = 44;
-            this.price.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // crateQuantityTxtBox
-            // 
-            this.crateQuantityTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.crateQuantityTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rentPackagesFormTblLayout.SetColumnSpan(this.crateQuantityTxtBox, 3);
-            this.crateQuantityTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crateQuantityTxtBox.Location = new System.Drawing.Point(567, 193);
-            this.crateQuantityTxtBox.MaxLength = 8;
-            this.crateQuantityTxtBox.Multiline = true;
-            this.crateQuantityTxtBox.Name = "crateQuantityTxtBox";
-            this.crateQuantityTxtBox.ShortcutsEnabled = false;
-            this.crateQuantityTxtBox.Size = new System.Drawing.Size(287, 31);
-            this.crateQuantityTxtBox.TabIndex = 0;
-            this.crateQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
-            this.crateQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
-            // 
-            // crateQuantityLbl
-            // 
-            this.crateQuantityLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.crateQuantityLbl.AutoSize = true;
-            this.crateQuantityLbl.BackColor = System.Drawing.Color.Transparent;
-            this.rentPackagesFormTblLayout.SetColumnSpan(this.crateQuantityLbl, 3);
-            this.crateQuantityLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crateQuantityLbl.ForeColor = System.Drawing.Color.White;
-            this.crateQuantityLbl.Location = new System.Drawing.Point(625, 163);
-            this.crateQuantityLbl.Name = "crateQuantityLbl";
-            this.crateQuantityLbl.Size = new System.Drawing.Size(171, 27);
-            this.crateQuantityLbl.TabIndex = 24;
-            this.crateQuantityLbl.Text = "Broj ambalaža";
-            this.crateQuantityLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // finishRentPackagesBtn
-            // 
-            this.finishRentPackagesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.finishRentPackagesBtn.BackColor = System.Drawing.Color.Transparent;
-            this.rentPackagesFormTblLayout.SetColumnSpan(this.finishRentPackagesBtn, 3);
-            this.finishRentPackagesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.finishRentPackagesBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.finishRentPackagesBtn.FlatAppearance.BorderSize = 5;
-            this.finishRentPackagesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.finishRentPackagesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.finishRentPackagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.finishRentPackagesBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.finishRentPackagesBtn.ForeColor = System.Drawing.Color.White;
-            this.finishRentPackagesBtn.Location = new System.Drawing.Point(567, 817);
-            this.finishRentPackagesBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.finishRentPackagesBtn.Name = "finishRentPackagesBtn";
-            this.finishRentPackagesBtn.Size = new System.Drawing.Size(287, 50);
-            this.finishRentPackagesBtn.TabIndex = 40;
-            this.finishRentPackagesBtn.TabStop = false;
-            this.finishRentPackagesBtn.Text = "Završi iznajmljivanje";
-            this.finishRentPackagesBtn.UseVisualStyleBackColor = false;
-            this.finishRentPackagesBtn.Click += new System.EventHandler(this.finishInsertBtn_Click);
-            // 
-            // rentPackagesBtn
-            // 
-            this.rentPackagesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rentPackagesBtn.BackColor = System.Drawing.Color.Transparent;
-            this.rentPackagesFormTblLayout.SetColumnSpan(this.rentPackagesBtn, 3);
-            this.rentPackagesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rentPackagesBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.rentPackagesBtn.FlatAppearance.BorderSize = 5;
-            this.rentPackagesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.rentPackagesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.rentPackagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rentPackagesBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.rentPackagesBtn.ForeColor = System.Drawing.Color.White;
-            this.rentPackagesBtn.Location = new System.Drawing.Point(567, 245);
-            this.rentPackagesBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.rentPackagesBtn.Name = "rentPackagesBtn";
-            this.rentPackagesBtn.Size = new System.Drawing.Size(287, 50);
-            this.rentPackagesBtn.TabIndex = 30;
-            this.rentPackagesBtn.TabStop = false;
-            this.rentPackagesBtn.Text = "Iznajmi ambalaže";
-            this.rentPackagesBtn.UseVisualStyleBackColor = false;
-            this.rentPackagesBtn.Click += new System.EventHandler(this.rentPackagesBtn_Click);
+            this.rentedPackagesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rentedPackagesDataGridView_CellContentClick);
             // 
             // packagingId
             // 
@@ -489,6 +240,256 @@
             this.deleteArticle.ReadOnly = true;
             this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.deleteArticle.Width = 40;
+            // 
+            // minimizeBtn
+            // 
+            this.minimizeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.minimizeBtn.BackgroundImage = global::Freshivoje.Properties.Resources.minimize;
+            this.minimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.minimizeBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.minimizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.minimizeBtn.FlatAppearance.BorderSize = 0;
+            this.minimizeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.minimizeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimizeBtn.ForeColor = System.Drawing.Color.White;
+            this.minimizeBtn.Location = new System.Drawing.Point(1322, 3);
+            this.minimizeBtn.Name = "minimizeBtn";
+            this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.minimizeBtn.Size = new System.Drawing.Size(44, 54);
+            this.minimizeBtn.TabIndex = 5;
+            this.minimizeBtn.TabStop = false;
+            this.minimizeBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.minimizeBtn.UseVisualStyleBackColor = false;
+            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
+            // 
+            // exitBtn
+            // 
+            this.exitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.exitBtn.BackgroundImage = global::Freshivoje.Properties.Resources.x;
+            this.exitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.exitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exitBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.exitBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.exitBtn.FlatAppearance.BorderSize = 0;
+            this.exitBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.exitBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitBtn.ForeColor = System.Drawing.Color.White;
+            this.exitBtn.Location = new System.Drawing.Point(1372, 3);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.exitBtn.Size = new System.Drawing.Size(58, 54);
+            this.exitBtn.TabIndex = 6;
+            this.exitBtn.TabStop = false;
+            this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesFormTblLayout.SetColumnSpan(this.lblTitle, 3);
+            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(3, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblTitle.Size = new System.Drawing.Size(407, 60);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "IZNAJMLJIVANJE AMBALAŽA";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.BackgroundImage = global::Freshivoje.Properties.Resources.left_arrow;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBtn.ForeColor = System.Drawing.Color.White;
+            this.backBtn.Location = new System.Drawing.Point(1272, 3);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(44, 54);
+            this.backBtn.TabIndex = 9;
+            this.backBtn.TabStop = false;
+            this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
+            // cratesCmbBox
+            // 
+            this.rentPackagesFormTblLayout.SetColumnSpan(this.cratesCmbBox, 3);
+            this.cratesCmbBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cratesCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cratesCmbBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cratesCmbBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cratesCmbBox.FormattingEnabled = true;
+            this.cratesCmbBox.Items.AddRange(new object[] {
+            "---"});
+            this.cratesCmbBox.Location = new System.Drawing.Point(153, 93);
+            this.cratesCmbBox.Name = "cratesCmbBox";
+            this.cratesCmbBox.Size = new System.Drawing.Size(705, 31);
+            this.cratesCmbBox.TabIndex = 7;
+            this.cratesCmbBox.TabStop = false;
+            this.cratesCmbBox.SelectedIndexChanged += new System.EventHandler(this.cratesCmbBox_SelectedIndexChanged);
+            // 
+            // cratesTypeLbl
+            // 
+            this.cratesTypeLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cratesTypeLbl.AutoSize = true;
+            this.cratesTypeLbl.BackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesFormTblLayout.SetColumnSpan(this.cratesTypeLbl, 3);
+            this.cratesTypeLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cratesTypeLbl.ForeColor = System.Drawing.Color.White;
+            this.cratesTypeLbl.Location = new System.Drawing.Point(170, 63);
+            this.cratesTypeLbl.Name = "cratesTypeLbl";
+            this.cratesTypeLbl.Size = new System.Drawing.Size(670, 27);
+            this.cratesTypeLbl.TabIndex = 25;
+            this.cratesTypeLbl.Text = "Nosivost (g) / Kategorija / Težina (g) / Proizvođač / Stanje";
+            this.cratesTypeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // availablePackages
+            // 
+            this.availablePackages.AutoSize = true;
+            this.availablePackages.BackColor = System.Drawing.Color.Transparent;
+            this.availablePackages.Dock = System.Windows.Forms.DockStyle.Top;
+            this.availablePackages.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.availablePackages.ForeColor = System.Drawing.Color.White;
+            this.availablePackages.Location = new System.Drawing.Point(864, 90);
+            this.availablePackages.Name = "availablePackages";
+            this.availablePackages.Size = new System.Drawing.Size(178, 27);
+            this.availablePackages.TabIndex = 42;
+            this.availablePackages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // availablePackagesLbl
+            // 
+            this.availablePackagesLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.availablePackagesLbl.AutoSize = true;
+            this.availablePackagesLbl.BackColor = System.Drawing.Color.Transparent;
+            this.availablePackagesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.availablePackagesLbl.ForeColor = System.Drawing.Color.White;
+            this.availablePackagesLbl.Location = new System.Drawing.Point(879, 63);
+            this.availablePackagesLbl.Name = "availablePackagesLbl";
+            this.availablePackagesLbl.Size = new System.Drawing.Size(147, 27);
+            this.availablePackagesLbl.TabIndex = 41;
+            this.availablePackagesLbl.Text = "Raspoloživo";
+            this.availablePackagesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // packagingPriceLbl
+            // 
+            this.packagingPriceLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.packagingPriceLbl.AutoSize = true;
+            this.packagingPriceLbl.BackColor = System.Drawing.Color.Transparent;
+            this.packagingPriceLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.packagingPriceLbl.ForeColor = System.Drawing.Color.White;
+            this.packagingPriceLbl.Location = new System.Drawing.Point(1087, 63);
+            this.packagingPriceLbl.Name = "packagingPriceLbl";
+            this.packagingPriceLbl.Size = new System.Drawing.Size(140, 27);
+            this.packagingPriceLbl.TabIndex = 43;
+            this.packagingPriceLbl.Text = "Cena (RSD)";
+            this.packagingPriceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // price
+            // 
+            this.price.AutoSize = true;
+            this.price.BackColor = System.Drawing.Color.Transparent;
+            this.price.Dock = System.Windows.Forms.DockStyle.Top;
+            this.price.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.price.ForeColor = System.Drawing.Color.White;
+            this.price.Location = new System.Drawing.Point(1048, 90);
+            this.price.Name = "price";
+            this.price.Size = new System.Drawing.Size(218, 27);
+            this.price.TabIndex = 44;
+            this.price.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // crateQuantityTxtBox
+            // 
+            this.crateQuantityTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.crateQuantityTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rentPackagesFormTblLayout.SetColumnSpan(this.crateQuantityTxtBox, 3);
+            this.crateQuantityTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.crateQuantityTxtBox.Location = new System.Drawing.Point(566, 193);
+            this.crateQuantityTxtBox.MaxLength = 8;
+            this.crateQuantityTxtBox.Multiline = true;
+            this.crateQuantityTxtBox.Name = "crateQuantityTxtBox";
+            this.crateQuantityTxtBox.ShortcutsEnabled = false;
+            this.crateQuantityTxtBox.Size = new System.Drawing.Size(287, 31);
+            this.crateQuantityTxtBox.TabIndex = 0;
+            this.crateQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
+            // 
+            // crateQuantityLbl
+            // 
+            this.crateQuantityLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.crateQuantityLbl.AutoSize = true;
+            this.crateQuantityLbl.BackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesFormTblLayout.SetColumnSpan(this.crateQuantityLbl, 3);
+            this.crateQuantityLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.crateQuantityLbl.ForeColor = System.Drawing.Color.White;
+            this.crateQuantityLbl.Location = new System.Drawing.Point(624, 163);
+            this.crateQuantityLbl.Name = "crateQuantityLbl";
+            this.crateQuantityLbl.Size = new System.Drawing.Size(171, 27);
+            this.crateQuantityLbl.TabIndex = 24;
+            this.crateQuantityLbl.Text = "Broj ambalaža";
+            this.crateQuantityLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // finishRentPackagesBtn
+            // 
+            this.finishRentPackagesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.finishRentPackagesBtn.BackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesFormTblLayout.SetColumnSpan(this.finishRentPackagesBtn, 3);
+            this.finishRentPackagesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.finishRentPackagesBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.finishRentPackagesBtn.FlatAppearance.BorderSize = 5;
+            this.finishRentPackagesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.finishRentPackagesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.finishRentPackagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.finishRentPackagesBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.finishRentPackagesBtn.ForeColor = System.Drawing.Color.White;
+            this.finishRentPackagesBtn.Location = new System.Drawing.Point(566, 817);
+            this.finishRentPackagesBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.finishRentPackagesBtn.Name = "finishRentPackagesBtn";
+            this.finishRentPackagesBtn.Size = new System.Drawing.Size(287, 50);
+            this.finishRentPackagesBtn.TabIndex = 40;
+            this.finishRentPackagesBtn.TabStop = false;
+            this.finishRentPackagesBtn.Text = "Završi iznajmljivanje";
+            this.finishRentPackagesBtn.UseVisualStyleBackColor = false;
+            this.finishRentPackagesBtn.Click += new System.EventHandler(this.finishInsertBtn_Click);
+            // 
+            // rentPackagesBtn
+            // 
+            this.rentPackagesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rentPackagesBtn.BackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesFormTblLayout.SetColumnSpan(this.rentPackagesBtn, 3);
+            this.rentPackagesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rentPackagesBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.rentPackagesBtn.FlatAppearance.BorderSize = 5;
+            this.rentPackagesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.rentPackagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rentPackagesBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.rentPackagesBtn.ForeColor = System.Drawing.Color.White;
+            this.rentPackagesBtn.Location = new System.Drawing.Point(566, 245);
+            this.rentPackagesBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.rentPackagesBtn.Name = "rentPackagesBtn";
+            this.rentPackagesBtn.Size = new System.Drawing.Size(287, 50);
+            this.rentPackagesBtn.TabIndex = 30;
+            this.rentPackagesBtn.TabStop = false;
+            this.rentPackagesBtn.Text = "Iznajmi ambalaže";
+            this.rentPackagesBtn.UseVisualStyleBackColor = false;
+            this.rentPackagesBtn.Click += new System.EventHandler(this.rentPackagesBtn_Click);
             // 
             // RentPackagesForm
             // 

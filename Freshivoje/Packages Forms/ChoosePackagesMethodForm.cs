@@ -49,7 +49,10 @@ namespace Freshivoje
             Hide();
             using PackagesRecordForm packagesRecordForm = new PackagesRecordForm();
             packagesRecordForm.ShowDialog(this);
-            Show();
+            if (!IsDisposed) 
+            { 
+                Show(); 
+            }
         }
     }
 }

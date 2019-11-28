@@ -20,7 +20,6 @@ namespace Freshivoje
         public InsertForm(int clientId)
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
             insertedArticlesDataGridView.AutoGenerateColumns = false;
 
             _selectedClientId = clientId;
@@ -91,6 +90,12 @@ namespace Freshivoje
 
         private void insertBtn_Click(object sender, EventArgs e)
         {
+            if (articlesCmbBox.SelectedIndex == 0 || cratesCmbBox.SelectedIndex == 0)
+            {
+                CustomMessageBox.ShowDialog(this, Properties.Resources.selectComboBoxItemMsg);
+                return;
+            }
+
             if ((palletCmbBox.SelectedIndex == 0 && (string.IsNullOrWhiteSpace(palletWeightTxtBox.Text) || string.IsNullOrWhiteSpace(numberOfPalletsTxtBox.Text))) 
                 || (string.IsNullOrWhiteSpace(articleQuantityTxtBox.Text) || string.IsNullOrWhiteSpace(crateQuantityTxtBox.Text)))
             {
@@ -117,24 +122,55 @@ namespace Freshivoje
             decimal price = Math.Round(netoWeight * articlePrice, 2);
 
             int articleId = (articlesCmbBox.SelectedItem as ComboBoxItem).Value;
-            string[] articleFields = articlesCmbBox.Text.Split('/');
+           
 
             string packageOwnership = crateOwnerCmbBox.Text;
 
-            Article article = new Article(_articleId, articleFields[0], articleFields[1], string.Empty, articleFields[2], price);
-
-
-            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da unesete artikal?\n{articlesCmbBox.Text}\nKlasa: {articleFields[3]}\nNeto kilaža: {netoWeight.ToString("0.00")}\nCena: {article._priceI} RSD");
+            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da unesete artikal?\n{articlesCmbBox.Text}\nNeto kilaža: {netoWeight.ToString("0.00")}\nCena: {price} RSD");
             if (result == DialogResult.No || result == DialogResult.Cancel)
             {
                 return;
             }
 
-            insertedArticlesDataGridView.Rows.Add(_packagingId, numOfCrates, packageOwnership, articleId, article._name, article._sort, article._organic, articleFields[3], netoWeight.ToString("0.00"), article._priceI);
+            insertedArticlesDataGridView.Rows.Add(_packagingId, articleId, articlesCmbBox.Text, netoWeight.ToString("0.00"), numOfCrates, packageOwnership, price);
 
             crateQuantityTxtBox.ResetText();
             articleQuantityTxtBox.ResetText();
             crateQuantityTxtBox.Select();
+        }
+
+        public void getPackagingDebtQuantity()
+        {
+            MySqlCommand mySqlCommand = new MySqlCommand
+            {
+                CommandText = @"SELECT 
+                                SUM(`packaging_record_items`.`quantity` * `packaging_records`.`type` * -1) as `quantity`                         
+                                FROM `packaging_records`
+                                JOIN `clients` ON `clients`.`id_client` = `packaging_records`.`fk_client_id`
+                                JOIN `packaging_record_items` ON `packaging_records`.`id_packaging_record` = `packaging_record_items`.`fk_packaging_records_id`
+                                JOIN `packaging` ON `packaging_record_items`.`fk_packaging_id` = `packaging`.`id_packaging`
+                                WHERE `id_packaging` = @packagingId AND `id_client` = @clientId
+                                GROUP BY `clients`.`id_client`, `packaging`.`id_packaging`
+                                HAVING `quantity` > 0"
+            };
+            mySqlCommand.Parameters.AddWithValue("@packagingId", _packagingId);
+            mySqlCommand.Parameters.AddWithValue("@clientId", _selectedClientId);
+
+            int quantity = Convert.ToInt32(DbConnection.getValue(mySqlCommand));
+            debtLbl.Text = quantity.ToString();
+        }
+
+        private void crateOwnerCmbBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (crateOwnerCmbBox.SelectedIndex == 0)
+            {
+                debtLbl.Visible = true;
+                packagingDebtLbl.Visible = true;
+            } else
+            {
+                debtLbl.Visible = false;
+                packagingDebtLbl.Visible = false;
+            }
         }
 
         public void getArticlePrice()
@@ -153,7 +189,6 @@ namespace Freshivoje
             _selectedArticlePrice = DbConnection.getValue(mySqlCommand);
             articlePriceLbl.Text = _selectedArticlePrice.ToString();
         }
-
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
             if (insertedArticlesDataGridView.Rows.Count < 1)
@@ -271,9 +306,13 @@ namespace Freshivoje
 
         private void cratesCmbBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (crateOwnerCmbBox.SelectedIndex == 0)
+            if (cratesCmbBox.SelectedIndex == 0)
             {
                 return;
+            }
+            if (crateOwnerCmbBox.SelectedIndex == 0)
+            {
+                getPackagingDebtQuantity();
             }
             _packagingId = (cratesCmbBox.SelectedItem as ComboBoxItem).Value;
             MySqlCommand mySqlCommand = new MySqlCommand

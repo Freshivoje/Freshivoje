@@ -563,7 +563,7 @@ namespace Freshivoje
                 while (mySqlDataReader.Read())
                 {
 
-                    result += $"Artikal {articleNum}\n{mySqlDataReader.GetString("article")}\n{mySqlDataReader.GetString("quantity")} kg\n{mySqlDataReader.GetString("price")} RSD\n";
+                    result += $"Artikal {articleNum}\n{mySqlDataReader.GetString("article")}\n{mySqlDataReader.GetString("quantity")} kg\n{mySqlDataReader.GetString("price")} RSD\n\n";
 
                     articleNum += 1;
                 }

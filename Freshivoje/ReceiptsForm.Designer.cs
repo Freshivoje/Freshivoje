@@ -50,7 +50,7 @@
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.preview = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.changeStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.receiptsRecordTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.receiptsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -210,7 +210,7 @@
             this.status,
             this.totalPrice,
             this.preview,
-            this.deleteStatus});
+            this.changeStatus});
             this.receiptsRecordTblLayout.SetColumnSpan(this.receiptsDataGridView, 8);
             this.receiptsDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -327,7 +327,7 @@
             this.preview.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.preview.Width = 40;
             // 
-            // deleteStatus
+            // changeStatus
             // 
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
@@ -335,12 +335,12 @@
             dataGridViewCellStyle4.NullValue = "💰";
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.deleteStatus.DefaultCellStyle = dataGridViewCellStyle4;
-            this.deleteStatus.HeaderText = "";
-            this.deleteStatus.Name = "deleteStatus";
-            this.deleteStatus.ReadOnly = true;
-            this.deleteStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deleteStatus.Width = 40;
+            this.changeStatus.DefaultCellStyle = dataGridViewCellStyle4;
+            this.changeStatus.HeaderText = "";
+            this.changeStatus.Name = "changeStatus";
+            this.changeStatus.ReadOnly = true;
+            this.changeStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.changeStatus.Width = 40;
             // 
             // ReceiptsForm
             // 
@@ -381,6 +381,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn preview;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deleteStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn changeStatus;
     }
 }

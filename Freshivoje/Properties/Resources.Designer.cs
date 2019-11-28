@@ -199,6 +199,15 @@ namespace Freshivoje.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MOLIMO IZABERITE VREDNOST IZ PADAJUĆIH MENIJA!.
+        /// </summary>
+        internal static string selectComboBoxItemMsg {
+            get {
+                return ResourceManager.GetString("selectComboBoxItemMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap x {

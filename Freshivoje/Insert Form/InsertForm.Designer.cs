@@ -51,17 +51,6 @@
             this.crateOwnerCmbBox = new System.Windows.Forms.ComboBox();
             this.cratesCmbBox = new System.Windows.Forms.ComboBox();
             this.insertedArticlesDataGridView = new System.Windows.Forms.DataGridView();
-            this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packagingQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packagingOwnership = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleOrganic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articlePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articlePriceLbl = new System.Windows.Forms.Label();
             this.crateQuantityTxtBox = new System.Windows.Forms.TextBox();
             this.cratesLbl = new System.Windows.Forms.Label();
@@ -72,6 +61,16 @@
             this.insertBtn = new System.Windows.Forms.Button();
             this.finishInsertBtn = new System.Windows.Forms.Button();
             this.priceLbl = new System.Windows.Forms.Label();
+            this.packagingDebtLbl = new System.Windows.Forms.Label();
+            this.debtLbl = new System.Windows.Forms.Label();
+            this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.article = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articleQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packagingQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packagingOwnership = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articlePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.insertFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.insertedArticlesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -93,7 +92,7 @@
             this.insertFormTblLayout.Controls.Add(this.minimizeBtn, 7, 0);
             this.insertFormTblLayout.Controls.Add(this.exitBtn, 8, 0);
             this.insertFormTblLayout.Controls.Add(this.articlesCmbBox, 1, 4);
-            this.insertFormTblLayout.Controls.Add(this.articleQuantityTxtBox, 2, 9);
+            this.insertFormTblLayout.Controls.Add(this.articleQuantityTxtBox, 3, 9);
             this.insertFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
             this.insertFormTblLayout.Controls.Add(this.backBtn, 6, 0);
             this.insertFormTblLayout.Controls.Add(this.articlesLbl, 1, 3);
@@ -116,6 +115,8 @@
             this.insertFormTblLayout.Controls.Add(this.insertBtn, 2, 10);
             this.insertFormTblLayout.Controls.Add(this.finishInsertBtn, 2, 14);
             this.insertFormTblLayout.Controls.Add(this.priceLbl, 5, 3);
+            this.insertFormTblLayout.Controls.Add(this.packagingDebtLbl, 6, 6);
+            this.insertFormTblLayout.Controls.Add(this.debtLbl, 6, 7);
             this.insertFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insertFormTblLayout.Location = new System.Drawing.Point(5, 5);
             this.insertFormTblLayout.Name = "insertFormTblLayout";
@@ -206,15 +207,14 @@
             // articleQuantityTxtBox
             // 
             this.articleQuantityTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.insertFormTblLayout.SetColumnSpan(this.articleQuantityTxtBox, 3);
             this.articleQuantityTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.articleQuantityTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.articleQuantityTxtBox.Location = new System.Drawing.Point(379, 373);
+            this.articleQuantityTxtBox.Location = new System.Drawing.Point(605, 373);
             this.articleQuantityTxtBox.MaxLength = 10;
             this.articleQuantityTxtBox.Multiline = true;
             this.articleQuantityTxtBox.Name = "articleQuantityTxtBox";
             this.articleQuantityTxtBox.ShortcutsEnabled = false;
-            this.articleQuantityTxtBox.Size = new System.Drawing.Size(672, 31);
+            this.articleQuantityTxtBox.Size = new System.Drawing.Size(220, 31);
             this.articleQuantityTxtBox.TabIndex = 3;
             this.articleQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
@@ -375,6 +375,7 @@
             this.crateOwnerCmbBox.Size = new System.Drawing.Size(220, 31);
             this.crateOwnerCmbBox.TabIndex = 8;
             this.crateOwnerCmbBox.TabStop = false;
+            this.crateOwnerCmbBox.SelectedIndexChanged += new System.EventHandler(this.crateOwnerCmbBox_SelectedIndexChanged);
             // 
             // cratesCmbBox
             // 
@@ -413,14 +414,11 @@
             this.insertedArticlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.insertedArticlesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.packagingId,
+            this.articleId,
+            this.article,
+            this.articleQuantity,
             this.packagingQuantity,
             this.packagingOwnership,
-            this.articleId,
-            this.articleName,
-            this.articleSort,
-            this.articleOrganic,
-            this.articleCategory,
-            this.articleQuantity,
             this.articlePrice,
             this.deleteArticle});
             this.insertFormTblLayout.SetColumnSpan(this.insertedArticlesDataGridView, 9);
@@ -448,93 +446,6 @@
             this.insertedArticlesDataGridView.TabIndex = 34;
             this.insertedArticlesDataGridView.TabStop = false;
             this.insertedArticlesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.insertedArticlesDataGridView_CellContentClick);
-            // 
-            // packagingId
-            // 
-            this.packagingId.HeaderText = "ID ambalaže";
-            this.packagingId.Name = "packagingId";
-            this.packagingId.ReadOnly = true;
-            this.packagingId.Visible = false;
-            // 
-            // packagingQuantity
-            // 
-            this.packagingQuantity.HeaderText = "Broj ambalaža";
-            this.packagingQuantity.Name = "packagingQuantity";
-            this.packagingQuantity.ReadOnly = true;
-            this.packagingQuantity.Visible = false;
-            // 
-            // packagingOwnership
-            // 
-            this.packagingOwnership.HeaderText = "Vlasništvo ambalaže";
-            this.packagingOwnership.Name = "packagingOwnership";
-            this.packagingOwnership.ReadOnly = true;
-            this.packagingOwnership.Visible = false;
-            // 
-            // articleId
-            // 
-            this.articleId.HeaderText = "ID artikla";
-            this.articleId.Name = "articleId";
-            this.articleId.ReadOnly = true;
-            this.articleId.Visible = false;
-            // 
-            // articleName
-            // 
-            this.articleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleName.HeaderText = "Ime";
-            this.articleName.Name = "articleName";
-            this.articleName.ReadOnly = true;
-            // 
-            // articleSort
-            // 
-            this.articleSort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleSort.HeaderText = "Sorta";
-            this.articleSort.Name = "articleSort";
-            this.articleSort.ReadOnly = true;
-            // 
-            // articleOrganic
-            // 
-            this.articleOrganic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.articleOrganic.HeaderText = "Kontrolisana proizvodnja";
-            this.articleOrganic.Name = "articleOrganic";
-            this.articleOrganic.ReadOnly = true;
-            this.articleOrganic.Width = 317;
-            // 
-            // articleCategory
-            // 
-            this.articleCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleCategory.HeaderText = "Klasa";
-            this.articleCategory.Name = "articleCategory";
-            this.articleCategory.ReadOnly = true;
-            // 
-            // articleQuantity
-            // 
-            this.articleQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleQuantity.HeaderText = "Neto količina";
-            this.articleQuantity.Name = "articleQuantity";
-            this.articleQuantity.ReadOnly = true;
-            this.articleQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // articlePrice
-            // 
-            this.articlePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articlePrice.HeaderText = "Cena";
-            this.articlePrice.Name = "articlePrice";
-            this.articlePrice.ReadOnly = true;
-            // 
-            // deleteArticle
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.NullValue = "X";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle2;
-            this.deleteArticle.HeaderText = "";
-            this.deleteArticle.Name = "deleteArticle";
-            this.deleteArticle.ReadOnly = true;
-            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deleteArticle.Width = 40;
             // 
             // articlePriceLbl
             // 
@@ -585,11 +496,11 @@
             this.insertFormTblLayout.SetColumnSpan(this.cratesTypeLbl, 3);
             this.cratesTypeLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cratesTypeLbl.ForeColor = System.Drawing.Color.White;
-            this.cratesTypeLbl.Location = new System.Drawing.Point(383, 253);
+            this.cratesTypeLbl.Location = new System.Drawing.Point(380, 253);
             this.cratesTypeLbl.Name = "cratesTypeLbl";
-            this.cratesTypeLbl.Size = new System.Drawing.Size(664, 27);
+            this.cratesTypeLbl.Size = new System.Drawing.Size(670, 27);
             this.cratesTypeLbl.TabIndex = 25;
-            this.cratesTypeLbl.Text = "Nosivost(g) / Kategorija / Težina (g) / Proizvođač / Stanje";
+            this.cratesTypeLbl.Text = "Nosivost (g) / Kategorija / Težina (g) / Proizvođač / Stanje";
             this.cratesTypeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // articleQuantityLbl
@@ -695,6 +606,104 @@
             this.priceLbl.Text = "Cena (RSD)";
             this.priceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // packagingDebtLbl
+            // 
+            this.packagingDebtLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.packagingDebtLbl.AutoSize = true;
+            this.packagingDebtLbl.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.packagingDebtLbl, 3);
+            this.packagingDebtLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.packagingDebtLbl.ForeColor = System.Drawing.Color.White;
+            this.packagingDebtLbl.Location = new System.Drawing.Point(1310, 253);
+            this.packagingDebtLbl.Name = "packagingDebtLbl";
+            this.packagingDebtLbl.Size = new System.Drawing.Size(92, 27);
+            this.packagingDebtLbl.TabIndex = 41;
+            this.packagingDebtLbl.Text = "Duguje";
+            this.packagingDebtLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // debtLbl
+            // 
+            this.debtLbl.AutoSize = true;
+            this.debtLbl.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.debtLbl, 3);
+            this.debtLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.debtLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.debtLbl.ForeColor = System.Drawing.Color.White;
+            this.debtLbl.Location = new System.Drawing.Point(1283, 280);
+            this.debtLbl.Name = "debtLbl";
+            this.debtLbl.Size = new System.Drawing.Size(147, 40);
+            this.debtLbl.TabIndex = 42;
+            this.debtLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // packagingId
+            // 
+            this.packagingId.HeaderText = "ID ambalaže";
+            this.packagingId.Name = "packagingId";
+            this.packagingId.ReadOnly = true;
+            this.packagingId.Visible = false;
+            // 
+            // articleId
+            // 
+            this.articleId.HeaderText = "ID artikla";
+            this.articleId.Name = "articleId";
+            this.articleId.ReadOnly = true;
+            this.articleId.Visible = false;
+            // 
+            // article
+            // 
+            this.article.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.article.HeaderText = "Ime / Sorta / Kontrolisana proizvodnja / Klasa";
+            this.article.Name = "article";
+            this.article.ReadOnly = true;
+            this.article.Width = 556;
+            // 
+            // articleQuantity
+            // 
+            this.articleQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.articleQuantity.HeaderText = "Neto količina (kg)";
+            this.articleQuantity.Name = "articleQuantity";
+            this.articleQuantity.ReadOnly = true;
+            this.articleQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.articleQuantity.Width = 236;
+            // 
+            // packagingQuantity
+            // 
+            this.packagingQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.packagingQuantity.HeaderText = "Broj ambalaža";
+            this.packagingQuantity.Name = "packagingQuantity";
+            this.packagingQuantity.ReadOnly = true;
+            this.packagingQuantity.Width = 196;
+            // 
+            // packagingOwnership
+            // 
+            this.packagingOwnership.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.packagingOwnership.HeaderText = "Vlasništvo ambalaže";
+            this.packagingOwnership.Name = "packagingOwnership";
+            this.packagingOwnership.ReadOnly = true;
+            this.packagingOwnership.Width = 263;
+            // 
+            // articlePrice
+            // 
+            this.articlePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.articlePrice.HeaderText = "Cena";
+            this.articlePrice.Name = "articlePrice";
+            this.articlePrice.ReadOnly = true;
+            // 
+            // deleteArticle
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.NullValue = "X";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle2;
+            this.deleteArticle.HeaderText = "";
+            this.deleteArticle.Name = "deleteArticle";
+            this.deleteArticle.ReadOnly = true;
+            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.deleteArticle.Width = 40;
+            // 
             // InsertForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -709,6 +718,7 @@
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UNOS ARTIKALA";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.insertFormTblLayout.ResumeLayout(false);
             this.insertFormTblLayout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.insertedArticlesDataGridView)).EndInit();
@@ -745,15 +755,14 @@
         private System.Windows.Forms.TextBox numberOfPalletsTxtBox;
         private System.Windows.Forms.TextBox palletWeightTxtBox;
         private System.Windows.Forms.Button finishInsertBtn;
+        private System.Windows.Forms.Label packagingDebtLbl;
+        private System.Windows.Forms.Label debtLbl;
         private System.Windows.Forms.DataGridViewTextBoxColumn packagingId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn articleId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn article;
+        private System.Windows.Forms.DataGridViewTextBoxColumn articleQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn packagingQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn packagingOwnership;
-        private System.Windows.Forms.DataGridViewTextBoxColumn articleId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn articleName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn articleSort;
-        private System.Windows.Forms.DataGridViewTextBoxColumn articleOrganic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn articleCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn articleQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn articlePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn deleteArticle;
     }

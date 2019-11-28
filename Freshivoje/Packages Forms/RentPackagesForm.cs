@@ -83,6 +83,11 @@ namespace Freshivoje
         private void rentPackagesBtn_Click(object sender, EventArgs e)
         {
 
+            if (cratesCmbBox.SelectedIndex == 0)
+            {
+                CustomMessageBox.ShowDialog(this, Properties.Resources.selectComboBoxItemMsg);
+                return;
+            }
             if (string.IsNullOrWhiteSpace(crateQuantityTxtBox.Text))
             {
                 CustomMessageBox.ShowDialog(this, Properties.Resources.emptyInputErrorMsg);
@@ -174,7 +179,7 @@ namespace Freshivoje
             Close();
         }
 
-        private void insertedArticlesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void rentedPackagesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 8)
             {
@@ -191,10 +196,17 @@ namespace Freshivoje
 
         private void cratesCmbBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(cratesCmbBox.SelectedIndex == 0)
+            {
+                availablePackages.ResetText();
+                price.ResetText();
+                return;
+            }
             updatePackageDetails();
         }
         private void updatePackageDetails()
         {
+          
             _selectedPackagingId = (cratesCmbBox.SelectedItem as ComboBoxItem).Value;
             MySqlCommand mySqlCommand = new MySqlCommand
             {

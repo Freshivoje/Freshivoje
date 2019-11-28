@@ -171,4 +171,7 @@ UNESITE VREDNOSTI U POLJE!</value>
 ILI STE VEĆ IZDALI SVE RASPOLOŽIVE AMBALAŽE! 
 </value>
   </data>
+  <data name="selectComboBoxItemMsg" xml:space="preserve">
+    <value>MOLIMO IZABERITE VREDNOST IZ PADAJUĆIH MENIJA!</value>
+  </data>
 </root>
