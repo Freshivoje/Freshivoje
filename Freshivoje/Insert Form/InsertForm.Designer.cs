@@ -30,9 +30,10 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InsertForm));
             this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.minimizeBtn = new System.Windows.Forms.Button();
@@ -67,7 +68,9 @@
             this.articleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.article = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articleQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packaging = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packagingQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packagingDebt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packagingOwnership = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articlePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -417,27 +420,29 @@
             this.articleId,
             this.article,
             this.articleQuantity,
+            this.packaging,
             this.packagingQuantity,
+            this.packagingDebt,
             this.packagingOwnership,
             this.articlePrice,
             this.deleteArticle});
             this.insertFormTblLayout.SetColumnSpan(this.insertedArticlesDataGridView, 9);
             this.insertedArticlesDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.insertedArticlesDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.insertedArticlesDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.insertedArticlesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insertedArticlesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.insertedArticlesDataGridView.Location = new System.Drawing.Point(3, 473);
             this.insertedArticlesDataGridView.MultiSelect = false;
             this.insertedArticlesDataGridView.Name = "insertedArticlesDataGridView";
             this.insertedArticlesDataGridView.ReadOnly = true;
-            this.insertedArticlesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.insertedArticlesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.insertedArticlesDataGridView.RowHeadersWidth = 40;
             this.insertedArticlesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.insertFormTblLayout.SetRowSpan(this.insertedArticlesDataGridView, 3);
@@ -651,11 +656,10 @@
             // 
             // article
             // 
-            this.article.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.article.HeaderText = "Ime / Sorta / Kontrolisana proizvodnja / Klasa";
+            this.article.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.article.HeaderText = "Artikal";
             this.article.Name = "article";
             this.article.ReadOnly = true;
-            this.article.Width = 556;
             // 
             // articleQuantity
             // 
@@ -666,13 +670,30 @@
             this.articleQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.articleQuantity.Width = 236;
             // 
+            // packaging
+            // 
+            this.packaging.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.packaging.HeaderText = "Ambalaža";
+            this.packaging.Name = "packaging";
+            this.packaging.ReadOnly = true;
+            // 
             // packagingQuantity
             // 
             this.packagingQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.packagingQuantity.HeaderText = "Broj ambalaža";
+            this.packagingQuantity.HeaderText = "Broj unetih ambalaža";
             this.packagingQuantity.Name = "packagingQuantity";
             this.packagingQuantity.ReadOnly = true;
-            this.packagingQuantity.Width = 196;
+            this.packagingQuantity.Width = 273;
+            // 
+            // packagingDebt
+            // 
+            this.packagingDebt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle2.NullValue = "/";
+            this.packagingDebt.DefaultCellStyle = dataGridViewCellStyle2;
+            this.packagingDebt.HeaderText = "Broj ambalaža koje duguje";
+            this.packagingDebt.Name = "packagingDebt";
+            this.packagingDebt.ReadOnly = true;
+            this.packagingDebt.Width = 333;
             // 
             // packagingOwnership
             // 
@@ -684,20 +705,21 @@
             // 
             // articlePrice
             // 
-            this.articlePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articlePrice.HeaderText = "Cena";
+            this.articlePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.articlePrice.HeaderText = "Cena (RSD)";
             this.articlePrice.Name = "articlePrice";
             this.articlePrice.ReadOnly = true;
+            this.articlePrice.Width = 165;
             // 
             // deleteArticle
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.NullValue = "X";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.NullValue = "X";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
+            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle3;
             this.deleteArticle.HeaderText = "";
             this.deleteArticle.Name = "deleteArticle";
             this.deleteArticle.ReadOnly = true;
@@ -761,7 +783,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn articleId;
         private System.Windows.Forms.DataGridViewTextBoxColumn article;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn packaging;
         private System.Windows.Forms.DataGridViewTextBoxColumn packagingQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn packagingDebt;
         private System.Windows.Forms.DataGridViewTextBoxColumn packagingOwnership;
         private System.Windows.Forms.DataGridViewTextBoxColumn articlePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn deleteArticle;

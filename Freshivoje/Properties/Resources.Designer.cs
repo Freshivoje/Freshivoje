@@ -199,6 +199,26 @@ namespace Freshivoje.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BROJ VRAĆENIH AMBALAŽA PREMAŠUJE BROJ KOJI KLIJENT DUGUJE!
+        ///PROVERITE DA LI STE LEPO UNELI PODATKE!.
+        /// </summary>
+        internal static string packagingDebtAvailabilityErrorMsg {
+            get {
+                return ResourceManager.GetString("packagingDebtAvailabilityErrorMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KLIJENT NE DUGUJE NI JEDNU OD ODABRANIH AMBALAŽA!
+        ///POKUŠAJTE SA DRUGOM AMBALAŽOM ILI PROMENITE VLASNIŠTVO AMBALAŽE!.
+        /// </summary>
+        internal static string packagingDebtMsg {
+            get {
+                return ResourceManager.GetString("packagingDebtMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MOLIMO IZABERITE VREDNOST IZ PADAJUĆIH MENIJA!.
         /// </summary>
         internal static string selectComboBoxItemMsg {

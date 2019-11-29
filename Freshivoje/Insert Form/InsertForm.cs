@@ -96,6 +96,12 @@ namespace Freshivoje
                 return;
             }
 
+            if (crateOwnerCmbBox.SelectedIndex == 0 && Convert.ToInt32(debtLbl.Text) < 1)
+            {
+                CustomMessageBox.ShowDialog(this, Properties.Resources.packagingDebtMsg);
+                return;
+            }
+
             if ((palletCmbBox.SelectedIndex == 0 && (string.IsNullOrWhiteSpace(palletWeightTxtBox.Text) || string.IsNullOrWhiteSpace(numberOfPalletsTxtBox.Text))) 
                 || (string.IsNullOrWhiteSpace(articleQuantityTxtBox.Text) || string.IsNullOrWhiteSpace(crateQuantityTxtBox.Text)))
             {
@@ -103,36 +109,96 @@ namespace Freshivoje
                 return;
             }
 
-
             if (palletCmbBox.SelectedIndex == 0)
             {
                 _palletWeight = Convert.ToDecimal(palletWeightTxtBox.Text) * Convert.ToDecimal(numberOfPalletsTxtBox.Text);
             }
 
+            string article = articlesCmbBox.Text;
+
             int brutoWeight = Convert.ToInt32(articleQuantityTxtBox.Text);
             decimal articlePrice = Convert.ToDecimal(articlePriceLbl.Text);
 
             decimal crateWeight = _packagingWeight;
-            int numOfCrates = Convert.ToInt32(crateQuantityTxtBox.Text);
+            int numberOfReturnedPackagings = Convert.ToInt32(crateQuantityTxtBox.Text);
 
-            decimal nonArticleWeight = crateWeight * numOfCrates + _palletWeight;
+            decimal nonArticleWeight = crateWeight * numberOfReturnedPackagings + _palletWeight;
 
             decimal netoWeight = decimal.Round(brutoWeight - nonArticleWeight, 2);
 
             decimal price = Math.Round(netoWeight * articlePrice, 2);
 
             int articleId = (articlesCmbBox.SelectedItem as ComboBoxItem).Value;
-           
 
             string packageOwnership = crateOwnerCmbBox.Text;
 
-            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da unesete artikal?\n{articlesCmbBox.Text}\nNeto kilaža: {netoWeight.ToString("0.00")}\nCena: {price} RSD");
+            int totalNumberOfReturnedPackagings = numberOfReturnedPackagings;
+            int packagingDebt;
+
+            foreach (DataGridViewRow row in insertedArticlesDataGridView.Rows)
+            {
+                if (Convert.ToInt32(row.Cells["packagingId"].Value) == _packagingId
+                    && row.Cells["packagingOwnership"].Value.ToString() == packageOwnership
+                    && crateOwnerCmbBox.SelectedIndex == 0)
+                {
+                    packagingDebt = Convert.ToInt32(row.Cells["packagingDebt"].Value);
+                    totalNumberOfReturnedPackagings = Convert.ToInt32(row.Cells["packagingQuantity"].Value) + totalNumberOfReturnedPackagings;
+                    if (!checkAvailability(totalNumberOfReturnedPackagings, packagingDebt))
+                    {
+                        CustomMessageBox.ShowDialog(this, Properties.Resources.packagingDebtAvailabilityErrorMsg);
+                        return;
+                    }
+                }
+  
+            }
+            
+            foreach (DataGridViewRow row in insertedArticlesDataGridView.Rows)
+            {
+  
+                if (Convert.ToInt32(row.Cells["articleId"].Value) == articleId 
+                    && Convert.ToInt32(row.Cells["packagingId"].Value) == _packagingId 
+                    && row.Cells["packagingOwnership"].Value.ToString() == packageOwnership)
+                {
+                    netoWeight = Convert.ToDecimal(row.Cells["articleQuantity"].Value) + netoWeight;
+                    numberOfReturnedPackagings = Convert.ToInt32(row.Cells["packagingQuantity"].Value) + numberOfReturnedPackagings;
+                    if (packageOwnership == "Hladnjača" && numberOfReturnedPackagings > totalNumberOfReturnedPackagings)
+                    {
+                        CustomMessageBox.ShowDialog(this, Properties.Resources.packagingDebtAvailabilityErrorMsg);
+                        return;
+                    }
+                    price = Convert.ToDecimal(row.Cells["articlePrice"].Value) + price;
+
+                    if (packageOwnership == "Hladnjača" && !checkAvailability(numberOfReturnedPackagings, Convert.ToInt32(debtLbl.Text)))
+                    {
+                        CustomMessageBox.ShowDialog(this, Properties.Resources.packagingDebtAvailabilityErrorMsg);
+                        return;
+                    }
+
+                    row.Cells["articleQuantity"].Value = netoWeight;
+                    row.Cells["packagingQuantity"].Value = numberOfReturnedPackagings;
+                    row.Cells["articlePrice"].Value = price;
+                    
+                    crateQuantityTxtBox.ResetText();
+                    articleQuantityTxtBox.ResetText();
+                    crateQuantityTxtBox.Select();
+
+                    return;
+                } 
+            }
+
+            if (crateOwnerCmbBox.SelectedIndex == 0 && !checkAvailability(numberOfReturnedPackagings, Convert.ToInt32(debtLbl.Text)))
+            {
+                CustomMessageBox.ShowDialog(this, Properties.Resources.packagingDebtAvailabilityErrorMsg);
+                return;
+            }
+
+            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da unesete artikal?\n{article}\nNeto kilaža: {netoWeight.ToString("0.00")}\nCena: {price} RSD");
             if (result == DialogResult.No || result == DialogResult.Cancel)
             {
                 return;
             }
 
-            insertedArticlesDataGridView.Rows.Add(_packagingId, articleId, articlesCmbBox.Text, netoWeight.ToString("0.00"), numOfCrates, packageOwnership, price);
+            insertedArticlesDataGridView.Rows.Add(_packagingId, articleId, articlesCmbBox.Text, netoWeight.ToString("0.00"), cratesCmbBox.Text, numberOfReturnedPackagings, debtLbl.Text, packageOwnership, price);
 
             crateQuantityTxtBox.ResetText();
             articleQuantityTxtBox.ResetText();
@@ -144,12 +210,12 @@ namespace Freshivoje
             MySqlCommand mySqlCommand = new MySqlCommand
             {
                 CommandText = @"SELECT 
-                                SUM(`packaging_record_items`.`quantity` * `packaging_records`.`type` * -1) as `quantity`                         
+                                    SUM(`packaging_record_items`.`quantity` * `packaging_records`.`type` * -1) as `quantity`                         
                                 FROM `packaging_records`
                                 JOIN `clients` ON `clients`.`id_client` = `packaging_records`.`fk_client_id`
                                 JOIN `packaging_record_items` ON `packaging_records`.`id_packaging_record` = `packaging_record_items`.`fk_packaging_records_id`
                                 JOIN `packaging` ON `packaging_record_items`.`fk_packaging_id` = `packaging`.`id_packaging`
-                                WHERE `id_packaging` = @packagingId AND `id_client` = @clientId
+                                WHERE `packaging_record_items`.`ownership` = 'Hladnjača' AND `packaging_record_items`.`fk_packaging_id` = @packagingId AND `clients`.`id_client` = @clientId
                                 GROUP BY `clients`.`id_client`, `packaging`.`id_packaging`
                                 HAVING `quantity` > 0"
             };
@@ -164,10 +230,12 @@ namespace Freshivoje
         {
             if (crateOwnerCmbBox.SelectedIndex == 0)
             {
+                
                 debtLbl.Visible = true;
                 packagingDebtLbl.Visible = true;
             } else
             {
+                debtLbl.Text = Properties.Resources.dashInput;
                 debtLbl.Visible = false;
                 packagingDebtLbl.Visible = false;
             }
@@ -188,6 +256,11 @@ namespace Freshivoje
 
             _selectedArticlePrice = DbConnection.getValue(mySqlCommand);
             articlePriceLbl.Text = _selectedArticlePrice.ToString();
+        }
+
+        private bool checkAvailability(int quantity, int availablePackages)
+        {
+            return quantity <= availablePackages ? true : false;
         }
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
@@ -290,7 +363,7 @@ namespace Freshivoje
 
         private void insertedArticlesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 10)
+            if (e.ColumnIndex == 9)
             {
 
                 DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da obrišete ovaj artikal iz unosa?");
@@ -310,11 +383,13 @@ namespace Freshivoje
             {
                 return;
             }
+          
+            _packagingId = (cratesCmbBox.SelectedItem as ComboBoxItem).Value;
+
             if (crateOwnerCmbBox.SelectedIndex == 0)
             {
                 getPackagingDebtQuantity();
             }
-            _packagingId = (cratesCmbBox.SelectedItem as ComboBoxItem).Value;
             MySqlCommand mySqlCommand = new MySqlCommand
             {
                 CommandText = $"SELECT `weight` FROM `packaging` WHERE `id_packaging` = @packagingId"

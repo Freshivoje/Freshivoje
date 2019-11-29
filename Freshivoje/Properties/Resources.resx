@@ -174,4 +174,12 @@ ILI STE VEĆ IZDALI SVE RASPOLOŽIVE AMBALAŽE!
   <data name="selectComboBoxItemMsg" xml:space="preserve">
     <value>MOLIMO IZABERITE VREDNOST IZ PADAJUĆIH MENIJA!</value>
   </data>
+  <data name="packagingDebtAvailabilityErrorMsg" xml:space="preserve">
+    <value>BROJ VRAĆENIH AMBALAŽA PREMAŠUJE BROJ KOJI KLIJENT DUGUJE!
+PROVERITE DA LI STE LEPO UNELI PODATKE!</value>
+  </data>
+  <data name="packagingDebtMsg" xml:space="preserve">
+    <value>KLIJENT NE DUGUJE NI JEDNU OD ODABRANIH AMBALAŽA!
+POKUŠAJTE SA DRUGOM AMBALAŽOM ILI PROMENITE VLASNIŠTVO AMBALAŽE!</value>
+  </data>
 </root>
