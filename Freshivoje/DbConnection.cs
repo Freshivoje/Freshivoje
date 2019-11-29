@@ -250,16 +250,20 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-        public static void tunnel(Label label, Label label1, string query, string query1, params string[] columns)
+        public static void tunnel(Label label, string query, string query1, Label label1 , params string[] columns)
         {
 
             try
             {
                 string text = string.Empty;
-                var ListOfArticleQuantity = new List<Decimal>();
-                var ListOfPackagingQuantity = new List<Int32>();
-               
-                decimal QSA = 0, QA = 0, QSP = 0, QP = 0, SUM;
+                string text1 = string.Empty;
+              
+                var MapOfArticleQuantiy = new Dictionary<Int32,Decimal>();
+                var MapOfArticleStorageQuantiy = new Dictionary<Int32, Decimal>();
+                var MapOfPackagingQuantity = new Dictionary<Int32, Decimal>();
+                var MapOfPackagingStorageQuantity = new Dictionary<Int32, Decimal>();
+                int QuantityStorageArticleId = 0, QuantityArticleId = 0, QuantityPackagingId = 0, QuantityStoragePackagingId = 0;
+                decimal QuantityStorageArticle = 0, QuantityArticle = 0, QuantityStoragePackaging = 0, QuantityPackaging = 0,  SUM;
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
                 mySqlCommand.CommandText = query;
@@ -271,6 +275,9 @@ namespace Freshivoje
                     {
                         switch (column)
                         {
+                            case "quantityArticleId":
+                                QuantityArticleId = reader.GetInt32(column);
+                                break;
                             case "article_name":
                                 text += $"{reader.GetString(column)}/";
                                 break;
@@ -284,8 +291,8 @@ namespace Freshivoje
                                 text += $"{reader.GetString(column)}\n";
                                 break;
                             case "quantityArts":
-                                QA = reader.GetDecimal(column);    
-                                ListOfArticleQuantity.Add(QA);
+                                QuantityArticle = reader.GetDecimal(column);
+                                MapOfArticleQuantiy.Add(QuantityArticleId, QuantityArticle);
                                 break;
                             case "capacity":
                                 text += $"{reader.GetString(column)}/";
@@ -299,9 +306,12 @@ namespace Freshivoje
                             case "state":
                                 text += $"{reader.GetString(column)}/";
                                 break;
+                            case "QuantityPackagingId":
+                                QuantityPackagingId = reader.GetInt32(column);
+                                break;
                             case "quantityPackg":
-                                QP = reader.GetDecimal(column);
-                                ListOfPackagingQuantity.Add(Convert.ToInt32(QP));
+                                QuantityPackaging = reader.GetDecimal(column);
+                                MapOfPackagingQuantity.Add(QuantityPackagingId, QuantityPackaging);
                                 break;
 
                             default:
@@ -312,64 +322,84 @@ namespace Freshivoje
 
                     }
 
-                    
+
 
                 }
                 label.Text = text;
                 _databaseConnection.Close();
                 _databaseConnection.Open();
-                text = string.Empty;
-                int i = 0;
-                int j ;
+                int j = 1;
+              
                 MySqlCommand mySqlCommand1 = _databaseConnection.CreateCommand();
                 mySqlCommand1.CommandText = query1;
                 using MySqlDataReader reader1 = mySqlCommand1.ExecuteReader();
                 while(reader1.Read())
                 {
-                   
                     foreach (string column in columns)
                     {
                         switch (column)
                         {
+                            case "QuantityStorageArticleId":
+                                QuantityStorageArticleId = reader1.GetInt32(column);
+                                break;
                             case "quantityStorageArticle":
-                                if (ListOfArticleQuantity.Count > 0)
-                                {
-                                    for (j = 0; j < ListOfArticleQuantity.Count; j++) { 
-                                    QSA = reader1.GetDecimal(column);
-                                    SUM = ListOfArticleQuantity[j] - QSA;
-                                    text += $"/{SUM.ToString()}\n";
-                                    }
-
-                                }
-                                else {
-                                    text += $"/{ListOfArticleQuantity[i].ToString()}\n";
-                                    i++;
-                                }
+                                QuantityStorageArticle = reader1.GetDecimal(column);
+                                MapOfArticleStorageQuantiy.Add(QuantityStorageArticleId, QuantityStorageArticle);
+                                break;
+                            case "QuantityStoragePackagingId":
+                                QuantityStoragePackagingId = reader1.GetInt32(column);
                                 break;
                             case "quantityStoragePackaging":
-                                if (ListOfPackagingQuantity.Count > 0)
-                                {
-                                    for (j = 0; j < ListOfPackagingQuantity.Count; j++)
-                                    {
-                                        QSA = reader1.GetDecimal(column);
-                                        SUM = ListOfPackagingQuantity[j] - QSA;
-                                        text += $"/{SUM.ToString()}\n";
-                                    }
-
-                                }
-                                else
-                                {
-                                    text += $"/{ListOfPackagingQuantity[i].ToString()}\n";
-                                    i++;
-                                }
+                                QuantityStoragePackaging = reader1.GetDecimal(column);
+                                MapOfPackagingStorageQuantity.Add(QuantityStoragePackagingId, QuantityStoragePackaging);
+                                break;
+                            default:
                                 break;
                         }
                     }
+
                 
                 }
-              
+                    foreach(KeyValuePair<Int32,Decimal> item in MapOfArticleQuantiy)
+                    {
+                    bool state = true;
+                      foreach(KeyValuePair<Int32, Decimal> item1 in MapOfArticleStorageQuantiy)
+                      {
+                         if(item1.Key == item.Key)
+                          {
+                            state = false;
+                            SUM = item.Value - item1.Value;
+                            text1 += $"/{SUM.ToString()}\n";
+                          }
+                      }
+                      
+                       if (state != false) {
+                           text1 += $"/{item.Value.ToString()}\n";
+                       }
+                      
+                    }
+                foreach (KeyValuePair<Int32, Decimal> item in MapOfPackagingQuantity)
+                {
+                    bool state = true;
+                    foreach (KeyValuePair<Int32, Decimal> item1 in MapOfPackagingStorageQuantity)
+                    {
+                        if (item1.Key == item.Key)
+                        {
+                            state = false;
+                            SUM = item.Value - item1.Value;
+                            text1 += $"/{SUM.ToString()}\n";
+                        }
+                    }
 
-                label1.Text += text;
+                    if (state != false)
+                    {
+                        text1 += $"/{item.Value.ToString()}\n";
+                    }
+
+                }
+
+
+                label1.Text += text1;
 
             }
             
