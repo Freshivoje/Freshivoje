@@ -16,14 +16,15 @@ namespace Freshivoje.Storage
         int _packagingId;
         int _articleId;
         string _fillCmbBox = "SELECT `articles`.`id_article`, `articles`.`article_name`, `articles`.`sort`, `articles`.`organic`, `articles`.`category`, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `receipts` JOIN `items_receipt` ON `items_receipt`.`fk_receipt_id` = `receipts`.`id_receipt` JOIN `articles` ON `articles`.`id_article` = `items_receipt`.`fk_article_id` WHERE `date` >= CURDATE() GROUP BY `articles`.`id_article`;";
-        string _fillCmbBox1 = "SELECT `packaging`.`id_packaging`, `packaging`.`capacity`, `packaging`.`category`, `packaging`.`weight`, `packaging`.`producer`, `packaging`.`state`, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `packaging_records` JOIN `packaging_record_items` ON `packaging_record_items`.`fk_packaging_records_id` = `packaging_record_items`.`id_record_item` JOIN `packaging` ON `packaging`.`id_packaging` = `packaging_record_items`.`fk_packaging_id` WHERE `date` >= CURDATE() GROUP BY `packaging`.`id_packaging`;";
+        string _fillCmbBox1 = "SELECT `packaging`.`id_packaging` , `packaging`.`capacity`, `packaging`.`category`, `packaging`.`state`, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `packaging_records` JOIN `packaging_record_items` ON `packaging_record_items`.`fk_packaging_records_id` = `packaging_records`.`id_packaging_record` JOIN `packaging` ON `packaging`.`id_packaging` = `packaging_record_items`.`fk_packaging_id` WHERE `packaging_records`.`type` = 1 AND `packaging_records`.`date` >= CURDATE() GROUP BY `packaging`.`id_packaging`;";
+       
         
         public InsertStorageForm()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             DbConnection.FillCmbBoxQuery(articlesCmbBox, _fillCmbBox, "id_article", "article_name", "sort", "organic", "category");
-            DbConnection.FillCmbBoxQuery(packagingCmbBox, _fillCmbBox1, "id_packaging", "capacity", "category", "weight", "producer", "state");
+            DbConnection.FillCmbBoxQuery(packagingCmbBox, _fillCmbBox1, "id_packaging", "capacity", "category", "state");
             articlesCmbBox.SelectedIndex = 0;
             packagingCmbBox.SelectedIndex = 0;
         }
@@ -64,15 +65,7 @@ namespace Freshivoje.Storage
             }
         }
 
-        private void getQuantity(int id)
-        {
-            string _artilceQuantity = $"SELECT articles.id_article as quantityArticleId, `articles`.`article_name`, `articles`.`sort`, `articles`.`organic`, `articles`.`category`, SUM(`items_receipt`.`quantity`) as quantityArts, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `receipts` JOIN `items_receipt` ON `items_receipt`.`fk_receipt_id` = `receipts`.`id_receipt` JOIN `articles` ON `articles`.`id_article` = `items_receipt`.`fk_article_id` WHERE `date` >= CURDATE() AND quantityArts = {_articleId} GROUP BY `articles`.`id_article`";
-            string _articleStorageQuantity = $"SELECT articles.id_article as QuantityStorageArticleId, SUM(`storage_record_items`.`article_quantity`) as quantityStorageArticle, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM storage_record_items JOIN articles ON articles.id_article = storage_record_items.fk_article_id WHERE `date` >= CURDATE() AND `storage_record_items`.`fk_storage_id`=5 AND QuantityStorageArticleId = {_articleId} GROUP BY articles.id_article";
-            string _packagingQuantity = $"SELECT `packaging`.`id_packaging` as QuantityPackagingId, `packaging`.`capacity`, `packaging`.`category`, `packaging`.`state`, SUM(`packaging_record_items`.`quantity`) as `quantityPackg`, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `packaging_records` JOIN `packaging_record_items` ON `packaging_record_items`.`fk_packaging_records_id` = `packaging_records`.`id_packaging_record` JOIN `packaging` ON `packaging`.`id_packaging` = `packaging_record_items`.`fk_packaging_id` WHERE `packaging_records`.`type` = 1 AND `packaging_records`.`date` >= CURDATE() AND QuantityPackagingId = {_packagingId}GROUP BY `packaging`.`id_packaging`";
-            string _packagingStorageQuantity = $"SELECT  `packaging`.`id_packaging` as QuantityStoragePackagingId, SUM(`storage_record_items`.`package_quantity`) as quantityStoragePackaging, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM storage_record_items JOIN packaging ON packaging.id_packaging = storage_record_items.fk_packaging_id WHERE `date` >= CURDATE() AND `storage_record_items`.`fk_storage_id`= 5 GROUP BY packaging.id_packaging";
-            DbConnection.tunnel(label2, _artilceQuantity, _articleStorageQuantity,  articleLbl, "quantityArticleId", "QuantityStorageArticleId", "article_name", "sort", "organic", "category", "quantityArts", "quantityStorageArticle");
-            DbConnection.tunnel(label2, _packagingQuantity, _packagingStorageQuantity, packagingLbl, "QuantityPackagingId", "QuantityStoragePackagingId", "capacity", "state", "category", "quantityPackg", "quantityStoragePackaging", "QuantityPackagingId", "QuantityStoragePackagingId");
-        }
+      
         private void insertBtn_Click(object sender, EventArgs e)
         {
 
@@ -101,9 +94,10 @@ namespace Freshivoje.Storage
                 packagingLbl.Text = string.Empty;
                 return;
             }
+            string _packagingQuantity = $"SELECT `packaging`.`id_packaging` as QuantityPackagingId, SUM(`packaging_record_items`.`quantity`) as `QuantityPackg`, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `packaging_records` JOIN `packaging_record_items` ON `packaging_record_items`.`fk_packaging_records_id` = `packaging_records`.`id_packaging_record` JOIN `packaging` ON `packaging`.`id_packaging` = `packaging_record_items`.`fk_packaging_id` WHERE `packaging_records`.`type` = 1 AND `packaging_records`.`date` >= CURDATE() AND `packaging`.`id_packaging` = {_packagingId} GROUP BY `packaging`.`id_packaging`";
+            string _packagingStorageQuantity = $"SELECT  `packaging`.`id_packaging` as QuantityStoragePackagingId, SUM(`storage_record_items`.`package_quantity`) as QuantityStoragePackaging, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM storage_record_items JOIN packaging ON packaging.id_packaging = storage_record_items.fk_packaging_id WHERE `date` >= CURDATE() AND `storage_record_items`.`fk_storage_id`= 5 AND packaging.id_packaging = {_packagingId} GROUP BY packaging.id_packaging";
             _packagingId = ((ComboBoxItem)packagingCmbBox.SelectedItem).Value;
-            getQuantity(_packagingId);
-           
+            DbConnection.fillLbl(packagingLbl, _packagingQuantity, _packagingStorageQuantity, "QuantityPackagingId", "QuantityPackg", "QuantityStoragePackagingId", "QuantityStoragePackaging");
         }
 
         private void articlesCmbBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -114,7 +108,9 @@ namespace Freshivoje.Storage
                 return;
             }
             _articleId = ((ComboBoxItem)articlesCmbBox.SelectedItem).Value;
-            getQuantity(_articleId);
+            string _artilceQuantity = $"SELECT articles.id_article as QuantityArticleId, SUM(`items_receipt`.`quantity`) as QuantityArts, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `receipts` JOIN `items_receipt` ON `items_receipt`.`fk_receipt_id` = `receipts`.`id_receipt` JOIN `articles` ON articles.id_article = `items_receipt`.`fk_article_id` WHERE `date` >= CURDATE() AND articles.id_article = {_articleId} GROUP BY `articles`.`id_article`";
+            string _articleStorageQuantity = $"SELECT articles.id_article as QuantityStorageArticleId, SUM(`storage_record_items`.`article_quantity`) as QuantityStorageArticle, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM storage_record_items JOIN articles ON articles.id_article = storage_record_items.fk_article_id WHERE `date` >= CURDATE() AND `storage_record_items`.`fk_storage_id`=5 AND articles.id_article = {_articleId} GROUP BY articles.id_article";
+            DbConnection.fillLbl(articleLbl, _artilceQuantity, _articleStorageQuantity, "QuantityArticleId", "QuantityArts", "QuantityStorageArticleId", "QuantityStorageArticle");
         }
     }
 }
