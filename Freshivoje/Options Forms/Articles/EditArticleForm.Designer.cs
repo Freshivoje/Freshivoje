@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditArticleForm));
             this.cancelBtn = new System.Windows.Forms.Button();
             this.updatePriceBtn = new System.Windows.Forms.Button();
             this.articleOrganicLbl = new System.Windows.Forms.Label();
@@ -46,10 +47,10 @@
             this.priceDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.editArticleFormTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.articleCategoryTxtBox = new System.Windows.Forms.TextBox();
             this.articlePriceTxtBox = new System.Windows.Forms.TextBox();
             this.articlePriceLbl = new System.Windows.Forms.Label();
             this.articleCategoryLbl = new System.Windows.Forms.Label();
-            this.articleCategoryTxtBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.articlePricesDataGridView)).BeginInit();
             this.editArticleFormTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -204,14 +205,14 @@
             this.articlePricesDataGridView.AllowUserToResizeRows = false;
             this.articlePricesDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.articlePricesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.articlePricesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.articlePricesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.articlePricesDataGridView.ColumnHeadersHeight = 40;
             this.articlePricesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.articlePricesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -222,14 +223,14 @@
             this.status});
             this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articlePricesDataGridView, 4);
             this.articlePricesDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 12F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.articlePricesDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.articlePricesDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.articlePricesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.articlePricesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.articlePricesDataGridView.Location = new System.Drawing.Point(675, 47);
@@ -275,8 +276,8 @@
             // 
             this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.status.DataPropertyName = "status";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status.DefaultCellStyle = dataGridViewCellStyle2;
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             // 
@@ -330,6 +331,21 @@
             this.editArticleFormTableLayoutPanel.Size = new System.Drawing.Size(1472, 668);
             this.editArticleFormTableLayoutPanel.TabIndex = 1;
             // 
+            // articleCategoryTxtBox
+            // 
+            this.articleCategoryTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articleCategoryTxtBox, 4);
+            this.articleCategoryTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.articleCategoryTxtBox.Enabled = false;
+            this.articleCategoryTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.articleCategoryTxtBox.Location = new System.Drawing.Point(115, 311);
+            this.articleCategoryTxtBox.MaxLength = 8;
+            this.articleCategoryTxtBox.Multiline = true;
+            this.articleCategoryTxtBox.Name = "articleCategoryTxtBox";
+            this.articleCategoryTxtBox.ShortcutsEnabled = false;
+            this.articleCategoryTxtBox.Size = new System.Drawing.Size(442, 31);
+            this.articleCategoryTxtBox.TabIndex = 67;
+            // 
             // articlePriceTxtBox
             // 
             this.articlePriceTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -376,21 +392,6 @@
             this.articleCategoryLbl.Text = "Sorta";
             this.articleCategoryLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // articleCategoryTxtBox
-            // 
-            this.articleCategoryTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.editArticleFormTableLayoutPanel.SetColumnSpan(this.articleCategoryTxtBox, 4);
-            this.articleCategoryTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.articleCategoryTxtBox.Enabled = false;
-            this.articleCategoryTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.articleCategoryTxtBox.Location = new System.Drawing.Point(115, 311);
-            this.articleCategoryTxtBox.MaxLength = 8;
-            this.articleCategoryTxtBox.Multiline = true;
-            this.articleCategoryTxtBox.Name = "articleCategoryTxtBox";
-            this.articleCategoryTxtBox.ShortcutsEnabled = false;
-            this.articleCategoryTxtBox.Size = new System.Drawing.Size(442, 31);
-            this.articleCategoryTxtBox.TabIndex = 67;
-            // 
             // EditArticleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,6 +400,7 @@
             this.ClientSize = new System.Drawing.Size(1482, 678);
             this.Controls.Add(this.editArticleFormTableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditArticleForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

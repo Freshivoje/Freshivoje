@@ -65,7 +65,7 @@
             this.StorageRentingRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
             this.StorageRentingRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.StorageRentingRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.StorageRentingRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.StorageRentingRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.StorageRentingRecordFormTblLayout.Controls.Add(this.StorageRentingDataGridView, 0, 3);
             this.StorageRentingRecordFormTblLayout.Controls.Add(this.minimizeBtn, 6, 0);
             this.StorageRentingRecordFormTblLayout.Controls.Add(this.exitBtn, 7, 0);
@@ -228,7 +228,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1568, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(1567, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.minimizeBtn.Size = new System.Drawing.Size(44, 51);
@@ -252,10 +252,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1618, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1617, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(51, 51);
+            this.exitBtn.Size = new System.Drawing.Size(52, 51);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -293,7 +293,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1518, 3);
+            this.backBtn.Location = new System.Drawing.Point(1517, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 51);
             this.backBtn.TabIndex = 9;
@@ -311,7 +311,7 @@
             this.searchLbl.ForeColor = System.Drawing.Color.White;
             this.searchLbl.Location = new System.Drawing.Point(1083, 87);
             this.searchLbl.Name = "searchLbl";
-            this.searchLbl.Size = new System.Drawing.Size(429, 27);
+            this.searchLbl.Size = new System.Drawing.Size(428, 27);
             this.searchLbl.TabIndex = 41;
             this.searchLbl.Text = "Pretraži ";
             this.searchLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -321,7 +321,7 @@
             this.searchRentingTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchRentingTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchRentingTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchRentingTxtBox.Location = new System.Drawing.Point(1130, 117);
+            this.searchRentingTxtBox.Location = new System.Drawing.Point(1129, 117);
             this.searchRentingTxtBox.Multiline = true;
             this.searchRentingTxtBox.Name = "searchRentingTxtBox";
             this.searchRentingTxtBox.ShortcutsEnabled = false;
@@ -336,6 +336,7 @@
             this.ClientSize = new System.Drawing.Size(1672, 849);
             this.Controls.Add(this.StorageRentingRecordFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StorageRentingRecordsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StorageRentingRecordsForm";

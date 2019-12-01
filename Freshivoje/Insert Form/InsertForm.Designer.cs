@@ -52,6 +52,16 @@
             this.crateOwnerCmbBox = new System.Windows.Forms.ComboBox();
             this.cratesCmbBox = new System.Windows.Forms.ComboBox();
             this.insertedArticlesDataGridView = new System.Windows.Forms.DataGridView();
+            this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.article = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articleQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packaging = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packagingQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packagingDebt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packagingOwnership = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articlePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articlePriceLbl = new System.Windows.Forms.Label();
             this.crateQuantityTxtBox = new System.Windows.Forms.TextBox();
             this.cratesLbl = new System.Windows.Forms.Label();
@@ -64,16 +74,6 @@
             this.priceLbl = new System.Windows.Forms.Label();
             this.packagingDebtLbl = new System.Windows.Forms.Label();
             this.debtLbl = new System.Windows.Forms.Label();
-            this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.article = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packaging = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packagingQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packagingDebt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packagingOwnership = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articlePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.insertFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.insertedArticlesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -452,6 +452,92 @@
             this.insertedArticlesDataGridView.TabStop = false;
             this.insertedArticlesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.insertedArticlesDataGridView_CellContentClick);
             // 
+            // packagingId
+            // 
+            this.packagingId.HeaderText = "ID ambalaže";
+            this.packagingId.Name = "packagingId";
+            this.packagingId.ReadOnly = true;
+            this.packagingId.Visible = false;
+            // 
+            // articleId
+            // 
+            this.articleId.HeaderText = "ID artikla";
+            this.articleId.Name = "articleId";
+            this.articleId.ReadOnly = true;
+            this.articleId.Visible = false;
+            // 
+            // article
+            // 
+            this.article.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.article.HeaderText = "Artikal";
+            this.article.Name = "article";
+            this.article.ReadOnly = true;
+            // 
+            // articleQuantity
+            // 
+            this.articleQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.articleQuantity.HeaderText = "Neto količina (kg)";
+            this.articleQuantity.Name = "articleQuantity";
+            this.articleQuantity.ReadOnly = true;
+            this.articleQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.articleQuantity.Width = 236;
+            // 
+            // packaging
+            // 
+            this.packaging.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.packaging.HeaderText = "Ambalaža";
+            this.packaging.Name = "packaging";
+            this.packaging.ReadOnly = true;
+            // 
+            // packagingQuantity
+            // 
+            this.packagingQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.packagingQuantity.HeaderText = "Broj unetih ambalaža";
+            this.packagingQuantity.Name = "packagingQuantity";
+            this.packagingQuantity.ReadOnly = true;
+            this.packagingQuantity.Width = 273;
+            // 
+            // packagingDebt
+            // 
+            this.packagingDebt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle2.NullValue = "/";
+            this.packagingDebt.DefaultCellStyle = dataGridViewCellStyle2;
+            this.packagingDebt.HeaderText = "Broj ambalaža koje duguje";
+            this.packagingDebt.Name = "packagingDebt";
+            this.packagingDebt.ReadOnly = true;
+            this.packagingDebt.Width = 333;
+            // 
+            // packagingOwnership
+            // 
+            this.packagingOwnership.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.packagingOwnership.HeaderText = "Vlasništvo ambalaže";
+            this.packagingOwnership.Name = "packagingOwnership";
+            this.packagingOwnership.ReadOnly = true;
+            this.packagingOwnership.Width = 263;
+            // 
+            // articlePrice
+            // 
+            this.articlePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.articlePrice.HeaderText = "Cena (RSD)";
+            this.articlePrice.Name = "articlePrice";
+            this.articlePrice.ReadOnly = true;
+            this.articlePrice.Width = 165;
+            // 
+            // deleteArticle
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.NullValue = "X";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
+            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle3;
+            this.deleteArticle.HeaderText = "";
+            this.deleteArticle.Name = "deleteArticle";
+            this.deleteArticle.ReadOnly = true;
+            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.deleteArticle.Width = 40;
+            // 
             // articlePriceLbl
             // 
             this.articlePriceLbl.AutoSize = true;
@@ -639,92 +725,6 @@
             this.debtLbl.Size = new System.Drawing.Size(147, 40);
             this.debtLbl.TabIndex = 42;
             this.debtLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // packagingId
-            // 
-            this.packagingId.HeaderText = "ID ambalaže";
-            this.packagingId.Name = "packagingId";
-            this.packagingId.ReadOnly = true;
-            this.packagingId.Visible = false;
-            // 
-            // articleId
-            // 
-            this.articleId.HeaderText = "ID artikla";
-            this.articleId.Name = "articleId";
-            this.articleId.ReadOnly = true;
-            this.articleId.Visible = false;
-            // 
-            // article
-            // 
-            this.article.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.article.HeaderText = "Artikal";
-            this.article.Name = "article";
-            this.article.ReadOnly = true;
-            // 
-            // articleQuantity
-            // 
-            this.articleQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.articleQuantity.HeaderText = "Neto količina (kg)";
-            this.articleQuantity.Name = "articleQuantity";
-            this.articleQuantity.ReadOnly = true;
-            this.articleQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.articleQuantity.Width = 236;
-            // 
-            // packaging
-            // 
-            this.packaging.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.packaging.HeaderText = "Ambalaža";
-            this.packaging.Name = "packaging";
-            this.packaging.ReadOnly = true;
-            // 
-            // packagingQuantity
-            // 
-            this.packagingQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.packagingQuantity.HeaderText = "Broj unetih ambalaža";
-            this.packagingQuantity.Name = "packagingQuantity";
-            this.packagingQuantity.ReadOnly = true;
-            this.packagingQuantity.Width = 273;
-            // 
-            // packagingDebt
-            // 
-            this.packagingDebt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle2.NullValue = "/";
-            this.packagingDebt.DefaultCellStyle = dataGridViewCellStyle2;
-            this.packagingDebt.HeaderText = "Broj ambalaža koje duguje";
-            this.packagingDebt.Name = "packagingDebt";
-            this.packagingDebt.ReadOnly = true;
-            this.packagingDebt.Width = 333;
-            // 
-            // packagingOwnership
-            // 
-            this.packagingOwnership.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.packagingOwnership.HeaderText = "Vlasništvo ambalaže";
-            this.packagingOwnership.Name = "packagingOwnership";
-            this.packagingOwnership.ReadOnly = true;
-            this.packagingOwnership.Width = 263;
-            // 
-            // articlePrice
-            // 
-            this.articlePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.articlePrice.HeaderText = "Cena (RSD)";
-            this.articlePrice.Name = "articlePrice";
-            this.articlePrice.ReadOnly = true;
-            this.articlePrice.Width = 165;
-            // 
-            // deleteArticle
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle3.NullValue = "X";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
-            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle3;
-            this.deleteArticle.HeaderText = "";
-            this.deleteArticle.Name = "deleteArticle";
-            this.deleteArticle.ReadOnly = true;
-            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deleteArticle.Width = 40;
             // 
             // InsertForm
             // 

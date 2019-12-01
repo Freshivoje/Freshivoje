@@ -154,7 +154,7 @@ namespace Freshivoje.Packages
                         return;
                     }
 
-                    quantity = CustomTextBoxDialog._value;
+                    quantity = Convert.ToInt32(CustomTextBoxDialog._value);
 
                     if (quantity < 1)
                     {

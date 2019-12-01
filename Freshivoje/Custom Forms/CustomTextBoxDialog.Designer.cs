@@ -141,6 +141,7 @@
             this.ClientSize = new System.Drawing.Size(531, 325);
             this.Controls.Add(this.customDialogTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CustomTextBoxDialog";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

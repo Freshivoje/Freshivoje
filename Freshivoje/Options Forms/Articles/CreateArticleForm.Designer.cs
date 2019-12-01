@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateArticleForm));
             this.createArticleFormTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.articlePriceIIITxtBox = new System.Windows.Forms.TextBox();
             this.articlePriceIITxtBox = new System.Windows.Forms.TextBox();
@@ -38,10 +39,10 @@
             this.articleSortTxtBox = new System.Windows.Forms.TextBox();
             this.articleNameTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cancelBtn = new System.Windows.Forms.Button();
             this.articlePriceILbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cancelBtn = new System.Windows.Forms.Button();
             this.createBtn = new System.Windows.Forms.Button();
             this.createArticleFormTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -228,29 +229,6 @@
             this.label1.Text = "Kontrolisana proizvodnja";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cancelBtn
-            // 
-            this.cancelBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cancelBtn.BackColor = System.Drawing.Color.Transparent;
-            this.createArticleFormTableLayoutPanel.SetColumnSpan(this.cancelBtn, 2);
-            this.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.cancelBtn.FlatAppearance.BorderSize = 5;
-            this.cancelBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.cancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelBtn.ForeColor = System.Drawing.Color.White;
-            this.cancelBtn.Location = new System.Drawing.Point(373, 564);
-            this.cancelBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(140, 50);
-            this.cancelBtn.TabIndex = 21;
-            this.cancelBtn.TabStop = false;
-            this.cancelBtn.Text = "ODUSTANI";
-            this.cancelBtn.UseVisualStyleBackColor = false;
-            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
-            // 
             // articlePriceILbl
             // 
             this.articlePriceILbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -296,6 +274,29 @@
             this.label2.Text = "Cena III klase (RSD)";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cancelBtn.BackColor = System.Drawing.Color.Transparent;
+            this.createArticleFormTableLayoutPanel.SetColumnSpan(this.cancelBtn, 2);
+            this.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.cancelBtn.FlatAppearance.BorderSize = 5;
+            this.cancelBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.cancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.cancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelBtn.ForeColor = System.Drawing.Color.White;
+            this.cancelBtn.Location = new System.Drawing.Point(373, 564);
+            this.cancelBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(140, 50);
+            this.cancelBtn.TabIndex = 21;
+            this.cancelBtn.TabStop = false;
+            this.cancelBtn.Text = "ODUSTANI";
+            this.cancelBtn.UseVisualStyleBackColor = false;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
             // createBtn
             // 
             this.createBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -327,6 +328,7 @@
             this.ClientSize = new System.Drawing.Size(676, 678);
             this.Controls.Add(this.createArticleFormTableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateArticleForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

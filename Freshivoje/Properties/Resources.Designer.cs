@@ -111,9 +111,9 @@ namespace Freshivoje.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon freshivoje_ikona {
+        internal static System.Drawing.Icon freshivoje {
             get {
-                object obj = ResourceManager.GetObject("freshivoje_ikona", resourceCulture);
+                object obj = ResourceManager.GetObject("freshivoje", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -199,8 +199,8 @@ namespace Freshivoje.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to BROJ VRAĆENIH AMBALAŽA PREMAŠUJE BROJ KOJI KLIJENT DUGUJE!
-        ///PROVERITE DA LI STE LEPO UNELI PODATKE!.
+        ///   Looks up a localized string similar to BROJ VRAĆENIH AMBALAŽA PREMAŠUJE BROJ AMBALAŽA KOJE KLIJENT DUGUJE!
+        ///PROVERITE DA LI STE LEPO UNELI PODATKE I POKUŠAJTE PONOVO!.
         /// </summary>
         internal static string packagingDebtAvailabilityErrorMsg {
             get {

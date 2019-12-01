@@ -401,6 +401,9 @@
     <EmbeddedResource Include="Storage\OutStorageForm.resx">
       <DependentUpon>OutStorageForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Storage\RecordStorageForm.resx">
+      <DependentUpon>RecordStorageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Storage\StorageForm.resx">
       <DependentUpon>StorageForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -434,7 +437,7 @@
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\freshivoje-ikona.ico" />
+    <None Include="Images\freshivoje.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\background.png" />

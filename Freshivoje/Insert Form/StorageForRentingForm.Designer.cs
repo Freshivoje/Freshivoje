@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StorageForRentingForm));
             this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.endDataOfRentPicker = new System.Windows.Forms.DateTimePicker();
             this.storagePositionCmbBox = new System.Windows.Forms.ComboBox();
@@ -56,7 +57,7 @@
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
             this.insertFormTblLayout.Controls.Add(this.endDataOfRentPicker, 3, 4);
             this.insertFormTblLayout.Controls.Add(this.storagePositionCmbBox, 1, 2);
             this.insertFormTblLayout.Controls.Add(this.minimizeBtn, 5, 0);
@@ -223,7 +224,6 @@
             this.pricelTxtBox.ShortcutsEnabled = false;
             this.pricelTxtBox.Size = new System.Drawing.Size(710, 31);
             this.pricelTxtBox.TabIndex = 6;
-            this.pricelTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             this.pricelTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // finishInsertBtn
@@ -308,6 +308,7 @@
             this.ClientSize = new System.Drawing.Size(1940, 879);
             this.Controls.Add(this.insertFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StorageForRentingForm";
             this.Text = "StorageForRentingForm";
             this.insertFormTblLayout.ResumeLayout(false);

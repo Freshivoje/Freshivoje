@@ -34,9 +34,9 @@
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
+            this.CRUDArticlesBtn = new System.Windows.Forms.Button();
             this.clientsBtn = new System.Windows.Forms.Button();
             this.packagesBtn = new System.Windows.Forms.Button();
-            this.CRUDArticlesBtn = new System.Windows.Forms.Button();
             this.optionsFormTblLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -158,6 +158,26 @@
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
+            // CRUDArticlesBtn
+            // 
+            this.CRUDArticlesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CRUDArticlesBtn.BackColor = System.Drawing.Color.Transparent;
+            this.CRUDArticlesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CRUDArticlesBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.CRUDArticlesBtn.FlatAppearance.BorderSize = 5;
+            this.CRUDArticlesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.CRUDArticlesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.CRUDArticlesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CRUDArticlesBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CRUDArticlesBtn.ForeColor = System.Drawing.Color.White;
+            this.CRUDArticlesBtn.Location = new System.Drawing.Point(227, 147);
+            this.CRUDArticlesBtn.Name = "CRUDArticlesBtn";
+            this.CRUDArticlesBtn.Size = new System.Drawing.Size(157, 72);
+            this.CRUDArticlesBtn.TabIndex = 1;
+            this.CRUDArticlesBtn.Text = "ARTIKLI";
+            this.CRUDArticlesBtn.UseVisualStyleBackColor = false;
+            this.CRUDArticlesBtn.Click += new System.EventHandler(this.articlesBtn_Click);
+            // 
             // clientsBtn
             // 
             this.clientsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -197,26 +217,6 @@
             this.packagesBtn.Text = "AMBALAŽE";
             this.packagesBtn.UseVisualStyleBackColor = false;
             this.packagesBtn.Click += new System.EventHandler(this.packagesBtn_Click);
-            // 
-            // CRUDArticlesBtn
-            // 
-            this.CRUDArticlesBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CRUDArticlesBtn.BackColor = System.Drawing.Color.Transparent;
-            this.CRUDArticlesBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CRUDArticlesBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.CRUDArticlesBtn.FlatAppearance.BorderSize = 5;
-            this.CRUDArticlesBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.CRUDArticlesBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.CRUDArticlesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CRUDArticlesBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CRUDArticlesBtn.ForeColor = System.Drawing.Color.White;
-            this.CRUDArticlesBtn.Location = new System.Drawing.Point(227, 147);
-            this.CRUDArticlesBtn.Name = "CRUDArticlesBtn";
-            this.CRUDArticlesBtn.Size = new System.Drawing.Size(157, 72);
-            this.CRUDArticlesBtn.TabIndex = 1;
-            this.CRUDArticlesBtn.Text = "ARTIKLI";
-            this.CRUDArticlesBtn.UseVisualStyleBackColor = false;
-            this.CRUDArticlesBtn.Click += new System.EventHandler(this.articlesBtn_Click);
             // 
             // OptionsForm
             // 

@@ -41,7 +41,7 @@
             this.customMessageBoxTblLayout.BackColor = System.Drawing.Color.Transparent;
             this.customMessageBoxTblLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("customMessageBoxTblLayout.BackgroundImage")));
             this.customMessageBoxTblLayout.ColumnCount = 1;
-            this.customMessageBoxTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 521F));
+            this.customMessageBoxTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 678F));
             this.customMessageBoxTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.customMessageBoxTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.customMessageBoxTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));

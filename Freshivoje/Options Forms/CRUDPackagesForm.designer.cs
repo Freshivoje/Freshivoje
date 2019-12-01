@@ -36,13 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.crudPackagesFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.packagesDataGridView = new System.Windows.Forms.DataGridView();
-            this.minimizeBtn = new System.Windows.Forms.Button();
-            this.exitBtn = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.backBtn = new System.Windows.Forms.Button();
-            this.searchPackagesTxtBox = new System.Windows.Forms.TextBox();
-            this.insertPackageBtn = new System.Windows.Forms.Button();
-            this.searchPackagesLbl = new System.Windows.Forms.Label();
             this.idPackaging = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +46,13 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.editPackaging = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deletePackaging = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minimizeBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.backBtn = new System.Windows.Forms.Button();
+            this.searchPackagesTxtBox = new System.Windows.Forms.TextBox();
+            this.insertPackageBtn = new System.Windows.Forms.Button();
+            this.searchPackagesLbl = new System.Windows.Forms.Label();
             this.crudPackagesFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.packagesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -151,6 +151,92 @@
             this.packagesDataGridView.TabIndex = 60;
             this.packagesDataGridView.TabStop = false;
             this.packagesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.packagingDataGridView_CellContentClick);
+            // 
+            // idPackaging
+            // 
+            this.idPackaging.DataPropertyName = "id_packaging";
+            this.idPackaging.HeaderText = "ID";
+            this.idPackaging.Name = "idPackaging";
+            this.idPackaging.Visible = false;
+            // 
+            // capacity
+            // 
+            this.capacity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.capacity.DataPropertyName = "capacity";
+            this.capacity.HeaderText = "Nosivost (g)";
+            this.capacity.Name = "capacity";
+            // 
+            // category
+            // 
+            this.category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.category.DataPropertyName = "category";
+            this.category.HeaderText = "Kategorija";
+            this.category.Name = "category";
+            // 
+            // quantity
+            // 
+            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.quantity.DataPropertyName = "quantity";
+            this.quantity.HeaderText = "Raspoloživo";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            // 
+            // price
+            // 
+            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.price.DataPropertyName = "price";
+            this.price.HeaderText = "Cena (RSD)";
+            this.price.Name = "price";
+            // 
+            // weight
+            // 
+            this.weight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.weight.DataPropertyName = "weight";
+            this.weight.HeaderText = "Težina (g)";
+            this.weight.Name = "weight";
+            // 
+            // producer
+            // 
+            this.producer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.producer.DataPropertyName = "producer";
+            this.producer.HeaderText = "Proizvođač";
+            this.producer.Name = "producer";
+            // 
+            // Status
+            // 
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Status.DataPropertyName = "state";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            // 
+            // editPackaging
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.NullValue = "✎";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.editPackaging.DefaultCellStyle = dataGridViewCellStyle2;
+            this.editPackaging.HeaderText = "";
+            this.editPackaging.Name = "editPackaging";
+            this.editPackaging.ReadOnly = true;
+            this.editPackaging.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.editPackaging.Width = 40;
+            // 
+            // deletePackaging
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.NullValue = "X";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
+            this.deletePackaging.DefaultCellStyle = dataGridViewCellStyle3;
+            this.deletePackaging.HeaderText = "";
+            this.deletePackaging.Name = "deletePackaging";
+            this.deletePackaging.ReadOnly = true;
+            this.deletePackaging.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.deletePackaging.Width = 40;
             // 
             // minimizeBtn
             // 
@@ -289,92 +375,6 @@
             this.searchPackagesLbl.Text = "Pretraži ambalaže";
             this.searchPackagesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // idPackaging
-            // 
-            this.idPackaging.DataPropertyName = "id_packaging";
-            this.idPackaging.HeaderText = "ID";
-            this.idPackaging.Name = "idPackaging";
-            this.idPackaging.Visible = false;
-            // 
-            // capacity
-            // 
-            this.capacity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.capacity.DataPropertyName = "capacity";
-            this.capacity.HeaderText = "Nosivost (g)";
-            this.capacity.Name = "capacity";
-            // 
-            // category
-            // 
-            this.category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.category.DataPropertyName = "category";
-            this.category.HeaderText = "Kategorija";
-            this.category.Name = "category";
-            // 
-            // quantity
-            // 
-            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.quantity.DataPropertyName = "quantity";
-            this.quantity.HeaderText = "Raspoloživo";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            // 
-            // price
-            // 
-            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.price.DataPropertyName = "price";
-            this.price.HeaderText = "Cena (RSD)";
-            this.price.Name = "price";
-            // 
-            // weight
-            // 
-            this.weight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.weight.DataPropertyName = "weight";
-            this.weight.HeaderText = "Težina (g)";
-            this.weight.Name = "weight";
-            // 
-            // producer
-            // 
-            this.producer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.producer.DataPropertyName = "producer";
-            this.producer.HeaderText = "Proizvođač";
-            this.producer.Name = "producer";
-            // 
-            // Status
-            // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Status.DataPropertyName = "state";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            // 
-            // editPackaging
-            // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.NullValue = "✎";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.editPackaging.DefaultCellStyle = dataGridViewCellStyle2;
-            this.editPackaging.HeaderText = "";
-            this.editPackaging.Name = "editPackaging";
-            this.editPackaging.ReadOnly = true;
-            this.editPackaging.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.editPackaging.Width = 40;
-            // 
-            // deletePackaging
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle3.NullValue = "X";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
-            this.deletePackaging.DefaultCellStyle = dataGridViewCellStyle3;
-            this.deletePackaging.HeaderText = "";
-            this.deletePackaging.Name = "deletePackaging";
-            this.deletePackaging.ReadOnly = true;
-            this.deletePackaging.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deletePackaging.Width = 40;
-            // 
             // CRUDPackagesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,6 +384,7 @@
             this.Controls.Add(this.crudPackagesFormTblLayout);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CRUDPackagesForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

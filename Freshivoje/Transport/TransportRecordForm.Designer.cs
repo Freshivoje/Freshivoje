@@ -41,8 +41,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.transportDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchArticlesLbl = new System.Windows.Forms.Label();
-            this.searchTransportTxtBox = new System.Windows.Forms.TextBox();
             this.transportId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +49,8 @@
             this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.previewTransport = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchArticlesLbl = new System.Windows.Forms.Label();
+            this.searchTransportTxtBox = new System.Windows.Forms.TextBox();
             this.transportRecordsTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transportDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -238,34 +238,6 @@
             this.transportDataGridView.TabStop = false;
             this.transportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TransportDataGridView_CellContentClick);
             // 
-            // searchArticlesLbl
-            // 
-            this.searchArticlesLbl.AutoSize = true;
-            this.searchArticlesLbl.BackColor = System.Drawing.Color.Transparent;
-            this.searchArticlesLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.searchArticlesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchArticlesLbl.ForeColor = System.Drawing.Color.White;
-            this.searchArticlesLbl.Location = new System.Drawing.Point(876, 79);
-            this.searchArticlesLbl.Name = "searchArticlesLbl";
-            this.searchArticlesLbl.Size = new System.Drawing.Size(332, 27);
-            this.searchArticlesLbl.TabIndex = 41;
-            this.searchArticlesLbl.Text = "Pretraži ";
-            this.searchArticlesLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // searchTransportTxtBox
-            // 
-            this.searchTransportTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.searchTransportTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchTransportTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTransportTxtBox.Location = new System.Drawing.Point(876, 109);
-            this.searchTransportTxtBox.Multiline = true;
-            this.searchTransportTxtBox.Name = "searchTransportTxtBox";
-            this.searchTransportTxtBox.ShortcutsEnabled = false;
-            this.searchTransportTxtBox.Size = new System.Drawing.Size(332, 31);
-            this.searchTransportTxtBox.TabIndex = 5;
-            this.searchTransportTxtBox.TextChanged += new System.EventHandler(this.searchTransportxtBox_TextChanged);
-            this.searchTransportTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
-            // 
             // transportId
             // 
             this.transportId.DataPropertyName = "id_transport";
@@ -344,6 +316,34 @@
             this.deleteStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.deleteStatus.Width = 40;
             // 
+            // searchArticlesLbl
+            // 
+            this.searchArticlesLbl.AutoSize = true;
+            this.searchArticlesLbl.BackColor = System.Drawing.Color.Transparent;
+            this.searchArticlesLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.searchArticlesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchArticlesLbl.ForeColor = System.Drawing.Color.White;
+            this.searchArticlesLbl.Location = new System.Drawing.Point(876, 79);
+            this.searchArticlesLbl.Name = "searchArticlesLbl";
+            this.searchArticlesLbl.Size = new System.Drawing.Size(332, 27);
+            this.searchArticlesLbl.TabIndex = 41;
+            this.searchArticlesLbl.Text = "Pretraži ";
+            this.searchArticlesLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // searchTransportTxtBox
+            // 
+            this.searchTransportTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.searchTransportTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchTransportTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTransportTxtBox.Location = new System.Drawing.Point(876, 109);
+            this.searchTransportTxtBox.Multiline = true;
+            this.searchTransportTxtBox.Name = "searchTransportTxtBox";
+            this.searchTransportTxtBox.ShortcutsEnabled = false;
+            this.searchTransportTxtBox.Size = new System.Drawing.Size(332, 31);
+            this.searchTransportTxtBox.TabIndex = 5;
+            this.searchTransportTxtBox.TextChanged += new System.EventHandler(this.searchTransportxtBox_TextChanged);
+            this.searchTransportTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
+            // 
             // TransportRecordForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -351,6 +351,7 @@
             this.ClientSize = new System.Drawing.Size(1385, 808);
             this.Controls.Add(this.transportRecordsTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TransportRecordForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "TransportRecordForm";

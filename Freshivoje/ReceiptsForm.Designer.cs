@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReceiptsForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.receiptsRecordTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
@@ -48,6 +48,7 @@
             this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pricePaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.preview = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.changeStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,7 +68,7 @@
             this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
             this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.receiptsRecordTblLayout.Controls.Add(this.minimizeBtn, 6, 0);
             this.receiptsRecordTblLayout.Controls.Add(this.exitBtn, 7, 0);
             this.receiptsRecordTblLayout.Controls.Add(this.lblTitle, 0, 0);
@@ -111,7 +112,7 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1201, 3);
+            this.minimizeBtn.Location = new System.Drawing.Point(1198, 3);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.minimizeBtn.Size = new System.Drawing.Size(44, 52);
@@ -134,10 +135,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1251, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1248, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(58, 52);
+            this.exitBtn.Size = new System.Drawing.Size(61, 52);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -175,7 +176,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1151, 3);
+            this.backBtn.Location = new System.Drawing.Point(1148, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 52);
             this.backBtn.TabIndex = 9;
@@ -192,14 +193,14 @@
             this.receiptsDataGridView.AllowUserToResizeRows = false;
             this.receiptsDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.receiptsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.receiptsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.receiptsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.receiptsDataGridView.ColumnHeadersHeight = 40;
             this.receiptsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.receiptsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -208,26 +209,27 @@
             this.client,
             this.date,
             this.status,
+            this.pricePaid,
             this.totalPrice,
             this.preview,
             this.changeStatus});
             this.receiptsRecordTblLayout.SetColumnSpan(this.receiptsDataGridView, 8);
             this.receiptsDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.receiptsDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.receiptsDataGridView.DefaultCellStyle = dataGridViewCellStyle11;
             this.receiptsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.receiptsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.receiptsDataGridView.Location = new System.Drawing.Point(3, 169);
             this.receiptsDataGridView.MultiSelect = false;
             this.receiptsDataGridView.Name = "receiptsDataGridView";
             this.receiptsDataGridView.ReadOnly = true;
-            this.receiptsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.receiptsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.receiptsDataGridView.RowHeadersWidth = 40;
             this.receiptsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.receiptsRecordTblLayout.SetRowSpan(this.receiptsDataGridView, 12);
@@ -244,7 +246,7 @@
             this.searchLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchLbl.ForeColor = System.Drawing.Color.White;
-            this.searchLbl.Location = new System.Drawing.Point(834, 89);
+            this.searchLbl.Location = new System.Drawing.Point(831, 89);
             this.searchLbl.Name = "searchLbl";
             this.searchLbl.Size = new System.Drawing.Size(311, 27);
             this.searchLbl.TabIndex = 41;
@@ -256,7 +258,7 @@
             this.searchTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTxtBox.Location = new System.Drawing.Point(834, 119);
+            this.searchTxtBox.Location = new System.Drawing.Point(831, 119);
             this.searchTxtBox.Multiline = true;
             this.searchTxtBox.Name = "searchTxtBox";
             this.searchTxtBox.ShortcutsEnabled = false;
@@ -291,8 +293,8 @@
             // date
             // 
             this.date.DataPropertyName = "date";
-            dataGridViewCellStyle2.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.NullValue = null;
+            this.date.DefaultCellStyle = dataGridViewCellStyle8;
             this.date.HeaderText = "Datum";
             this.date.Name = "date";
             this.date.ReadOnly = true;
@@ -303,6 +305,15 @@
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             this.status.ReadOnly = true;
+            // 
+            // pricePaid
+            // 
+            this.pricePaid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.pricePaid.DataPropertyName = "price_paid";
+            this.pricePaid.HeaderText = "Isplaćeno (RSD)";
+            this.pricePaid.Name = "pricePaid";
+            this.pricePaid.ReadOnly = true;
+            this.pricePaid.Width = 219;
             // 
             // totalPrice
             // 
@@ -315,12 +326,12 @@
             // 
             // preview
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.NullValue = "🔎";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.preview.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.NullValue = "🔎";
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            this.preview.DefaultCellStyle = dataGridViewCellStyle9;
             this.preview.HeaderText = "";
             this.preview.Name = "preview";
             this.preview.ReadOnly = true;
@@ -329,13 +340,13 @@
             // 
             // changeStatus
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.NullValue = "💰";
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.changeStatus.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.NullValue = "💰";
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            this.changeStatus.DefaultCellStyle = dataGridViewCellStyle10;
             this.changeStatus.HeaderText = "";
             this.changeStatus.Name = "changeStatus";
             this.changeStatus.ReadOnly = true;
@@ -379,6 +390,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn client;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pricePaid;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn preview;
         private System.Windows.Forms.DataGridViewTextBoxColumn changeStatus;

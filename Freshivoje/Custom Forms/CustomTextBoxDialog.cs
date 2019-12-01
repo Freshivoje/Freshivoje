@@ -12,10 +12,10 @@ namespace Freshivoje.Custom_Forms
 {
     public partial class CustomTextBoxDialog : Form
     {
-        public static int _value { get; private set; }
+        public static dynamic _value { get; private set; }
         public static DialogResult ShowDialog(IWin32Window owner, string text)
         {
-            using var customDialog = new CustomTextBoxDialog(text);
+            using CustomTextBoxDialog customDialog = new CustomTextBoxDialog(text);
             return customDialog.ShowDialog(owner);
         }
         protected override CreateParams CreateParams
@@ -64,7 +64,7 @@ namespace Freshivoje.Custom_Forms
         private void confirmBtn_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Yes;
-            _value = Convert.ToInt32(valueTxtBox.Text);
+            _value = valueTxtBox.Text;
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)

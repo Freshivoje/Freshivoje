@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatePackageForm));
             this.articleFormTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.packageCategoryTxtBox = new System.Windows.Forms.TextBox();
             this.packageStatusCmbBox = new System.Windows.Forms.ComboBox();
@@ -364,6 +365,7 @@
             this.ClientSize = new System.Drawing.Size(676, 678);
             this.Controls.Add(this.articleFormTableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreatePackageForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

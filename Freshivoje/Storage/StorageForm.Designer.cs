@@ -64,7 +64,7 @@
             this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.25074F));
             this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.StorageFormTblLayout.Controls.Add(this.packagingTunnelLbl, 0, 9);
             this.StorageFormTblLayout.Controls.Add(this.packagingLbl, 0, 8);
             this.StorageFormTblLayout.Controls.Add(this.label2, 0, 2);
@@ -100,7 +100,7 @@
             this.StorageFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.StorageFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.StorageFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.StorageFormTblLayout.Size = new System.Drawing.Size(2034, 864);
+            this.StorageFormTblLayout.Size = new System.Drawing.Size(1940, 864);
             this.StorageFormTblLayout.TabIndex = 3;
             // 
             // packagingTunnelLbl
@@ -114,7 +114,7 @@
             this.packagingTunnelLbl.Location = new System.Drawing.Point(3, 513);
             this.packagingTunnelLbl.Name = "packagingTunnelLbl";
             this.StorageFormTblLayout.SetRowSpan(this.packagingTunnelLbl, 5);
-            this.packagingTunnelLbl.Size = new System.Drawing.Size(508, 285);
+            this.packagingTunnelLbl.Size = new System.Drawing.Size(486, 285);
             this.packagingTunnelLbl.TabIndex = 54;
             // 
             // packagingLbl
@@ -127,7 +127,7 @@
             this.packagingLbl.ForeColor = System.Drawing.Color.White;
             this.packagingLbl.Location = new System.Drawing.Point(3, 456);
             this.packagingLbl.Name = "packagingLbl";
-            this.packagingLbl.Size = new System.Drawing.Size(508, 57);
+            this.packagingLbl.Size = new System.Drawing.Size(486, 57);
             this.packagingLbl.TabIndex = 53;
             this.packagingLbl.Text = "Nosivost(Kg)/Kategorija/Težina(Kg)/ Proizvođač/Stanje";
             this.packagingLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -142,7 +142,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(3, 144);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(508, 27);
+            this.label2.Size = new System.Drawing.Size(486, 27);
             this.label2.TabIndex = 51;
             this.label2.Text = "Ime/Sorta/KP/Klasa/Težina(KG)";
             // 
@@ -153,9 +153,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1613, 87);
+            this.label1.Location = new System.Drawing.Point(1534, 87);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(304, 27);
+            this.label1.Size = new System.Drawing.Size(285, 27);
             this.label1.TabIndex = 50;
             this.label1.Text = "Prodaja artikla ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,7 +171,7 @@
             this.tunnelLbl.Location = new System.Drawing.Point(3, 171);
             this.tunnelLbl.Name = "tunnelLbl";
             this.StorageFormTblLayout.SetRowSpan(this.tunnelLbl, 5);
-            this.tunnelLbl.Size = new System.Drawing.Size(508, 285);
+            this.tunnelLbl.Size = new System.Drawing.Size(486, 285);
             this.tunnelLbl.TabIndex = 43;
             // 
             // exitBtn
@@ -188,10 +188,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1973, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1875, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(58, 51);
+            this.exitBtn.Size = new System.Drawing.Size(62, 51);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -229,7 +229,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1923, 3);
+            this.backBtn.Location = new System.Drawing.Point(1825, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 51);
             this.backBtn.TabIndex = 9;
@@ -246,10 +246,10 @@
             this.chambersLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chambersLbl.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chambersLbl.ForeColor = System.Drawing.Color.White;
-            this.chambersLbl.Location = new System.Drawing.Point(637, 57);
+            this.chambersLbl.Location = new System.Drawing.Point(615, 57);
             this.chambersLbl.Name = "chambersLbl";
             this.chambersLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.chambersLbl.Size = new System.Drawing.Size(950, 57);
+            this.chambersLbl.Size = new System.Drawing.Size(893, 57);
             this.chambersLbl.TabIndex = 44;
             this.chambersLbl.Text = "KOMORE ";
             this.chambersLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,11 +266,11 @@
             this.a1Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.a1Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.a1Btn.ForeColor = System.Drawing.Color.White;
-            this.a1Btn.Location = new System.Drawing.Point(639, 119);
+            this.a1Btn.Location = new System.Drawing.Point(617, 119);
             this.a1Btn.Margin = new System.Windows.Forms.Padding(5);
             this.a1Btn.Name = "a1Btn";
             this.StorageFormTblLayout.SetRowSpan(this.a1Btn, 5);
-            this.a1Btn.Size = new System.Drawing.Size(461, 275);
+            this.a1Btn.Size = new System.Drawing.Size(432, 275);
             this.a1Btn.TabIndex = 45;
             this.a1Btn.TabStop = false;
             this.a1Btn.UseVisualStyleBackColor = false;
@@ -288,10 +288,10 @@
             this.b1Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b1Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b1Btn.ForeColor = System.Drawing.Color.White;
-            this.b1Btn.Location = new System.Drawing.Point(637, 516);
+            this.b1Btn.Location = new System.Drawing.Point(615, 516);
             this.b1Btn.Name = "b1Btn";
             this.StorageFormTblLayout.SetRowSpan(this.b1Btn, 5);
-            this.b1Btn.Size = new System.Drawing.Size(465, 279);
+            this.b1Btn.Size = new System.Drawing.Size(436, 279);
             this.b1Btn.TabIndex = 46;
             this.b1Btn.UseVisualStyleBackColor = false;
             this.b1Btn.Click += new System.EventHandler(this.b1Btn_Click);
@@ -308,10 +308,10 @@
             this.a2Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.a2Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.a2Btn.ForeColor = System.Drawing.Color.White;
-            this.a2Btn.Location = new System.Drawing.Point(1128, 117);
+            this.a2Btn.Location = new System.Drawing.Point(1077, 117);
             this.a2Btn.Name = "a2Btn";
             this.StorageFormTblLayout.SetRowSpan(this.a2Btn, 5);
-            this.a2Btn.Size = new System.Drawing.Size(459, 279);
+            this.a2Btn.Size = new System.Drawing.Size(431, 279);
             this.a2Btn.TabIndex = 47;
             this.a2Btn.UseVisualStyleBackColor = false;
             this.a2Btn.Click += new System.EventHandler(this.a2Btn_Click);
@@ -328,10 +328,10 @@
             this.b2Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b2Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b2Btn.ForeColor = System.Drawing.Color.White;
-            this.b2Btn.Location = new System.Drawing.Point(1128, 516);
+            this.b2Btn.Location = new System.Drawing.Point(1077, 516);
             this.b2Btn.Name = "b2Btn";
             this.StorageFormTblLayout.SetRowSpan(this.b2Btn, 5);
-            this.b2Btn.Size = new System.Drawing.Size(459, 279);
+            this.b2Btn.Size = new System.Drawing.Size(431, 279);
             this.b2Btn.TabIndex = 48;
             this.b2Btn.UseVisualStyleBackColor = false;
             this.b2Btn.Click += new System.EventHandler(this.b2Btn_Click);
@@ -348,10 +348,10 @@
             this.outputBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.outputBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.outputBtn.ForeColor = System.Drawing.Color.White;
-            this.outputBtn.Location = new System.Drawing.Point(1613, 117);
+            this.outputBtn.Location = new System.Drawing.Point(1534, 117);
             this.outputBtn.Name = "outputBtn";
             this.StorageFormTblLayout.SetRowSpan(this.outputBtn, 12);
-            this.outputBtn.Size = new System.Drawing.Size(304, 678);
+            this.outputBtn.Size = new System.Drawing.Size(285, 678);
             this.outputBtn.TabIndex = 49;
             this.outputBtn.Text = "IZLAZ";
             this.outputBtn.UseVisualStyleBackColor = false;
@@ -363,7 +363,7 @@
             this.articlequantityLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.articlequantityLbl.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articlequantityLbl.ForeColor = System.Drawing.Color.White;
-            this.articlequantityLbl.Location = new System.Drawing.Point(517, 171);
+            this.articlequantityLbl.Location = new System.Drawing.Point(495, 171);
             this.articlequantityLbl.Name = "articlequantityLbl";
             this.articlequantityLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.StorageFormTblLayout.SetRowSpan(this.articlequantityLbl, 5);
@@ -377,7 +377,7 @@
             this.packagingQuantityLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.packagingQuantityLbl.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.packagingQuantityLbl.ForeColor = System.Drawing.Color.White;
-            this.packagingQuantityLbl.Location = new System.Drawing.Point(517, 513);
+            this.packagingQuantityLbl.Location = new System.Drawing.Point(495, 513);
             this.packagingQuantityLbl.Name = "packagingQuantityLbl";
             this.packagingQuantityLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.StorageFormTblLayout.SetRowSpan(this.packagingQuantityLbl, 5);
@@ -389,9 +389,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2034, 864);
+            this.ClientSize = new System.Drawing.Size(1940, 864);
             this.Controls.Add(this.StorageFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StorageForm";
             this.Text = "StorageForm";
             this.StorageFormTblLayout.ResumeLayout(false);

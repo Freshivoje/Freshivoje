@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransportForm));
             this.crateQuantityLbl = new System.Windows.Forms.Label();
             this.travelTxtBox = new System.Windows.Forms.TextBox();
             this.backBtn = new System.Windows.Forms.Button();
@@ -45,13 +46,13 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.transportDataGridView = new System.Windows.Forms.DataGridView();
-            this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.traveled = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.transportDataGridView)).BeginInit();
             this.insertFormTblLayout.SuspendLayout();
             this.SuspendLayout();
@@ -320,53 +321,6 @@
             this.transportDataGridView.TabStop = false;
             this.transportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.transportDataGridView_CellContentClick);
             // 
-            // insertFormTblLayout
-            // 
-            this.insertFormTblLayout.BackColor = System.Drawing.Color.Transparent;
-            this.insertFormTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
-            this.insertFormTblLayout.ColumnCount = 7;
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.insertFormTblLayout.Controls.Add(this.transportDataGridView, 0, 5);
-            this.insertFormTblLayout.Controls.Add(this.minimizeBtn, 5, 0);
-            this.insertFormTblLayout.Controls.Add(this.exitBtn, 6, 0);
-            this.insertFormTblLayout.Controls.Add(this.priceTxtBox, 1, 3);
-            this.insertFormTblLayout.Controls.Add(this.quantityTxtBox, 2, 3);
-            this.insertFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
-            this.insertFormTblLayout.Controls.Add(this.backBtn, 4, 0);
-            this.insertFormTblLayout.Controls.Add(this.travelTxtBox, 3, 3);
-            this.insertFormTblLayout.Controls.Add(this.priceLbl, 1, 2);
-            this.insertFormTblLayout.Controls.Add(this.quantityLbl, 2, 2);
-            this.insertFormTblLayout.Controls.Add(this.crateQuantityLbl, 3, 2);
-            this.insertFormTblLayout.Controls.Add(this.insertBtn, 2, 4);
-            this.insertFormTblLayout.Controls.Add(this.finishInsertBtn, 2, 14);
-            this.insertFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.insertFormTblLayout.Location = new System.Drawing.Point(5, 5);
-            this.insertFormTblLayout.Name = "insertFormTblLayout";
-            this.insertFormTblLayout.RowCount = 15;
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.696053F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.02938F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.696053F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.476385F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.118189F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.199713F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.696053F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.696053F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.696053F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.696053F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.insertFormTblLayout.Size = new System.Drawing.Size(1930, 820);
-            this.insertFormTblLayout.TabIndex = 2;
-            // 
             // id
             // 
             this.id.HeaderText = "ID";
@@ -417,6 +371,53 @@
             this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.deleteArticle.Width = 40;
             // 
+            // insertFormTblLayout
+            // 
+            this.insertFormTblLayout.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
+            this.insertFormTblLayout.ColumnCount = 7;
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.insertFormTblLayout.Controls.Add(this.transportDataGridView, 0, 5);
+            this.insertFormTblLayout.Controls.Add(this.minimizeBtn, 5, 0);
+            this.insertFormTblLayout.Controls.Add(this.exitBtn, 6, 0);
+            this.insertFormTblLayout.Controls.Add(this.priceTxtBox, 1, 3);
+            this.insertFormTblLayout.Controls.Add(this.quantityTxtBox, 2, 3);
+            this.insertFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
+            this.insertFormTblLayout.Controls.Add(this.backBtn, 4, 0);
+            this.insertFormTblLayout.Controls.Add(this.travelTxtBox, 3, 3);
+            this.insertFormTblLayout.Controls.Add(this.priceLbl, 1, 2);
+            this.insertFormTblLayout.Controls.Add(this.quantityLbl, 2, 2);
+            this.insertFormTblLayout.Controls.Add(this.crateQuantityLbl, 3, 2);
+            this.insertFormTblLayout.Controls.Add(this.insertBtn, 2, 4);
+            this.insertFormTblLayout.Controls.Add(this.finishInsertBtn, 2, 14);
+            this.insertFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.insertFormTblLayout.Location = new System.Drawing.Point(5, 5);
+            this.insertFormTblLayout.Name = "insertFormTblLayout";
+            this.insertFormTblLayout.RowCount = 15;
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.696053F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.02938F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.696053F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.476385F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.118189F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.199713F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.696053F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.696053F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.696053F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.696053F));
+            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.insertFormTblLayout.Size = new System.Drawing.Size(1930, 820);
+            this.insertFormTblLayout.TabIndex = 2;
+            // 
             // TransportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,6 +426,7 @@
             this.ClientSize = new System.Drawing.Size(1940, 830);
             this.Controls.Add(this.insertFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TransportForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

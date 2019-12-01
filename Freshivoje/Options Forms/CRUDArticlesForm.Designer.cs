@@ -40,9 +40,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.articlesDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchArticlesLbl = new System.Windows.Forms.Label();
-            this.insertArticleBtn = new System.Windows.Forms.Button();
-            this.searchArticlesTxtBox = new System.Windows.Forms.TextBox();
             this.articleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +48,9 @@
             this.articleCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updateArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchArticlesLbl = new System.Windows.Forms.Label();
+            this.insertArticleBtn = new System.Windows.Forms.Button();
+            this.searchArticlesTxtBox = new System.Windows.Forms.TextBox();
             this.crudArticlesFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.articlesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -236,54 +236,6 @@
             this.articlesDataGridView.TabStop = false;
             this.articlesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.articlesDataGridView_CellClick);
             // 
-            // searchArticlesLbl
-            // 
-            this.searchArticlesLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.searchArticlesLbl.AutoSize = true;
-            this.searchArticlesLbl.BackColor = System.Drawing.Color.Transparent;
-            this.searchArticlesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchArticlesLbl.ForeColor = System.Drawing.Color.White;
-            this.searchArticlesLbl.Location = new System.Drawing.Point(1485, 113);
-            this.searchArticlesLbl.Name = "searchArticlesLbl";
-            this.searchArticlesLbl.Size = new System.Drawing.Size(178, 27);
-            this.searchArticlesLbl.TabIndex = 41;
-            this.searchArticlesLbl.Text = "Pretraži artikle";
-            this.searchArticlesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // insertArticleBtn
-            // 
-            this.insertArticleBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.insertArticleBtn.BackColor = System.Drawing.Color.Transparent;
-            this.insertArticleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.insertArticleBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.insertArticleBtn.FlatAppearance.BorderSize = 5;
-            this.insertArticleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.insertArticleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.insertArticleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.insertArticleBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.insertArticleBtn.ForeColor = System.Drawing.Color.White;
-            this.insertArticleBtn.Location = new System.Drawing.Point(247, 143);
-            this.insertArticleBtn.Name = "insertArticleBtn";
-            this.insertArticleBtn.Size = new System.Drawing.Size(213, 64);
-            this.insertArticleBtn.TabIndex = 37;
-            this.insertArticleBtn.TabStop = false;
-            this.insertArticleBtn.Text = "Kreiraj artikal";
-            this.insertArticleBtn.UseVisualStyleBackColor = false;
-            this.insertArticleBtn.Click += new System.EventHandler(this.createArticleBtn_Click);
-            // 
-            // searchArticlesTxtBox
-            // 
-            this.searchArticlesTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchArticlesTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchArticlesTxtBox.Location = new System.Drawing.Point(1374, 143);
-            this.searchArticlesTxtBox.Multiline = true;
-            this.searchArticlesTxtBox.Name = "searchArticlesTxtBox";
-            this.searchArticlesTxtBox.ShortcutsEnabled = false;
-            this.searchArticlesTxtBox.Size = new System.Drawing.Size(400, 31);
-            this.searchArticlesTxtBox.TabIndex = 5;
-            this.searchArticlesTxtBox.TextChanged += new System.EventHandler(this.searchArticlesTxtBox_TextChanged);
-            this.searchArticlesTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
-            // 
             // articleId
             // 
             this.articleId.DataPropertyName = "id_article";
@@ -356,6 +308,54 @@
             this.deleteArticle.ReadOnly = true;
             this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.deleteArticle.Width = 40;
+            // 
+            // searchArticlesLbl
+            // 
+            this.searchArticlesLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.searchArticlesLbl.AutoSize = true;
+            this.searchArticlesLbl.BackColor = System.Drawing.Color.Transparent;
+            this.searchArticlesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchArticlesLbl.ForeColor = System.Drawing.Color.White;
+            this.searchArticlesLbl.Location = new System.Drawing.Point(1485, 113);
+            this.searchArticlesLbl.Name = "searchArticlesLbl";
+            this.searchArticlesLbl.Size = new System.Drawing.Size(178, 27);
+            this.searchArticlesLbl.TabIndex = 41;
+            this.searchArticlesLbl.Text = "Pretraži artikle";
+            this.searchArticlesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // insertArticleBtn
+            // 
+            this.insertArticleBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.insertArticleBtn.BackColor = System.Drawing.Color.Transparent;
+            this.insertArticleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.insertArticleBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.insertArticleBtn.FlatAppearance.BorderSize = 5;
+            this.insertArticleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.insertArticleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.insertArticleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.insertArticleBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.insertArticleBtn.ForeColor = System.Drawing.Color.White;
+            this.insertArticleBtn.Location = new System.Drawing.Point(247, 143);
+            this.insertArticleBtn.Name = "insertArticleBtn";
+            this.insertArticleBtn.Size = new System.Drawing.Size(213, 64);
+            this.insertArticleBtn.TabIndex = 37;
+            this.insertArticleBtn.TabStop = false;
+            this.insertArticleBtn.Text = "Kreiraj artikal";
+            this.insertArticleBtn.UseVisualStyleBackColor = false;
+            this.insertArticleBtn.Click += new System.EventHandler(this.createArticleBtn_Click);
+            // 
+            // searchArticlesTxtBox
+            // 
+            this.searchArticlesTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchArticlesTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchArticlesTxtBox.Location = new System.Drawing.Point(1374, 143);
+            this.searchArticlesTxtBox.Multiline = true;
+            this.searchArticlesTxtBox.Name = "searchArticlesTxtBox";
+            this.searchArticlesTxtBox.ShortcutsEnabled = false;
+            this.searchArticlesTxtBox.Size = new System.Drawing.Size(400, 31);
+            this.searchArticlesTxtBox.TabIndex = 5;
+            this.searchArticlesTxtBox.TextChanged += new System.EventHandler(this.searchArticlesTxtBox_TextChanged);
+            this.searchArticlesTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // CRUDArticlesForm
             // 
