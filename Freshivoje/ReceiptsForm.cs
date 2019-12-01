@@ -67,6 +67,7 @@ namespace Freshivoje
             {
                 _selectedReceiptId = Convert.ToInt32(receiptsDataGridView.Rows[e.RowIndex].Cells["receiptId"].Value);
                 _selectedReceiptStatus = receiptsDataGridView.Rows[e.RowIndex].Cells["status"].Value.ToString();
+                _selectedReceiptPricePaid = Convert.ToDecimal(receiptsDataGridView.Rows[e.RowIndex].Cells["pricePaid"].Value);
                 _selectedReceiptTotalPrice = Convert.ToDecimal(receiptsDataGridView.Rows[e.RowIndex].Cells["totalPrice"].Value);
                 _selectedReceiptDate = Convert.ToDateTime(receiptsDataGridView.Rows[e.RowIndex].Cells["date"].Value).ToString("dd.MM.yyyy.");
 
@@ -74,7 +75,7 @@ namespace Freshivoje
                 {
                     CommandText = @"SELECT
                                     CONCAT_WS(' / ', `articles`.`article_name`, `articles`.`sort`, `articles`.`organic`, `articles`.`category`) as article, 
-                                    `items_receipt`.`quantity`, 
+                                    `items_receipt`.`quantity`,
                                     `items_receipt`.`price`
                                     FROM `items_receipt`
                                     JOIN `articles` ON `items_receipt`.`fk_article_id` = `articles`.`id_article`
@@ -85,7 +86,7 @@ namespace Freshivoje
 
                 string details = DbConnection.getReceiptDetails(mySqlCommand);
 
-                string message = $"{details}\nDatum: {_selectedReceiptDate}\nStatus: {_selectedReceiptStatus}\nUkupna cena: {_selectedReceiptTotalPrice} RSD";
+                string message = $"{details}\nDatum: {_selectedReceiptDate}\nStatus: {_selectedReceiptStatus}\nUkupna cena: {_selectedReceiptTotalPrice} RSD\nIsplaćeno: {_selectedReceiptPricePaid} RSD";
 
                 CustomMessageBox.ShowDialog(this, message);
                 return;
