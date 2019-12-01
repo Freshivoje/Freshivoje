@@ -33,12 +33,6 @@ namespace Freshivoje
         {
             Close();
         }
-
-        private void minimizeBtn_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();

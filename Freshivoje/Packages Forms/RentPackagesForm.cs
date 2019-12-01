@@ -15,7 +15,6 @@ namespace Freshivoje
         public RentPackagesForm(int clientId, string clientInfo = "")
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
             rentedPackagesDataGridView.AutoGenerateColumns = false;
 
             _selectedClientId = clientId;
@@ -37,11 +36,7 @@ namespace Freshivoje
             }
         }
 
-        private void minimizeBtn_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
+  
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -210,18 +205,26 @@ namespace Freshivoje
             _selectedPackagingId = (cratesCmbBox.SelectedItem as ComboBoxItem).Value;
             MySqlCommand mySqlCommand = new MySqlCommand
             {
-                CommandText = @"SELECT IF(`packaging_record_items`.`quantity` IS NULL, `packaging`.`quantity`, `packaging`.`quantity` + SUM(`type` * `packaging_record_items`.`quantity`)) as 'Available' 
-                                FROM `packaging_record_items` 
-                                RIGHT JOIN `packaging_records` ON `packaging_record_items`.`fk_packaging_records_id` = `packaging_records`.`id_packaging_record` 
-                                RIGHT JOIN `packaging` ON `packaging_record_items`.`fk_packaging_id` = `packaging`.`id_packaging`
-                                WHERE `packaging`.`id_packaging` = @packagingId
-                                GROUP BY `packaging`.`id_packaging`"
+                CommandText = @"SELECT `quantity` FROM `packaging` WHERE `id_packaging` = @packagingId"
             };
 
              mySqlCommand.Parameters.AddWithValue("@packagingId", _selectedPackagingId);
 
             int packagingQuantity = Convert.ToInt32(DbConnection.getValue(mySqlCommand));
-            availablePackages.Text = packagingQuantity.ToString();
+
+            mySqlCommand.CommandText = @"SELECT
+                                        SUM(`type` * `packaging_record_items`.`quantity`) as 'Available' 
+                                        FROM `packaging_record_items` 
+                                        RIGHT JOIN `packaging_records` ON `packaging_record_items`.`fk_packaging_records_id` = `packaging_records`.`id_packaging_record` 
+                                        RIGHT JOIN `packaging` ON `packaging_record_items`.`fk_packaging_id` = `packaging`.`id_packaging`
+                                        WHERE `id_packaging` = @packagingId AND `packaging_record_items`.`ownership` = 'Hladnjača'
+                                        GROUP BY `packaging`.`id_packaging`";
+
+            int packagingRecordsAvailability = Convert.ToInt32(DbConnection.getValue(mySqlCommand));
+
+            int packagingAvailable = packagingQuantity + packagingRecordsAvailability;
+
+            availablePackages.Text = packagingAvailable.ToString();
 
             mySqlCommand.CommandText = "SELECT `price` FROM `packaging` WHERE `id_packaging` = @packagingId";
             decimal packagingPrice = Convert.ToDecimal(DbConnection.getValue(mySqlCommand));

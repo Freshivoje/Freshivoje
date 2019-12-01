@@ -42,7 +42,6 @@ namespace Freshivoje.Packages
                                                                 WHERE `packaging_record_items`.`ownership` = 'Hladnjača'
                                                                 GROUP BY `clients`.`id_client`, `packaging`.`id_packaging`
                                                                 HAVING `quantity` > 0";
-
         private readonly string _totalColdStoragePackagingDebtQuery = @"SELECT 
 		                                                    `clients`.`id_client` as `fk_client_id`,
                                                             `packaging`.`id_packaging` as `packaging_id`,
@@ -94,10 +93,6 @@ namespace Freshivoje.Packages
             Close();
         }
 
-        private void minimizeBtn_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
@@ -194,7 +189,7 @@ namespace Freshivoje.Packages
                         return;
                     }
 
-                    quantity = CustomTextBoxDialog._value;
+                    quantity = Convert.ToInt32(CustomTextBoxDialog._value);
 
                     if (quantity < 1)
                     {

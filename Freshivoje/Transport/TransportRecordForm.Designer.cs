@@ -36,7 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.transportRecordsTblLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
@@ -61,65 +60,40 @@
             this.transportRecordsTblLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("transportRecordsTblLayout.BackgroundImage")));
             this.transportRecordsTblLayout.ColumnCount = 8;
             this.transportRecordsTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.transportRecordsTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
-            this.transportRecordsTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
-            this.transportRecordsTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
-            this.transportRecordsTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
+            this.transportRecordsTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.transportRecordsTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.transportRecordsTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.transportRecordsTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.transportRecordsTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.transportRecordsTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.transportRecordsTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.transportRecordsTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
-            this.transportRecordsTblLayout.Controls.Add(this.minimizeBtn, 6, 0);
             this.transportRecordsTblLayout.Controls.Add(this.exitBtn, 7, 0);
             this.transportRecordsTblLayout.Controls.Add(this.lblTitle, 0, 0);
-            this.transportRecordsTblLayout.Controls.Add(this.backBtn, 5, 0);
+            this.transportRecordsTblLayout.Controls.Add(this.backBtn, 6, 0);
             this.transportRecordsTblLayout.Controls.Add(this.transportDataGridView, 0, 3);
-            this.transportRecordsTblLayout.Controls.Add(this.searchArticlesLbl, 4, 1);
-            this.transportRecordsTblLayout.Controls.Add(this.searchTransportTxtBox, 4, 2);
+            this.transportRecordsTblLayout.Controls.Add(this.searchArticlesLbl, 5, 1);
+            this.transportRecordsTblLayout.Controls.Add(this.searchTransportTxtBox, 5, 2);
             this.transportRecordsTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transportRecordsTblLayout.Location = new System.Drawing.Point(5, 5);
             this.transportRecordsTblLayout.Name = "transportRecordsTblLayout";
             this.transportRecordsTblLayout.RowCount = 15;
+            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149927F));
             this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149926F));
-            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
             this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
-            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
+            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149926F));
+            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149926F));
             this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.273625F));
             this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.927262F));
-            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
-            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
-            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
-            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
-            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
-            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
-            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
-            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
+            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149926F));
+            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149926F));
+            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149926F));
+            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149926F));
+            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149926F));
+            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149926F));
+            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149926F));
+            this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149926F));
             this.transportRecordsTblLayout.Size = new System.Drawing.Size(1375, 798);
             this.transportRecordsTblLayout.TabIndex = 3;
-            // 
-            // minimizeBtn
-            // 
-            this.minimizeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.BackgroundImage = global::Freshivoje.Properties.Resources.minimize;
-            this.minimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.minimizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.minimizeBtn.FlatAppearance.BorderSize = 0;
-            this.minimizeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1264, 3);
-            this.minimizeBtn.Name = "minimizeBtn";
-            this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.minimizeBtn.Size = new System.Drawing.Size(44, 47);
-            this.minimizeBtn.TabIndex = 5;
-            this.minimizeBtn.TabStop = false;
-            this.minimizeBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.minimizeBtn.UseVisualStyleBackColor = false;
-            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
             // 
             // exitBtn
             // 
@@ -135,10 +109,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1314, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1328, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(58, 47);
+            this.exitBtn.Size = new System.Drawing.Size(44, 47);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -176,7 +150,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1214, 3);
+            this.backBtn.Location = new System.Drawing.Point(1278, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 47);
             this.backBtn.TabIndex = 9;
@@ -323,9 +297,9 @@
             this.searchArticlesLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchArticlesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchArticlesLbl.ForeColor = System.Drawing.Color.White;
-            this.searchArticlesLbl.Location = new System.Drawing.Point(876, 79);
+            this.searchArticlesLbl.Location = new System.Drawing.Point(1053, 79);
             this.searchArticlesLbl.Name = "searchArticlesLbl";
-            this.searchArticlesLbl.Size = new System.Drawing.Size(332, 27);
+            this.searchArticlesLbl.Size = new System.Drawing.Size(219, 27);
             this.searchArticlesLbl.TabIndex = 41;
             this.searchArticlesLbl.Text = "Pretraži ";
             this.searchArticlesLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -335,11 +309,11 @@
             this.searchTransportTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchTransportTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchTransportTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTransportTxtBox.Location = new System.Drawing.Point(876, 109);
+            this.searchTransportTxtBox.Location = new System.Drawing.Point(1053, 109);
             this.searchTransportTxtBox.Multiline = true;
             this.searchTransportTxtBox.Name = "searchTransportTxtBox";
             this.searchTransportTxtBox.ShortcutsEnabled = false;
-            this.searchTransportTxtBox.Size = new System.Drawing.Size(332, 31);
+            this.searchTransportTxtBox.Size = new System.Drawing.Size(219, 31);
             this.searchTransportTxtBox.TabIndex = 5;
             this.searchTransportTxtBox.TextChanged += new System.EventHandler(this.searchTransportxtBox_TextChanged);
             this.searchTransportTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
@@ -365,7 +339,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel transportRecordsTblLayout;
-        private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button backBtn;

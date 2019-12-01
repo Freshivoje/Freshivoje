@@ -20,7 +20,6 @@ namespace Freshivoje.Options_Forms
         public CRUDArticlesForm()
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
             articlesDataGridView.AutoGenerateColumns = false;
         }
 
@@ -45,11 +44,6 @@ namespace Freshivoje.Options_Forms
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void minimizeBtn_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
         }
 
         private void backBtn_Click(object sender, EventArgs e)

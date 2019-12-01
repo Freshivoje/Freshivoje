@@ -36,7 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.packagesRecordFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.searchRecordTypeLbl = new System.Windows.Forms.Label();
-            this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
@@ -71,10 +70,9 @@
             this.packagesRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.packagesRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
             this.packagesRecordFormTblLayout.Controls.Add(this.searchRecordTypeLbl, 1, 1);
-            this.packagesRecordFormTblLayout.Controls.Add(this.minimizeBtn, 6, 0);
             this.packagesRecordFormTblLayout.Controls.Add(this.exitBtn, 7, 0);
             this.packagesRecordFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
-            this.packagesRecordFormTblLayout.Controls.Add(this.backBtn, 5, 0);
+            this.packagesRecordFormTblLayout.Controls.Add(this.backBtn, 6, 0);
             this.packagesRecordFormTblLayout.Controls.Add(this.packagesRecordsDataGridView, 0, 3);
             this.packagesRecordFormTblLayout.Controls.Add(this.searchRentPackagesRecordLbl, 4, 1);
             this.packagesRecordFormTblLayout.Controls.Add(this.searchRentPackagesRecordTxtBox, 4, 2);
@@ -116,30 +114,6 @@
             this.searchRecordTypeLbl.TabIndex = 43;
             this.searchRecordTypeLbl.Text = "Tip evidencije";
             this.searchRecordTypeLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // minimizeBtn
-            // 
-            this.minimizeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.BackgroundImage = global::Freshivoje.Properties.Resources.minimize;
-            this.minimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.minimizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.minimizeBtn.FlatAppearance.BorderSize = 0;
-            this.minimizeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1264, 3);
-            this.minimizeBtn.Name = "minimizeBtn";
-            this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.minimizeBtn.Size = new System.Drawing.Size(44, 47);
-            this.minimizeBtn.TabIndex = 5;
-            this.minimizeBtn.TabStop = false;
-            this.minimizeBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.minimizeBtn.UseVisualStyleBackColor = false;
-            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
             // 
             // exitBtn
             // 
@@ -196,7 +170,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1214, 3);
+            this.backBtn.Location = new System.Drawing.Point(1264, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 47);
             this.backBtn.TabIndex = 9;
@@ -405,7 +379,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel packagesRecordFormTblLayout;
-        private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button backBtn;

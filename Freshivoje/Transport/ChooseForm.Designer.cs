@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseForm));
             this.chooseTransportFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.backBtn = new System.Windows.Forms.Button();
-            this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.transportPaymentsBtn = new System.Windows.Forms.Button();
             this.transportRecordsBtn = new System.Windows.Forms.Button();
@@ -48,8 +47,7 @@
             this.chooseTransportFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.chooseTransportFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.chooseTransportFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.chooseTransportFormTblLayout.Controls.Add(this.backBtn, 2, 0);
-            this.chooseTransportFormTblLayout.Controls.Add(this.minimizeBtn, 3, 0);
+            this.chooseTransportFormTblLayout.Controls.Add(this.backBtn, 3, 0);
             this.chooseTransportFormTblLayout.Controls.Add(this.exitBtn, 4, 0);
             this.chooseTransportFormTblLayout.Controls.Add(this.transportPaymentsBtn, 1, 2);
             this.chooseTransportFormTblLayout.Controls.Add(this.transportRecordsBtn, 1, 4);
@@ -82,7 +80,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(464, 3);
+            this.backBtn.Location = new System.Drawing.Point(514, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 54);
             this.backBtn.TabIndex = 11;
@@ -90,29 +88,6 @@
             this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
-            // 
-            // minimizeBtn
-            // 
-            this.minimizeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.BackgroundImage = global::Freshivoje.Properties.Resources.minimize;
-            this.minimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.minimizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.minimizeBtn.FlatAppearance.BorderSize = 0;
-            this.minimizeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(514, 3);
-            this.minimizeBtn.Name = "minimizeBtn";
-            this.minimizeBtn.Size = new System.Drawing.Size(44, 54);
-            this.minimizeBtn.TabIndex = 5;
-            this.minimizeBtn.TabStop = false;
-            this.minimizeBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.minimizeBtn.UseVisualStyleBackColor = false;
-            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
             // 
             // exitBtn
             // 
@@ -199,7 +174,6 @@
 
         private System.Windows.Forms.TableLayoutPanel chooseTransportFormTblLayout;
         private System.Windows.Forms.Button backBtn;
-        private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Button transportPaymentsBtn;
         private System.Windows.Forms.Button transportRecordsBtn;

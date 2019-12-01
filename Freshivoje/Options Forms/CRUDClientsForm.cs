@@ -32,7 +32,6 @@ namespace Freshivoje.Options_Forms
         public CRUDClientsForm()
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
             clientsDataGridView.AutoGenerateColumns = false;
             // BUG?
             clientsDataGridView.DefaultCellStyle.ForeColor = Color.Black;
@@ -50,11 +49,6 @@ namespace Freshivoje.Options_Forms
         private void backBtn_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void minimizeBtn_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
         }
 
         private void exitBtn_Click(object sender, EventArgs e)

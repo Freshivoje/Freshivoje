@@ -22,7 +22,6 @@ namespace Freshivoje.Shared_Forms
         {
             InitializeComponent();
             _childForm = childForm;
-            WindowState = FormWindowState.Maximized;
             clientsDataGridView.AutoGenerateColumns = false;
             DbConnection.fillDGV(clientsDataGridView, _fillDGVQuery);
 
@@ -154,11 +153,6 @@ namespace Freshivoje.Shared_Forms
             {
                 e.Handled = true;
             }
-        }
-
-        private void minimizeBtn_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
         }
     }
 }

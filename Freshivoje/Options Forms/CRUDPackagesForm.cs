@@ -16,7 +16,6 @@ namespace Freshivoje.Options_Forms
         public CRUDPackagesForm()
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
             packagesDataGridView.AutoGenerateColumns = false;         
         }
 
@@ -48,10 +47,6 @@ namespace Freshivoje.Options_Forms
             Close();
         }
 
-        private void minimizeBtn_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
 
         private void packagingDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

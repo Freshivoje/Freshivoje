@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.crudArticlesFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
@@ -61,21 +60,20 @@
             this.crudArticlesFormTblLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("crudArticlesFormTblLayout.BackgroundImage")));
             this.crudArticlesFormTblLayout.ColumnCount = 8;
             this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.crudArticlesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.crudArticlesFormTblLayout.Controls.Add(this.minimizeBtn, 6, 0);
             this.crudArticlesFormTblLayout.Controls.Add(this.exitBtn, 7, 0);
             this.crudArticlesFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
-            this.crudArticlesFormTblLayout.Controls.Add(this.backBtn, 5, 0);
+            this.crudArticlesFormTblLayout.Controls.Add(this.backBtn, 6, 0);
             this.crudArticlesFormTblLayout.Controls.Add(this.articlesDataGridView, 1, 3);
-            this.crudArticlesFormTblLayout.Controls.Add(this.searchArticlesLbl, 4, 1);
+            this.crudArticlesFormTblLayout.Controls.Add(this.searchArticlesLbl, 5, 1);
             this.crudArticlesFormTblLayout.Controls.Add(this.insertArticleBtn, 1, 2);
-            this.crudArticlesFormTblLayout.Controls.Add(this.searchArticlesTxtBox, 4, 2);
+            this.crudArticlesFormTblLayout.Controls.Add(this.searchArticlesTxtBox, 5, 2);
             this.crudArticlesFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crudArticlesFormTblLayout.Location = new System.Drawing.Point(5, 5);
             this.crudArticlesFormTblLayout.Name = "crudArticlesFormTblLayout";
@@ -98,30 +96,6 @@
             this.crudArticlesFormTblLayout.Size = new System.Drawing.Size(1930, 1064);
             this.crudArticlesFormTblLayout.TabIndex = 2;
             // 
-            // minimizeBtn
-            // 
-            this.minimizeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.BackgroundImage = global::Freshivoje.Properties.Resources.minimize;
-            this.minimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizeBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.minimizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.minimizeBtn.FlatAppearance.BorderSize = 0;
-            this.minimizeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimizeBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimizeBtn.ForeColor = System.Drawing.Color.White;
-            this.minimizeBtn.Location = new System.Drawing.Point(1831, 3);
-            this.minimizeBtn.Name = "minimizeBtn";
-            this.minimizeBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.minimizeBtn.Size = new System.Drawing.Size(44, 64);
-            this.minimizeBtn.TabIndex = 5;
-            this.minimizeBtn.TabStop = false;
-            this.minimizeBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.minimizeBtn.UseVisualStyleBackColor = false;
-            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
-            // 
             // exitBtn
             // 
             this.exitBtn.BackColor = System.Drawing.Color.Transparent;
@@ -136,10 +110,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1881, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1883, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(46, 64);
+            this.exitBtn.Size = new System.Drawing.Size(44, 64);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -177,7 +151,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1781, 3);
+            this.backBtn.Location = new System.Drawing.Point(1833, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 64);
             this.backBtn.TabIndex = 9;
@@ -316,7 +290,7 @@
             this.searchArticlesLbl.BackColor = System.Drawing.Color.Transparent;
             this.searchArticlesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchArticlesLbl.ForeColor = System.Drawing.Color.White;
-            this.searchArticlesLbl.Location = new System.Drawing.Point(1485, 113);
+            this.searchArticlesLbl.Location = new System.Drawing.Point(1573, 113);
             this.searchArticlesLbl.Name = "searchArticlesLbl";
             this.searchArticlesLbl.Size = new System.Drawing.Size(178, 27);
             this.searchArticlesLbl.TabIndex = 41;
@@ -327,6 +301,7 @@
             // 
             this.insertArticleBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.insertArticleBtn.BackColor = System.Drawing.Color.Transparent;
+            this.crudArticlesFormTblLayout.SetColumnSpan(this.insertArticleBtn, 2);
             this.insertArticleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.insertArticleBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.insertArticleBtn.FlatAppearance.BorderSize = 5;
@@ -335,9 +310,9 @@
             this.insertArticleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insertArticleBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.insertArticleBtn.ForeColor = System.Drawing.Color.White;
-            this.insertArticleBtn.Location = new System.Drawing.Point(247, 143);
+            this.insertArticleBtn.Location = new System.Drawing.Point(367, 143);
             this.insertArticleBtn.Name = "insertArticleBtn";
-            this.insertArticleBtn.Size = new System.Drawing.Size(213, 64);
+            this.insertArticleBtn.Size = new System.Drawing.Size(237, 64);
             this.insertArticleBtn.TabIndex = 37;
             this.insertArticleBtn.TabStop = false;
             this.insertArticleBtn.Text = "Kreiraj artikal";
@@ -348,11 +323,11 @@
             // 
             this.searchArticlesTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchArticlesTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchArticlesTxtBox.Location = new System.Drawing.Point(1374, 143);
+            this.searchArticlesTxtBox.Location = new System.Drawing.Point(1497, 143);
             this.searchArticlesTxtBox.Multiline = true;
             this.searchArticlesTxtBox.Name = "searchArticlesTxtBox";
             this.searchArticlesTxtBox.ShortcutsEnabled = false;
-            this.searchArticlesTxtBox.Size = new System.Drawing.Size(400, 31);
+            this.searchArticlesTxtBox.Size = new System.Drawing.Size(330, 31);
             this.searchArticlesTxtBox.TabIndex = 5;
             this.searchArticlesTxtBox.TextChanged += new System.EventHandler(this.searchArticlesTxtBox_TextChanged);
             this.searchArticlesTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
@@ -371,6 +346,7 @@
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Opcije artikala";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.CRUDArticlesForm_Activated);
             this.crudArticlesFormTblLayout.ResumeLayout(false);
             this.crudArticlesFormTblLayout.PerformLayout();
@@ -382,7 +358,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel crudArticlesFormTblLayout;
-        private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button backBtn;
