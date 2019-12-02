@@ -32,7 +32,6 @@ namespace Freshivoje
                 using MySqlDataReader reader = mySqlCommand.ExecuteReader();
                 while (reader.Read())
                 {
-
                     foreach (string column in columns)
                     {
                         switch (column)
@@ -109,7 +108,6 @@ namespace Freshivoje
                                 QuantityArticle = reader.GetDecimal(column);
                                 MapOfArticleQuantiy.Add(QuantityArticleId, QuantityArticle);
                                 break;
-                                break;
                             case "QuantityPackagingId":
                                 QuantityPackagingId = reader.GetInt32(column);
                                 break;
@@ -165,13 +163,13 @@ namespace Freshivoje
                         {
                             state = false;
                             SUM = item.Value - item1.Value;
-                            text += $"{SUM.ToString()}\n";
+                            text += $"{SUM.ToString()}";
                         }
                     }
 
                     if (state != false)
                     {
-                        text += $"{item.Value.ToString()}\n";
+                        text += $"{item.Value.ToString()}";
                     }
 
                 }
@@ -184,13 +182,13 @@ namespace Freshivoje
                         {
                             state = false;
                             SUM = item.Value - item1.Value;
-                            text += $"{SUM.ToString()}\n";
+                            text += $"{SUM.ToString()}";
                         }
                     }
 
                     if (state != false)
                     {
-                        text += $"{item.Value.ToString()}\n";
+                        text += $"{item.Value.ToString()}";
                     }
 
                 }
@@ -628,7 +626,6 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-
         public static void executeTransportQuery(List<TransportItem> transportItems, decimal totalPrice)
         {
             MySqlCommand mySqlCommand = new MySqlCommand
@@ -692,7 +689,6 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-
         public static dynamic getStorageData(MySqlCommand mySqlCommand,int id)
         {
             dynamic result = null;
@@ -727,7 +723,6 @@ namespace Freshivoje
             return result;
 
         }
-
         public static string getTransportDetails(MySqlCommand mySqlCommand)
         {
             string result = string.Empty;
@@ -810,7 +805,6 @@ namespace Freshivoje
             }
 
         }
-
         public static dynamic getValue(MySqlCommand mySqlCommand)
         {
             dynamic value = 0;

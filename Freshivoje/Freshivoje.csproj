@@ -256,11 +256,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage\ChooseInsertStorageMethodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Storage\ChooseInsertStorageMethodForm.Designer.cs">
+      <DependentUpon>ChooseInsertStorageMethodForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Storage\ChooseStorageMethodForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Storage\ChooseStorageMethodForm.Designer.cs">
       <DependentUpon>ChooseStorageMethodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Storage\InsertPackagingStorageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Storage\InsertPackagingStorageForm.Designer.cs">
+      <DependentUpon>InsertPackagingStorageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Storage\InsertStorageForm.cs">
       <SubType>Form</SubType>
@@ -392,8 +404,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Storage\ChooseInsertStorageMethodForm.resx">
+      <DependentUpon>ChooseInsertStorageMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Storage\ChooseStorageMethodForm.resx">
       <DependentUpon>ChooseStorageMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Storage\InsertPackagingStorageForm.resx">
+      <DependentUpon>InsertPackagingStorageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Storage\InsertStorageForm.resx">
       <DependentUpon>InsertStorageForm.cs</DependentUpon>

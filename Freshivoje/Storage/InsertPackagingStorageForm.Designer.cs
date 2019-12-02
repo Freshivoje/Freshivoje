@@ -1,6 +1,6 @@
 ﻿namespace Freshivoje.Storage
 {
-    partial class InsertStorageForm
+    partial class InsertPackagingStorageForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.freeStorageLbl = new System.Windows.Forms.Label();
@@ -42,7 +42,10 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.articlesLbl = new System.Windows.Forms.Label();
-            this.ArticlesDataGridView = new System.Windows.Forms.DataGridView();
+            this.insertedArticlesDataGridView = new System.Windows.Forms.DataGridView();
+            this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packagingQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packagingOwnership = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.articleSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +59,7 @@
             this.priceLbl = new System.Windows.Forms.Label();
             this.insertBtn = new System.Windows.Forms.Button();
             this.insertFormTblLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ArticlesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.insertedArticlesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // insertFormTblLayout
@@ -82,7 +85,7 @@
             this.insertFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
             this.insertFormTblLayout.Controls.Add(this.backBtn, 7, 0);
             this.insertFormTblLayout.Controls.Add(this.articlesLbl, 0, 3);
-            this.insertFormTblLayout.Controls.Add(this.ArticlesDataGridView, 0, 6);
+            this.insertFormTblLayout.Controls.Add(this.insertedArticlesDataGridView, 0, 6);
             this.insertFormTblLayout.Controls.Add(this.articleLbl, 4, 4);
             this.insertFormTblLayout.Controls.Add(this.articleQuantityLbl, 2, 3);
             this.insertFormTblLayout.Controls.Add(this.finishInsertBtn, 2, 14);
@@ -107,8 +110,8 @@
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.insertFormTblLayout.Size = new System.Drawing.Size(1546, 858);
-            this.insertFormTblLayout.TabIndex = 2;
+            this.insertFormTblLayout.Size = new System.Drawing.Size(1421, 646);
+            this.insertFormTblLayout.TabIndex = 3;
             // 
             // label3
             // 
@@ -117,9 +120,9 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1145, 130);
+            this.label3.Location = new System.Drawing.Point(1045, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(242, 30);
+            this.label3.Size = new System.Drawing.Size(217, 30);
             this.label3.TabIndex = 45;
             this.label3.Text = "Slobodno (kg)";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -131,9 +134,9 @@
             this.freeStorageLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.freeStorageLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.freeStorageLbl.ForeColor = System.Drawing.Color.White;
-            this.freeStorageLbl.Location = new System.Drawing.Point(1145, 160);
+            this.freeStorageLbl.Location = new System.Drawing.Point(1045, 160);
             this.freeStorageLbl.Name = "freeStorageLbl";
-            this.freeStorageLbl.Size = new System.Drawing.Size(242, 60);
+            this.freeStorageLbl.Size = new System.Drawing.Size(217, 60);
             this.freeStorageLbl.TabIndex = 44;
             this.freeStorageLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -144,7 +147,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(75, 831);
+            this.label2.Location = new System.Drawing.Point(75, 619);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 27);
             this.label2.TabIndex = 43;
@@ -165,7 +168,7 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1493, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1368, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.exitBtn.Size = new System.Drawing.Size(50, 54);
@@ -173,7 +176,6 @@
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.exitBtn.UseVisualStyleBackColor = false;
-            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // articlesCmbBox
             // 
@@ -187,24 +189,22 @@
             "---"});
             this.articlesCmbBox.Location = new System.Drawing.Point(3, 163);
             this.articlesCmbBox.Name = "articlesCmbBox";
-            this.articlesCmbBox.Size = new System.Drawing.Size(640, 31);
+            this.articlesCmbBox.Size = new System.Drawing.Size(590, 31);
             this.articlesCmbBox.TabIndex = 1;
             this.articlesCmbBox.TabStop = false;
-            this.articlesCmbBox.SelectedIndexChanged += new System.EventHandler(this.articlesCmbBox_SelectedIndexChanged);
             // 
             // articleQuantityTxtBox
             // 
             this.articleQuantityTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.articleQuantityTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.articleQuantityTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.articleQuantityTxtBox.Location = new System.Drawing.Point(649, 163);
+            this.articleQuantityTxtBox.Location = new System.Drawing.Point(599, 163);
             this.articleQuantityTxtBox.MaxLength = 10;
             this.articleQuantityTxtBox.Multiline = true;
             this.articleQuantityTxtBox.Name = "articleQuantityTxtBox";
             this.articleQuantityTxtBox.ShortcutsEnabled = false;
-            this.articleQuantityTxtBox.Size = new System.Drawing.Size(242, 31);
+            this.articleQuantityTxtBox.Size = new System.Drawing.Size(217, 31);
             this.articleQuantityTxtBox.TabIndex = 3;
-            this.articleQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // lblTitle
             // 
@@ -237,14 +237,13 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1443, 3);
+            this.backBtn.Location = new System.Drawing.Point(1318, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 54);
             this.backBtn.TabIndex = 9;
             this.backBtn.TabStop = false;
             this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.backBtn.UseVisualStyleBackColor = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // articlesLbl
             // 
@@ -254,32 +253,35 @@
             this.insertFormTblLayout.SetColumnSpan(this.articlesLbl, 3);
             this.articlesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articlesLbl.ForeColor = System.Drawing.Color.White;
-            this.articlesLbl.Location = new System.Drawing.Point(43, 133);
+            this.articlesLbl.Location = new System.Drawing.Point(18, 133);
             this.articlesLbl.Name = "articlesLbl";
             this.articlesLbl.Size = new System.Drawing.Size(560, 27);
             this.articlesLbl.TabIndex = 11;
             this.articlesLbl.Text = "Artikal / Sorta / Kontrolisana proizvodnja / Klasa";
             this.articlesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ArticlesDataGridView
+            // insertedArticlesDataGridView
             // 
-            this.ArticlesDataGridView.AllowUserToAddRows = false;
-            this.ArticlesDataGridView.AllowUserToDeleteRows = false;
-            this.ArticlesDataGridView.AllowUserToResizeColumns = false;
-            this.ArticlesDataGridView.AllowUserToResizeRows = false;
-            this.ArticlesDataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.ArticlesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ArticlesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.ArticlesDataGridView.ColumnHeadersHeight = 40;
-            this.ArticlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.ArticlesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.insertedArticlesDataGridView.AllowUserToAddRows = false;
+            this.insertedArticlesDataGridView.AllowUserToDeleteRows = false;
+            this.insertedArticlesDataGridView.AllowUserToResizeColumns = false;
+            this.insertedArticlesDataGridView.AllowUserToResizeRows = false;
+            this.insertedArticlesDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.insertedArticlesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.insertedArticlesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.insertedArticlesDataGridView.ColumnHeadersHeight = 40;
+            this.insertedArticlesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.insertedArticlesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.packagingId,
+            this.packagingQuantity,
+            this.packagingOwnership,
             this.articleId,
             this.articleName,
             this.articleSort,
@@ -287,31 +289,51 @@
             this.articleCategory,
             this.articleQuantity,
             this.deleteArticle});
-            this.insertFormTblLayout.SetColumnSpan(this.ArticlesDataGridView, 9);
-            this.ArticlesDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ArticlesDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ArticlesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ArticlesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.ArticlesDataGridView.Location = new System.Drawing.Point(3, 273);
-            this.ArticlesDataGridView.MultiSelect = false;
-            this.ArticlesDataGridView.Name = "ArticlesDataGridView";
-            this.ArticlesDataGridView.ReadOnly = true;
-            this.ArticlesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.ArticlesDataGridView.RowHeadersWidth = 40;
-            this.ArticlesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.insertFormTblLayout.SetRowSpan(this.ArticlesDataGridView, 8);
-            this.ArticlesDataGridView.RowTemplate.Height = 30;
-            this.ArticlesDataGridView.Size = new System.Drawing.Size(1540, 522);
-            this.ArticlesDataGridView.TabIndex = 34;
-            this.ArticlesDataGridView.TabStop = false;
-            this.ArticlesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ArticlesDataGridView_CellContentClick);
+            this.insertFormTblLayout.SetColumnSpan(this.insertedArticlesDataGridView, 9);
+            this.insertedArticlesDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.insertedArticlesDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
+            this.insertedArticlesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.insertedArticlesDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.insertedArticlesDataGridView.Location = new System.Drawing.Point(3, 273);
+            this.insertedArticlesDataGridView.MultiSelect = false;
+            this.insertedArticlesDataGridView.Name = "insertedArticlesDataGridView";
+            this.insertedArticlesDataGridView.ReadOnly = true;
+            this.insertedArticlesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.insertedArticlesDataGridView.RowHeadersWidth = 40;
+            this.insertedArticlesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.insertFormTblLayout.SetRowSpan(this.insertedArticlesDataGridView, 8);
+            this.insertedArticlesDataGridView.RowTemplate.Height = 30;
+            this.insertedArticlesDataGridView.Size = new System.Drawing.Size(1415, 310);
+            this.insertedArticlesDataGridView.TabIndex = 34;
+            this.insertedArticlesDataGridView.TabStop = false;
+            // 
+            // packagingId
+            // 
+            this.packagingId.HeaderText = "ID ambalaže";
+            this.packagingId.Name = "packagingId";
+            this.packagingId.ReadOnly = true;
+            this.packagingId.Visible = false;
+            // 
+            // packagingQuantity
+            // 
+            this.packagingQuantity.HeaderText = "Broj ambalaža";
+            this.packagingQuantity.Name = "packagingQuantity";
+            this.packagingQuantity.ReadOnly = true;
+            this.packagingQuantity.Visible = false;
+            // 
+            // packagingOwnership
+            // 
+            this.packagingOwnership.HeaderText = "Vlasništvo ambalaže";
+            this.packagingOwnership.Name = "packagingOwnership";
+            this.packagingOwnership.ReadOnly = true;
+            this.packagingOwnership.Visible = false;
             // 
             // articleId
             // 
@@ -359,13 +381,13 @@
             // 
             // deleteArticle
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.NullValue = "X";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle6.NullValue = "X";
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Red;
+            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle6;
             this.deleteArticle.HeaderText = "";
             this.deleteArticle.Name = "deleteArticle";
             this.deleteArticle.ReadOnly = true;
@@ -379,9 +401,9 @@
             this.articleLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.articleLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.articleLbl.ForeColor = System.Drawing.Color.White;
-            this.articleLbl.Location = new System.Drawing.Point(897, 160);
+            this.articleLbl.Location = new System.Drawing.Point(822, 160);
             this.articleLbl.Name = "articleLbl";
-            this.articleLbl.Size = new System.Drawing.Size(242, 60);
+            this.articleLbl.Size = new System.Drawing.Size(217, 60);
             this.articleLbl.TabIndex = 35;
             this.articleLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -392,7 +414,7 @@
             this.articleQuantityLbl.BackColor = System.Drawing.Color.Transparent;
             this.articleQuantityLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.articleQuantityLbl.ForeColor = System.Drawing.Color.White;
-            this.articleQuantityLbl.Location = new System.Drawing.Point(693, 133);
+            this.articleQuantityLbl.Location = new System.Drawing.Point(630, 133);
             this.articleQuantityLbl.Name = "articleQuantityLbl";
             this.articleQuantityLbl.Size = new System.Drawing.Size(154, 27);
             this.articleQuantityLbl.TabIndex = 17;
@@ -412,7 +434,7 @@
             this.finishInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.finishInsertBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.finishInsertBtn.ForeColor = System.Drawing.Color.White;
-            this.finishInsertBtn.Location = new System.Drawing.Point(642, 803);
+            this.finishInsertBtn.Location = new System.Drawing.Point(580, 591);
             this.finishInsertBtn.Margin = new System.Windows.Forms.Padding(5);
             this.finishInsertBtn.Name = "finishInsertBtn";
             this.finishInsertBtn.Size = new System.Drawing.Size(255, 50);
@@ -429,9 +451,9 @@
             this.priceLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.priceLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceLbl.ForeColor = System.Drawing.Color.White;
-            this.priceLbl.Location = new System.Drawing.Point(897, 130);
+            this.priceLbl.Location = new System.Drawing.Point(822, 130);
             this.priceLbl.Name = "priceLbl";
-            this.priceLbl.Size = new System.Drawing.Size(242, 30);
+            this.priceLbl.Size = new System.Drawing.Size(217, 30);
             this.priceLbl.TabIndex = 16;
             this.priceLbl.Text = "Preuzeta  (kg)";
             this.priceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -448,28 +470,28 @@
             this.insertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insertBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.insertBtn.ForeColor = System.Drawing.Color.White;
-            this.insertBtn.Location = new System.Drawing.Point(651, 225);
+            this.insertBtn.Location = new System.Drawing.Point(601, 225);
             this.insertBtn.Margin = new System.Windows.Forms.Padding(5);
             this.insertBtn.Name = "insertBtn";
-            this.insertBtn.Size = new System.Drawing.Size(238, 40);
+            this.insertBtn.Size = new System.Drawing.Size(213, 40);
             this.insertBtn.TabIndex = 30;
             this.insertBtn.TabStop = false;
             this.insertBtn.Text = "Unesi artikal";
             this.insertBtn.UseVisualStyleBackColor = false;
             this.insertBtn.Click += new System.EventHandler(this.insertBtn_Click);
             // 
-            // InsertStorageForm
+            // InsertPackagingStorageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1546, 858);
+            this.ClientSize = new System.Drawing.Size(1421, 646);
             this.Controls.Add(this.insertFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "InsertStorageForm";
-            this.Text = "InsertStorageForm";
+            this.Name = "InsertPackagingStorageForm";
+            this.Text = "InsertPackagingStorageForm";
             this.insertFormTblLayout.ResumeLayout(false);
             this.insertFormTblLayout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ArticlesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.insertedArticlesDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -477,21 +499,19 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel insertFormTblLayout;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label freeStorageLbl;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.ComboBox articlesCmbBox;
         private System.Windows.Forms.TextBox articleQuantityTxtBox;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Label articlesLbl;
-        private System.Windows.Forms.DataGridView ArticlesDataGridView;
-        private System.Windows.Forms.Label articleLbl;
-        private System.Windows.Forms.Label articleQuantityLbl;
-        private System.Windows.Forms.Button insertBtn;
-        private System.Windows.Forms.Button finishInsertBtn;
-        private System.Windows.Forms.Label priceLbl;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label freeStorageLbl;
+        private System.Windows.Forms.DataGridView insertedArticlesDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn packagingId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn packagingQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn packagingOwnership;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleId;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleName;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleSort;
@@ -499,5 +519,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn articleCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn articleQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn deleteArticle;
+        private System.Windows.Forms.Label articleLbl;
+        private System.Windows.Forms.Label articleQuantityLbl;
+        private System.Windows.Forms.Button finishInsertBtn;
+        private System.Windows.Forms.Label priceLbl;
+        private System.Windows.Forms.Button insertBtn;
     }
 }

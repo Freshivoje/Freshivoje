@@ -24,11 +24,19 @@ namespace Freshivoje.Storage
             titleLbl.Text = "KOMORA " + storageData.getName();
         }
 
-        private void insertBtn_Click(object sender, EventArgs e)
+        protected override CreateParams CreateParams
         {
-            Hide();
-            using InsertStorageForm insertStorageForm = new InsertStorageForm(storageId);
-            insertStorageForm.ShowDialog(this);
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+        private void insertBtn_Click(object sender, EventArgs e)
+        {   
+            using ChooseInsertStorageMethodForm chooseInsertStorageMethodForm = new ChooseInsertStorageMethodForm(storageId);
+            chooseInsertStorageMethodForm.ShowDialog(this);
             Show();
         }
 
