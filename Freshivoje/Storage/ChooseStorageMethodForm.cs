@@ -27,7 +27,7 @@ namespace Freshivoje.Storage
         private void insertBtn_Click(object sender, EventArgs e)
         {
             Hide();
-            using InsertStorageForm insertStorageForm = new InsertStorageForm();
+            using InsertStorageForm insertStorageForm = new InsertStorageForm(storageId);
             insertStorageForm.ShowDialog(this);
             Show();
         }

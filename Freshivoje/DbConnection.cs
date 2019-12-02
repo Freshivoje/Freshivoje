@@ -6,6 +6,7 @@ using Freshivoje.Custom_Forms;
 using MySql.Data.MySqlClient;
 using Freshivoje.Models;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace Freshivoje
 {
@@ -18,7 +19,67 @@ namespace Freshivoje
         //private static string password = "";
         private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username};charset=utf8;";
         public static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
+        public static void Storage(Label label, string query, params string[] columns)
+        {
+            try
+            {
+                string text = string.Empty;
+                decimal ArticleQuantity = 0, StorageArticleQuantity = 0, SumA;
+                int PackagingQuantity = 0, StoragePackagingQuantity = 0, SumP;
+                _databaseConnection.Open();
+                MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
+                mySqlCommand.CommandText = query;
+                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
+                while (reader.Read())
+                {
 
+                    foreach (string column in columns)
+                    {
+                        switch (column)
+                        {
+                            case "StorageArticleQuantity":
+                              
+                                StorageArticleQuantity = reader.GetDecimal(column);
+                                break;
+                            case "article_quantity":
+                                
+                                ArticleQuantity = reader.GetDecimal(column);
+                                SumA = ArticleQuantity - StorageArticleQuantity;
+                                text = $"{SumA}";
+                                break;
+                            case "StoragePackagingQuantity":
+                             
+                                StoragePackagingQuantity = reader.GetInt32(column);
+                                break;
+                            case "package_quantity":
+                          
+                                PackagingQuantity = reader.GetInt32(column);
+                                SumP = PackagingQuantity - StoragePackagingQuantity;
+                                text = $"{SumP}";
+                                break;
+
+
+                            default:
+
+                                break;
+                        }
+                    }
+                }
+                label.Text = text;
+
+            }
+            catch (Exception e)
+            {
+                if (_databaseConnection.State != ConnectionState.Open)
+                {
+                    return;
+                }
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
+        }
         public static void fillLbl(Label label, string query, string query1, params string[] columns)
         {
             try
@@ -148,55 +209,68 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-        public static void fillBtnText(Button button, string table, string position, params string[] columns)
+        public static void fillBtnText(Button button, string query, params string[] columns)
         {
             try
             {
+                string text = string.Empty;
+                decimal ArticleQuantity = 0, StorageArticleQuantity = 0, SumA;
+                int PackagingQuantity = 0, StoragePackagingQuantity = 0, SumP;
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
-                mySqlCommand.CommandText = $"SELECT * FROM `{table}` WHERE storage_position='{position}'";
+                mySqlCommand.CommandText = query;
                 using MySqlDataReader reader = mySqlCommand.ExecuteReader();
-                if(reader.Read())
+                while (reader.Read())
                 {
-                    string text = string.Empty;
+
                     foreach (string column in columns)
                     {
                         switch (column)
                         {
                             case "id_storage":
-                                int _storageId = reader.GetInt32(column);
-                                button.Tag = _storageId;
+                                button.Tag = reader.GetInt32(column);
                                 break;
                             case "storage_position":
-                                text += $"{ reader.GetString(column)} \n ";
-                                button.Text = text;
+                                text += $"{reader.GetString(column)}\n";
+                                break;
+                            case "StorageArticleQuantity":
+                                text += $"Artikli(KG) {reader.GetDecimal(column)}/";
+                                StorageArticleQuantity = reader.GetDecimal(column);
                                 break;
                             case "article_quantity":
-                                text += $"{ reader.GetString(column)} KG \n ";
-                                button.Text = text;
-                                break;
-                            case "package_quantity":
-                                text += $"{ reader.GetString(column)} BR \n ";
-                                button.Text = text;
-                                break;
-                            case "status":
-                                string test = reader.GetString(column);
-                                if (test == "neaktivna")
+                                text += $"{reader.GetDecimal(column)}\n";
+                                ArticleQuantity = reader.GetDecimal(column);
+                                SumA = ArticleQuantity - StorageArticleQuantity;
+                                if (SumA <= 1000)
                                 {
-                                    button.Enabled = false;
-                                    button.Text = "Komora je izdata za lagerovanje";
+                                    button.BackColor = Color.Red;
                                 }
                                 break;
+                            case "StoragePackagingQuantity":
+                                text += $"Ambalaže {reader.GetInt32(column)}/";
+                                StoragePackagingQuantity = reader.GetInt32(column);
+                                break;
+                            case "package_quantity":
+                                text += $"{reader.GetInt32(column)}\n";
+                                PackagingQuantity = reader.GetInt32(column);
+                                SumP = PackagingQuantity - StoragePackagingQuantity;
+                                if(SumP <= 1000)
+                                {
+                                    button.BackColor = Color.Red;
+                                }
+                                break;
+
+
                             default:
-                                
+
                                 break;
                         }
                     }
-                text = text.Trim(' ', '/');
-                
                 }
+                button.Text = text;
+                
             }
-            catch
+            catch (Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
