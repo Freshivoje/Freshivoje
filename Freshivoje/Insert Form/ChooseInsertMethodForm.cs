@@ -52,7 +52,10 @@ namespace Freshivoje
             Hide();
             using ChooseStorageRentingMethodForm chooseStorageRentingMethodForm = new ChooseStorageRentingMethodForm();
             chooseStorageRentingMethodForm.ShowDialog(this);
-            Show();
+            if (!IsDisposed) 
+            { 
+                Show();
+            }
         }
     }
 }

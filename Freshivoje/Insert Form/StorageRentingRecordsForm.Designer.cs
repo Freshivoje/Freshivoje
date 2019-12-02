@@ -36,18 +36,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.StorageRentingRecordFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.StorageRentingDataGridView = new System.Windows.Forms.DataGridView();
-            this.id_renting_storage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fk_client_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.issuing_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.renting_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.previewTransport = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.searchLbl = new System.Windows.Forms.Label();
             this.searchRentingTxtBox = new System.Windows.Forms.TextBox();
+            this.id_renting_storage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_client_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storage_position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.renting_data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.end_of_renting_data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.renting_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.previewTransport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.changeStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StorageRentingRecordFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StorageRentingDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +66,7 @@
             this.StorageRentingRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
             this.StorageRentingRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.StorageRentingRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.StorageRentingRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
+            this.StorageRentingRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.StorageRentingRecordFormTblLayout.Controls.Add(this.StorageRentingDataGridView, 0, 3);
             this.StorageRentingRecordFormTblLayout.Controls.Add(this.exitBtn, 7, 0);
             this.StorageRentingRecordFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
@@ -115,10 +117,12 @@
             this.id_renting_storage,
             this.fk_client_id,
             this.client,
-            this.issuing_date,
+            this.storage_position,
+            this.renting_data,
+            this.end_of_renting_data,
             this.renting_status,
             this.previewTransport,
-            this.deleteStatus});
+            this.changeStatus});
             this.StorageRentingRecordFormTblLayout.SetColumnSpan(this.StorageRentingDataGridView, 8);
             this.StorageRentingDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -145,73 +149,6 @@
             this.StorageRentingDataGridView.TabStop = false;
             this.StorageRentingDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StorageRentingDataGridView_CellContentClick_1);
             // 
-            // id_renting_storage
-            // 
-            this.id_renting_storage.DataPropertyName = "id_renting_storage";
-            this.id_renting_storage.HeaderText = "ID";
-            this.id_renting_storage.Name = "id_renting_storage";
-            this.id_renting_storage.ReadOnly = true;
-            this.id_renting_storage.Visible = false;
-            // 
-            // fk_client_id
-            // 
-            this.fk_client_id.DataPropertyName = "fk_client_id";
-            this.fk_client_id.HeaderText = "ID Klijenta";
-            this.fk_client_id.Name = "fk_client_id";
-            this.fk_client_id.ReadOnly = true;
-            this.fk_client_id.Visible = false;
-            // 
-            // client
-            // 
-            this.client.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.client.DataPropertyName = "client";
-            this.client.HeaderText = "Klijent";
-            this.client.Name = "client";
-            this.client.ReadOnly = true;
-            // 
-            // issuing_date
-            // 
-            this.issuing_date.DataPropertyName = "issuing_date";
-            this.issuing_date.HeaderText = "Datum";
-            this.issuing_date.Name = "issuing_date";
-            this.issuing_date.ReadOnly = true;
-            // 
-            // renting_status
-            // 
-            this.renting_status.DataPropertyName = "renting_status";
-            this.renting_status.HeaderText = "Status";
-            this.renting_status.Name = "renting_status";
-            this.renting_status.ReadOnly = true;
-            // 
-            // previewTransport
-            // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.NullValue = "🔎";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.previewTransport.DefaultCellStyle = dataGridViewCellStyle2;
-            this.previewTransport.HeaderText = "";
-            this.previewTransport.Name = "previewTransport";
-            this.previewTransport.ReadOnly = true;
-            this.previewTransport.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.previewTransport.Width = 40;
-            // 
-            // deleteStatus
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.NullValue = "💰";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.deleteStatus.DefaultCellStyle = dataGridViewCellStyle3;
-            this.deleteStatus.HeaderText = "";
-            this.deleteStatus.Name = "deleteStatus";
-            this.deleteStatus.ReadOnly = true;
-            this.deleteStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deleteStatus.Width = 40;
-            // 
             // exitBtn
             // 
             this.exitBtn.BackColor = System.Drawing.Color.Transparent;
@@ -226,10 +163,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1603, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1599, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(56, 50);
+            this.exitBtn.Size = new System.Drawing.Size(60, 50);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -267,7 +204,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1553, 3);
+            this.backBtn.Location = new System.Drawing.Point(1549, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 50);
             this.backBtn.TabIndex = 9;
@@ -283,9 +220,9 @@
             this.searchLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchLbl.ForeColor = System.Drawing.Color.White;
-            this.searchLbl.Location = new System.Drawing.Point(1074, 85);
+            this.searchLbl.Location = new System.Drawing.Point(1071, 85);
             this.searchLbl.Name = "searchLbl";
-            this.searchLbl.Size = new System.Drawing.Size(423, 27);
+            this.searchLbl.Size = new System.Drawing.Size(422, 27);
             this.searchLbl.TabIndex = 41;
             this.searchLbl.Text = "Pretraži ";
             this.searchLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -295,13 +232,102 @@
             this.searchRentingTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchRentingTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchRentingTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchRentingTxtBox.Location = new System.Drawing.Point(1074, 115);
+            this.searchRentingTxtBox.Location = new System.Drawing.Point(1071, 115);
             this.searchRentingTxtBox.Multiline = true;
             this.searchRentingTxtBox.Name = "searchRentingTxtBox";
             this.searchRentingTxtBox.ShortcutsEnabled = false;
-            this.searchRentingTxtBox.Size = new System.Drawing.Size(423, 31);
+            this.searchRentingTxtBox.Size = new System.Drawing.Size(422, 31);
             this.searchRentingTxtBox.TabIndex = 5;
             this.searchRentingTxtBox.TextChanged += new System.EventHandler(this.searchRentingTxtBox_TextChanged);
+            // 
+            // id_renting_storage
+            // 
+            this.id_renting_storage.DataPropertyName = "id_renting_storage";
+            this.id_renting_storage.HeaderText = "ID";
+            this.id_renting_storage.Name = "id_renting_storage";
+            this.id_renting_storage.ReadOnly = true;
+            this.id_renting_storage.Visible = false;
+            // 
+            // fk_client_id
+            // 
+            this.fk_client_id.DataPropertyName = "fk_client_id";
+            this.fk_client_id.HeaderText = "ID Klijenta";
+            this.fk_client_id.Name = "fk_client_id";
+            this.fk_client_id.ReadOnly = true;
+            this.fk_client_id.Visible = false;
+            // 
+            // client
+            // 
+            this.client.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.client.DataPropertyName = "client";
+            this.client.HeaderText = "Klijent";
+            this.client.Name = "client";
+            this.client.ReadOnly = true;
+            // 
+            // storage_position
+            // 
+            this.storage_position.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.storage_position.DataPropertyName = "storage_position";
+            this.storage_position.HeaderText = "Pozicija u magacinu";
+            this.storage_position.Name = "storage_position";
+            this.storage_position.ReadOnly = true;
+            this.storage_position.Width = 258;
+            // 
+            // renting_data
+            // 
+            this.renting_data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.renting_data.DataPropertyName = "renting_data";
+            this.renting_data.HeaderText = "Datum zakupa";
+            this.renting_data.Name = "renting_data";
+            this.renting_data.ReadOnly = true;
+            this.renting_data.Width = 196;
+            // 
+            // end_of_renting_data
+            // 
+            this.end_of_renting_data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.end_of_renting_data.DataPropertyName = "end_of_renting_data";
+            this.end_of_renting_data.HeaderText = "Datum isteka";
+            this.end_of_renting_data.Name = "end_of_renting_data";
+            this.end_of_renting_data.ReadOnly = true;
+            this.end_of_renting_data.Width = 183;
+            // 
+            // renting_status
+            // 
+            this.renting_status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.renting_status.DataPropertyName = "renting_status";
+            this.renting_status.HeaderText = "Status";
+            this.renting_status.Name = "renting_status";
+            this.renting_status.ReadOnly = true;
+            this.renting_status.Width = 107;
+            // 
+            // previewTransport
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.NullValue = "🔎";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.previewTransport.DefaultCellStyle = dataGridViewCellStyle2;
+            this.previewTransport.HeaderText = "";
+            this.previewTransport.Name = "previewTransport";
+            this.previewTransport.ReadOnly = true;
+            this.previewTransport.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.previewTransport.Width = 40;
+            // 
+            // changeStatus
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.NullValue = "💰";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.changeStatus.DefaultCellStyle = dataGridViewCellStyle3;
+            this.changeStatus.HeaderText = "";
+            this.changeStatus.Name = "changeStatus";
+            this.changeStatus.ReadOnly = true;
+            this.changeStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.changeStatus.Width = 40;
             // 
             // StorageRentingRecordsForm
             // 
@@ -316,6 +342,7 @@
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StorageRentingRecordsForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.StorageRentingRecordFormTblLayout.ResumeLayout(false);
             this.StorageRentingRecordFormTblLayout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StorageRentingDataGridView)).EndInit();
@@ -335,9 +362,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id_renting_storage;
         private System.Windows.Forms.DataGridViewTextBoxColumn fk_client_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn client;
-        private System.Windows.Forms.DataGridViewTextBoxColumn issuing_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn storage_position;
+        private System.Windows.Forms.DataGridViewTextBoxColumn renting_data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn end_of_renting_data;
         private System.Windows.Forms.DataGridViewTextBoxColumn renting_status;
         private System.Windows.Forms.DataGridViewTextBoxColumn previewTransport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deleteStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn changeStatus;
     }
 }

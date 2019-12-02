@@ -87,7 +87,7 @@
             // 
             // endDataOfRentPicker
             // 
-            this.endDataOfRentPicker.CustomFormat = " yyyy-MM-dd";
+            this.endDataOfRentPicker.CustomFormat = "dd.MM.yyyy.";
             this.endDataOfRentPicker.Dock = System.Windows.Forms.DockStyle.Top;
             this.endDataOfRentPicker.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endDataOfRentPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -265,7 +265,7 @@
             // 
             // rentingDataPicker
             // 
-            this.rentingDataPicker.CustomFormat = " yyyy-MM-dd";
+            this.rentingDataPicker.CustomFormat = "dd.MM.yyyy.";
             this.rentingDataPicker.Dock = System.Windows.Forms.DockStyle.Top;
             this.rentingDataPicker.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rentingDataPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -273,6 +273,7 @@
             this.rentingDataPicker.Name = "rentingDataPicker";
             this.rentingDataPicker.Size = new System.Drawing.Size(709, 30);
             this.rentingDataPicker.TabIndex = 35;
+            this.rentingDataPicker.ValueChanged += new System.EventHandler(this.rentingDataPicker_ValueChanged);
             // 
             // StorageForRentingForm
             // 

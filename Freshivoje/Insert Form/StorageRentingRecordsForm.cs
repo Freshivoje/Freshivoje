@@ -16,13 +16,29 @@ namespace Freshivoje.Insert_Form
     {
         private int _storageRentingId;
         private string _selectStoregeRentingStatus;
-        private string _fillDGVQuery = "SELECT CONCAT(`clients`.`first_name`,' ',`clients`.`last_name`) as client, `clients`.`id_client` as fk_client_id, renting_storage.id_renting_storage, renting_storage.renting_status, renting_storage.issuing_date FROM renting_storage JOIN `clients` ON `clients`.`id_client` = renting_storage.`fk_client_id`";
-                                                   
+        private string _fillDGVQuery = @"SELECT 
+                                        CONCAT(`clients`.`first_name`,' ',`clients`.`last_name`, ' (', `clients`.`company_name`, ')') as `client`, 
+                                        `clients`.`id_client` as `fk_client_id`, 
+                                        `renting_storage`.`id_renting_storage`,
+                                        `storage`.`storage_position`,
+                                        `renting_storage`.`renting_status`, 
+                                        DATE_FORMAT(`renting_storage`.`renting_data`, '%d.%m.%Y.') as `renting_data`,
+										DATE_FORMAT(`renting_storage`.`end_of_renting_data`, '%d.%m.%Y.') as `end_of_renting_data`
+                                        FROM `renting_storage`
+                                        JOIN `clients` ON `clients`.`id_client` = `renting_storage`.`fk_client_id`
+                                        JOIN `storage` ON `renting_storage`.`fk_storage_id` = `storage`.`id_storage`";
+        private string _updateRentingStatusQuery = "UPDATE `storage` JOIN `renting_storage` ON `storage`.`id_storage` = `renting_storage`.`fk_storage_id` SET `status` = 'aktivna' WHERE `end_of_renting_data` < CURDATE()";
+
         public StorageRentingRecordsForm()
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
             StorageRentingDataGridView.AutoGenerateColumns = false;
+            MySqlCommand mySqlCommand = new MySqlCommand
+            {
+                CommandText = _updateRentingStatusQuery
+            };
+            DbConnection.executeQuery(mySqlCommand);
+
             DbConnection.fillDGV(StorageRentingDataGridView, _fillDGVQuery);
         }
 
@@ -50,7 +66,7 @@ namespace Freshivoje.Insert_Form
             {
                 return;
             }
-            if(e.ColumnIndex == 6)
+            if(e.ColumnIndex == 8)
             {
                 _storageRentingId = Convert.ToInt32(StorageRentingDataGridView.Rows[e.RowIndex].Cells["id_renting_storage"].Value);
                 _selectStoregeRentingStatus = StorageRentingDataGridView.Rows[e.RowIndex].Cells["renting_status"].Value.ToString();

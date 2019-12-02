@@ -352,6 +352,7 @@ namespace Freshivoje
                 {
                     return;
                 }
+                throw e;
             }
             finally
             {
