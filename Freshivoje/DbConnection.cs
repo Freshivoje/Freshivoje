@@ -512,7 +512,7 @@ namespace Freshivoje
                 }
                     foreach(KeyValuePair<Int32,Decimal> item in MapOfArticleQuantiy)
                     {
-                    bool state = true;
+                      bool state = true;
                       foreach(KeyValuePair<Int32, Decimal> item1 in MapOfArticleStorageQuantiy)
                       {
                          if(item1.Key == item.Key)

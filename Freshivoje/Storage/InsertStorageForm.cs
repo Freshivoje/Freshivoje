@@ -118,7 +118,7 @@ namespace Freshivoje.Storage
             }
             else
             {
-                CustomMessageBox.ShowDialog(this, "Sa količinom nešto nije uredu !!!");
+                CustomMessageBox.ShowDialog(this, "Količina koju ste uneli je van limita!");
                 return;
             }
             
@@ -140,7 +140,39 @@ namespace Freshivoje.Storage
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
+            if(ArticlesDataGridView.Rows.Count < 1)
+            {
+                CustomMessageBox.ShowDialog(this, "Niste uneli nijedan artikl");
+                return;
+            }
+            DialogResult result = CustomDialog.ShowDialog(this, "Da li ste sigurni da želite da unesete ove artikle u komoru ?");
+            if(result == DialogResult.No || result == DialogResult.Cancel)
+            {
+                return;
+            }
+           
 
+            foreach(DataGridViewRow row in ArticlesDataGridView.Rows)
+            {
+                MySqlCommand mySqlCommand = new MySqlCommand
+                {
+                    CommandText = $"INSERT INTO `storage_record_items` (`fk_storage_id`, `fk_article_id`,  `article_quantity`, `date`, `type_of_storage_action`, `status`) VALUES ( @storageId, @articleId, @articleQuantity, current_timestamp(), 'ulaz', 'aktivna');"
+                };
+                MySqlCommand mySqlCommand1 = new MySqlCommand
+                {
+                    CommandText = $"INSERT INTO `storage_record_items` (`fk_storage_id`, `fk_article_id`,  `article_quantity`, `date`, `type_of_storage_action`, `status`) VALUES ( 5, @articleId, @articleQuantity, current_timestamp(), 'ulaz', 'aktivna');"
+                };
+                mySqlCommand.Parameters.AddWithValue("@storageId", storageId);
+                mySqlCommand.Parameters.AddWithValue("@articleId", row.Cells["articleId"].Value);
+                mySqlCommand.Parameters.AddWithValue("@articleQuantity", row.Cells["articleQuantity"].Value);
+                mySqlCommand1.Parameters.AddWithValue("@articleId", row.Cells["articleId"].Value);
+                mySqlCommand1.Parameters.AddWithValue("@articleQuantity", row.Cells["articleQuantity"].Value);
+                DbConnection.executeQuery(mySqlCommand1);
+                DbConnection.executeQuery(mySqlCommand);
+              
+            }
+         
+            ArticlesDataGridView.Rows.Clear();
         }
 
         private void packagingCmbBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -165,6 +197,14 @@ namespace Freshivoje.Storage
                 return;
             }
             _articleId = ((ComboBoxItem)articlesCmbBox.SelectedItem).Value;
+            foreach (DataGridViewRow row in ArticlesDataGridView.Rows)
+            {
+                if (Convert.ToInt32(row.Cells["articleId"].Value) == _articleId)
+                {
+                    
+                    return;
+                }
+            }
             string _artilceQuantity = $"SELECT articles.id_article as QuantityArticleId, SUM(`items_receipt`.`quantity`) as QuantityArts, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `receipts` JOIN `items_receipt` ON `items_receipt`.`fk_receipt_id` = `receipts`.`id_receipt` JOIN `articles` ON articles.id_article = `items_receipt`.`fk_article_id` WHERE `date` >= CURDATE() AND articles.id_article = {_articleId} GROUP BY `articles`.`id_article`";
             string _articleStorageQuantity = $"SELECT articles.id_article as QuantityStorageArticleId, SUM(`storage_record_items`.`article_quantity`) as QuantityStorageArticle, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM storage_record_items JOIN articles ON articles.id_article = storage_record_items.fk_article_id WHERE `date` >= CURDATE() AND `storage_record_items`.`fk_storage_id`=5 AND articles.id_article = {_articleId} GROUP BY articles.id_article";
             DbConnection.fillLbl(articleLbl, _artilceQuantity, _articleStorageQuantity, "QuantityArticleId", "QuantityArts", "QuantityStorageArticleId", "QuantityStorageArticle");
