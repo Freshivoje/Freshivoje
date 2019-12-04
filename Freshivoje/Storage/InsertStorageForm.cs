@@ -274,12 +274,52 @@ namespace Freshivoje.Storage
                 decimal articleStorageQuantity = Convert.ToDecimal(articleLbl.Text);
                 DataGridViewRow _selectedRow = ArticlesDataGridView.CurrentRow;
                 decimal sumsa = Convert.ToDecimal(_selectedRow.Cells["articleQuantity"].Value);
-                ArticlesDataGridView.Rows.Remove(_selectedRow);
-                sum = freeStorage + sumsa;
-                suma = articleStorageQuantity + sumsa;
-                freeStorageLbl.Text = sum.ToString();
-                articleLbl.Text = suma.ToString();
+                int _selectedArticleId = Convert.ToInt32(_selectedRow.Cells["articleId"].Value);
+
+                    if ((articlesCmbBox.SelectedItem as ComboBoxItem).Value == _selectedArticleId)
+                    {
+
+                        sumsa = Convert.ToDecimal(_selectedRow.Cells["articleQuantity"].Value);
+                        sum = freeStorage + sumsa;
+                        MapOfArticles2 = MapOfArticles;
+                        foreach (KeyValuePair<Int32, Decimal> item in MapOfArticles)
+                        {
+                            if (item.Key == _selectedArticleId)
+                            {
+                                suma = articleStorageQuantity + sumsa;
+                                MapOfArticles1[item.Key] = suma;
+                            }
+
+                        }
+                        foreach (KeyValuePair<Int32, Decimal> item in MapOfArticles)
+                        {
+                            foreach (KeyValuePair<Int32, Decimal> item1 in MapOfArticles1)
+                            {
+                                if (item.Key == item1.Key)
+                                {
+                                    int key = item.Key;
+                                    decimal value = MapOfArticles1[item1.Key];
+                                    MapOfArticles2[key] = value;
+                                    MapOfArticles = MapOfArticles2;
+                                    articlesCmbBox.SelectedItem = key;
+                                    freeStorageLbl.Text = sum.ToString();
+                                    articleLbl.Text = MapOfArticles2[key].ToString();
+                                    articleQuantityTxtBox.ResetText();
+                                    ArticlesDataGridView.Rows.Remove(_selectedRow);
+                                    return;
+                                }
+                               
+                            }
+                        }
+
+                }
+                else
+                {
+                    CustomMessageBox.ShowDialog(this, "Niste Izabrali dobar artikl za brisanje!");
+                    return;
+                }
+                }
             }
         }
     }
-}
+
