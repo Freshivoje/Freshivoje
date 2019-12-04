@@ -47,6 +47,22 @@ namespace Freshivoje.Storage
                 return cp;
             }
         }
+        private void StorageForm_Activated(object sender, EventArgs e)
+        {
+           
+            WindowState = FormWindowState.Maximized;
+            tunnelLbl.Text = "";
+            articlequantityLbl.Text = "";
+            packagingQuantityLbl.Text = "";
+            packagingTunnelLbl.Text = "";
+            DbConnection.fillBtnText(a1Btn, _a1Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity", "StoragePackagingQuantity", "package_quantity");
+            DbConnection.fillBtnText(a2Btn, _a2Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity", "StoragePackagingQuantity", "package_quantity");
+            DbConnection.fillBtnText(b1Btn, _b1Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity", "StoragePackagingQuantity", "package_quantity");
+            DbConnection.fillBtnText(b2Btn, _b2Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity", "StoragePackagingQuantity", "package_quantity");
+            DbConnection.tunnel(tunnelLbl, _fillTextBox, _query1, articlequantityLbl, "quantityArticleId", "QuantityStorageArticleId", "article_name", "sort", "organic", "category", "quantityArts", "quantityStorageArticle");
+            DbConnection.tunnel(packagingTunnelLbl, _fillTextBox1, _query2, packagingQuantityLbl, "QuantityPackagingId", "QuantityStoragePackagingId", "capacity", "state", "category", "quantityPackg", "quantityStoragePackaging", "QuantityPackagingId", "QuantityStoragePackagingId");
+
+        }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
@@ -92,5 +108,7 @@ namespace Freshivoje.Storage
         {
 
         }
+
+   
     }
 }

@@ -40,7 +40,6 @@
             this.articlesCmbBox = new System.Windows.Forms.ComboBox();
             this.articleQuantityTxtBox = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.backBtn = new System.Windows.Forms.Button();
             this.articlesLbl = new System.Windows.Forms.Label();
             this.ArticlesDataGridView = new System.Windows.Forms.DataGridView();
             this.articleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,7 +79,6 @@
             this.insertFormTblLayout.Controls.Add(this.articlesCmbBox, 0, 4);
             this.insertFormTblLayout.Controls.Add(this.articleQuantityTxtBox, 3, 4);
             this.insertFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
-            this.insertFormTblLayout.Controls.Add(this.backBtn, 7, 0);
             this.insertFormTblLayout.Controls.Add(this.articlesLbl, 0, 3);
             this.insertFormTblLayout.Controls.Add(this.ArticlesDataGridView, 0, 6);
             this.insertFormTblLayout.Controls.Add(this.articleLbl, 4, 4);
@@ -222,29 +220,6 @@
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "UNOS ARTIKALA U KOMORU";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // backBtn
-            // 
-            this.backBtn.BackColor = System.Drawing.Color.Transparent;
-            this.backBtn.BackgroundImage = global::Freshivoje.Properties.Resources.left_arrow;
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1443, 3);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(44, 54);
-            this.backBtn.TabIndex = 9;
-            this.backBtn.TabStop = false;
-            this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.backBtn.UseVisualStyleBackColor = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // articlesLbl
             // 
@@ -481,7 +456,6 @@
         private System.Windows.Forms.ComboBox articlesCmbBox;
         private System.Windows.Forms.TextBox articleQuantityTxtBox;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Label articlesLbl;
         private System.Windows.Forms.DataGridView ArticlesDataGridView;
         private System.Windows.Forms.Label articleLbl;
