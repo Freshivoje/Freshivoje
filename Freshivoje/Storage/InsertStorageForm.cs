@@ -15,13 +15,12 @@ namespace Freshivoje.Storage
 {
     public partial class InsertStorageForm : Form
     {
-        public List<Article> articles = new List<Article>();
         public Dictionary<Int32, Decimal> MapOfArticles = new Dictionary<int, decimal>();
         public Dictionary<Int32, Decimal> MapOfArticles1 = new Dictionary<int, decimal>();
         public Dictionary<Int32, Decimal> MapOfArticles2 = new Dictionary<int, decimal>();
         int _articleId;
         int storageId;
-        bool state, state1;
+        bool  state1;
         string _fillCmbBox = "SELECT `articles`.`id_article`, `articles`.`article_name`, `articles`.`sort`, `articles`.`organic`, `articles`.`category`, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `receipts` JOIN `items_receipt` ON `items_receipt`.`fk_receipt_id` = `receipts`.`id_receipt` JOIN `articles` ON `articles`.`id_article` = `items_receipt`.`fk_article_id` WHERE `date` >= CURDATE() GROUP BY `articles`.`id_article`;";
 
         
@@ -29,7 +28,6 @@ namespace Freshivoje.Storage
         {
             InitializeComponent();
             storageId = _storageId;
-            state = true;
             state1 = true;
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = "SELECT * FROM storage WHERE id_storage ='" + _storageId + "'";
@@ -82,22 +80,22 @@ namespace Freshivoje.Storage
       
         private void insertBtn_Click(object sender, EventArgs e)
         {
-            decimal freeStorage = Convert.ToDecimal(freeStorageLbl.Text);
-            decimal articleStorageQuantity = Convert.ToDecimal(articleLbl.Text);
-            decimal articleQuantity = Convert.ToDecimal(articleQuantityTxtBox.Text);
-            if (string.IsNullOrWhiteSpace(articleQuantityLbl.Text) || articlesCmbBox.SelectedIndex < 1 || ((articleStorageQuantity - articleQuantity) < 0))
+           
+            if (string.IsNullOrWhiteSpace(articleQuantityLbl.Text) || articlesCmbBox.SelectedIndex < 1 || ((Convert.ToDecimal(articleLbl.Text) - Convert.ToDecimal(articleQuantityTxtBox.Text)) < 0))
             {
                 CustomMessageBox.ShowDialog(this, "Količina koju ste uneli nije validna !");
                 return;
             }
-           
-            decimal sum, suma = 0;
+            decimal freeStorage = Convert.ToDecimal(freeStorageLbl.Text);
+            decimal articleStorageQuantity = Convert.ToDecimal(articleLbl.Text);
+            decimal articleQuantity = Convert.ToDecimal(articleQuantityTxtBox.Text);
+            decimal sum, suma;
             if (freeStorage > articleQuantity && articleStorageQuantity > articleQuantity)
             {
                 int articleId = (articlesCmbBox.SelectedItem as ComboBoxItem).Value;
                 string[] articleFields = articlesCmbBox.Text.Split('/');
                 Article article = new Article(articleId, articleFields[0], articleFields[1], articleFields[2], articleFields[3], 0, 0, 0, articleQuantity);
-
+            
                 foreach (DataGridViewRow row in ArticlesDataGridView.Rows)
                 {
                     
@@ -107,8 +105,7 @@ namespace Freshivoje.Storage
                         row.Cells["articleQuantity"].Value = sumQuantity;
                         sum = freeStorage - sumQuantity;
                         suma = articleStorageQuantity - article._quantity;
-                        freeStorageLbl.Text = sum.ToString();
-                        articleLbl.Text = suma.ToString();
+                       
                         articleQuantityTxtBox.ResetText();
                         articlesCmbBox.SelectedItem = 0;
                         MapOfArticles2 = MapOfArticles;
@@ -132,16 +129,47 @@ namespace Freshivoje.Storage
                                     decimal value = MapOfArticles1[item1.Key];
                                     MapOfArticles2[key] = value;
                                     MapOfArticles = MapOfArticles2;
-
+                                    freeStorageLbl.Text = sum.ToString();
+                                    articleLbl.Text = suma.ToString();
+                                    return;
                                 }
-                                return;
+                               
                             }
                         }
                       
                       
                     }
                 }
+                MapOfArticles2 = MapOfArticles;
+                suma = articleStorageQuantity - article._quantity;
+                foreach (KeyValuePair<Int32, Decimal> item in MapOfArticles)
+                {   
+
+                    if (item.Key == article._id)
+                    {
+                        MapOfArticles1[item.Key] = suma;
+                    }
+
+                }
+                foreach (KeyValuePair<Int32, Decimal> item in MapOfArticles)
+                {
+                    foreach (KeyValuePair<Int32, Decimal> item1 in MapOfArticles1)
+                    {
+                        if (item.Key == article._id)
+                        {
+                            int key = item.Key;
+                            decimal value = MapOfArticles1[item1.Key];
+                            MapOfArticles2[key] = value;
+                            MapOfArticles = MapOfArticles2;
+                            articleLbl.Text = value.ToString();
+                            ArticlesDataGridView.Rows.Add(article._id, article._name, article._sort, article._category, article._organic, articleQuantity);
+                            return;
+                        }
+                        
+                    }
+                }
                 ArticlesDataGridView.Rows.Add(article._id, article._name, article._sort, article._category, article._organic, article._quantity);
+                state1 = false;
                 sum = freeStorage - article._quantity;
                 suma = articleStorageQuantity - articleQuantity;
                 MapOfArticles.Add(article._id, suma);
@@ -201,19 +229,6 @@ namespace Freshivoje.Storage
             Close();
         }
 
-        private void packagingCmbBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            //if (packagingCmbBox.SelectedIndex < 1)
-            //{
-            //    packagingLbl.Text = string.Empty;
-            //    return;
-            //}
-            //string _packagingQuantity = $"SELECT `packaging`.`id_packaging` as QuantityPackagingId, SUM(`packaging_record_items`.`quantity`) as `QuantityPackg`, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `packaging_records` JOIN `packaging_record_items` ON `packaging_record_items`.`fk_packaging_records_id` = `packaging_records`.`id_packaging_record` JOIN `packaging` ON `packaging`.`id_packaging` = `packaging_record_items`.`fk_packaging_id` WHERE `packaging_records`.`type` = 1 AND `packaging_records`.`date` >= CURDATE() AND `packaging`.`id_packaging` = {_packagingId} GROUP BY `packaging`.`id_packaging`";
-            //string _packagingStorageQuantity = $"SELECT  `packaging`.`id_packaging` as QuantityStoragePackagingId, SUM(`storage_record_items`.`package_quantity`) as QuantityStoragePackaging, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM storage_record_items JOIN packaging ON packaging.id_packaging = storage_record_items.fk_packaging_id WHERE `date` >= CURDATE() AND `storage_record_items`.`fk_storage_id`= 5 AND packaging.id_packaging = {_packagingId} GROUP BY packaging.id_packaging";
-            //_packagingId = ((ComboBoxItem)packagingCmbBox.SelectedItem).Value;
-            //DbConnection.fillLbl(packagingLbl, _packagingQuantity, _packagingStorageQuantity, "QuantityPackagingId", "QuantityPackg", "QuantityStoragePackagingId", "QuantityStoragePackaging");
-        }
 
         private void articlesCmbBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -223,12 +238,12 @@ namespace Freshivoje.Storage
                 return;
             }
             _articleId = ((ComboBoxItem)articlesCmbBox.SelectedItem).Value;
-            if (state1 == true)
+            if (ArticlesDataGridView.RowCount == 0)
             {
                 string _artilceQuantity = $"SELECT articles.id_article as QuantityArticleId, SUM(`items_receipt`.`quantity`) as QuantityArts, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `receipts` JOIN `items_receipt` ON `items_receipt`.`fk_receipt_id` = `receipts`.`id_receipt` JOIN `articles` ON articles.id_article = `items_receipt`.`fk_article_id` WHERE `date` >= CURDATE() AND articles.id_article = {_articleId} GROUP BY `articles`.`id_article`";
                 string _articleStorageQuantity = $"SELECT articles.id_article as QuantityStorageArticleId, SUM(`storage_record_items`.`article_quantity`) as QuantityStorageArticle, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM storage_record_items JOIN articles ON articles.id_article = storage_record_items.fk_article_id WHERE `date` >= CURDATE() AND `storage_record_items`.`fk_storage_id`=5 AND articles.id_article = {_articleId} GROUP BY articles.id_article";
                 DbConnection.fillLbl(articleLbl, _artilceQuantity, _articleStorageQuantity, "QuantityArticleId", "QuantityArts", "QuantityStorageArticleId", "QuantityStorageArticle");
-                state1 = false;
+               
             }
             foreach (DataGridViewRow row in ArticlesDataGridView.Rows)
             {
@@ -263,12 +278,6 @@ namespace Freshivoje.Storage
         {
             if (e.ColumnIndex == 6)
             {
-
-                DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da obrišete ovaj artikal iz unosa?");
-                if (result == DialogResult.No || result == DialogResult.Cancel)
-                {
-                    return;
-                }
                 decimal sum, suma;
                 decimal freeStorage = Convert.ToDecimal(freeStorageLbl.Text);
                 decimal articleStorageQuantity = Convert.ToDecimal(articleLbl.Text);
@@ -278,6 +287,11 @@ namespace Freshivoje.Storage
 
                     if ((articlesCmbBox.SelectedItem as ComboBoxItem).Value == _selectedArticleId)
                     {
+                        DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da obrišete ovaj artikal iz unosa?");
+                        if (result == DialogResult.No || result == DialogResult.Cancel)
+                        {
+                            return;
+                        }
 
                         sumsa = Convert.ToDecimal(_selectedRow.Cells["articleQuantity"].Value);
                         sum = freeStorage + sumsa;
@@ -295,15 +309,15 @@ namespace Freshivoje.Storage
                         {
                             foreach (KeyValuePair<Int32, Decimal> item1 in MapOfArticles1)
                             {
-                                if (item.Key == item1.Key)
+                                if (item.Key == _selectedArticleId)
                                 {
                                     int key = item.Key;
-                                    decimal value = MapOfArticles1[item1.Key];
+                                    decimal value = MapOfArticles1[item.Key];
                                     MapOfArticles2[key] = value;
                                     MapOfArticles = MapOfArticles2;
-                                    articlesCmbBox.SelectedItem = key;
+                                    
                                     freeStorageLbl.Text = sum.ToString();
-                                    articleLbl.Text = MapOfArticles2[key].ToString();
+                                    articleLbl.Text = value.ToString();
                                     articleQuantityTxtBox.ResetText();
                                     ArticlesDataGridView.Rows.Remove(_selectedRow);
                                     return;
@@ -312,14 +326,14 @@ namespace Freshivoje.Storage
                             }
                         }
 
-                }
+                    }
                 else
                 {
                     CustomMessageBox.ShowDialog(this, "Niste Izabrali dobar artikl za brisanje!");
                     return;
                 }
-                }
             }
         }
     }
+}
 
