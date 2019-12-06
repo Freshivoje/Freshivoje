@@ -329,6 +329,7 @@
             this.Name = "TransportRecordForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "TransportRecordForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.transportRecordsTblLayout.ResumeLayout(false);
             this.transportRecordsTblLayout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transportDataGridView)).EndInit();

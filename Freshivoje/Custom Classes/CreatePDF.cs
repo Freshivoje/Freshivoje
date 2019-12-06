@@ -259,6 +259,12 @@ namespace Freshivoje.Custom_Classes
                 }
 
                 fileCount = Directory.GetFiles("C:\\PDF").Length;
+                var test = Directory.GetFiles(folderPath);
+                var test1 = Path.GetFileName(test[0]);
+                //foreach (var item in test)
+                //{
+                //    item = Path.GetFileName(item);
+                //}
                 strFileName = (fileCount + 1) + "-2019" + ".pdf";
                 invoiceNumber.AddCell("BROJ FAKTURE: TR" + ((fileCount + 1) + "-2019"));
                 #endregion

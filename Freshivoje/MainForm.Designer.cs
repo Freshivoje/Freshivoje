@@ -33,7 +33,7 @@
             this.titleLbl = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
             this.insertBtn = new System.Windows.Forms.Button();
-            this.paymentsBtn = new System.Windows.Forms.Button();
+            this.recordsBtn = new System.Windows.Forms.Button();
             this.packagesBtn = new System.Windows.Forms.Button();
             this.logoutBtn = new System.Windows.Forms.Button();
             this.transportBtn = new System.Windows.Forms.Button();
@@ -54,7 +54,7 @@
             this.mainFormTblLayout.Controls.Add(this.titleLbl, 0, 0);
             this.mainFormTblLayout.Controls.Add(this.exitBtn, 3, 0);
             this.mainFormTblLayout.Controls.Add(this.insertBtn, 1, 1);
-            this.mainFormTblLayout.Controls.Add(this.paymentsBtn, 1, 2);
+            this.mainFormTblLayout.Controls.Add(this.recordsBtn, 1, 2);
             this.mainFormTblLayout.Controls.Add(this.packagesBtn, 1, 3);
             this.mainFormTblLayout.Controls.Add(this.logoutBtn, 1, 7);
             this.mainFormTblLayout.Controls.Add(this.transportBtn, 1, 5);
@@ -136,25 +136,25 @@
             this.insertBtn.UseVisualStyleBackColor = false;
             this.insertBtn.Click += new System.EventHandler(this.insertBtn_Click);
             // 
-            // paymentsBtn
+            // recordsBtn
             // 
-            this.paymentsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.paymentsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.paymentsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.paymentsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.paymentsBtn.FlatAppearance.BorderSize = 5;
-            this.paymentsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.paymentsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.paymentsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.paymentsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paymentsBtn.ForeColor = System.Drawing.Color.White;
-            this.paymentsBtn.Location = new System.Drawing.Point(228, 134);
-            this.paymentsBtn.Name = "paymentsBtn";
-            this.paymentsBtn.Size = new System.Drawing.Size(154, 65);
-            this.paymentsBtn.TabIndex = 1;
-            this.paymentsBtn.Text = "EVIDENCIJA";
-            this.paymentsBtn.UseVisualStyleBackColor = false;
-            this.paymentsBtn.Click += new System.EventHandler(this.paymentsBtn_Click);
+            this.recordsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.recordsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.recordsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.recordsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.recordsBtn.FlatAppearance.BorderSize = 5;
+            this.recordsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.recordsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.recordsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.recordsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordsBtn.ForeColor = System.Drawing.Color.White;
+            this.recordsBtn.Location = new System.Drawing.Point(228, 134);
+            this.recordsBtn.Name = "recordsBtn";
+            this.recordsBtn.Size = new System.Drawing.Size(154, 65);
+            this.recordsBtn.TabIndex = 1;
+            this.recordsBtn.Text = "EVIDENCIJA";
+            this.recordsBtn.UseVisualStyleBackColor = false;
+            this.recordsBtn.Click += new System.EventHandler(this.recordsBtn_Click);
             // 
             // packagesBtn
             // 
@@ -281,7 +281,7 @@
 
         private System.Windows.Forms.TableLayoutPanel mainFormTblLayout;
         private System.Windows.Forms.Button insertBtn;
-        private System.Windows.Forms.Button paymentsBtn;
+        private System.Windows.Forms.Button recordsBtn;
         private System.Windows.Forms.Button inventoryBtn;
         private System.Windows.Forms.Button settingsBtn;
         private System.Windows.Forms.Label titleLbl;

@@ -1,4 +1,4 @@
-﻿namespace Freshivoje
+﻿namespace Freshivoje.Records_Forms
 {
     partial class ReceiptsForm
     {

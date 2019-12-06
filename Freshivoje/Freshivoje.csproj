@@ -90,6 +90,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Records Forms\RecordsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Records Forms\RecordsForm.Designer.cs">
+      <DependentUpon>RecordsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Custom Classes\CreatePDF.cs" />
     <Compile Include="Custom Forms\ComboBoxItem.cs" />
     <Compile Include="Custom Forms\CustomDialog.cs">
@@ -248,10 +254,10 @@
     <Compile Include="Packages Forms\ChoosePackagesMethodForm.Designer.cs">
       <DependentUpon>ChoosePackagesMethodForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReceiptsForm.cs">
+    <Compile Include="Records Forms\ReceiptsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReceiptsForm.Designer.cs">
+    <Compile Include="Records Forms\ReceiptsForm.Designer.cs">
       <DependentUpon>ReceiptsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -286,6 +292,12 @@
     <Compile Include="Storage\StorageForm.Designer.cs">
       <DependentUpon>StorageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Records Forms\DocumentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Records Forms\DocumentsForm.Designer.cs">
+      <DependentUpon>DocumentsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transport\ChooseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -304,6 +316,9 @@
     <Compile Include="Transport\TransportRecordForm.Designer.cs">
       <DependentUpon>TransportRecordForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Records Forms\RecordsForm.resx">
+      <DependentUpon>RecordsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Custom Forms\CustomDialog.resx">
       <DependentUpon>CustomDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,7 +394,7 @@
     <EmbeddedResource Include="Packages Forms\ChoosePackagesMethodForm.resx">
       <DependentUpon>ChoosePackagesMethodForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReceiptsForm.resx">
+    <EmbeddedResource Include="Records Forms\ReceiptsForm.resx">
       <DependentUpon>ReceiptsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -406,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Storage\StorageForm.resx">
       <DependentUpon>StorageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Records Forms\DocumentsForm.resx">
+      <DependentUpon>DocumentsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transport\ChooseForm.resx">
       <DependentUpon>ChooseForm.cs</DependentUpon>

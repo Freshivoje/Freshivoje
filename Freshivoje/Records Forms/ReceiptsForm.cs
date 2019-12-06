@@ -4,7 +4,7 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace Freshivoje
+namespace Freshivoje.Records_Forms
 {
     public partial class ReceiptsForm : Form
     {

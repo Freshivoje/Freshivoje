@@ -1,4 +1,5 @@
-﻿using Freshivoje.Storage;
+﻿using Freshivoje.Records_Forms;
+using Freshivoje.Storage;
 using Freshivoje.Transport;
 using System;
 using System.Windows.Forms;
@@ -35,17 +36,6 @@ namespace Freshivoje
             Hide();
             using ChooseInsertMethodForm insertMethodForm = new ChooseInsertMethodForm();
             insertMethodForm.ShowDialog(this);
-            if (!IsDisposed)
-            {
-                Show();
-            }
-        }
-
-        private void paymentsBtn_Click(object sender, EventArgs e)
-        {
-            Hide();
-            using ReceiptsForm insertForm = new ReceiptsForm();
-            insertForm.ShowDialog(this);
             if (!IsDisposed)
             {
                 Show();
@@ -101,6 +91,17 @@ namespace Freshivoje
             Hide();
             using StorageForm storageForm = new StorageForm();
             storageForm.ShowDialog(this);
+            if (!IsDisposed)
+            {
+                Show();
+            }
+        }
+
+        private void recordsBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            using RecordsForm recordsForm = new RecordsForm();
+            recordsForm.ShowDialog(this);
             if (!IsDisposed)
             {
                 Show();

@@ -15,10 +15,8 @@ namespace Freshivoje.Transport
         public TransportForm(Client client)
         {    
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
             transportDataGridView.AutoGenerateColumns = false;
             _selectedClient = client;
-
         }
 
         // Disables flickering on FormLoad

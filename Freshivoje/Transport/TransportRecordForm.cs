@@ -29,7 +29,6 @@ namespace Freshivoje.Transport
         public TransportRecordForm()
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
             transportDataGridView.AutoGenerateColumns = false;
             DbConnection.fillDGV(transportDataGridView, _fillDGVQuery);
         }
