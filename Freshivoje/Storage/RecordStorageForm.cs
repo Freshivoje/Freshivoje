@@ -124,14 +124,10 @@ namespace Freshivoje.Storage
             }
             else
             {
-
-            }
                 searchValue = searchRecordTxtBox.Text;
-                (RecordsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"Convert(`capacity`, 'System.String') LIKE '%{searchValue}%' 
-                                                                                        OR `category` LIKE '%{searchValue}%' `packagingName` LIKE '%{searchValue}%' 
-                                                                                        OR `article_name` LIKE '%{searchValue}%'Convert(`quantity`, 'System.String') LIKE '%{searchValue}%' 
-                                                                                        OR `sort` LIKE '%{searchValue}% `organic` LIKE '%{searchValue}%' 
-                                                                                        OR `category` LIKE '%{searchValue}%'";
+                (RecordsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"Convert(`capacity`, 'System.String') LIKE '%{searchValue}%' OR `packagingName` LIKE '%{searchValue}%' OR `state` LIKE '%{searchValue}%'";
+            }
+                
         }
     }
 }
