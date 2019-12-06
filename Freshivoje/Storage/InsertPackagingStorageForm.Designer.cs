@@ -33,6 +33,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.PackagingDataGridView = new System.Windows.Forms.DataGridView();
+            this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.freeStorageLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,13 +53,6 @@
             this.finishInsertBtn = new System.Windows.Forms.Button();
             this.priceLbl = new System.Windows.Forms.Label();
             this.insertBtn = new System.Windows.Forms.Button();
-            this.PackagingDataGridView = new System.Windows.Forms.DataGridView();
-            this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.insertFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PackagingDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -106,6 +106,108 @@
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.insertFormTblLayout.Size = new System.Drawing.Size(2006, 883);
             this.insertFormTblLayout.TabIndex = 3;
+            // 
+            // PackagingDataGridView
+            // 
+            this.PackagingDataGridView.AllowUserToAddRows = false;
+            this.PackagingDataGridView.AllowUserToDeleteRows = false;
+            this.PackagingDataGridView.AllowUserToResizeColumns = false;
+            this.PackagingDataGridView.AllowUserToResizeRows = false;
+            this.PackagingDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.PackagingDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PackagingDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.PackagingDataGridView.ColumnHeadersHeight = 40;
+            this.PackagingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.PackagingDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.packagingId,
+            this.capacity,
+            this.category,
+            this.state,
+            this.quantity,
+            this.deleteArticle});
+            this.insertFormTblLayout.SetColumnSpan(this.PackagingDataGridView, 9);
+            this.PackagingDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PackagingDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PackagingDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PackagingDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.PackagingDataGridView.Location = new System.Drawing.Point(3, 273);
+            this.PackagingDataGridView.MultiSelect = false;
+            this.PackagingDataGridView.Name = "PackagingDataGridView";
+            this.PackagingDataGridView.ReadOnly = true;
+            this.PackagingDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.PackagingDataGridView.RowHeadersWidth = 40;
+            this.PackagingDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.insertFormTblLayout.SetRowSpan(this.PackagingDataGridView, 8);
+            this.PackagingDataGridView.RowTemplate.Height = 30;
+            this.PackagingDataGridView.Size = new System.Drawing.Size(2000, 546);
+            this.PackagingDataGridView.TabIndex = 46;
+            this.PackagingDataGridView.TabStop = false;
+            this.PackagingDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PackagingDataGridView_CellContentClick);
+            // 
+            // packagingId
+            // 
+            this.packagingId.HeaderText = "ID ambalaže";
+            this.packagingId.Name = "packagingId";
+            this.packagingId.ReadOnly = true;
+            this.packagingId.Visible = false;
+            // 
+            // capacity
+            // 
+            this.capacity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.capacity.HeaderText = "Nosivost (g)";
+            this.capacity.Name = "capacity";
+            this.capacity.ReadOnly = true;
+            this.capacity.Width = 173;
+            // 
+            // category
+            // 
+            this.category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.category.HeaderText = "Kategorija";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // state
+            // 
+            this.state.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.state.HeaderText = "Stanje";
+            this.state.Name = "state";
+            this.state.ReadOnly = true;
+            // 
+            // quantity
+            // 
+            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.quantity.HeaderText = "Količina";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            // 
+            // deleteArticle
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.NullValue = "X";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle2;
+            this.deleteArticle.HeaderText = "";
+            this.deleteArticle.Name = "deleteArticle";
+            this.deleteArticle.ReadOnly = true;
+            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.deleteArticle.Width = 40;
             // 
             // label3
             // 
@@ -201,6 +303,8 @@
             this.packagingQuantityTxtBox.ShortcutsEnabled = false;
             this.packagingQuantityTxtBox.Size = new System.Drawing.Size(334, 31);
             this.packagingQuantityTxtBox.TabIndex = 3;
+            this.packagingQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
+            this.packagingQuantityTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // lblTitle
             // 
@@ -319,108 +423,6 @@
             this.insertBtn.Text = "Unesi ambalažu";
             this.insertBtn.UseVisualStyleBackColor = false;
             this.insertBtn.Click += new System.EventHandler(this.insertBtn_Click);
-            // 
-            // PackagingDataGridView
-            // 
-            this.PackagingDataGridView.AllowUserToAddRows = false;
-            this.PackagingDataGridView.AllowUserToDeleteRows = false;
-            this.PackagingDataGridView.AllowUserToResizeColumns = false;
-            this.PackagingDataGridView.AllowUserToResizeRows = false;
-            this.PackagingDataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.PackagingDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PackagingDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.PackagingDataGridView.ColumnHeadersHeight = 40;
-            this.PackagingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.PackagingDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.packagingId,
-            this.capacity,
-            this.category,
-            this.state,
-            this.quantity,
-            this.deleteArticle});
-            this.insertFormTblLayout.SetColumnSpan(this.PackagingDataGridView, 9);
-            this.PackagingDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PackagingDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.PackagingDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PackagingDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.PackagingDataGridView.Location = new System.Drawing.Point(3, 273);
-            this.PackagingDataGridView.MultiSelect = false;
-            this.PackagingDataGridView.Name = "PackagingDataGridView";
-            this.PackagingDataGridView.ReadOnly = true;
-            this.PackagingDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.PackagingDataGridView.RowHeadersWidth = 40;
-            this.PackagingDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.insertFormTblLayout.SetRowSpan(this.PackagingDataGridView, 8);
-            this.PackagingDataGridView.RowTemplate.Height = 30;
-            this.PackagingDataGridView.Size = new System.Drawing.Size(2000, 546);
-            this.PackagingDataGridView.TabIndex = 46;
-            this.PackagingDataGridView.TabStop = false;
-            this.PackagingDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PackagingDataGridView_CellContentClick);
-            // 
-            // packagingId
-            // 
-            this.packagingId.HeaderText = "ID ambalaže";
-            this.packagingId.Name = "packagingId";
-            this.packagingId.ReadOnly = true;
-            this.packagingId.Visible = false;
-            // 
-            // capacity
-            // 
-            this.capacity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.capacity.HeaderText = "Nosivost (g)";
-            this.capacity.Name = "capacity";
-            this.capacity.ReadOnly = true;
-            this.capacity.Width = 173;
-            // 
-            // category
-            // 
-            this.category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.category.HeaderText = "Kategorija";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // state
-            // 
-            this.state.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.state.HeaderText = "Stanje";
-            this.state.Name = "state";
-            this.state.ReadOnly = true;
-            // 
-            // quantity
-            // 
-            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.quantity.HeaderText = "Količina";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            // 
-            // deleteArticle
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.NullValue = "X";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.deleteArticle.DefaultCellStyle = dataGridViewCellStyle2;
-            this.deleteArticle.HeaderText = "";
-            this.deleteArticle.Name = "deleteArticle";
-            this.deleteArticle.ReadOnly = true;
-            this.deleteArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.deleteArticle.Width = 40;
             // 
             // InsertPackagingStorageForm
             // 

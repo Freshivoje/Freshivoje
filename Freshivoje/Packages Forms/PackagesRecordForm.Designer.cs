@@ -32,9 +32,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.packagesRecordFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.searchRecordTypeLbl = new System.Windows.Forms.Label();
             this.minimizeBtn = new System.Windows.Forms.Button();
@@ -42,17 +42,17 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.packagesRecordsDataGridView = new System.Windows.Forms.DataGridView();
-            this.IdClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packaging = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returnPackages = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchRentPackagesRecordLbl = new System.Windows.Forms.Label();
             this.searchRentPackagesRecordTxtBox = new System.Windows.Forms.TextBox();
             this.searchRecordTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.returnPackages = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packaging = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packagingId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packagesRecordFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.packagesRecordsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -258,77 +258,6 @@
             this.packagesRecordsDataGridView.TabStop = false;
             this.packagesRecordsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.packagesRecordsDataGridView_CellContentClick);
             // 
-            // IdClient
-            // 
-            this.IdClient.DataPropertyName = "fk_client_id";
-            this.IdClient.HeaderText = "ID Klijenta";
-            this.IdClient.Name = "IdClient";
-            this.IdClient.ReadOnly = true;
-            this.IdClient.Visible = false;
-            // 
-            // packagingId
-            // 
-            this.packagingId.DataPropertyName = "packaging_id";
-            this.packagingId.HeaderText = "ID Ambalaže";
-            this.packagingId.Name = "packagingId";
-            this.packagingId.ReadOnly = true;
-            this.packagingId.Visible = false;
-            // 
-            // client
-            // 
-            this.client.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.client.DataPropertyName = "client";
-            this.client.HeaderText = "Klijent";
-            this.client.Name = "client";
-            this.client.ReadOnly = true;
-            // 
-            // packaging
-            // 
-            this.packaging.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.packaging.DataPropertyName = "packaging";
-            this.packaging.HeaderText = "Nosivost (g) / Kategorija / Težina (g) / Proizvođač / Stanje";
-            this.packaging.Name = "packaging";
-            this.packaging.ReadOnly = true;
-            this.packaging.Width = 695;
-            // 
-            // datetime
-            // 
-            this.datetime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.datetime.DataPropertyName = "datetime";
-            dataGridViewCellStyle2.NullValue = null;
-            this.datetime.DefaultCellStyle = dataGridViewCellStyle2;
-            this.datetime.HeaderText = "Vreme";
-            this.datetime.Name = "datetime";
-            this.datetime.ReadOnly = true;
-            // 
-            // quantity
-            // 
-            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.quantity.DataPropertyName = "quantity";
-            this.quantity.HeaderText = "Količina";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            // 
-            // type
-            // 
-            this.type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.type.DataPropertyName = "type";
-            dataGridViewCellStyle3.NullValue = "DUGUJE";
-            this.type.DefaultCellStyle = dataGridViewCellStyle3;
-            this.type.HeaderText = "Usluga";
-            this.type.Name = "type";
-            this.type.ReadOnly = true;
-            this.type.Width = 112;
-            // 
-            // returnPackages
-            // 
-            dataGridViewCellStyle4.NullValue = "VRATI";
-            this.returnPackages.DefaultCellStyle = dataGridViewCellStyle4;
-            this.returnPackages.HeaderText = "";
-            this.returnPackages.Name = "returnPackages";
-            this.returnPackages.ReadOnly = true;
-            this.returnPackages.Visible = false;
-            // 
             // searchRentPackagesRecordLbl
             // 
             this.searchRentPackagesRecordLbl.AutoSize = true;
@@ -374,6 +303,77 @@
             this.searchRecordTypeComboBox.TabIndex = 42;
             this.searchRecordTypeComboBox.TabStop = false;
             this.searchRecordTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.searchRecordTypeComboBox_SelectedIndexChanged);
+            // 
+            // returnPackages
+            // 
+            dataGridViewCellStyle4.NullValue = "VRATI";
+            this.returnPackages.DefaultCellStyle = dataGridViewCellStyle4;
+            this.returnPackages.HeaderText = "";
+            this.returnPackages.Name = "returnPackages";
+            this.returnPackages.ReadOnly = true;
+            this.returnPackages.Visible = false;
+            // 
+            // type
+            // 
+            this.type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.type.DataPropertyName = "type";
+            dataGridViewCellStyle3.NullValue = "DUGUJE";
+            this.type.DefaultCellStyle = dataGridViewCellStyle3;
+            this.type.HeaderText = "Usluga";
+            this.type.Name = "type";
+            this.type.ReadOnly = true;
+            this.type.Width = 112;
+            // 
+            // quantity
+            // 
+            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.quantity.DataPropertyName = "quantity";
+            this.quantity.HeaderText = "Količina";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            // 
+            // datetime
+            // 
+            this.datetime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.datetime.DataPropertyName = "datetime";
+            dataGridViewCellStyle2.NullValue = null;
+            this.datetime.DefaultCellStyle = dataGridViewCellStyle2;
+            this.datetime.HeaderText = "Vreme";
+            this.datetime.Name = "datetime";
+            this.datetime.ReadOnly = true;
+            // 
+            // packaging
+            // 
+            this.packaging.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.packaging.DataPropertyName = "packaging";
+            this.packaging.HeaderText = "Nosivost (g) / Kategorija / Težina (g) / Proizvođač / Stanje";
+            this.packaging.Name = "packaging";
+            this.packaging.ReadOnly = true;
+            this.packaging.Width = 695;
+            // 
+            // client
+            // 
+            this.client.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.client.DataPropertyName = "client";
+            this.client.HeaderText = "Klijent";
+            this.client.Name = "client";
+            this.client.ReadOnly = true;
+            // 
+            // packagingId
+            // 
+            this.packagingId.DataPropertyName = "packaging_id";
+            this.packagingId.HeaderText = "ID Ambalaže";
+            this.packagingId.Name = "packagingId";
+            this.packagingId.ReadOnly = true;
+            this.packagingId.Visible = false;
+            // 
+            // IdClient
+            // 
+            this.IdClient.DataPropertyName = "fk_client_id";
+            this.IdClient.HeaderText = "ID Klijenta";
+            this.IdClient.Name = "IdClient";
+            this.IdClient.ReadOnly = true;
+            this.IdClient.Visible = false;
             // 
             // PackagesRecordForm
             // 

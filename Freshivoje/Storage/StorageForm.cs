@@ -21,6 +21,7 @@ namespace Freshivoje.Storage
         string _a2Query = "SELECT COALESCE(SUM(storage_record_items.article_quantity), 0) as StorageArticleQuantity, COALESCE(SUM(storage_record_items.package_quantity), 0) as StoragePackagingQuantity, storage.id_storage, storage.storage_position, storage.article_quantity, storage.package_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 2";
         string _b1Query = "SELECT COALESCE(SUM(storage_record_items.article_quantity), 0) as StorageArticleQuantity, COALESCE(SUM(storage_record_items.package_quantity), 0) as StoragePackagingQuantity, storage.id_storage, storage.storage_position, storage.article_quantity, storage.package_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 3";
         string _b2Query = "SELECT COALESCE(SUM(storage_record_items.article_quantity), 0) as StorageArticleQuantity, COALESCE(SUM(storage_record_items.package_quantity), 0) as StoragePackagingQuantity, storage.id_storage, storage.storage_position, storage.article_quantity, storage.package_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 4";
+        string _outQuery = "SELECT COALESCE(SUM(storage_record_items.article_quantity), 0) as StorageArticleQuantity, COALESCE(SUM(storage_record_items.package_quantity), 0) as StoragePackagingQuantity, storage.id_storage, storage.storage_position, storage.article_quantity, storage.package_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 8";
 
         public StorageForm()
         {
@@ -34,6 +35,7 @@ namespace Freshivoje.Storage
             DbConnection.fillBtnText(a2Btn, _a2Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity", "StoragePackagingQuantity", "package_quantity");
             DbConnection.fillBtnText(b1Btn, _b1Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity", "StoragePackagingQuantity", "package_quantity");
             DbConnection.fillBtnText(b2Btn, _b2Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity", "StoragePackagingQuantity", "package_quantity");
+            DbConnection.fillBtnText(outputBtn, _outQuery, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
             DbConnection.tunnel(tunnelLbl, _fillTextBox, _query1, articlequantityLbl, "quantityArticleId", "QuantityStorageArticleId", "article_name", "sort", "organic", "category", "quantityArts", "quantityStorageArticle");
             DbConnection.tunnel(packagingTunnelLbl,  _fillTextBox1, _query2, packagingQuantityLbl, "QuantityPackagingId", "QuantityStoragePackagingId", "capacity",  "state", "category", "quantityPackg", "quantityStoragePackaging", "QuantityPackagingId", "QuantityStoragePackagingId");
            
@@ -59,9 +61,10 @@ namespace Freshivoje.Storage
             DbConnection.fillBtnText(a2Btn, _a2Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity", "StoragePackagingQuantity", "package_quantity");
             DbConnection.fillBtnText(b1Btn, _b1Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity", "StoragePackagingQuantity", "package_quantity");
             DbConnection.fillBtnText(b2Btn, _b2Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity", "StoragePackagingQuantity", "package_quantity");
+            DbConnection.fillBtnText(outputBtn, _outQuery, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
             DbConnection.tunnel(tunnelLbl, _fillTextBox, _query1, articlequantityLbl, "quantityArticleId", "QuantityStorageArticleId", "article_name", "sort", "organic", "category", "quantityArts", "quantityStorageArticle");
             DbConnection.tunnel(packagingTunnelLbl, _fillTextBox1, _query2, packagingQuantityLbl, "QuantityPackagingId", "QuantityStoragePackagingId", "capacity", "state", "category", "quantityPackg", "quantityStoragePackaging", "QuantityPackagingId", "QuantityStoragePackagingId");
-
+          
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -83,6 +86,13 @@ namespace Freshivoje.Storage
         {
             Button btn = sender as Button;
             int storage_id = Convert.ToInt32(btn.Tag.ToString());
+            if(storage_id == 8)
+            {
+                ChooseOutStorageForm chooseOutStorageForm = new ChooseOutStorageForm(storage_id);
+                chooseOutStorageForm.ShowDialog(this);
+                Show();
+                return;
+            }
             ChooseStorageMethodForm chooseStorageMethodForm = new ChooseStorageMethodForm(storage_id);
             chooseStorageMethodForm.ShowDialog(this);
             Show();
@@ -106,7 +116,7 @@ namespace Freshivoje.Storage
 
         private void outputBtn_Click(object sender, EventArgs e)
         {
-
+            ButtonsStorageOnClick(sender);
         }
 
    

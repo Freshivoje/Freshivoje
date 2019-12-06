@@ -141,7 +141,7 @@ namespace Freshivoje.Storage
                         sum = freeStorage - sumQuantity;
                         suma = packageStorageQuantity - package._quantity;
 
-                        packagingQuantityTxtBox.ResetText();
+                        
                         packagingCmbBox.SelectedItem = 0;
                         MapOfPackages2 = MapOfPackages;
 
@@ -166,6 +166,7 @@ namespace Freshivoje.Storage
                                     MapOfPackages = MapOfPackages2;
                                     freeStorageLbl.Text = sum.ToString();
                                     packagingLbl.Text = suma.ToString();
+                                    packagingQuantityTxtBox.ResetText();
                                     return;
                                 }
 
@@ -198,6 +199,7 @@ namespace Freshivoje.Storage
                             MapOfPackages = MapOfPackages2;
                             packagingLbl.Text = value.ToString();
                             PackagingDataGridView.Rows.Add(package._id, package._capacity, package._category, package._state, packageQuantity);
+                            packagingQuantityTxtBox.ResetText();
                             return;
                         }
 

@@ -106,7 +106,7 @@ namespace Freshivoje.Storage
                         sum = freeStorage - sumQuantity;
                         suma = articleStorageQuantity - article._quantity;
                        
-                        articleQuantityTxtBox.ResetText();
+                        
                         articlesCmbBox.SelectedItem = 0;
                         MapOfArticles2 = MapOfArticles;
                        
@@ -131,6 +131,7 @@ namespace Freshivoje.Storage
                                     MapOfArticles = MapOfArticles2;
                                     freeStorageLbl.Text = sum.ToString();
                                     articleLbl.Text = suma.ToString();
+                                    articleQuantityTxtBox.ResetText();
                                     return;
                                 }
                                
@@ -163,6 +164,7 @@ namespace Freshivoje.Storage
                             MapOfArticles = MapOfArticles2;
                             articleLbl.Text = value.ToString();
                             ArticlesDataGridView.Rows.Add(article._id, article._name, article._sort, article._category, article._organic, articleQuantity);
+                            articleQuantityTxtBox.ResetText();
                             return;
                         }
                         
