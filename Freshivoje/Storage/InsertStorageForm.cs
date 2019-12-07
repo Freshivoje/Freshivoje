@@ -34,7 +34,7 @@ namespace Freshivoje.Storage
             dynamic storageData = DbConnection.getStorageData(cmd, _storageId);
             WindowState = FormWindowState.Maximized;
             DbConnection.FillCmbBoxQuery(articlesCmbBox, _fillCmbBox, "id_article", "article_name", "sort", "organic", "category");
-            string _fillLbl = $"SELECT COALESCE(SUM(storage_record_items.article_quantity), 0) as StorageArticleQuantity, storage.id_storage, storage.storage_position, storage.article_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = {storageId}";
+            string _fillLbl = $"SELECT COALESCE(SUM(storage_record_items.article_quantity), 0) - (SELECT COALESCE(SUM(storage_record_items.article_quantity), 0) FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 1 AND storage_record_items.status = 'neaktivna') as StorageArticleQuantity, storage.id_storage, storage.storage_position, storage.article_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 1 AND storage_record_items.status = 'aktivna'";
             lblTitle.Text = "UNOS ARTIKALA U KOMORU " + storageData.getName();
             DbConnection.Storage(freeStorageLbl, _fillLbl, "StorageArticleQuantity", "article_quantity");
             articlesCmbBox.SelectedIndex = 0;
@@ -80,39 +80,40 @@ namespace Freshivoje.Storage
       
         private void insertBtn_Click(object sender, EventArgs e)
         {
-           
-            if (string.IsNullOrWhiteSpace(articleQuantityLbl.Text) || articlesCmbBox.SelectedIndex < 1 || ((Convert.ToDecimal(articleLbl.Text) - Convert.ToDecimal(articleQuantityTxtBox.Text)) < 0))
+            decimal freeStorage = Convert.ToDecimal(freeStorageLbl.Text);
+            decimal articleStorageQuantity = Convert.ToDecimal(articleLbl.Text);
+            decimal articleQuantity = Convert.ToDecimal(articleQuantityTxtBox.Text);
+         
+
+            if (string.IsNullOrWhiteSpace(articleQuantityLbl.Text) || articlesCmbBox.SelectedIndex < 1 || articleStorageQuantity - articleQuantity < 0)
             {
                 CustomMessageBox.ShowDialog(this, "Količina koju ste uneli nije validna !");
                 return;
             }
-            decimal freeStorage = Convert.ToDecimal(freeStorageLbl.Text);
-            decimal articleStorageQuantity = Convert.ToDecimal(articleLbl.Text);
-            decimal articleQuantity = Convert.ToDecimal(articleQuantityTxtBox.Text);
             decimal sum, suma;
-            if (freeStorage > articleQuantity && articleStorageQuantity > articleQuantity)
+            if (freeStorage > articleQuantity)
             {
                 int articleId = (articlesCmbBox.SelectedItem as ComboBoxItem).Value;
                 string[] articleFields = articlesCmbBox.Text.Split('/');
                 Article article = new Article(articleId, articleFields[0], articleFields[1], articleFields[2], articleFields[3], 0, 0, 0, articleQuantity);
-            
+
                 foreach (DataGridViewRow row in ArticlesDataGridView.Rows)
                 {
-                    
+
                     if (Convert.ToInt32(row.Cells["articleId"].Value) == article._id)
                     {
                         decimal sumQuantity = Convert.ToDecimal(row.Cells["articleQuantity"].Value) + article._quantity;
                         row.Cells["articleQuantity"].Value = sumQuantity;
                         sum = freeStorage - sumQuantity;
                         suma = articleStorageQuantity - article._quantity;
-                       
-                        
+
+
                         articlesCmbBox.SelectedItem = 0;
                         MapOfArticles2 = MapOfArticles;
-                       
+
                         foreach (KeyValuePair<Int32, Decimal> item in MapOfArticles)
                         {
-                            
+
                             if (item.Key == article._id)
                             {
                                 MapOfArticles1[item.Key] = suma;
@@ -134,17 +135,17 @@ namespace Freshivoje.Storage
                                     articleQuantityTxtBox.ResetText();
                                     return;
                                 }
-                               
+
                             }
                         }
-                      
-                      
+
+
                     }
                 }
                 MapOfArticles2 = MapOfArticles;
                 suma = articleStorageQuantity - article._quantity;
                 foreach (KeyValuePair<Int32, Decimal> item in MapOfArticles)
-                {   
+                {
 
                     if (item.Key == article._id)
                     {
@@ -167,7 +168,7 @@ namespace Freshivoje.Storage
                             articleQuantityTxtBox.ResetText();
                             return;
                         }
-                        
+
                     }
                 }
                 ArticlesDataGridView.Rows.Add(article._id, article._name, article._sort, article._category, article._organic, article._quantity);
@@ -179,12 +180,12 @@ namespace Freshivoje.Storage
                 articleLbl.Text = suma.ToString();
                 articleQuantityTxtBox.ResetText();
                 articlesCmbBox.SelectedItem = 0;
-            }
-            else
+            }else
             {
                 CustomMessageBox.ShowDialog(this, "Količina koju ste uneli je van limita!");
                 return;
             }
+         
             
         }
 

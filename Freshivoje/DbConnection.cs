@@ -122,6 +122,50 @@ namespace Freshivoje
                     }
                 }
                 _databaseConnection.Close();
+                if(query1 == "")
+                {
+                    foreach (KeyValuePair<Int32, Decimal> item in MapOfArticleQuantiy)
+                    {
+                        bool state = true;
+                        foreach (KeyValuePair<Int32, Decimal> item1 in MapOfArticleStorageQuantiy)
+                        {
+                            if (item1.Key == item.Key)
+                            {
+                                state = false;
+                                SUM = item.Value - item1.Value;
+                                text += $"{SUM.ToString()}";
+                            }
+                        }
+
+                        if (state != false)
+                        {
+                            text += $"{item.Value.ToString()}";
+                        }
+
+                    }
+                    foreach (KeyValuePair<Int32, Decimal> item in MapOfPackagingQuantity)
+                    {
+                        bool state = true;
+                        foreach (KeyValuePair<Int32, Decimal> item1 in MapOfPackagingStorageQuantity)
+                        {
+                            if (item1.Key == item.Key)
+                            {
+                                state = false;
+                                SUM = item.Value - item1.Value;
+                                text += $"{SUM.ToString()}";
+                            }
+                        }
+
+                        if (state != false)
+                        {
+                            text += $"{item.Value.ToString()}";
+                        }
+
+                    }
+
+                    label.Text = text;
+                    return;
+                }
                 _databaseConnection.Open();
                 int j = 1;
                 MySqlCommand mySqlCommand1 = _databaseConnection.CreateCommand();

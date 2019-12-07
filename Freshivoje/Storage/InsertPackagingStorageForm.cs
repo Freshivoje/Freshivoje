@@ -21,7 +21,7 @@ namespace Freshivoje.Storage
         int _storageId;
         int _packagingId;
         bool state1;
-        string _fillLbl = "SELECT COALESCE(SUM(storage_record_items.package_quantity), 0) as StoragePackagingQuantity, storage.id_storage, storage.storage_position, storage.package_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 1";
+       
         string _fillCmbBox = "SELECT `packaging`.`id_packaging` , `packaging`.`capacity`, `packaging`.`category`, `packaging`.`state`, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `packaging_records` JOIN `packaging_record_items` ON `packaging_record_items`.`fk_packaging_records_id` = `packaging_records`.`id_packaging_record` JOIN `packaging` ON `packaging`.`id_packaging` = `packaging_record_items`.`fk_packaging_id` WHERE `packaging_records`.`type` = 1 AND `packaging_records`.`date` >= CURDATE() GROUP BY `packaging`.`id_packaging`;";
         public InsertPackagingStorageForm(int storageId)
         {
@@ -32,7 +32,7 @@ namespace Freshivoje.Storage
             cmd.CommandText = "SELECT * FROM storage WHERE id_storage ='" + _storageId + "'";
             dynamic storageData = DbConnection.getStorageData(cmd, _storageId);
             DbConnection.FillCmbBoxQuery(packagingCmbBox, _fillCmbBox, "id_packaging", "capacity", "category", "state");
-            string _fillLbl = $"SELECT COALESCE(SUM(storage_record_items.package_quantity), 0) as StoragePackagingQuantity, storage.id_storage, storage.storage_position, storage.package_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = {storageId}";
+            string _fillLbl = $"SELECT COALESCE(SUM(storage_record_items.package_quantity), 0) as StoragePackagingQuantity, storage.id_storage, storage.storage_position, storage.package_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = {storageId} AND storage_record_items.status = 'aktivna';";
             WindowState = FormWindowState.Maximized;
             lblTitle.Text = "UNOS AMBALAŽA U KOMORU " + storageData.getName();
             DbConnection.Storage(freeStorageLbl, _fillLbl, "StoragePackagingQuantity", "package_quantity");

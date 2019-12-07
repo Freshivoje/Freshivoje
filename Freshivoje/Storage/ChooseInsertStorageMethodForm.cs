@@ -13,10 +13,20 @@ namespace Freshivoje.Storage
     public partial class ChooseInsertStorageMethodForm : Form
     {
         int _storageId;
-        public ChooseInsertStorageMethodForm(int storageId)
+        string _btnText;
+        public ChooseInsertStorageMethodForm(int storageId, string btnText)
         {
+            _btnText = btnText;
             _storageId = storageId;
             InitializeComponent();
+            if(_btnText == "ULAZ")
+            {
+                titleLbl.Text = "ULAZ";
+            }
+            else
+            {
+                titleLbl.Text = "IZLAZ";
+            }
         }
         protected override CreateParams CreateParams
         {
@@ -35,18 +45,38 @@ namespace Freshivoje.Storage
 
         private void articleBtn_Click(object sender, EventArgs e)
         {
-            Hide();
-            using InsertStorageForm insertStorageForm = new InsertStorageForm(_storageId);
-            insertStorageForm.ShowDialog(this);
-            Show();
+            if(titleLbl.Text == "ULAZ")
+            {
+                Hide();
+                using InsertStorageForm insertStorageForm = new InsertStorageForm(_storageId);
+                insertStorageForm.ShowDialog(this);
+                Show();
+            }
+            else
+            {
+
+                Hide();
+                using OutStorageForm outStorageForm = new OutStorageForm(_storageId);
+                outStorageForm.ShowDialog(this);
+                Show();
+            }
+         
         }
 
         private void ambalageBtn_Click(object sender, EventArgs e)
         {
-            Hide();
-            using InsertPackagingStorageForm insertPackagingStorageForm = new InsertPackagingStorageForm(_storageId);
-            insertPackagingStorageForm.ShowDialog(this);
-            Show();
+            if (titleLbl.Text == "ULAZ")
+            {
+                Hide();
+                using InsertPackagingStorageForm insertPackagingStorageForm = new InsertPackagingStorageForm(_storageId);
+                insertPackagingStorageForm.ShowDialog(this);
+                Show();
+            }
+            else
+            {
+
+            }
+           
         }
     }
 }

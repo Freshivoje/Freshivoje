@@ -19,9 +19,22 @@ namespace Freshivoje.Storage
             InitializeComponent();
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
         private void recordBtn_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            using RecordStorageForm recordStorageForm = new RecordStorageForm(_storageId);
+            recordStorageForm.ShowDialog(this);
+            Show();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
