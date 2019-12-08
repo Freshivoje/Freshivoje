@@ -21,8 +21,6 @@ namespace Freshivoje.Storage
         int _articleId;
         int _storageId;
         bool state1;
-        string _fillCmbBox = "SELECT articles.id_article, articles.article_name, articles.sort, articles.organic, articles.category FROM storage_record_items JOIN articles ON articles.id_article = storage_record_items.fk_article_id WHERE storage_record_items.status = 'aktivna' AND storage_record_items.fk_storage_id = 1 GROUP BY articles.id_article;";
-
         public OutStorageForm(int storageId)
         {
             _storageId = storageId;
@@ -32,7 +30,7 @@ namespace Freshivoje.Storage
             dynamic storageData = DbConnection.getStorageData(cmd, _storageId);
             WindowState = FormWindowState.Maximized;
             InitializeComponent();
-            string _fillLbl = $"SELECT COALESCE(SUM(storage_record_items.article_quantity), 0) as StorageArticleQuantity, storage.id_storage, storage.storage_position, storage.article_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 8 AND storage_record_items.status = 'aktivna'";
+            string _fillLbl = $"SELECT COALESCE(SUM(storage_record_items.article_quantity), 0) - (SELECT COALESCE(SUM(storage_record_items.article_quantity), 0) FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = {_storageId} AND storage_record_items.status = 'neaktivna') as StorageArticleQuantity, storage.id_storage, storage.storage_position, storage.article_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = {_storageId} AND storage_record_items.status = 'aktivna'";
             string _fillCmbBox = $"SELECT articles.id_article, articles.article_name, articles.sort, articles.organic, articles.category FROM storage_record_items JOIN articles ON articles.id_article = storage_record_items.fk_article_id WHERE storage_record_items.status = 'aktivna' AND storage_record_items.fk_storage_id = {_storageId} GROUP BY articles.id_article;";
             lblTitle.Text = "UNOS ARTIKALA U KOMORU " + storageData.getName();
             DbConnection.FillCmbBoxQuery(articlesCmbBox, _fillCmbBox, "id_article", "article_name", "sort", "organic", "category");
@@ -200,7 +198,7 @@ namespace Freshivoje.Storage
                 CustomMessageBox.ShowDialog(this, "Niste uneli nijedan artikl");
                 return;
             }
-            DialogResult result = CustomDialog.ShowDialog(this, "Da li ste sigurni da želite da unesete ove artikle u komoru ?");
+            DialogResult result = CustomDialog.ShowDialog(this, "Da li ste sigurni da želite da prodate ove artikle ?");
             if (result == DialogResult.No || result == DialogResult.Cancel)
             {
                 return;
@@ -211,18 +209,12 @@ namespace Freshivoje.Storage
             {
                 MySqlCommand mySqlCommand = new MySqlCommand
                 {
-                    CommandText = $"INSERT INTO `storage_record_items` (`fk_storage_id`, `fk_article_id`,  `article_quantity`, `date`, `type_of_storage_action`, `status`) VALUES ( @storageId, @articleId, @articleQuantity, current_timestamp(), 'ulaz', 'neaktivna');"
+                    CommandText = $"INSERT INTO `storage_record_items` (`fk_storage_id`, `fk_article_id`,  `article_quantity`, `date`, `type_of_storage_action`, `status`) VALUES ( 8, @articleId, @articleQuantity, current_timestamp(), 'ulaz', 'neaktivna');"
                 };
-                MySqlCommand mySqlCommand1 = new MySqlCommand
-                {
-                    CommandText = $"INSERT INTO `storage_record_items` (`fk_storage_id`, `fk_article_id`,  `article_quantity`, `date`, `type_of_storage_action`, `status`) VALUES ( 8, @articleId, @articleQuantity, current_timestamp(), 'ulaz', 'aktivna');"
-                };
-                mySqlCommand.Parameters.AddWithValue("@storageId", _storageId);
+      
                 mySqlCommand.Parameters.AddWithValue("@articleId", row.Cells["articleId"].Value);
                 mySqlCommand.Parameters.AddWithValue("@articleQuantity", row.Cells["articleQuantity"].Value);
-                mySqlCommand1.Parameters.AddWithValue("@articleId", row.Cells["articleId"].Value);
-                mySqlCommand1.Parameters.AddWithValue("@articleQuantity", row.Cells["articleQuantity"].Value);
-                DbConnection.executeQuery(mySqlCommand1);
+              
                 DbConnection.executeQuery(mySqlCommand);
 
             }

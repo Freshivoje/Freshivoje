@@ -31,9 +31,7 @@ namespace Freshivoje.Storage
             dynamic storageData = DbConnection.getStorageData(cmd, _storageId);
             lblTitle.Text = "EVIDENCIJA KOMORE " + storageData.getName();
             state1 = true;
-             //_packagingQuery = $"SELECT packaging.capacity, packaging.category as packagingName, packaging.state, SUM(storage_record_items.package_quantity) as quantity FROM `storage_record_items` INNER JOIN packaging ON storage_record_items.fk_packaging_id = packaging.id_packaging INNER JOIN storage ON storage_record_items.fk_storage_id = storage.id_storage WHERE fk_storage_id = {_storageId} GROUP BY packaging.id_packaging";
-             //_articleQuery = $"SELECT articles.article_name, articles.sort, articles.organic, articles.category, SUM(storage_record_items.article_quantity) as quantity FROM `storage_record_items` INNER JOIN articles ON storage_record_items.fk_article_id = articles.id_article INNER JOIN storage ON storage_record_items.fk_storage_id = storage.id_storage WHERE fk_storage_id = {_storageId} GROUP BY articles.id_article";
-
+             
         }
 
         protected override CreateParams CreateParams
@@ -85,6 +83,10 @@ namespace Freshivoje.Storage
 
         private void searchRecordTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(_storageId == 8)
+            {
+                searchRecordTypeComboBox.Items.RemoveAt(1);
+            }
             _packagingQuery = $"SELECT packaging.capacity, packaging.category as packagingName, packaging.state, SUM(storage_record_items.package_quantity) - (SELECT SUM(storage_record_items.package_quantity) FROM `storage_record_items` INNER JOIN packaging ON storage_record_items.fk_packaging_id = packaging.id_packaging INNER JOIN storage ON storage_record_items.fk_storage_id = storage.id_storage WHERE fk_storage_id = {_storageId} AND storage_record_items.status = 'neaktivna' GROUP BY packaging.id_packaging) as quantity FROM `storage_record_items` INNER JOIN packaging ON storage_record_items.fk_packaging_id = packaging.id_packaging INNER JOIN storage ON storage_record_items.fk_storage_id = storage.id_storage WHERE fk_storage_id = {_storageId} AND storage_record_items.status = 'aktivna' GROUP BY packaging.id_packaging";
             _articleQuery = $"SELECT articles.article_name, articles.sort, articles.organic, articles.category, SUM(storage_record_items.article_quantity) - (SELECT SUM(storage_record_items.article_quantity) FROM `storage_record_items` INNER JOIN articles ON storage_record_items.fk_article_id = articles.id_article INNER JOIN storage ON storage_record_items.fk_storage_id = storage.id_storage WHERE fk_storage_id = {_storageId}  AND storage_record_items.status = 'neaktivna' GROUP BY articles.id_article) as quantity FROM `storage_record_items` INNER JOIN articles ON storage_record_items.fk_article_id = articles.id_article INNER JOIN storage ON storage_record_items.fk_storage_id = storage.id_storage WHERE fk_storage_id = {_storageId}  AND storage_record_items.status = 'aktivna' GROUP BY articles.id_article";
             if (searchRecordTypeComboBox.SelectedIndex == 0)

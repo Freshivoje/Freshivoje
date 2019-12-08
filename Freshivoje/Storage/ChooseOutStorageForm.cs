@@ -41,5 +41,13 @@ namespace Freshivoje.Storage
         {
             Close();
         }
+
+        private void outBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            using OutStorageForm outStorageForm = new OutStorageForm(_storageId);
+            outStorageForm.ShowDialog(this);
+            Show();
+        }
     }
 }

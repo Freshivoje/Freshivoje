@@ -140,6 +140,7 @@
             this.outBtn.TabIndex = 2;
             this.outBtn.Text = "PRODAJA";
             this.outBtn.UseVisualStyleBackColor = false;
+            this.outBtn.Click += new System.EventHandler(this.outBtn_Click);
             // 
             // ChooseOutStorageForm
             // 
