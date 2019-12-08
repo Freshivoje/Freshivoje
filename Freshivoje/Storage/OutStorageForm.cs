@@ -32,7 +32,15 @@ namespace Freshivoje.Storage
             InitializeComponent();
             string _fillLbl = $"SELECT COALESCE(SUM(storage_record_items.article_quantity), 0) - (SELECT COALESCE(SUM(storage_record_items.article_quantity), 0) FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 8 AND storage_record_items.status = 'neaktivna') as StorageArticleQuantity, storage.id_storage, storage.storage_position, storage.article_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 8 AND storage_record_items.status = 'aktivna'";
             string _fillCmbBox = $"SELECT articles.id_article, articles.article_name, articles.sort, articles.organic, articles.category FROM storage_record_items JOIN articles ON articles.id_article = storage_record_items.fk_article_id WHERE storage_record_items.status = 'aktivna' AND storage_record_items.fk_storage_id = {_storageId} GROUP BY articles.id_article;";
-            lblTitle.Text = "UNOS ARTIKALA U KOMORU " + storageData.getName();
+           
+            if(_storageId == 8)
+            {
+                lblTitle.Text = "PRODAJA";
+            }
+            else
+            {
+                lblTitle.Text = "IZLAZ ARTIKALA IZ KOMORU " + storageData.getName();
+            }
             DbConnection.FillCmbBoxQuery(articlesCmbBox, _fillCmbBox, "id_article", "article_name", "sort", "organic", "category");
             DbConnection.Storage(freeStorageLbl, _fillLbl, "StorageArticleQuantity", "article_quantity");
             articlesCmbBox.SelectedIndex = 0;
@@ -102,7 +110,7 @@ namespace Freshivoje.Storage
                     {
                         decimal sumQuantity = Convert.ToDecimal(row.Cells["articleQuantity"].Value) + article._quantity;
                         row.Cells["articleQuantity"].Value = sumQuantity;
-                        sum = freeStorage - sumQuantity;
+                       
                         suma = articleStorageQuantity - article._quantity;
 
 
@@ -128,9 +136,11 @@ namespace Freshivoje.Storage
                                     decimal value = MapOfArticles1[item1.Key];
                                     MapOfArticles2[key] = value;
                                     MapOfArticles = MapOfArticles2;
+                                    sum = freeStorage - articleQuantity;
                                     freeStorageLbl.Text = sum.ToString();
                                     articleLbl.Text = suma.ToString();
                                     articleQuantityTxtBox.ResetText();
+                                    
                                     return;
                                 }
 
@@ -164,6 +174,8 @@ namespace Freshivoje.Storage
                             articleLbl.Text = value.ToString();
                             ArticlesDataGridView.Rows.Add(article._id, article._name, article._sort, article._category, article._organic, articleQuantity);
                             articleQuantityTxtBox.ResetText();
+                            sum = freeStorage - articleQuantity;
+                            freeStorageLbl.Text = sum.ToString();
                             return;
                         }
 
