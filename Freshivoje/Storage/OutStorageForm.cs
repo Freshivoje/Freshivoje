@@ -295,7 +295,7 @@ namespace Freshivoje.Storage
             {
                 if (Convert.ToInt32(row.Cells["articleId"].Value) != _articleId)
                 {
-                    string _artilceQuantity = $"SELECT articles.id_article as QuantityArticleId, SUM(`storage_record_items`.`article_quantity`) - (SELECT SUM(`storage_record_items`.`article_quantity`) FROM storage_record_items JOIN articles ON articles.id_article = storage_record_items.fk_article_id WHERE storage_record_items.status = 'neaktivna' AND storage_record_items.fk_storage_id = {_storageId} AND articles.id_article = {articleId} GROUP BY articles.id_article) as QuantityArts FROM storage_record_items JOIN articles ON articles.id_article = storage_record_items.fk_article_id WHERE storage_record_items.status = 'aktivna' AND storage_record_items.fk_storage_id = {_storageId} AND articles.id_article = {_articleId} GROUP BY articles.id_article";  
+                    string _artilceQuantity = $"SELECT articles.id_article as QuantityArticleId, COALESCE(SUM(`storage_record_items`.`article_quantity`),0) - (SELECT COALESCE(SUM(`storage_record_items`.`article_quantity`),0) FROM storage_record_items  WHERE storage_record_items.status = 'neaktivna' AND storage_record_items.fk_storage_id = {_storageId} AND articles.id_article = {_articleId} ) as QuantityArts FROM storage_record_items JOIN articles ON articles.id_article = storage_record_items.fk_article_id WHERE storage_record_items.status = 'aktivna' AND storage_record_items.fk_storage_id = {_storageId} AND articles.id_article = {_articleId} GROUP BY articles.id_article";  
                     DbConnection.fillLbl(articleLbl, _artilceQuantity, "", "QuantityArticleId", "QuantityArts", "QuantityStorageArticleId", "QuantityStorageArticle");
 
                 }
