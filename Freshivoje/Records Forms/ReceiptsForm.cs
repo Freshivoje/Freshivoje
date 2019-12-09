@@ -110,9 +110,14 @@ namespace Freshivoje.Records_Forms
                 }
 
                 _selectedReceiptId = Convert.ToInt32(receiptsDataGridView.Rows[e.RowIndex].Cells["receiptId"].Value);
-              
 
-                CustomTextBoxDialog.ShowDialog(this, $"Klijentu dugujete {_selectedReceiptTotalPrice - _selectedReceiptPricePaid} RSD.\nKoliko sada isplaćujete?");
+
+                result = CustomTextBoxDialog.ShowDialog(this, $"Klijentu dugujete {_selectedReceiptTotalPrice - _selectedReceiptPricePaid} RSD.\nKoliko sada isplaćujete?");
+                if (result == DialogResult.No || result == DialogResult.Cancel)
+                {
+                    return;
+                }
+
                 decimal pay = Convert.ToDecimal(CustomTextBoxDialog._value) + _selectedReceiptPricePaid;
                 if (pay > _selectedReceiptTotalPrice)
                 {
