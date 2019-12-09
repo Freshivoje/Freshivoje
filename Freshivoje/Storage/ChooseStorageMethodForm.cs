@@ -24,11 +24,19 @@ namespace Freshivoje.Storage
             titleLbl.Text = "KOMORA " + storageData.getName();
         }
 
-        private void insertBtn_Click(object sender, EventArgs e)
+        protected override CreateParams CreateParams
         {
-            Hide();
-            using InsertStorageForm insertStorageForm = new InsertStorageForm();
-            insertStorageForm.ShowDialog(this);
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+        private void insertBtn_Click(object sender, EventArgs e)
+        {   
+            using ChooseInsertStorageMethodForm chooseInsertStorageMethodForm = new ChooseInsertStorageMethodForm(storageId, "ULAZ");
+            chooseInsertStorageMethodForm.ShowDialog(this);
             Show();
         }
 
@@ -37,16 +45,15 @@ namespace Freshivoje.Storage
         private void recordBtn_Click(object sender, EventArgs e)
         {
             Hide();
-            using RecordStorageForm recordStorageForm = new RecordStorageForm();
+            using RecordStorageForm recordStorageForm = new RecordStorageForm(storageId);
             recordStorageForm.ShowDialog(this);
             Show();
         }
 
         private void outBtn_Click(object sender, EventArgs e)
         {
-            Hide();
-            using OutStorageForm outStorageForm = new OutStorageForm();
-            outStorageForm.ShowDialog(this);
+            using ChooseInsertStorageMethodForm chooseInsertStorageMethodForm = new ChooseInsertStorageMethodForm(storageId, "IZLAZ");
+            chooseInsertStorageMethodForm.ShowDialog(this);
             Show();
         }
         private void exitBtn_Click(object sender, EventArgs e)

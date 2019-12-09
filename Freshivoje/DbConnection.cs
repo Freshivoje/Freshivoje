@@ -19,44 +19,55 @@ namespace Freshivoje
         private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username};charset=utf8;";
         public static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
 
-        public static void fillLbl(Label label, int id, params string[] columns)
+        public static void Storage(Label label, string query, params string[] columns)
         {
             try
             {
-               
+                string text = string.Empty;
+                decimal ArticleQuantity = 0, StorageArticleQuantity = 0, SumA;
+                int PackagingQuantity = 0, StoragePackagingQuantity = 0, SumP;
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
-                mySqlCommand.CommandText = $"SELECT `packaging`.`id_packaging`, SUM(`packaging_record_items`.`quantity`) as quantityPackgs, DATE_FORMAT(`date`, ' %d.%m.%Y.') as date FROM `packaging_records` JOIN `packaging_record_items` ON `packaging_record_items`.`fk_packaging_records_id` = `packaging_record_items`.`id_record_item` JOIN `packaging` ON `packaging`.`id_packaging` = `packaging_record_items`.`fk_packaging_id` WHERE `date` >= CURDATE() AND packaging.id_packaging = {id} GROUP BY `packaging`.`id_packaging` ORDER BY `packaging`.`id_packaging` ASC;SELECT SUM(`storage_record_items`.`package_quantity`) as quantityStoragePackages FROM storage_record_items WHERE `storage_record_items`.`fk_storage_id`=5 AND `storage_record_items`.`fk_packaging_id`={id} GROUP BY storage_record_items.fk_packaging_id";
+                mySqlCommand.CommandText = query;
                 using MySqlDataReader reader = mySqlCommand.ExecuteReader();
                 while (reader.Read())
                 {
-                    string text = string.Empty;
-                    int QSP = 0, QP = 0, SUM;
                     foreach (string column in columns)
                     {
                         switch (column)
                         {
-                            case "quantityStoragePackages":
-                                QP = reader.GetInt32(column);
+                            case "StorageArticleQuantity":
+
+                                StorageArticleQuantity = reader.GetDecimal(column);
                                 break;
-                            case "quantityPackgs":
-                                 QSP = reader.GetInt32(column);
+                            case "article_quantity":
+
+                                ArticleQuantity = reader.GetDecimal(column);
+                                SumA = ArticleQuantity - StorageArticleQuantity;
+                                text = $"{SumA}";
                                 break;
+                            case "StoragePackagingQuantity":
+
+                                StoragePackagingQuantity = reader.GetInt32(column);
+                                break;
+                            case "package_quantity":
+
+                                PackagingQuantity = reader.GetInt32(column);
+                                SumP = PackagingQuantity - StoragePackagingQuantity;
+                                text = $"{SumP}";
+                                break;
+
+
                             default:
 
                                 break;
                         }
-
                     }
-                    SUM = QSP - QP;
-                    text = SUM.ToString();
-                    label.Text += text;
-
                 }
-            
-              
+                label.Text = text;
+
             }
-            catch
+            catch (Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
@@ -67,7 +78,178 @@ namespace Freshivoje
             {
                 _databaseConnection.Close();
             }
+        }
+        public static void fillLbl(Label label, string query, string query1, params string[] columns)
+        {
+            try
+            {
+                string text = string.Empty;
+                var MapOfArticleQuantiy = new Dictionary<Int32, Decimal>();
+                var MapOfArticleStorageQuantiy = new Dictionary<Int32, Decimal>();
+                var MapOfPackagingQuantity = new Dictionary<Int32, Decimal>();
+                var MapOfPackagingStorageQuantity = new Dictionary<Int32, Decimal>();
+                int QuantityStorageArticleId = 0, QuantityArticleId = 0, QuantityPackagingId = 0, QuantityStoragePackagingId = 0;
+                decimal QuantityStorageArticle = 0, QuantityArticle = 0, QuantityStoragePackaging = 0, QuantityPackaging = 0, SUM;
+                _databaseConnection.Open();
+                MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
+                mySqlCommand.CommandText = query;
+                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
+                while (reader.Read())
+                {
 
+                    foreach (string column in columns)
+                    {
+                        switch (column)
+                        {
+                            case "QuantityArticleId":
+                                QuantityArticleId = reader.GetInt32(column);
+                                break;
+                            case "QuantityArts":
+                                QuantityArticle = reader.GetDecimal(column);
+                                MapOfArticleQuantiy.Add(QuantityArticleId, QuantityArticle);
+                                break;
+                            case "QuantityPackagingId":
+                                QuantityPackagingId = reader.GetInt32(column);
+                                break;
+                            case "QuantityPackg":
+                                QuantityPackaging = reader.GetDecimal(column);
+                                MapOfPackagingQuantity.Add(QuantityPackagingId, QuantityPackaging);
+                                break;
+                            default:
+
+                                break;
+                        }
+                    }
+                }
+                _databaseConnection.Close();
+                if (query1 == "")
+                {
+                    foreach (KeyValuePair<Int32, Decimal> item in MapOfArticleQuantiy)
+                    {
+                        bool state = true;
+                        foreach (KeyValuePair<Int32, Decimal> item1 in MapOfArticleStorageQuantiy)
+                        {
+                            if (item1.Key == item.Key)
+                            {
+                                state = false;
+                                SUM = item.Value - item1.Value;
+                                text += $"{SUM.ToString()}";
+                            }
+                        }
+
+                        if (state != false)
+                        {
+                            text += $"{item.Value.ToString()}";
+                        }
+
+                    }
+                    foreach (KeyValuePair<Int32, Decimal> item in MapOfPackagingQuantity)
+                    {
+                        bool state = true;
+                        foreach (KeyValuePair<Int32, Decimal> item1 in MapOfPackagingStorageQuantity)
+                        {
+                            if (item1.Key == item.Key)
+                            {
+                                state = false;
+                                SUM = item.Value - item1.Value;
+                                text += $"{SUM.ToString()}";
+                            }
+                        }
+
+                        if (state != false)
+                        {
+                            text += $"{item.Value.ToString()}";
+                        }
+
+                    }
+
+                    label.Text = text;
+                    return;
+                }
+                _databaseConnection.Open();
+                int j = 1;
+                MySqlCommand mySqlCommand1 = _databaseConnection.CreateCommand();
+                mySqlCommand1.CommandText = query1;
+                using MySqlDataReader reader1 = mySqlCommand1.ExecuteReader();
+                while (reader1.Read())
+                {
+                    foreach (string column in columns)
+                    {
+                        switch (column)
+                        {
+                            case "QuantityStorageArticleId":
+                                QuantityStorageArticleId = reader1.GetInt32(column);
+                                break;
+                            case "QuantityStorageArticle":
+                                QuantityStorageArticle = reader1.GetDecimal(column);
+                                MapOfArticleStorageQuantiy.Add(QuantityStorageArticleId, QuantityStorageArticle);
+                                break;
+                            case "QuantityStoragePackagingId":
+                                QuantityStoragePackagingId = reader1.GetInt32(column);
+                                break;
+                            case "QuantityStoragePackaging":
+                                QuantityStoragePackaging = reader1.GetDecimal(column);
+                                MapOfPackagingStorageQuantity.Add(QuantityStoragePackagingId, QuantityStoragePackaging);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+
+
+                }
+                foreach (KeyValuePair<Int32, Decimal> item in MapOfArticleQuantiy)
+                {
+                    bool state = true;
+                    foreach (KeyValuePair<Int32, Decimal> item1 in MapOfArticleStorageQuantiy)
+                    {
+                        if (item1.Key == item.Key)
+                        {
+                            state = false;
+                            SUM = item.Value - item1.Value;
+                            text += $"{SUM.ToString()}";
+                        }
+                    }
+
+                    if (state != false)
+                    {
+                        text += $"{item.Value.ToString()}";
+                    }
+
+                }
+                foreach (KeyValuePair<Int32, Decimal> item in MapOfPackagingQuantity)
+                {
+                    bool state = true;
+                    foreach (KeyValuePair<Int32, Decimal> item1 in MapOfPackagingStorageQuantity)
+                    {
+                        if (item1.Key == item.Key)
+                        {
+                            state = false;
+                            SUM = item.Value - item1.Value;
+                            text += $"{SUM.ToString()}";
+                        }
+                    }
+
+                    if (state != false)
+                    {
+                        text += $"{item.Value.ToString()}";
+                    }
+
+                }
+
+                label.Text = text;
+            }
+            catch (Exception e)
+            {
+                if (_databaseConnection.State != ConnectionState.Open)
+                {
+                    return;
+                }
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
         }
         public static void fillBtnText(Button button, string table, string position, params string[] columns)
         {
