@@ -286,6 +286,12 @@
     <Compile Include="Storage\InsertStorageForm.Designer.cs">
       <DependentUpon>InsertStorageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Storage\OutPackagingStorageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Storage\OutPackagingStorageForm.Designer.cs">
+      <DependentUpon>OutPackagingStorageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Storage\OutStorageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -424,6 +430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Storage\InsertStorageForm.resx">
       <DependentUpon>InsertStorageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Storage\OutPackagingStorageForm.resx">
+      <DependentUpon>OutPackagingStorageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Storage\OutStorageForm.resx">
       <DependentUpon>OutStorageForm.cs</DependentUpon>

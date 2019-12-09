@@ -257,16 +257,21 @@ namespace Freshivoje.Storage
                 {
                     CommandText = $"INSERT INTO `storage_record_items` (`fk_storage_id`, `fk_article_id`,  `article_quantity`, `date`, `type_of_storage_action`, `status`) VALUES ( 8, @articleId, @articleQuantity, current_timestamp(), 'ulaz', 'aktivna');"
                 };
-
+                MySqlCommand mySqlCommand2 = new MySqlCommand
+                {
+                    CommandText = $"INSERT INTO `storage_record_items` (`fk_storage_id`, `fk_article_id`,  `article_quantity`, `date`, `type_of_storage_action`, `status`) VALUES ( 5, @articleId, @articleQuantity, current_timestamp(), 'ulaz', 'neaktivna');"
+                };
                 mySqlCommand.Parameters.AddWithValue("@storageId", _storageId);
                 mySqlCommand.Parameters.AddWithValue("@articleId", row.Cells["articleId"].Value);
                 mySqlCommand.Parameters.AddWithValue("@articleQuantity", row.Cells["articleQuantity"].Value);
                 mySqlCommand1.Parameters.AddWithValue("@articleId", row.Cells["articleId"].Value);
                 mySqlCommand1.Parameters.AddWithValue("@articleQuantity", row.Cells["articleQuantity"].Value);
+                mySqlCommand2.Parameters.AddWithValue("@articleId", row.Cells["articleId"].Value);
+                mySqlCommand2.Parameters.AddWithValue("@articleQuantity", row.Cells["articleQuantity"].Value);
 
                 DbConnection.executeQuery(mySqlCommand);
                 DbConnection.executeQuery(mySqlCommand1);
-
+                DbConnection.executeQuery(mySqlCommand2);
             }
 
             ArticlesDataGridView.Rows.Clear();

@@ -74,7 +74,10 @@ namespace Freshivoje.Storage
             }
             else
             {
-
+                Hide();
+                using OutPackagingStorageForm outPackagingStorageForm = new OutPackagingStorageForm(_storageId);
+                outPackagingStorageForm.ShowDialog(this);
+                Show();
             }
            
         }

@@ -119,6 +119,12 @@ namespace Freshivoje.Storage
             ButtonsStorageOnClick(sender);
         }
 
-   
+        private void storageBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            using RecordStorageForm recordStorageForm = new RecordStorageForm(5);
+            recordStorageForm.ShowDialog(this);
+            Show();
+        }
     }
 }
