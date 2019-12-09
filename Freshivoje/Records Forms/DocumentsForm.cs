@@ -24,7 +24,7 @@ namespace Freshivoje.Records_Forms
 
             foreach (string file in files)
             {
-                _table.Rows.Add(file, Path.GetFileName(file));
+                _table.Rows.Add(file, Path.GetFileNameWithoutExtension(file));
             }
 
             documentsDataGridView.AutoGenerateColumns = false;
