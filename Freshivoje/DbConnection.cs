@@ -6,6 +6,7 @@ using Freshivoje.Custom_Forms;
 using MySql.Data.MySqlClient;
 using Freshivoje.Models;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace Freshivoje
 {
@@ -18,7 +19,6 @@ namespace Freshivoje
         //private static string password = "";
         private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username};charset=utf8;";
         public static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
-
         public static void Storage(Label label, string query, params string[] columns)
         {
             try
@@ -251,55 +251,68 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-        public static void fillBtnText(Button button, string table, string position, params string[] columns)
+        public static void fillBtnText(Button button, string query, params string[] columns)
         {
             try
             {
+                string text = string.Empty;
+                decimal ArticleQuantity = 0, StorageArticleQuantity = 0, SumA;
+                int PackagingQuantity = 0, StoragePackagingQuantity = 0, SumP;
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
-                mySqlCommand.CommandText = $"SELECT * FROM `{table}` WHERE storage_position='{position}'";
+                mySqlCommand.CommandText = query;
                 using MySqlDataReader reader = mySqlCommand.ExecuteReader();
-                if(reader.Read())
+                while (reader.Read())
                 {
-                    string text = string.Empty;
+
                     foreach (string column in columns)
                     {
                         switch (column)
                         {
                             case "id_storage":
-                                int _storageId = reader.GetInt32(column);
-                                button.Tag = _storageId;
+                                button.Tag = reader.GetInt32(column);
                                 break;
                             case "storage_position":
-                                text += $"{ reader.GetString(column)} \n ";
-                                button.Text = text;
+                                text += $"{reader.GetString(column)}\n";
+                                break;
+                            case "StorageArticleQuantity":
+                                text += $"Artikli(KG) {reader.GetDecimal(column)}/";
+                                StorageArticleQuantity = reader.GetDecimal(column);
                                 break;
                             case "article_quantity":
-                                text += $"{ reader.GetString(column)} KG \n ";
-                                button.Text = text;
-                                break;
-                            case "package_quantity":
-                                text += $"{ reader.GetString(column)} BR \n ";
-                                button.Text = text;
-                                break;
-                            case "status":
-                                string test = reader.GetString(column);
-                                if (test == "neaktivna")
+                                text += $"{reader.GetDecimal(column)}\n";
+                                ArticleQuantity = reader.GetDecimal(column);
+                                SumA = ArticleQuantity - StorageArticleQuantity;
+                                if (SumA <= 1000)
                                 {
-                                    button.Enabled = false;
-                                    button.Text = "Komora je izdata za lagerovanje";
+                                    button.BackColor = Color.Red;
                                 }
                                 break;
+                            case "StoragePackagingQuantity":
+                                text += $"Ambalaže {reader.GetInt32(column)}/";
+                                StoragePackagingQuantity = reader.GetInt32(column);
+                                break;
+                            case "package_quantity":
+                                text += $"{reader.GetInt32(column)}\n";
+                                PackagingQuantity = reader.GetInt32(column);
+                                SumP = PackagingQuantity - StoragePackagingQuantity;
+                                if (SumP <= 1000)
+                                {
+                                    button.BackColor = Color.Red;
+                                }
+                                break;
+
+
                             default:
-                                
+
                                 break;
                         }
                     }
-                text = text.Trim(' ', '/');
-                
                 }
+                button.Text = text;
+
             }
-            catch
+            catch (Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
@@ -311,7 +324,6 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-
         public static void FillCmbBoxQuery(ComboBox cmbBox, string query, params string[] columns)
         {
             try
@@ -325,10 +337,10 @@ namespace Freshivoje
                 {
                     int value = 0;
                     string text = string.Empty;
-                   
+
                     foreach (string column in columns)
                     {
-                        
+
                         switch (column)
                         {
                             case "id_article":
@@ -365,7 +377,7 @@ namespace Freshivoje
 
                                 break;
                         }
-                       
+
                     }
                     ComboBoxItem item = new ComboBoxItem
                     {
@@ -432,13 +444,20 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-        public static void tunnel(Label label, Label label1, string query, string query1, params string[] columns)
+        public static void tunnel(Label label, string query, string query1, Label label1, params string[] columns)
         {
 
             try
             {
                 string text = string.Empty;
-                decimal QSA = 0, QA = 0, QSP = 0, QP = 0, SUM, Q = 0;
+                string text1 = string.Empty;
+
+                var MapOfArticleQuantiy = new Dictionary<Int32, Decimal>();
+                var MapOfArticleStorageQuantiy = new Dictionary<Int32, Decimal>();
+                var MapOfPackagingQuantity = new Dictionary<Int32, Decimal>();
+                var MapOfPackagingStorageQuantity = new Dictionary<Int32, Decimal>();
+                int QuantityStorageArticleId = 0, QuantityArticleId = 0, QuantityPackagingId = 0, QuantityStoragePackagingId = 0;
+                decimal QuantityStorageArticle = 0, QuantityArticle = 0, QuantityStoragePackaging = 0, QuantityPackaging = 0, SUM;
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
                 mySqlCommand.CommandText = query;
@@ -450,6 +469,9 @@ namespace Freshivoje
                     {
                         switch (column)
                         {
+                            case "quantityArticleId":
+                                QuantityArticleId = reader.GetInt32(column);
+                                break;
                             case "article_name":
                                 text += $"{reader.GetString(column)}/";
                                 break;
@@ -463,8 +485,8 @@ namespace Freshivoje
                                 text += $"{reader.GetString(column)}\n";
                                 break;
                             case "quantityArts":
-                                QA = reader.GetDecimal(column);
-                                Q = QA;
+                                QuantityArticle = reader.GetDecimal(column);
+                                MapOfArticleQuantiy.Add(QuantityArticleId, QuantityArticle);
                                 break;
                             case "capacity":
                                 text += $"{reader.GetString(column)}/";
@@ -476,11 +498,14 @@ namespace Freshivoje
                                 text += $"{reader.GetString(column)}/";
                                 break;
                             case "state":
-                                text += $"{reader.GetString(column)}\n";
+                                text += $"{reader.GetString(column)}/";
+                                break;
+                            case "QuantityPackagingId":
+                                QuantityPackagingId = reader.GetInt32(column);
                                 break;
                             case "quantityPackg":
-                                QP = reader.GetDecimal(column);
-                                Q = QP;
+                                QuantityPackaging = reader.GetDecimal(column);
+                                MapOfPackagingQuantity.Add(QuantityPackagingId, QuantityPackaging);
                                 break;
 
                             default:
@@ -491,56 +516,101 @@ namespace Freshivoje
 
                     }
 
-                    label.Text += text;
+
 
                 }
+                label.Text = text;
                 _databaseConnection.Close();
                 _databaseConnection.Open();
-                text = string.Empty;
+                int j = 1;
+
                 MySqlCommand mySqlCommand1 = _databaseConnection.CreateCommand();
                 mySqlCommand1.CommandText = query1;
                 using MySqlDataReader reader1 = mySqlCommand1.ExecuteReader();
-                if (reader1.Read())
+                while (reader1.Read())
                 {
                     foreach (string column in columns)
                     {
                         switch (column)
                         {
+                            case "QuantityStorageArticleId":
+                                QuantityStorageArticleId = reader1.GetInt32(column);
+                                break;
                             case "quantityStorageArticle":
-                                QSA = reader1.GetDecimal(column);
-                                SUM = QA - QSA;
-                                text += $"{SUM.ToString()}\n";
+                                QuantityStorageArticle = reader1.GetDecimal(column);
+                                MapOfArticleStorageQuantiy.Add(QuantityStorageArticleId, QuantityStorageArticle);
+                                break;
+                            case "QuantityStoragePackagingId":
+                                QuantityStoragePackagingId = reader1.GetInt32(column);
                                 break;
                             case "quantityStoragePackaging":
-                                QSP = reader1.GetDecimal(column);
-                                SUM = QP - QSP;
-                                text += $"{SUM.ToString()}\n";
+                                QuantityStoragePackaging = reader1.GetDecimal(column);
+                                MapOfPackagingStorageQuantity.Add(QuantityStoragePackagingId, QuantityStoragePackaging);
+                                break;
+                            default:
                                 break;
                         }
                     }
+
+
                 }
-                else
+                foreach (KeyValuePair<Int32, Decimal> item in MapOfArticleQuantiy)
                 {
-                    text += $"{Q.ToString()}\n";
+                    bool state = true;
+                    foreach (KeyValuePair<Int32, Decimal> item1 in MapOfArticleStorageQuantiy)
+                    {
+                        if (item1.Key == item.Key)
+                        {
+                            state = false;
+                            SUM = item.Value - item1.Value;
+                            text1 += $"/{SUM.ToString()}\n";
+                        }
+                    }
+
+                    if (state != false)
+                    {
+                        text1 += $"/{item.Value.ToString()}\n";
+                    }
+
+                }
+                foreach (KeyValuePair<Int32, Decimal> item in MapOfPackagingQuantity)
+                {
+                    bool state = true;
+                    foreach (KeyValuePair<Int32, Decimal> item1 in MapOfPackagingStorageQuantity)
+                    {
+                        if (item1.Key == item.Key)
+                        {
+                            state = false;
+                            SUM = item.Value - item1.Value;
+                            text1 += $"/{SUM.ToString()}\n";
+                        }
+                    }
+
+                    if (state != false)
+                    {
+                        text1 += $"/{item.Value.ToString()}\n";
+                    }
+
                 }
 
-                label1.Text += text;
+
+                label1.Text += text1;
 
             }
-            
-            catch(Exception e)
+
+            catch (Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
                     return;
                 }
-                throw e;
             }
             finally
             {
                 _databaseConnection.Close();
             }
         }
+
         public static void fillWhereCmbBox(ComboBox cmbBox, string table, params string[] columns)
         {
             try
@@ -549,7 +619,7 @@ namespace Freshivoje
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
                 mySqlCommand.CommandText = $"SELECT * FROM `{table}` WHERE status=1";
                 using MySqlDataReader reader = mySqlCommand.ExecuteReader();
-                while(reader.Read())
+                while (reader.Read())
                 {
                     string text = string.Empty;
                     foreach (string column in columns)
@@ -589,7 +659,7 @@ namespace Freshivoje
                 _databaseConnection.Open();
                 mySqlCommand.ExecuteNonQuery();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
@@ -602,7 +672,6 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-
         public static void executeTransportQuery(List<TransportItem> transportItems, decimal totalPrice)
         {
             MySqlCommand mySqlCommand = new MySqlCommand
@@ -666,8 +735,7 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-
-        public static dynamic getStorageData(MySqlCommand mySqlCommand,int id)
+        public static dynamic getStorageData(MySqlCommand mySqlCommand, int id)
         {
             dynamic result = null;
             try
@@ -676,15 +744,21 @@ namespace Freshivoje
                 _databaseConnection.Open();
                 MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
 
-                
+
                 if (mySqlDataReader.Read())
                 {
-                    
+
                     decimal article_quantity = mySqlDataReader.GetDecimal("article_quantity");
                     string storage_position = mySqlDataReader.GetString("storage_position");
-                    decimal package_quantity = mySqlDataReader.GetDecimal("package_quantity");
 
-                    StorageData storageData = new StorageData(id, storage_position, article_quantity,package_quantity);
+                    if (storage_position == "IZLAZ")
+                    {
+                        StorageData storageData1 = new StorageData(id, storage_position, article_quantity, 0);
+                        result = storageData1;
+                        return result;
+                    }
+                    decimal package_quantity = mySqlDataReader.GetDecimal("package_quantity");
+                    StorageData storageData = new StorageData(id, storage_position, article_quantity, package_quantity);
 
                     result = storageData;
                 }
@@ -701,7 +775,6 @@ namespace Freshivoje
             return result;
 
         }
-
         public static string getTransportDetails(MySqlCommand mySqlCommand)
         {
             string result = string.Empty;
@@ -714,8 +787,13 @@ namespace Freshivoje
                 int articleNum = 1;
                 while (mySqlDataReader.Read())
                 {
+                    string priceSingle = mySqlDataReader.GetDecimal("price_single").ToString("0.00");
+                    string quantity = mySqlDataReader.GetDecimal("quantity").ToString("0.00");
+                    string traveled = mySqlDataReader.GetDecimal("traveled").ToString("0.00");
+                    string price = mySqlDataReader.GetDecimal("price").ToString("0.00");
 
-                    result += $"Artikal {articleNum}\n{mySqlDataReader.GetString("details")}\n";
+
+                    result += $"Artikal {articleNum}\n{priceSingle} / {quantity} / {traveled} / {price}\n";
 
                     articleNum += 1;
                 }
@@ -786,7 +864,7 @@ namespace Freshivoje
             {
                 _databaseConnection.Close();
             }
-        } 
+        }
         public static void deleteFromDB(string table, string columnName, int? id)
         {
             try
@@ -810,7 +888,6 @@ namespace Freshivoje
             }
 
         }
-
         public static dynamic getValue(MySqlCommand mySqlCommand)
         {
             dynamic value = 0;
@@ -820,13 +897,13 @@ namespace Freshivoje
                 _databaseConnection.Open();
                 value = mySqlCommand.ExecuteScalar();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 if (_databaseConnection.State != ConnectionState.Open)
                 {
                     return -1;
                 }
-                 throw e;
+                throw e;
             }
             finally
             {

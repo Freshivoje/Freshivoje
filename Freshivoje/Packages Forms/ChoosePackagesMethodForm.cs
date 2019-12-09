@@ -26,7 +26,10 @@ namespace Freshivoje
             Hide();
             using ChooseClientForm chooseClientForm = new ChooseClientForm("RentPackagesForm");
             chooseClientForm.ShowDialog(this);
-            Show();
+            if(!IsDisposed)
+            {
+                Show();
+            }
         }
 
         private void backBtn_Click(object sender, EventArgs e)
