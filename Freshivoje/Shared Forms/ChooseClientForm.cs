@@ -72,6 +72,9 @@ namespace Freshivoje.Shared_Forms
                 _selectedClientBPG = clientsDataGridView.Rows[e.RowIndex].Cells["BPG"].Value.ToString();
                 _selectedClientZipCode = clientsDataGridView.Rows[e.RowIndex].Cells["zipCode"].Value.ToString();
                 _selectedClientPhone = clientsDataGridView.Rows[e.RowIndex].Cells["phone"].Value.ToString();
+                Client client = new Client(_selectedClientId, _selectedClientFirstName, _selectedClientLastName, _selectedClientAddress,
+                                                       string.Empty, _selectedClientJMBG, _selectedClientBPG, _selectedClientZipCode, string.Empty, _selectedClientPhone,
+                                                       string.Empty, string.Empty, string.Empty);
 
                 _clientInfo = $"{_selectedClientFirstName} {_selectedClientLastName} ({_selectedClientJMBG})";
                 switch (_childForm)
@@ -79,7 +82,7 @@ namespace Freshivoje.Shared_Forms
                     case "InsertForm":
                         {
                             Hide();
-                            using InsertForm insertForm = new InsertForm(_selectedClientId);
+                            using InsertForm insertForm = new InsertForm(client);
                             insertForm.ShowDialog(this);
                             if (!IsDisposed)
                             {
@@ -100,9 +103,9 @@ namespace Freshivoje.Shared_Forms
                         }
                     case "TransportForm":
                         {
-                            Client client = new Client(_selectedClientId, _selectedClientFirstName, _selectedClientLastName, _selectedClientAddress,
-                                                       string.Empty, _selectedClientJMBG, _selectedClientBPG, _selectedClientZipCode, string.Empty, _selectedClientPhone,
-                                                       string.Empty, string.Empty, string.Empty);
+                            //Client client = new Client(_selectedClientId, _selectedClientFirstName, _selectedClientLastName, _selectedClientAddress,
+                            //                           string.Empty, _selectedClientJMBG, _selectedClientBPG, _selectedClientZipCode, string.Empty, _selectedClientPhone,
+                            //                           string.Empty, string.Empty, string.Empty);
                             Hide();
                             using TransportForm transportForm = new TransportForm(client);
                             transportForm.ShowDialog(this);
@@ -112,17 +115,17 @@ namespace Freshivoje.Shared_Forms
                             }
                             break;
                         }
-                    case "ChooseStorageRentingMethodForm":
-                        {
-                            Hide();
-                            using InsertForm insertForm = new InsertForm(_selectedClientId);
-                            insertForm.ShowDialog(this);
-                            if (!IsDisposed)
-                            {
-                                Show();
-                            }
-                            break;
-                        }
+                    //case "ChooseStorageRentingMethodForm":
+                    //    {
+                    //        Hide();
+                    //        using InsertForm insertForm = new InsertForm(client);
+                    //        insertForm.ShowDialog(this);
+                    //        if (!IsDisposed)
+                    //        {
+                    //            Show();
+                    //        }
+                    //        break;
+                    //    }
                 }
             }
         }

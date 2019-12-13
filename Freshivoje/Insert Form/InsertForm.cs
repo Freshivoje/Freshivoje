@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Freshivoje.Models;
 using Freshivoje.Custom_Forms;
-
+using Freshivoje.Custom_Classes;
 
 namespace Freshivoje
 {
@@ -16,14 +16,16 @@ namespace Freshivoje
                         _selectedArticleSort = string.Empty, 
                         _selectedArticleOrganic = string.Empty,
                         _selectedArticleCategory = string.Empty;
+        private readonly Client _selectedClient;
 
-        public InsertForm(int clientId)
+        public InsertForm(Client client)
         {
             InitializeComponent();
             insertedArticlesDataGridView.AutoGenerateColumns = false;
 
-            _selectedClientId = clientId;
-            
+            _selectedClientId = client._id;
+            _selectedClient = client;
+
             DbConnection.fillCmbBox(articlesCmbBox, "articles", '/', "id_article", "article_name", "sort", "organic", "category");
             DbConnection.fillCmbBox(cratesCmbBox, "packaging",  '/', "id_packaging", "capacity", "category", "weight", "producer", "state");
 
@@ -348,7 +350,7 @@ namespace Freshivoje
                 mySqlCommand.Parameters.Clear();
             }
 
-            insertedArticlesDataGridView.Rows.Clear();
+            
 
             result = CustomDialog.ShowDialog(this, "Da li želite da iznajmite nove ambalaže ovom klijentu?");
             if (result == DialogResult.Yes || result == DialogResult.OK)
@@ -356,6 +358,10 @@ namespace Freshivoje
                 using RentPackagesForm rentPackagesForm = new RentPackagesForm(_selectedClientId);
                 rentPackagesForm.ShowDialog(this);
             }
+
+            InsertPDF createPDF = new InsertPDF(_selectedClient);
+            createPDF.exportgridview(insertedArticlesDataGridView);
+            insertedArticlesDataGridView.Rows.Clear();
 
             Close();
           
