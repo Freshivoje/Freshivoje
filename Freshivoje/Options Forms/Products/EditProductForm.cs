@@ -8,11 +8,13 @@ namespace Freshivoje.Options_Forms
 {
     public partial class EditProductForm : Form
     {
-        private readonly Product _product;
+        private readonly int _id;
         public EditProductForm(Product product)
         {
             InitializeComponent();
-            _product = product;
+            _id = product._id;
+            productNameTxtBox.Text = product._name;
+            productTypeTxtBox.Text = product._type;
         }
 
         // Disables flickering on FormLoad
@@ -43,7 +45,7 @@ namespace Freshivoje.Options_Forms
             }
 
 
-            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da izmenite proizvod?\nIme: {_product._name}\nVrsta: {_product._type}");
+            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da izmenite proizvod?\nIme: {productNameTxtBox.Text}\nVrsta: {productTypeTxtBox.Text}");
             if (result == DialogResult.No || result == DialogResult.Cancel)
             {
                 return;
@@ -53,9 +55,9 @@ namespace Freshivoje.Options_Forms
             {
                 CommandText = "UPDATE `products` SET `name` = @name, `type` = @type WHERE `id_product` = @productId"
             };
-            mySqlCommand.Parameters.AddWithValue("@productId", _product._id);
-            mySqlCommand.Parameters.AddWithValue("@name", _product._name);
-            mySqlCommand.Parameters.AddWithValue("@type", _product._type);
+            mySqlCommand.Parameters.AddWithValue("@productId", _id);
+            mySqlCommand.Parameters.AddWithValue("@name", productNameTxtBox.Text);
+            mySqlCommand.Parameters.AddWithValue("@type", productTypeTxtBox.Text);
 
             DbConnection.executeQuery(mySqlCommand);
             Close();
