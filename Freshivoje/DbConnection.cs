@@ -276,7 +276,7 @@ namespace Freshivoje
                                 text += $"{reader.GetString(column)}\n";
                                 break;
                             case "StorageArticleQuantity":
-                                text += $"Artikli(KG) {reader.GetDecimal(column)}/";
+                                text += $"Artikli(kg) {reader.GetDecimal(column)}/";
                                 StorageArticleQuantity = reader.GetDecimal(column);
                                 break;
                             case "article_quantity":

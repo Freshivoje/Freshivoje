@@ -39,7 +39,7 @@ namespace Freshivoje.Storage
             }
             else
             {
-                lblTitle.Text = "IZLAZ ARTIKALA IZ KOMORU " + storageData.getName();
+                lblTitle.Text = "IZLAZ ARTIKALA IZ KOMORE " + storageData.getName();
             }
             DbConnection.FillCmbBoxQuery(articlesCmbBox, _fillCmbBox, "id_article", "article_name", "sort", "organic", "category");
             DbConnection.Storage(freeStorageLbl, _fillLbl, "StorageArticleQuantity", "article_quantity");

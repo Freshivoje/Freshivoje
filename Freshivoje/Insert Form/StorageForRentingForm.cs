@@ -1,4 +1,6 @@
-﻿using Freshivoje.Custom_Forms;
+﻿using Freshivoje.Custom_Classes;
+using Freshivoje.Custom_Forms;
+using Freshivoje.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -15,7 +17,8 @@ namespace Freshivoje.Insert_Form
     public partial class StorageForRentingForm : Form
     {
         int fkClientId, storageId;
-        public StorageForRentingForm(int clientId)
+        private Client _client;
+        public StorageForRentingForm(Client client)
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
@@ -23,7 +26,8 @@ namespace Freshivoje.Insert_Form
             DbConnection.fillWhereCmbBox(storagePositionCmbBox, "storage", "id_storage", "storage_position", "article_quantity", "package_quantity", "status");
             storagePositionCmbBox.SelectedIndex = 1;
             rentingDataPicker.MinDate = DateTime.Now;
-            fkClientId = clientId;
+            fkClientId = client._id;
+            _client = client;
         }
 
         protected override CreateParams CreateParams
@@ -108,7 +112,11 @@ namespace Freshivoje.Insert_Form
             mySqlCommand.Parameters.AddWithValue("@dateOfRenting", dateOfRenting);
             mySqlCommand.Parameters.AddWithValue("@end_of_renting_data", dateOfRentingEnd);
             mySqlCommand.Parameters.AddWithValue("@clientId", fkClientId);
-                
+
+            StoragePDF storagePDF = new StoragePDF(_client);
+            storagePDF.exportgridview(storagePositionCmbBox.Text, rentingDataPicker.Text, endDataOfRentPicker.Text, pricelTxtBox.Text);
+
+
             DbConnection.executeQuery(mySqlCommand);
             Close();
         }

@@ -77,18 +77,13 @@ namespace Freshivoje.Storage
 
         private void packagesRecordsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 3) { };
+       
             
         }
 
         private void searchRecordTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(_storageId == 8)
-            {
-                searchRecordTypeComboBox.Enabled = false;
-              
-            }
-            _packagingQuery = $"SELECT packaging.capacity, packaging.category as packagingName, packaging.state, COALESCE(SUM(storage_record_items.package_quantity),0) - (SELECT COALESCE(SUM(storage_record_items.package_quantity),0) FROM `storage_record_items` WHERE fk_storage_id = {_storageId} AND storage_record_items.status = 'neaktivna') as quantity FROM `storage_record_items` INNER JOIN packaging ON storage_record_items.fk_packaging_id = packaging.id_packaging INNER JOIN storage ON storage_record_items.fk_storage_id = storage.id_storage WHERE fk_storage_id = {_storageId} AND storage_record_items.status = 'aktivna' GROUP BY packaging.id_packaging";
+            searchRecordTypeComboBox.Enabled = false;
             _articleQuery = $"SELECT articles.article_name, articles.sort, articles.organic, articles.category,  COALESCE(SUM(storage_record_items.article_quantity),0) - (SELECT  COALESCE(SUM(storage_record_items.article_quantity),0) FROM `storage_record_items`  WHERE storage_record_items.fk_storage_id = {_storageId}  AND storage_record_items.status = 'neaktivna') as quantity FROM `storage_record_items` INNER JOIN articles ON storage_record_items.fk_article_id = articles.id_article INNER JOIN storage ON storage_record_items.fk_storage_id = storage.id_storage WHERE storage_record_items.fk_storage_id = {_storageId}  AND storage_record_items.status = 'aktivna' GROUP BY articles.id_article";
             if (searchRecordTypeComboBox.SelectedIndex == 0)
             {
@@ -118,19 +113,8 @@ namespace Freshivoje.Storage
 
         private void searchRecordTxtBox_TextChanged(object sender, EventArgs e)
         {
-            if(state1 == true)
-            {
                 searchValue = searchRecordTxtBox.Text;
-                (RecordsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"`category` LIKE '%{searchValue}%' OR `article_name` LIKE '%{searchValue}%' OR `sort` LIKE '%{searchValue}%' OR `organic` LIKE '%{searchValue}%'";
-
-
-            }
-            else
-            {
-                searchValue = searchRecordTxtBox.Text;
-                (RecordsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"Convert(`capacity`, 'System.String') LIKE '%{searchValue}%' OR `packagingName` LIKE '%{searchValue}%' OR `state` LIKE '%{searchValue}%'";
-            }
-                
+                (RecordsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"`category` LIKE '%{searchValue}%' OR `article_name` LIKE '%{searchValue}%' OR `sort` LIKE '%{searchValue}%' OR `organic` LIKE '%{searchValue}%'"; 
         }
     }
 }

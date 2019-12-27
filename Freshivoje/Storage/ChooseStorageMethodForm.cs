@@ -35,8 +35,8 @@ namespace Freshivoje.Storage
         }
         private void insertBtn_Click(object sender, EventArgs e)
         {   
-            using ChooseInsertStorageMethodForm chooseInsertStorageMethodForm = new ChooseInsertStorageMethodForm(storageId, "ULAZ");
-            chooseInsertStorageMethodForm.ShowDialog(this);
+            using InsertStorageForm InsertStorageForm = new InsertStorageForm(storageId);
+            InsertStorageForm.ShowDialog(this);
             Show();
         }
 
@@ -52,8 +52,8 @@ namespace Freshivoje.Storage
 
         private void outBtn_Click(object sender, EventArgs e)
         {
-            using ChooseInsertStorageMethodForm chooseInsertStorageMethodForm = new ChooseInsertStorageMethodForm(storageId, "IZLAZ");
-            chooseInsertStorageMethodForm.ShowDialog(this);
+            using OutStorageForm outStorageForm = new OutStorageForm(storageId);
+            outStorageForm.ShowDialog(this);
             Show();
         }
         private void exitBtn_Click(object sender, EventArgs e)

@@ -111,7 +111,7 @@ namespace Freshivoje.Transport
             }
 
             DbConnection.executeTransportQuery(transportItems, totalPrice);
-            CreatePDF createPDF = new CreatePDF(_selectedClient);
+            TransportPDF createPDF = new TransportPDF(_selectedClient);
             createPDF.exportgridview(transportDataGridView);
             transportDataGridView.Rows.Clear();
           
