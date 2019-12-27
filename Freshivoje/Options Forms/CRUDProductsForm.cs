@@ -74,7 +74,7 @@ namespace Freshivoje.Options_Forms
                 {
                     return;
                 }
-                DbConnection.deleteFromDB("product", "id_product", _selectedProductId);
+                DbConnection.deleteFromDB("products", "id_product", _selectedProductId);
                 DbConnection.fillDGV(productsDataGridView, _fillDGVQuery);
             }
         }
