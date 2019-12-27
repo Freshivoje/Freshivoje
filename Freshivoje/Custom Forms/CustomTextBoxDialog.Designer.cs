@@ -40,7 +40,7 @@
             // customDialogTblLayout
             // 
             this.customDialogTblLayout.BackColor = System.Drawing.Color.Transparent;
-            this.customDialogTblLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("customDialogTblLayout.BackgroundImage")));
+            this.customDialogTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
             this.customDialogTblLayout.ColumnCount = 2;
             this.customDialogTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.customDialogTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));

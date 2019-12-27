@@ -113,8 +113,8 @@ namespace Freshivoje.Storage
 
         private void searchRecordTxtBox_TextChanged(object sender, EventArgs e)
         {
-                searchValue = searchRecordTxtBox.Text;
-                (RecordsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"`category` LIKE '%{searchValue}%' OR `article_name` LIKE '%{searchValue}%' OR `sort` LIKE '%{searchValue}%' OR `organic` LIKE '%{searchValue}%'"; 
+                searchValue = searchRecordTxtBox.Text.Replace('\'', (char)0x2019); // &rsquo; 
+            (RecordsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"`category` LIKE '%{searchValue}%' OR `article_name` LIKE '%{searchValue}%' OR `sort` LIKE '%{searchValue}%' OR `organic` LIKE '%{searchValue}%'"; 
         }
     }
 }

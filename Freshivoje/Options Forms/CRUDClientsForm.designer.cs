@@ -55,8 +55,8 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
             this.crudClientsFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.searchClientsTxtBox = new System.Windows.Forms.TextBox();
             this.searchClientsLbl = new System.Windows.Forms.Label();
+            this.searchClientsTxtBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).BeginInit();
             this.crudClientsFormTblLayout.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +75,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.clientsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.clientsDataGridView.ColumnHeadersHeight = 60;
@@ -101,9 +101,9 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.clientsDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.clientsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -338,7 +338,7 @@
             // crudClientsFormTblLayout
             // 
             this.crudClientsFormTblLayout.BackColor = System.Drawing.Color.Transparent;
-            this.crudClientsFormTblLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("crudClientsFormTblLayout.BackgroundImage")));
+            this.crudClientsFormTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
             this.crudClientsFormTblLayout.ColumnCount = 8;
             this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.crudClientsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -380,19 +380,6 @@
             this.crudClientsFormTblLayout.Size = new System.Drawing.Size(1930, 1074);
             this.crudClientsFormTblLayout.TabIndex = 3;
             // 
-            // searchClientsTxtBox
-            // 
-            this.searchClientsTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchClientsTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.searchClientsTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchClientsTxtBox.Location = new System.Drawing.Point(1497, 143);
-            this.searchClientsTxtBox.Multiline = true;
-            this.searchClientsTxtBox.Name = "searchClientsTxtBox";
-            this.searchClientsTxtBox.ShortcutsEnabled = false;
-            this.searchClientsTxtBox.Size = new System.Drawing.Size(330, 31);
-            this.searchClientsTxtBox.TabIndex = 11;
-            this.searchClientsTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchClientsTxtBox_KeyPress);
-            // 
             // searchClientsLbl
             // 
             this.searchClientsLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -406,6 +393,19 @@
             this.searchClientsLbl.TabIndex = 57;
             this.searchClientsLbl.Text = "Pretraga klijenata";
             this.searchClientsLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // searchClientsTxtBox
+            // 
+            this.searchClientsTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchClientsTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.searchClientsTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchClientsTxtBox.Location = new System.Drawing.Point(1497, 143);
+            this.searchClientsTxtBox.Multiline = true;
+            this.searchClientsTxtBox.Name = "searchClientsTxtBox";
+            this.searchClientsTxtBox.ShortcutsEnabled = false;
+            this.searchClientsTxtBox.Size = new System.Drawing.Size(330, 31);
+            this.searchClientsTxtBox.TabIndex = 11;
+            this.searchClientsTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchClientsTxtBox_KeyPress);
             // 
             // CRUDClientsForm
             // 

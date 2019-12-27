@@ -75,7 +75,7 @@
             this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.rentPackagesFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.rentPackagesFormTblLayout.Controls.Add(this.rentedPackagesDataGridView, 0, 6);
             this.rentPackagesFormTblLayout.Controls.Add(this.exitBtn, 8, 0);
             this.rentPackagesFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
@@ -125,7 +125,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.rentedPackagesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.rentedPackagesDataGridView.ColumnHeadersHeight = 40;
@@ -146,8 +146,8 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.rentedPackagesDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.rentedPackagesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -253,10 +253,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1385, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1379, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(45, 54);
+            this.exitBtn.Size = new System.Drawing.Size(51, 54);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -294,7 +294,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1335, 3);
+            this.backBtn.Location = new System.Drawing.Point(1329, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 54);
             this.backBtn.TabIndex = 9;
@@ -315,7 +315,7 @@
             "---"});
             this.cratesCmbBox.Location = new System.Drawing.Point(153, 93);
             this.cratesCmbBox.Name = "cratesCmbBox";
-            this.cratesCmbBox.Size = new System.Drawing.Size(585, 31);
+            this.cratesCmbBox.Size = new System.Drawing.Size(582, 31);
             this.cratesCmbBox.TabIndex = 7;
             this.cratesCmbBox.TabStop = false;
             this.cratesCmbBox.SelectedIndexChanged += new System.EventHandler(this.cratesCmbBox_SelectedIndexChanged);
@@ -328,7 +328,7 @@
             this.rentPackagesFormTblLayout.SetColumnSpan(this.cratesTypeLbl, 3);
             this.cratesTypeLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cratesTypeLbl.ForeColor = System.Drawing.Color.White;
-            this.cratesTypeLbl.Location = new System.Drawing.Point(158, 60);
+            this.cratesTypeLbl.Location = new System.Drawing.Point(157, 60);
             this.cratesTypeLbl.Name = "cratesTypeLbl";
             this.cratesTypeLbl.Size = new System.Drawing.Size(574, 30);
             this.cratesTypeLbl.TabIndex = 25;
@@ -342,9 +342,9 @@
             this.availablePackages.Dock = System.Windows.Forms.DockStyle.Top;
             this.availablePackages.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.availablePackages.ForeColor = System.Drawing.Color.White;
-            this.availablePackages.Location = new System.Drawing.Point(744, 90);
+            this.availablePackages.Location = new System.Drawing.Point(741, 90);
             this.availablePackages.Name = "availablePackages";
-            this.availablePackages.Size = new System.Drawing.Size(191, 27);
+            this.availablePackages.Size = new System.Drawing.Size(190, 27);
             this.availablePackages.TabIndex = 42;
             this.availablePackages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -355,7 +355,7 @@
             this.availablePackagesLbl.BackColor = System.Drawing.Color.Transparent;
             this.availablePackagesLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.availablePackagesLbl.ForeColor = System.Drawing.Color.White;
-            this.availablePackagesLbl.Location = new System.Drawing.Point(766, 63);
+            this.availablePackagesLbl.Location = new System.Drawing.Point(762, 63);
             this.availablePackagesLbl.Name = "availablePackagesLbl";
             this.availablePackagesLbl.Size = new System.Drawing.Size(147, 27);
             this.availablePackagesLbl.TabIndex = 41;
@@ -369,7 +369,7 @@
             this.packagingPriceLbl.BackColor = System.Drawing.Color.Transparent;
             this.packagingPriceLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.packagingPriceLbl.ForeColor = System.Drawing.Color.White;
-            this.packagingPriceLbl.Location = new System.Drawing.Point(966, 63);
+            this.packagingPriceLbl.Location = new System.Drawing.Point(962, 63);
             this.packagingPriceLbl.Name = "packagingPriceLbl";
             this.packagingPriceLbl.Size = new System.Drawing.Size(140, 27);
             this.packagingPriceLbl.TabIndex = 43;
@@ -383,9 +383,9 @@
             this.price.Dock = System.Windows.Forms.DockStyle.Top;
             this.price.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.price.ForeColor = System.Drawing.Color.White;
-            this.price.Location = new System.Drawing.Point(941, 90);
+            this.price.Location = new System.Drawing.Point(937, 90);
             this.price.Name = "price";
-            this.price.Size = new System.Drawing.Size(191, 27);
+            this.price.Size = new System.Drawing.Size(190, 27);
             this.price.TabIndex = 44;
             this.price.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -395,7 +395,7 @@
             this.crateQuantityTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rentPackagesFormTblLayout.SetColumnSpan(this.crateQuantityTxtBox, 2);
             this.crateQuantityTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crateQuantityTxtBox.Location = new System.Drawing.Point(597, 193);
+            this.crateQuantityTxtBox.Location = new System.Drawing.Point(594, 193);
             this.crateQuantityTxtBox.MaxLength = 8;
             this.crateQuantityTxtBox.Multiline = true;
             this.crateQuantityTxtBox.Name = "crateQuantityTxtBox";
@@ -412,7 +412,7 @@
             this.rentPackagesFormTblLayout.SetColumnSpan(this.crateQuantityLbl, 2);
             this.crateQuantityLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.crateQuantityLbl.ForeColor = System.Drawing.Color.White;
-            this.crateQuantityLbl.Location = new System.Drawing.Point(655, 163);
+            this.crateQuantityLbl.Location = new System.Drawing.Point(652, 163);
             this.crateQuantityLbl.Name = "crateQuantityLbl";
             this.crateQuantityLbl.Size = new System.Drawing.Size(171, 27);
             this.crateQuantityLbl.TabIndex = 24;
@@ -432,7 +432,7 @@
             this.finishRentPackagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.finishRentPackagesBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.finishRentPackagesBtn.ForeColor = System.Drawing.Color.White;
-            this.finishRentPackagesBtn.Location = new System.Drawing.Point(597, 817);
+            this.finishRentPackagesBtn.Location = new System.Drawing.Point(594, 817);
             this.finishRentPackagesBtn.Margin = new System.Windows.Forms.Padding(5);
             this.finishRentPackagesBtn.Name = "finishRentPackagesBtn";
             this.finishRentPackagesBtn.Size = new System.Drawing.Size(287, 50);
@@ -455,7 +455,7 @@
             this.rentPackagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rentPackagesBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.rentPackagesBtn.ForeColor = System.Drawing.Color.White;
-            this.rentPackagesBtn.Location = new System.Drawing.Point(597, 245);
+            this.rentPackagesBtn.Location = new System.Drawing.Point(594, 245);
             this.rentPackagesBtn.Margin = new System.Windows.Forms.Padding(5);
             this.rentPackagesBtn.Name = "rentPackagesBtn";
             this.rentPackagesBtn.Size = new System.Drawing.Size(287, 50);

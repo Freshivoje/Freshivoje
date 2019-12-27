@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseClientForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -41,6 +40,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseClientForm));
             this.chooseClientFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -64,7 +64,7 @@
             // chooseClientFormTblLayout
             // 
             this.chooseClientFormTblLayout.BackColor = System.Drawing.Color.Transparent;
-            this.chooseClientFormTblLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chooseClientFormTblLayout.BackgroundImage")));
+            this.chooseClientFormTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
             this.chooseClientFormTblLayout.ColumnCount = 10;
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
@@ -75,7 +75,7 @@
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.chooseClientFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
             this.chooseClientFormTblLayout.Controls.Add(this.exitBtn, 9, 0);
             this.chooseClientFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
             this.chooseClientFormTblLayout.Controls.Add(this.backBtn, 8, 0);
@@ -117,10 +117,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1869, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1855, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(58, 54);
+            this.exitBtn.Size = new System.Drawing.Size(72, 54);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -158,7 +158,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1819, 3);
+            this.backBtn.Location = new System.Drawing.Point(1805, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 54);
             this.backBtn.TabIndex = 9;
@@ -172,11 +172,11 @@
             this.searchClientsTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchClientsTxtBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchClientsTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchClientsTxtBox.Location = new System.Drawing.Point(1343, 143);
+            this.searchClientsTxtBox.Location = new System.Drawing.Point(1333, 143);
             this.searchClientsTxtBox.Multiline = true;
             this.searchClientsTxtBox.Name = "searchClientsTxtBox";
             this.searchClientsTxtBox.ShortcutsEnabled = false;
-            this.searchClientsTxtBox.Size = new System.Drawing.Size(232, 31);
+            this.searchClientsTxtBox.Size = new System.Drawing.Size(230, 31);
             this.searchClientsTxtBox.TabIndex = 11;
             this.searchClientsTxtBox.TextChanged += new System.EventHandler(this.searchClientsTxtBox_TextChanged);
             this.searchClientsTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
@@ -195,7 +195,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.clientsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.clientsDataGridView.ColumnHeadersHeight = 60;
@@ -214,10 +214,10 @@
             this.clientsDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 11F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.clientsDataGridView.DefaultCellStyle = dataGridViewCellStyle11;
             this.clientsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -348,7 +348,7 @@
             this.searchClientsLbl.BackColor = System.Drawing.Color.Transparent;
             this.searchClientsLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchClientsLbl.ForeColor = System.Drawing.Color.White;
-            this.searchClientsLbl.Location = new System.Drawing.Point(1353, 113);
+            this.searchClientsLbl.Location = new System.Drawing.Point(1342, 113);
             this.searchClientsLbl.Name = "searchClientsLbl";
             this.searchClientsLbl.Size = new System.Drawing.Size(211, 27);
             this.searchClientsLbl.TabIndex = 57;

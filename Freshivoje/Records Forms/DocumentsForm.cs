@@ -52,7 +52,7 @@ namespace Freshivoje.Records_Forms
 
         private void searchTransportxtBox_TextChanged(object sender, EventArgs e)
         {
-            string searchValue = searchTxtBox.Text;
+            string searchValue = searchTxtBox.Text.Replace('\'', (char)0x2019); // &rsquo; 
             (documentsDataGridView.DataSource as DataTable).DefaultView.RowFilter = $"`file_name` LIKE '%{searchValue}%'";
         }
 

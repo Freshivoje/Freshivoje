@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReceiptsForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReceiptsForm));
             this.receiptsRecordTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             // receiptsRecordTblLayout
             // 
             this.receiptsRecordTblLayout.BackColor = System.Drawing.Color.Transparent;
-            this.receiptsRecordTblLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("receiptsRecordTblLayout.BackgroundImage")));
+            this.receiptsRecordTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
             this.receiptsRecordTblLayout.ColumnCount = 8;
             this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
@@ -67,7 +67,7 @@
             this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
             this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 67F));
+            this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
             this.receiptsRecordTblLayout.Controls.Add(this.exitBtn, 7, 0);
             this.receiptsRecordTblLayout.Controls.Add(this.lblTitle, 0, 0);
             this.receiptsRecordTblLayout.Controls.Add(this.backBtn, 6, 0);
@@ -110,10 +110,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1247, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1243, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(62, 52);
+            this.exitBtn.Size = new System.Drawing.Size(66, 52);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -151,7 +151,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1197, 3);
+            this.backBtn.Location = new System.Drawing.Point(1193, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 52);
             this.backBtn.TabIndex = 9;
@@ -173,7 +173,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.receiptsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.receiptsDataGridView.ColumnHeadersHeight = 40;
@@ -194,8 +194,8 @@
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 10F);
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.receiptsDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.receiptsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -308,9 +308,9 @@
             this.searchLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchLbl.ForeColor = System.Drawing.Color.White;
-            this.searchLbl.Location = new System.Drawing.Point(831, 89);
+            this.searchLbl.Location = new System.Drawing.Point(828, 89);
             this.searchLbl.Name = "searchLbl";
-            this.searchLbl.Size = new System.Drawing.Size(310, 27);
+            this.searchLbl.Size = new System.Drawing.Size(309, 27);
             this.searchLbl.TabIndex = 41;
             this.searchLbl.Text = "Pretraži ";
             this.searchLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -320,11 +320,11 @@
             this.searchTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTxtBox.Location = new System.Drawing.Point(831, 119);
+            this.searchTxtBox.Location = new System.Drawing.Point(828, 119);
             this.searchTxtBox.Multiline = true;
             this.searchTxtBox.Name = "searchTxtBox";
             this.searchTxtBox.ShortcutsEnabled = false;
-            this.searchTxtBox.Size = new System.Drawing.Size(310, 31);
+            this.searchTxtBox.Size = new System.Drawing.Size(309, 31);
             this.searchTxtBox.TabIndex = 5;
             this.searchTxtBox.TextChanged += new System.EventHandler(this.searchTxtBox_TextChanged);
             // 

@@ -44,7 +44,10 @@ namespace Freshivoje
             Hide();
             using CRUDArticlesForm CRUDArticlesForm = new CRUDArticlesForm();
             CRUDArticlesForm.ShowDialog(this);
-            Show();
+            if (!IsDisposed)
+            {
+                Show();
+            }
         }
 
         private void packagesBtn_Click(object sender, EventArgs e)
@@ -52,7 +55,10 @@ namespace Freshivoje
             Hide();
             using CRUDPackagesForm CRUDPackagesForm = new CRUDPackagesForm();
             CRUDPackagesForm.ShowDialog(this);
-            Show();
+            if (!IsDisposed)
+            {
+                Show();
+            }
         }
 
 
@@ -61,7 +67,21 @@ namespace Freshivoje
             Hide();
             using CRUDClientsForm CRUDClientsForm = new CRUDClientsForm();
             CRUDClientsForm.ShowDialog(this);
-            Show();
+            if (!IsDisposed)
+            {
+                Show();
+            }
+        }
+
+        private void productsBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            using CRUDProductsForm CRUDProductsForm = new CRUDProductsForm();
+            CRUDProductsForm.ShowDialog(this);
+            if (!IsDisposed)
+            {
+                Show();
+            }        
         }
     }
 }

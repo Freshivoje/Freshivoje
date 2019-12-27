@@ -53,7 +53,7 @@ namespace Freshivoje.Transport
 
         private void searchTransportxtBox_TextChanged(object sender, EventArgs e)
         {
-            string searchValue = searchTransportTxtBox.Text;
+            string searchValue = searchTransportTxtBox.Text.Replace('\'', (char)0x2019); // &rsquo; 
             (transportDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"Convert(`transport_date`, 'System.String') LIKE '%{searchValue}%' 
                                                                                     OR `client` LIKE '%{searchValue}%'
                                                                                     OR `transport_status` LIKE '%{searchValue}%'";

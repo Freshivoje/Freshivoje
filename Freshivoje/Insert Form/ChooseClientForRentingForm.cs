@@ -74,7 +74,7 @@ namespace Freshivoje.Insert_Form
 
         private void searchClientsTxtBox_TextChanged(object sender, EventArgs e)
         {
-            string searchValue = searchClientsTxtBox.Text;
+            string searchValue = searchClientsTxtBox.Text.Replace('\'', (char)0x2019); // &rsquo; 
             (clientsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"`first_name` LIKE '%{searchValue}%' 
                                                                                     OR `last_name` LIKE '%{searchValue}%' 
                                                                                     OR `address` LIKE '%{searchValue}%'  

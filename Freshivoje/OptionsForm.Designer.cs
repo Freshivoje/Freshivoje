@@ -36,6 +36,7 @@
             this.CRUDArticlesBtn = new System.Windows.Forms.Button();
             this.clientsBtn = new System.Windows.Forms.Button();
             this.packagesBtn = new System.Windows.Forms.Button();
+            this.productsBtn = new System.Windows.Forms.Button();
             this.optionsFormTblLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,8 +54,9 @@
             this.optionsFormTblLayout.Controls.Add(this.exitBtn, 4, 0);
             this.optionsFormTblLayout.Controls.Add(this.backBtn, 3, 0);
             this.optionsFormTblLayout.Controls.Add(this.CRUDArticlesBtn, 1, 2);
-            this.optionsFormTblLayout.Controls.Add(this.clientsBtn, 1, 3);
-            this.optionsFormTblLayout.Controls.Add(this.packagesBtn, 1, 4);
+            this.optionsFormTblLayout.Controls.Add(this.packagesBtn, 1, 5);
+            this.optionsFormTblLayout.Controls.Add(this.clientsBtn, 1, 4);
+            this.optionsFormTblLayout.Controls.Add(this.productsBtn, 1, 3);
             this.optionsFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.optionsFormTblLayout.Location = new System.Drawing.Point(5, 5);
             this.optionsFormTblLayout.Name = "optionsFormTblLayout";
@@ -165,7 +167,7 @@
             this.clientsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clientsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientsBtn.ForeColor = System.Drawing.Color.White;
-            this.clientsBtn.Location = new System.Drawing.Point(228, 229);
+            this.clientsBtn.Location = new System.Drawing.Point(228, 311);
             this.clientsBtn.Name = "clientsBtn";
             this.clientsBtn.Size = new System.Drawing.Size(154, 72);
             this.clientsBtn.TabIndex = 2;
@@ -185,13 +187,33 @@
             this.packagesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.packagesBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.packagesBtn.ForeColor = System.Drawing.Color.White;
-            this.packagesBtn.Location = new System.Drawing.Point(228, 311);
+            this.packagesBtn.Location = new System.Drawing.Point(228, 393);
             this.packagesBtn.Name = "packagesBtn";
             this.packagesBtn.Size = new System.Drawing.Size(154, 72);
             this.packagesBtn.TabIndex = 3;
             this.packagesBtn.Text = "AMBALAŽE";
             this.packagesBtn.UseVisualStyleBackColor = false;
             this.packagesBtn.Click += new System.EventHandler(this.packagesBtn_Click);
+            // 
+            // productsBtn
+            // 
+            this.productsBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.productsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.productsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.productsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.productsBtn.FlatAppearance.BorderSize = 5;
+            this.productsBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.productsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.productsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.productsBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productsBtn.ForeColor = System.Drawing.Color.White;
+            this.productsBtn.Location = new System.Drawing.Point(227, 229);
+            this.productsBtn.Name = "productsBtn";
+            this.productsBtn.Size = new System.Drawing.Size(157, 72);
+            this.productsBtn.TabIndex = 11;
+            this.productsBtn.Text = "PROIZVODI";
+            this.productsBtn.UseVisualStyleBackColor = false;
+            this.productsBtn.Click += new System.EventHandler(this.productsBtn_Click);
             // 
             // OptionsForm
             // 
@@ -221,5 +243,6 @@
         private System.Windows.Forms.TableLayoutPanel optionsFormTblLayout;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button packagesBtn;
+        private System.Windows.Forms.Button productsBtn;
     }
 }

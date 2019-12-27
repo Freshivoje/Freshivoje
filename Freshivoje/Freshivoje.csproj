@@ -93,6 +93,25 @@
     <Compile Include="Custom Classes\InsertPDF.cs" />
     <Compile Include="Custom Classes\StoragePDF.cs" />
     <Compile Include="Custom Classes\TransportPDF.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Options Forms\CRUDProductsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options Forms\CRUDProductsForm.designer.cs">
+      <DependentUpon>CRUDProductsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options Forms\Products\CreateProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options Forms\Products\CreateProductForm.designer.cs">
+      <DependentUpon>CreateProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options Forms\Products\EditProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options Forms\Products\EditProductForm.designer.cs">
+      <DependentUpon>EditProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Records Forms\RecordsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +343,15 @@
     <Compile Include="Transport\TransportRecordForm.Designer.cs">
       <DependentUpon>TransportRecordForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Options Forms\CRUDProductsForm.resx">
+      <DependentUpon>CRUDProductsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options Forms\Products\CreateProductForm.resx">
+      <DependentUpon>CreateProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options Forms\Products\EditProductForm.resx">
+      <DependentUpon>EditProductForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Records Forms\RecordsForm.resx">
       <DependentUpon>RecordsForm.cs</DependentUpon>
     </EmbeddedResource>

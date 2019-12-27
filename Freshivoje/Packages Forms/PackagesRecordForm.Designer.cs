@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PackagesRecordForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PackagesRecordForm));
             this.packagesRecordFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.searchRecordTypeLbl = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
@@ -59,7 +59,7 @@
             // packagesRecordFormTblLayout
             // 
             this.packagesRecordFormTblLayout.BackColor = System.Drawing.Color.Transparent;
-            this.packagesRecordFormTblLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("packagesRecordFormTblLayout.BackgroundImage")));
+            this.packagesRecordFormTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
             this.packagesRecordFormTblLayout.ColumnCount = 8;
             this.packagesRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.packagesRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
@@ -192,7 +192,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.packagesRecordsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.packagesRecordsDataGridView.ColumnHeadersHeight = 40;
@@ -213,8 +213,8 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 10F);
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.packagesRecordsDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.packagesRecordsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;

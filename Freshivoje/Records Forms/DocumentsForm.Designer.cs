@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocumentsForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocumentsForm));
             this.documentsFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.documentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchLbl = new System.Windows.Forms.Label();
-            this.searchTxtBox = new System.Windows.Forms.TextBox();
             this.filePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchLbl = new System.Windows.Forms.Label();
+            this.searchTxtBox = new System.Windows.Forms.TextBox();
             this.documentsFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +50,7 @@
             // documentsFormTblLayout
             // 
             this.documentsFormTblLayout.BackColor = System.Drawing.Color.Transparent;
-            this.documentsFormTblLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("documentsFormTblLayout.BackgroundImage")));
+            this.documentsFormTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
             this.documentsFormTblLayout.ColumnCount = 8;
             this.documentsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.documentsFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -114,7 +114,7 @@
             // 
             // lblTitle
             // 
-            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
@@ -165,7 +165,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.documentsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.documentsDataGridView.ColumnHeadersHeight = 40;
@@ -180,8 +180,8 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.documentsDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.documentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -199,34 +199,6 @@
             this.documentsDataGridView.TabIndex = 6;
             this.documentsDataGridView.TabStop = false;
             this.documentsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.documentsDataGridView_CellContentClick);
-            // 
-            // searchLbl
-            // 
-            this.searchLbl.AutoSize = true;
-            this.searchLbl.BackColor = System.Drawing.Color.Transparent;
-            this.searchLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.searchLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchLbl.ForeColor = System.Drawing.Color.White;
-            this.searchLbl.Location = new System.Drawing.Point(1053, 79);
-            this.searchLbl.Name = "searchLbl";
-            this.searchLbl.Size = new System.Drawing.Size(219, 27);
-            this.searchLbl.TabIndex = 41;
-            this.searchLbl.Text = "Pretraži ";
-            this.searchLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // searchTxtBox
-            // 
-            this.searchTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.searchTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTxtBox.Location = new System.Drawing.Point(1053, 109);
-            this.searchTxtBox.Multiline = true;
-            this.searchTxtBox.Name = "searchTxtBox";
-            this.searchTxtBox.ShortcutsEnabled = false;
-            this.searchTxtBox.Size = new System.Drawing.Size(219, 31);
-            this.searchTxtBox.TabIndex = 5;
-            this.searchTxtBox.TextChanged += new System.EventHandler(this.searchTransportxtBox_TextChanged);
-            this.searchTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // filePath
             // 
@@ -258,6 +230,34 @@
             this.openFile.ReadOnly = true;
             this.openFile.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.openFile.Width = 40;
+            // 
+            // searchLbl
+            // 
+            this.searchLbl.AutoSize = true;
+            this.searchLbl.BackColor = System.Drawing.Color.Transparent;
+            this.searchLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.searchLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchLbl.ForeColor = System.Drawing.Color.White;
+            this.searchLbl.Location = new System.Drawing.Point(1053, 79);
+            this.searchLbl.Name = "searchLbl";
+            this.searchLbl.Size = new System.Drawing.Size(219, 27);
+            this.searchLbl.TabIndex = 41;
+            this.searchLbl.Text = "Pretraži ";
+            this.searchLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // searchTxtBox
+            // 
+            this.searchTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.searchTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTxtBox.Location = new System.Drawing.Point(1053, 109);
+            this.searchTxtBox.Multiline = true;
+            this.searchTxtBox.Name = "searchTxtBox";
+            this.searchTxtBox.ShortcutsEnabled = false;
+            this.searchTxtBox.Size = new System.Drawing.Size(219, 31);
+            this.searchTxtBox.TabIndex = 5;
+            this.searchTxtBox.TextChanged += new System.EventHandler(this.searchTransportxtBox_TextChanged);
+            this.searchTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // DocumentsForm
             // 

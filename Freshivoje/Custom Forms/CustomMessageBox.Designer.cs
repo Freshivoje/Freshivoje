@@ -39,7 +39,7 @@
             // 
             this.customMessageBoxTblLayout.AutoSize = true;
             this.customMessageBoxTblLayout.BackColor = System.Drawing.Color.Transparent;
-            this.customMessageBoxTblLayout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("customMessageBoxTblLayout.BackgroundImage")));
+            this.customMessageBoxTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
             this.customMessageBoxTblLayout.ColumnCount = 1;
             this.customMessageBoxTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 678F));
             this.customMessageBoxTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));

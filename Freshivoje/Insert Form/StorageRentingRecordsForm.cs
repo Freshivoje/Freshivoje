@@ -109,7 +109,7 @@ namespace Freshivoje.Insert_Form
 
         private void searchRentingTxtBox_TextChanged(object sender, EventArgs e)
         {
-            string searchValue = searchRentingTxtBox.Text;
+            string searchValue = searchRentingTxtBox.Text.Replace('\'', (char)0x2019); // &rsquo; 
             (StorageRentingDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"Convert(`issuing_date`, 'System.String') LIKE '%{searchValue}%' 
                                                                                     OR `client` LIKE '%{searchValue}%'";
         }

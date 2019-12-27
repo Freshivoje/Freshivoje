@@ -107,7 +107,7 @@ namespace Freshivoje.Options_Forms
 
         private void searchPackageTxtBox_TextChanged(object sender, EventArgs e)
         {
-            string searchValue = searchPackagesTxtBox.Text;
+            string searchValue = searchPackagesTxtBox.Text.Replace('\'', (char)0x2019); // &rsquo; 
             (packagesDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"Convert(`capacity`, 'System.String') LIKE '%{searchValue}%' 
                                                                                     OR Convert(`price`, 'System.String') LIKE '%{searchValue}%' 
                                                                                     OR `category` LIKE '%{searchValue}%' 
