@@ -50,7 +50,7 @@ namespace Freshivoje.Records_Forms
 
         private void searchTxtBox_TextChanged(object sender, System.EventArgs e)
         {
-            string searchValue = searchTxtBox.Text;
+            string searchValue = searchTxtBox.Text.Replace('\'', (char)0x2019); // &rsquo; 
             (receiptsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"Convert(`date`, 'System.String') LIKE '%{searchValue}%' 
                                                                                     OR `client` LIKE '%{searchValue}%'
                                                                                     OR `receipt_status` LIKE '%{searchValue}%'";

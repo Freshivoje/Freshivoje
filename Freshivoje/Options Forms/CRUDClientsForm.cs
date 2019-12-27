@@ -121,7 +121,7 @@ namespace Freshivoje.Options_Forms
         private void searchClientsTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             string searchValue = searchClientsTxtBox.Text;
-            (clientsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"`first_name` LIKE '%{searchValue}%' 
+           (clientsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"`first_name` LIKE '%{searchValue}%' 
                                                                                     OR `last_name` LIKE '%{searchValue}%' 
                                                                                     OR `address` LIKE '%{searchValue}%'  
                                                                                     OR `type` LIKE '%{searchValue}%'  
