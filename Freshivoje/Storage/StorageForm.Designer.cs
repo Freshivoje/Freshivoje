@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.StorageFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.tunnelBtn = new System.Windows.Forms.Button();
+            this.palletizingBtn = new System.Windows.Forms.Button();
+            this.classificationBtn = new System.Windows.Forms.Button();
             this.storageBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
@@ -40,9 +43,6 @@
             this.a2Btn = new System.Windows.Forms.Button();
             this.b2Btn = new System.Windows.Forms.Button();
             this.outputBtn = new System.Windows.Forms.Button();
-            this.classificationBtn = new System.Windows.Forms.Button();
-            this.palletizingBtn = new System.Windows.Forms.Button();
-            this.tunnelBtn = new System.Windows.Forms.Button();
             this.StorageFormTblLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +61,7 @@
             this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.25074F));
             this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
             this.StorageFormTblLayout.Controls.Add(this.tunnelBtn, 0, 8);
             this.StorageFormTblLayout.Controls.Add(this.palletizingBtn, 0, 2);
             this.StorageFormTblLayout.Controls.Add(this.classificationBtn, 4, 7);
@@ -107,6 +107,76 @@
             this.StorageFormTblLayout.Size = new System.Drawing.Size(1940, 864);
             this.StorageFormTblLayout.TabIndex = 3;
             // 
+            // tunnelBtn
+            // 
+            this.tunnelBtn.BackColor = System.Drawing.Color.Transparent;
+            this.StorageFormTblLayout.SetColumnSpan(this.tunnelBtn, 3);
+            this.tunnelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tunnelBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tunnelBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.tunnelBtn.FlatAppearance.BorderSize = 5;
+            this.tunnelBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.tunnelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.tunnelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tunnelBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tunnelBtn.ForeColor = System.Drawing.Color.White;
+            this.tunnelBtn.Location = new System.Drawing.Point(5, 461);
+            this.tunnelBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.tunnelBtn.Name = "tunnelBtn";
+            this.StorageFormTblLayout.SetRowSpan(this.tunnelBtn, 6);
+            this.tunnelBtn.Size = new System.Drawing.Size(617, 332);
+            this.tunnelBtn.TabIndex = 63;
+            this.tunnelBtn.TabStop = false;
+            this.tunnelBtn.Text = "TUNEL";
+            this.tunnelBtn.UseVisualStyleBackColor = false;
+            // 
+            // palletizingBtn
+            // 
+            this.palletizingBtn.BackColor = System.Drawing.Color.Transparent;
+            this.StorageFormTblLayout.SetColumnSpan(this.palletizingBtn, 3);
+            this.palletizingBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.palletizingBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.palletizingBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.palletizingBtn.FlatAppearance.BorderSize = 5;
+            this.palletizingBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.palletizingBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.palletizingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.palletizingBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palletizingBtn.ForeColor = System.Drawing.Color.White;
+            this.palletizingBtn.Location = new System.Drawing.Point(5, 119);
+            this.palletizingBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.palletizingBtn.Name = "palletizingBtn";
+            this.StorageFormTblLayout.SetRowSpan(this.palletizingBtn, 6);
+            this.palletizingBtn.Size = new System.Drawing.Size(617, 332);
+            this.palletizingBtn.TabIndex = 62;
+            this.palletizingBtn.TabStop = false;
+            this.palletizingBtn.Text = "PALETIRANJE";
+            this.palletizingBtn.UseVisualStyleBackColor = false;
+            this.palletizingBtn.Click += new System.EventHandler(this.palletizingBtn_Click);
+            // 
+            // classificationBtn
+            // 
+            this.classificationBtn.BackColor = System.Drawing.Color.Transparent;
+            this.StorageFormTblLayout.SetColumnSpan(this.classificationBtn, 3);
+            this.classificationBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.classificationBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classificationBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.classificationBtn.FlatAppearance.BorderSize = 5;
+            this.classificationBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.classificationBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.classificationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.classificationBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classificationBtn.ForeColor = System.Drawing.Color.White;
+            this.classificationBtn.Location = new System.Drawing.Point(652, 404);
+            this.classificationBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.classificationBtn.Name = "classificationBtn";
+            this.StorageFormTblLayout.SetRowSpan(this.classificationBtn, 2);
+            this.classificationBtn.Size = new System.Drawing.Size(851, 104);
+            this.classificationBtn.TabIndex = 61;
+            this.classificationBtn.TabStop = false;
+            this.classificationBtn.Text = "KLASIRANJE";
+            this.classificationBtn.UseVisualStyleBackColor = false;
+            // 
             // storageBtn
             // 
             this.storageBtn.BackColor = System.Drawing.Color.Transparent;
@@ -120,7 +190,7 @@
             this.storageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.storageBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.storageBtn.ForeColor = System.Drawing.Color.White;
-            this.storageBtn.Location = new System.Drawing.Point(653, 803);
+            this.storageBtn.Location = new System.Drawing.Point(652, 803);
             this.storageBtn.Margin = new System.Windows.Forms.Padding(5);
             this.storageBtn.Name = "storageBtn";
             this.storageBtn.Size = new System.Drawing.Size(851, 56);
@@ -137,9 +207,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1532, 87);
+            this.label1.Location = new System.Drawing.Point(1531, 87);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(273, 27);
+            this.label1.Size = new System.Drawing.Size(272, 27);
             this.label1.TabIndex = 50;
             this.label1.Text = "Prodaja artikla ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,10 +228,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1861, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1859, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(76, 51);
+            this.exitBtn.Size = new System.Drawing.Size(78, 51);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -199,7 +269,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1811, 3);
+            this.backBtn.Location = new System.Drawing.Point(1809, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 51);
             this.backBtn.TabIndex = 9;
@@ -216,7 +286,7 @@
             this.chambersLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chambersLbl.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chambersLbl.ForeColor = System.Drawing.Color.White;
-            this.chambersLbl.Location = new System.Drawing.Point(651, 57);
+            this.chambersLbl.Location = new System.Drawing.Point(650, 57);
             this.chambersLbl.Name = "chambersLbl";
             this.chambersLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.chambersLbl.Size = new System.Drawing.Size(855, 57);
@@ -236,7 +306,7 @@
             this.a1Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.a1Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.a1Btn.ForeColor = System.Drawing.Color.White;
-            this.a1Btn.Location = new System.Drawing.Point(653, 119);
+            this.a1Btn.Location = new System.Drawing.Point(652, 119);
             this.a1Btn.Margin = new System.Windows.Forms.Padding(5);
             this.a1Btn.Name = "a1Btn";
             this.StorageFormTblLayout.SetRowSpan(this.a1Btn, 5);
@@ -258,7 +328,7 @@
             this.b1Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b1Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b1Btn.ForeColor = System.Drawing.Color.White;
-            this.b1Btn.Location = new System.Drawing.Point(651, 516);
+            this.b1Btn.Location = new System.Drawing.Point(650, 516);
             this.b1Btn.Name = "b1Btn";
             this.StorageFormTblLayout.SetRowSpan(this.b1Btn, 5);
             this.b1Btn.Size = new System.Drawing.Size(417, 279);
@@ -278,7 +348,7 @@
             this.a2Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.a2Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.a2Btn.ForeColor = System.Drawing.Color.White;
-            this.a2Btn.Location = new System.Drawing.Point(1094, 117);
+            this.a2Btn.Location = new System.Drawing.Point(1093, 117);
             this.a2Btn.Name = "a2Btn";
             this.StorageFormTblLayout.SetRowSpan(this.a2Btn, 5);
             this.a2Btn.Size = new System.Drawing.Size(412, 279);
@@ -298,7 +368,7 @@
             this.b2Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b2Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b2Btn.ForeColor = System.Drawing.Color.White;
-            this.b2Btn.Location = new System.Drawing.Point(1094, 516);
+            this.b2Btn.Location = new System.Drawing.Point(1093, 516);
             this.b2Btn.Name = "b2Btn";
             this.StorageFormTblLayout.SetRowSpan(this.b2Btn, 5);
             this.b2Btn.Size = new System.Drawing.Size(412, 279);
@@ -318,83 +388,14 @@
             this.outputBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.outputBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold);
             this.outputBtn.ForeColor = System.Drawing.Color.White;
-            this.outputBtn.Location = new System.Drawing.Point(1532, 117);
+            this.outputBtn.Location = new System.Drawing.Point(1531, 117);
             this.outputBtn.Name = "outputBtn";
             this.StorageFormTblLayout.SetRowSpan(this.outputBtn, 12);
-            this.outputBtn.Size = new System.Drawing.Size(273, 678);
+            this.outputBtn.Size = new System.Drawing.Size(272, 678);
             this.outputBtn.TabIndex = 49;
             this.outputBtn.Text = "IZLAZ";
             this.outputBtn.UseVisualStyleBackColor = false;
             this.outputBtn.Click += new System.EventHandler(this.outputBtn_Click);
-            // 
-            // classificationBtn
-            // 
-            this.classificationBtn.BackColor = System.Drawing.Color.Transparent;
-            this.StorageFormTblLayout.SetColumnSpan(this.classificationBtn, 3);
-            this.classificationBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.classificationBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.classificationBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.classificationBtn.FlatAppearance.BorderSize = 5;
-            this.classificationBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.classificationBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.classificationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.classificationBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.classificationBtn.ForeColor = System.Drawing.Color.White;
-            this.classificationBtn.Location = new System.Drawing.Point(653, 404);
-            this.classificationBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.classificationBtn.Name = "classificationBtn";
-            this.StorageFormTblLayout.SetRowSpan(this.classificationBtn, 2);
-            this.classificationBtn.Size = new System.Drawing.Size(851, 104);
-            this.classificationBtn.TabIndex = 61;
-            this.classificationBtn.TabStop = false;
-            this.classificationBtn.Text = "KLASIRANJE";
-            this.classificationBtn.UseVisualStyleBackColor = false;
-            // 
-            // palletizingBtn
-            // 
-            this.palletizingBtn.BackColor = System.Drawing.Color.Transparent;
-            this.StorageFormTblLayout.SetColumnSpan(this.palletizingBtn, 3);
-            this.palletizingBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.palletizingBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.palletizingBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.palletizingBtn.FlatAppearance.BorderSize = 5;
-            this.palletizingBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.palletizingBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.palletizingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.palletizingBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.palletizingBtn.ForeColor = System.Drawing.Color.White;
-            this.palletizingBtn.Location = new System.Drawing.Point(5, 119);
-            this.palletizingBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.palletizingBtn.Name = "palletizingBtn";
-            this.StorageFormTblLayout.SetRowSpan(this.palletizingBtn, 6);
-            this.palletizingBtn.Size = new System.Drawing.Size(618, 332);
-            this.palletizingBtn.TabIndex = 62;
-            this.palletizingBtn.TabStop = false;
-            this.palletizingBtn.Text = "PALETIRANJE";
-            this.palletizingBtn.UseVisualStyleBackColor = false;
-            // 
-            // tunnelBtn
-            // 
-            this.tunnelBtn.BackColor = System.Drawing.Color.Transparent;
-            this.StorageFormTblLayout.SetColumnSpan(this.tunnelBtn, 3);
-            this.tunnelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tunnelBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tunnelBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.tunnelBtn.FlatAppearance.BorderSize = 5;
-            this.tunnelBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.tunnelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.tunnelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tunnelBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tunnelBtn.ForeColor = System.Drawing.Color.White;
-            this.tunnelBtn.Location = new System.Drawing.Point(5, 461);
-            this.tunnelBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.tunnelBtn.Name = "tunnelBtn";
-            this.StorageFormTblLayout.SetRowSpan(this.tunnelBtn, 6);
-            this.tunnelBtn.Size = new System.Drawing.Size(618, 332);
-            this.tunnelBtn.TabIndex = 63;
-            this.tunnelBtn.TabStop = false;
-            this.tunnelBtn.Text = "TUNEL";
-            this.tunnelBtn.UseVisualStyleBackColor = false;
             // 
             // StorageForm
             // 

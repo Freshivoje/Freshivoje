@@ -120,5 +120,10 @@ namespace Freshivoje.Storage
             recordStorageForm.ShowDialog(this);
             Show();
         }
+
+        private void palletizingBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
