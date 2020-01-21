@@ -44,21 +44,21 @@
             this.selectArticle = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.palleteQuantitylbl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.finishInsertBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.finishInsertBtn = new System.Windows.Forms.Button();
             this.articleQuantityTxtBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.palleteQuantitylbl = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.insertFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PalletingDataGridView)).BeginInit();
@@ -121,6 +121,7 @@
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
             this.insertFormTblLayout.Size = new System.Drawing.Size(1320, 997);
             this.insertFormTblLayout.TabIndex = 4;
+            this.insertFormTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.insertFormTblLayout_Paint);
             // 
             // PalletingDataGridView
             // 
@@ -282,33 +283,19 @@
             this.lblTitle.Text = "KLASIFIKACIJA";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // palleteQuantitylbl
+            // label1
             // 
-            this.palleteQuantitylbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.palleteQuantitylbl.AutoSize = true;
-            this.palleteQuantitylbl.BackColor = System.Drawing.Color.Transparent;
-            this.insertFormTblLayout.SetColumnSpan(this.palleteQuantitylbl, 2);
-            this.palleteQuantitylbl.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.palleteQuantitylbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.palleteQuantitylbl.Location = new System.Drawing.Point(1094, 859);
-            this.palleteQuantitylbl.Name = "palleteQuantitylbl";
-            this.palleteQuantitylbl.Size = new System.Drawing.Size(85, 24);
-            this.palleteQuantitylbl.TabIndex = 42;
-            this.palleteQuantitylbl.Text = "LABEL1";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.insertFormTblLayout.SetColumnSpan(this.label2, 4);
-            this.label2.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(772, 859);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(316, 24);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "UKUPNO POSLE KLASIRANJA :";
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.label1, 2);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(489, 112);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 24);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "PALETA :";
             // 
             // finishInsertBtn
             // 
@@ -332,20 +319,6 @@
             this.finishInsertBtn.Text = "Završi ";
             this.finishInsertBtn.UseVisualStyleBackColor = false;
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.insertFormTblLayout.SetColumnSpan(this.label1, 2);
-            this.label1.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(489, 112);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 24);
-            this.label1.TabIndex = 46;
-            this.label1.Text = "PALETA :";
-            // 
             // articleQuantityTxtBox
             // 
             this.articleQuantityTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -359,6 +332,46 @@
             this.articleQuantityTxtBox.ShortcutsEnabled = false;
             this.articleQuantityTxtBox.Size = new System.Drawing.Size(187, 31);
             this.articleQuantityTxtBox.TabIndex = 47;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(197, 776);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(20, 24);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "I";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.insertFormTblLayout.SetColumnSpan(this.textBox3, 2);
+            this.textBox3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(223, 773);
+            this.textBox3.MaxLength = 10;
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ShortcutsEnabled = false;
+            this.textBox3.Size = new System.Drawing.Size(140, 31);
+            this.textBox3.TabIndex = 53;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(453, 776);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 24);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "II";
             // 
             // textBox1
             // 
@@ -374,18 +387,18 @@
             this.textBox1.Size = new System.Drawing.Size(140, 31);
             this.textBox1.TabIndex = 49;
             // 
-            // label3
+            // label5
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(453, 776);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 24);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "II";
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(709, 776);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 24);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "III";
             // 
             // textBox2
             // 
@@ -414,33 +427,6 @@
             this.label4.TabIndex = 50;
             this.label4.Text = "IV";
             // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.insertFormTblLayout.SetColumnSpan(this.textBox3, 2);
-            this.textBox3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(223, 773);
-            this.textBox3.MaxLength = 10;
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ShortcutsEnabled = false;
-            this.textBox3.Size = new System.Drawing.Size(140, 31);
-            this.textBox3.TabIndex = 53;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(709, 776);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 24);
-            this.label5.TabIndex = 52;
-            this.label5.Text = "III";
-            // 
             // textBox4
             // 
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -455,18 +441,19 @@
             this.textBox4.Size = new System.Drawing.Size(140, 31);
             this.textBox4.TabIndex = 55;
             // 
-            // label6
+            // palleteQuantitylbl
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(197, 776);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(20, 24);
-            this.label6.TabIndex = 54;
-            this.label6.Text = "I";
+            this.palleteQuantitylbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.palleteQuantitylbl.AutoSize = true;
+            this.palleteQuantitylbl.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.palleteQuantitylbl, 2);
+            this.palleteQuantitylbl.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palleteQuantitylbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.palleteQuantitylbl.Location = new System.Drawing.Point(1094, 859);
+            this.palleteQuantitylbl.Name = "palleteQuantitylbl";
+            this.palleteQuantitylbl.Size = new System.Drawing.Size(85, 24);
+            this.palleteQuantitylbl.TabIndex = 42;
+            this.palleteQuantitylbl.Text = "LABEL1";
             // 
             // label7
             // 
@@ -496,6 +483,20 @@
             this.label8.TabIndex = 56;
             this.label8.Text = "LABEL1";
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.label2, 4);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(772, 859);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(316, 24);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "UKUPNO POSLE KLASIRANJA :";
+            // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -520,6 +521,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Classification";
             this.Text = "Classification";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Classification_Load);
             this.insertFormTblLayout.ResumeLayout(false);
             this.insertFormTblLayout.PerformLayout();

@@ -95,6 +95,7 @@
             this.crudArticlesFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.crudArticlesFormTblLayout.Size = new System.Drawing.Size(1930, 1064);
             this.crudArticlesFormTblLayout.TabIndex = 2;
+            this.crudArticlesFormTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.crudArticlesFormTblLayout_Paint);
             // 
             // exitBtn
             // 
@@ -209,6 +210,7 @@
             this.articlesDataGridView.TabIndex = 6;
             this.articlesDataGridView.TabStop = false;
             this.articlesDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.articlesDataGridView_CellClick);
+            this.articlesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.articlesDataGridView_CellContentClick);
             // 
             // articleId
             // 

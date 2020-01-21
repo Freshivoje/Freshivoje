@@ -97,6 +97,7 @@
             this.crudPackagesFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.crudPackagesFormTblLayout.Size = new System.Drawing.Size(1423, 863);
             this.crudPackagesFormTblLayout.TabIndex = 3;
+            this.crudPackagesFormTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.crudPackagesFormTblLayout_Paint);
             // 
             // packagesDataGridView
             // 

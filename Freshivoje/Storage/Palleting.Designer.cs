@@ -28,27 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitle = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
             this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.PalletingDataGridView = new System.Windows.Forms.DataGridView();
-            this.articleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Klijent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleOrganic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.articleQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.selectArticle = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.finishInsertBtn = new System.Windows.Forms.Button();
+            this.palletingDataGridView = new System.Windows.Forms.DataGridView();
             this.palleteQuantitylbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.finishInsertBtn = new System.Windows.Forms.Button();
+            this.backBtn = new System.Windows.Forms.Button();
+            this.fk_client_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_receipt_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_arcticle_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.article_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sort = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.organic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.insertFormTblLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PalletingDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.palletingDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -63,7 +69,7 @@
             this.lblTitle.Location = new System.Drawing.Point(3, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblTitle.Size = new System.Drawing.Size(203, 85);
+            this.lblTitle.Size = new System.Drawing.Size(203, 75);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "PALETIRANJE";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -82,38 +88,40 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1291, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1760, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(71, 79);
+            this.exitBtn.Size = new System.Drawing.Size(50, 69);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // insertFormTblLayout
             // 
             this.insertFormTblLayout.BackColor = System.Drawing.Color.Transparent;
             this.insertFormTblLayout.BackgroundImage = global::Freshivoje.Properties.Resources.background;
             this.insertFormTblLayout.ColumnCount = 12;
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.553236F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.553235F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.553235F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.553235F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.553235F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.553235F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.553235F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.553235F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.553235F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.59582F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.77289F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.421246F));
-            this.insertFormTblLayout.Controls.Add(this.PalletingDataGridView, 0, 2);
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.259261F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.25926F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.25926F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.25926F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.25926F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.25926F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.25926F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.25926F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.25926F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.insertFormTblLayout.Controls.Add(this.backBtn, 10, 0);
+            this.insertFormTblLayout.Controls.Add(this.palletingDataGridView, 0, 2);
             this.insertFormTblLayout.Controls.Add(this.exitBtn, 11, 0);
             this.insertFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
-            this.insertFormTblLayout.Controls.Add(this.palleteQuantitylbl, 10, 9);
-            this.insertFormTblLayout.Controls.Add(this.label2, 9, 9);
             this.insertFormTblLayout.Controls.Add(this.finishInsertBtn, 5, 10);
+            this.insertFormTblLayout.Controls.Add(this.label2, 8, 9);
+            this.insertFormTblLayout.Controls.Add(this.palleteQuantitylbl, 9, 9);
             this.insertFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insertFormTblLayout.Location = new System.Drawing.Point(0, 0);
             this.insertFormTblLayout.Name = "insertFormTblLayout";
@@ -130,135 +138,90 @@
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.insertFormTblLayout.Size = new System.Drawing.Size(1365, 1022);
+            this.insertFormTblLayout.Size = new System.Drawing.Size(1813, 907);
             this.insertFormTblLayout.TabIndex = 3;
             this.insertFormTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.insertFormTblLayout_Paint);
             // 
-            // PalletingDataGridView
+            // palletingDataGridView
             // 
-            this.PalletingDataGridView.AllowUserToAddRows = false;
-            this.PalletingDataGridView.AllowUserToDeleteRows = false;
-            this.PalletingDataGridView.AllowUserToResizeColumns = false;
-            this.PalletingDataGridView.AllowUserToResizeRows = false;
-            this.PalletingDataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.PalletingDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PalletingDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.PalletingDataGridView.ColumnHeadersHeight = 40;
-            this.PalletingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.PalletingDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.articleId,
-            this.Klijent,
-            this.articleName,
-            this.articleSort,
-            this.articleOrganic,
-            this.articleCategory,
-            this.articleQuantity,
-            this.selectArticle});
-            this.insertFormTblLayout.SetColumnSpan(this.PalletingDataGridView, 12);
-            this.PalletingDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PalletingDataGridView.DefaultCellStyle = dataGridViewCellStyle11;
-            this.PalletingDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PalletingDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.PalletingDataGridView.Location = new System.Drawing.Point(3, 173);
-            this.PalletingDataGridView.MultiSelect = false;
-            this.PalletingDataGridView.Name = "PalletingDataGridView";
-            this.PalletingDataGridView.ReadOnly = true;
-            this.PalletingDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.PalletingDataGridView.RowHeadersWidth = 40;
-            this.PalletingDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.insertFormTblLayout.SetRowSpan(this.PalletingDataGridView, 7);
-            this.PalletingDataGridView.RowTemplate.Height = 30;
-            this.PalletingDataGridView.Size = new System.Drawing.Size(1359, 589);
-            this.PalletingDataGridView.TabIndex = 35;
-            this.PalletingDataGridView.TabStop = false;
+            this.palletingDataGridView.AllowDrop = true;
+            this.palletingDataGridView.AllowUserToDeleteRows = false;
+            this.palletingDataGridView.AllowUserToResizeColumns = false;
+            this.palletingDataGridView.AllowUserToResizeRows = false;
+            this.palletingDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.palletingDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.palletingDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.palletingDataGridView.ColumnHeadersHeight = 40;
+            this.palletingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.palletingDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.fk_client_id,
+            this.fk_receipt_id,
+            this.fk_arcticle_id,
+            this.first_name,
+            this.last_name,
+            this.quantity,
+            this.price,
+            this.status,
+            this.article_name,
+            this.sort,
+            this.organic,
+            this.category,
+            this.chk});
+            this.insertFormTblLayout.SetColumnSpan(this.palletingDataGridView, 12);
+            this.palletingDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.palletingDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
+            this.palletingDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.palletingDataGridView.Location = new System.Drawing.Point(3, 153);
+            this.palletingDataGridView.Name = "palletingDataGridView";
+            this.palletingDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.palletingDataGridView.RowHeadersWidth = 40;
+            this.palletingDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.insertFormTblLayout.SetRowSpan(this.palletingDataGridView, 7);
+            this.palletingDataGridView.RowTemplate.Height = 30;
+            this.palletingDataGridView.Size = new System.Drawing.Size(1807, 519);
+            this.palletingDataGridView.TabIndex = 35;
+            this.palletingDataGridView.TabStop = false;
+            this.palletingDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PalletingDataGridView_CellContentClick);
             // 
-            // articleId
+            // palleteQuantitylbl
             // 
-            this.articleId.HeaderText = "ID palete";
-            this.articleId.Name = "articleId";
-            this.articleId.ReadOnly = true;
-            this.articleId.Visible = false;
+            this.palleteQuantitylbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.palleteQuantitylbl.AutoSize = true;
+            this.palleteQuantitylbl.BackColor = System.Drawing.Color.Transparent;
+            this.palleteQuantitylbl.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palleteQuantitylbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.palleteQuantitylbl.Location = new System.Drawing.Point(1425, 700);
+            this.palleteQuantitylbl.Name = "palleteQuantitylbl";
+            this.palleteQuantitylbl.Size = new System.Drawing.Size(85, 24);
+            this.palleteQuantitylbl.TabIndex = 42;
+            this.palleteQuantitylbl.Text = "LABEL1";
             // 
-            // Klijent
+            // label2
             // 
-            this.Klijent.HeaderText = "Klijent";
-            this.Klijent.Name = "Klijent";
-            this.Klijent.ReadOnly = true;
-            // 
-            // articleName
-            // 
-            this.articleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleName.HeaderText = "Ime artikla";
-            this.articleName.Name = "articleName";
-            this.articleName.ReadOnly = true;
-            // 
-            // articleSort
-            // 
-            this.articleSort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleSort.HeaderText = "Sorta";
-            this.articleSort.Name = "articleSort";
-            this.articleSort.ReadOnly = true;
-            // 
-            // articleOrganic
-            // 
-            this.articleOrganic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.articleOrganic.HeaderText = "Kontrolisana proizvodnja";
-            this.articleOrganic.Name = "articleOrganic";
-            this.articleOrganic.ReadOnly = true;
-            this.articleOrganic.Width = 317;
-            // 
-            // articleCategory
-            // 
-            this.articleCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleCategory.HeaderText = "Klasa";
-            this.articleCategory.Name = "articleCategory";
-            this.articleCategory.ReadOnly = true;
-            // 
-            // articleQuantity
-            // 
-            this.articleQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.articleQuantity.HeaderText = "Količina";
-            this.articleQuantity.Name = "articleQuantity";
-            this.articleQuantity.ReadOnly = true;
-            this.articleQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // selectArticle
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle10.NullValue = false;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Red;
-            this.selectArticle.DefaultCellStyle = dataGridViewCellStyle10;
-            this.selectArticle.HeaderText = "";
-            this.selectArticle.Name = "selectArticle";
-            this.selectArticle.ReadOnly = true;
-            this.selectArticle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.selectArticle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.selectArticle.Width = 40;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(1315, 700);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 24);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "UKUPNO:";
             // 
             // finishInsertBtn
             // 
@@ -273,7 +236,7 @@
             this.finishInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.finishInsertBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.finishInsertBtn.ForeColor = System.Drawing.Color.White;
-            this.finishInsertBtn.Location = new System.Drawing.Point(535, 867);
+            this.finishInsertBtn.Location = new System.Drawing.Point(899, 762);
             this.finishInsertBtn.Margin = new System.Windows.Forms.Padding(5);
             this.finishInsertBtn.Name = "finishInsertBtn";
             this.finishInsertBtn.Size = new System.Drawing.Size(255, 50);
@@ -281,46 +244,159 @@
             this.finishInsertBtn.TabStop = false;
             this.finishInsertBtn.Text = "Završi ";
             this.finishInsertBtn.UseVisualStyleBackColor = false;
+            this.finishInsertBtn.Click += new System.EventHandler(this.finishInsertBtn_Click);
             // 
-            // palleteQuantitylbl
+            // backBtn
             // 
-            this.palleteQuantitylbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.palleteQuantitylbl.AutoSize = true;
-            this.palleteQuantitylbl.BackColor = System.Drawing.Color.Transparent;
-            this.palleteQuantitylbl.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.palleteQuantitylbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.palleteQuantitylbl.Location = new System.Drawing.Point(1105, 795);
-            this.palleteQuantitylbl.Name = "palleteQuantitylbl";
-            this.palleteQuantitylbl.Size = new System.Drawing.Size(85, 24);
-            this.palleteQuantitylbl.TabIndex = 42;
-            this.palleteQuantitylbl.Text = "LABEL1";
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.BackgroundImage = global::Freshivoje.Properties.Resources.left_arrow;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBtn.ForeColor = System.Drawing.Color.White;
+            this.backBtn.Location = new System.Drawing.Point(1710, 3);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(44, 69);
+            this.backBtn.TabIndex = 44;
+            this.backBtn.TabStop = false;
+            this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // label2
+            // fk_client_id
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(995, 795);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 24);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "UKUPNO:";
+            this.fk_client_id.DataPropertyName = "fk_client_id";
+            this.fk_client_id.HeaderText = "ID palete";
+            this.fk_client_id.Name = "fk_client_id";
+            this.fk_client_id.Visible = false;
+            // 
+            // fk_receipt_id
+            // 
+            this.fk_receipt_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fk_receipt_id.DataPropertyName = "fk_receipt_id";
+            this.fk_receipt_id.HeaderText = "fk_recepit_id";
+            this.fk_receipt_id.Name = "fk_receipt_id";
+            this.fk_receipt_id.Visible = false;
+            // 
+            // fk_arcticle_id
+            // 
+            this.fk_arcticle_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.fk_arcticle_id.DataPropertyName = "fk_arcticle_id";
+            this.fk_arcticle_id.HeaderText = "fk_arcticle_id";
+            this.fk_arcticle_id.Name = "fk_arcticle_id";
+            this.fk_arcticle_id.Visible = false;
+            this.fk_arcticle_id.Width = 190;
+            // 
+            // first_name
+            // 
+            this.first_name.DataPropertyName = "first_name";
+            this.first_name.HeaderText = "Ime klijenta";
+            this.first_name.Name = "first_name";
+            this.first_name.Width = 140;
+            // 
+            // last_name
+            // 
+            this.last_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.last_name.DataPropertyName = "last_name";
+            this.last_name.HeaderText = "Prezime klijenta";
+            this.last_name.MinimumWidth = 140;
+            this.last_name.Name = "last_name";
+            // 
+            // quantity
+            // 
+            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.quantity.DataPropertyName = "quantity";
+            this.quantity.HeaderText = "Količina";
+            this.quantity.MinimumWidth = 140;
+            this.quantity.Name = "quantity";
+            this.quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // price
+            // 
+            this.price.DataPropertyName = "price";
+            this.price.HeaderText = "Cena";
+            this.price.MinimumWidth = 140;
+            this.price.Name = "price";
+            this.price.Visible = false;
+            this.price.Width = 140;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "Status";
+            this.status.MinimumWidth = 140;
+            this.status.Name = "status";
+            this.status.Width = 140;
+            // 
+            // article_name
+            // 
+            this.article_name.DataPropertyName = "article_name";
+            this.article_name.HeaderText = "Ime artikla";
+            this.article_name.MinimumWidth = 250;
+            this.article_name.Name = "article_name";
+            this.article_name.Width = 250;
+            // 
+            // sort
+            // 
+            this.sort.DataPropertyName = "sort";
+            this.sort.HeaderText = "Sorta";
+            this.sort.MinimumWidth = 140;
+            this.sort.Name = "sort";
+            this.sort.Width = 140;
+            // 
+            // organic
+            // 
+            this.organic.DataPropertyName = "organic";
+            this.organic.HeaderText = "Kontrolisana proizvodnja";
+            this.organic.MinimumWidth = 350;
+            this.organic.Name = "organic";
+            this.organic.Width = 350;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "category";
+            this.category.HeaderText = "Kategorija";
+            this.category.MinimumWidth = 200;
+            this.category.Name = "category";
+            this.category.Width = 200;
+            // 
+            // chk
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle6.NullValue = false;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Red;
+            this.chk.DefaultCellStyle = dataGridViewCellStyle6;
+            this.chk.HeaderText = "";
+            this.chk.Name = "chk";
+            this.chk.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.chk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.chk.Width = 40;
             // 
             // Palleting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1365, 1022);
+            this.ClientSize = new System.Drawing.Size(1813, 907);
             this.ControlBox = false;
             this.Controls.Add(this.insertFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Palleting";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Palleting";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.insertFormTblLayout.ResumeLayout(false);
             this.insertFormTblLayout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PalletingDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.palletingDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,17 +406,23 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.TableLayoutPanel insertFormTblLayout;
         private System.Windows.Forms.Button exitBtn;
-        private System.Windows.Forms.DataGridView PalletingDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn articleId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Klijent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn articleName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn articleSort;
-        private System.Windows.Forms.DataGridViewTextBoxColumn articleOrganic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn articleCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn articleQuantity;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn selectArticle;
+        private System.Windows.Forms.DataGridView palletingDataGridView;
         private System.Windows.Forms.Button finishInsertBtn;
         private System.Windows.Forms.Label palleteQuantitylbl;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fk_client_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fk_receipt_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fk_arcticle_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn first_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn last_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn article_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sort;
+        private System.Windows.Forms.DataGridViewTextBoxColumn organic;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn chk;
     }
 }

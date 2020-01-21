@@ -101,7 +101,7 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -379,6 +379,7 @@
             this.crudClientsFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.crudClientsFormTblLayout.Size = new System.Drawing.Size(1930, 1074);
             this.crudClientsFormTblLayout.TabIndex = 3;
+            this.crudClientsFormTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.crudClientsFormTblLayout_Paint);
             // 
             // searchClientsLbl
             // 

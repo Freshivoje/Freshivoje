@@ -123,7 +123,10 @@ namespace Freshivoje.Storage
 
         private void palletizingBtn_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            using Palleting palleting = new Palleting();
+            palleting.ShowDialog(this);
+            Show();
         }
     }
 }

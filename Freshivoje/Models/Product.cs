@@ -9,7 +9,6 @@ namespace Freshivoje.Models
     public class Product
     {
         public int _id { get; private set; }
-
         public string _name { get; private set; }
         public string _type { get; private set; }
         public Product(int id, string name, string type)

@@ -96,6 +96,7 @@
     <Compile Include="Custom Classes\InsertPDF.cs" />
     <Compile Include="Custom Classes\StoragePDF.cs" />
     <Compile Include="Custom Classes\TransportPDF.cs" />
+    <Compile Include="Models\PalletingItem.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Options Forms\CRUDProductsForm.cs">
       <SubType>Form</SubType>

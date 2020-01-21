@@ -29,6 +29,12 @@ namespace Freshivoje.Options_Forms
                         _selectedClientZipCode = string.Empty,
                         _selectedClientBankAccount = string.Empty,
                         _selectedClientPhone = string.Empty;
+
+        private void crudClientsFormTblLayout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         public CRUDClientsForm()
         {
             InitializeComponent();

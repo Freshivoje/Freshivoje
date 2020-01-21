@@ -57,6 +57,16 @@ namespace Freshivoje.Options_Forms
             (articlesDataGridView.DataSource as DataTable).DefaultView.RowFilter = $"`article_name` LIKE '%{searchValue}%' OR `sort` LIKE '%{searchValue}%' OR `organic` LIKE '%{searchValue}%' OR `category` LIKE '%{searchValue}%'";
         }
 
+        private void crudArticlesFormTblLayout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void articlesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void createArticleBtn_Click(object sender, EventArgs e)
         {
             using CreateArticleForm createArticleForm = new CreateArticleForm();

@@ -41,7 +41,12 @@ namespace Freshivoje.Options_Forms
                 e.Handled = true;
             }
         }
-    
+
+        private void crudPackagesFormTblLayout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void backBtn_Click(object sender, EventArgs e)
         {
             Close();
