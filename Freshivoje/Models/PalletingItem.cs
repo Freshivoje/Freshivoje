@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Freshivoje.Models
 {
-    class PalletingItem
+    public class PalletingItem
     {
         public int _fk_client_id { get; private set; }
         public string _first_name { get; private set; }
         public string _last_name { get; private set; }
-        public string _fk_receipt_id { get; private set; }
-        public string _fk_article_id { get; private set; }
-        public string _quantity { get; private set; }
+        public int _fk_receipt_id { get; private set; }
+        public int _fk_article_id { get; private set; }
+        public decimal _quantity { get; private set; }
         public string _status { get; private set; }
         public string _article_name { get; private set; }
         public string _sort { get; private set; }
@@ -23,9 +23,9 @@ namespace Freshivoje.Models
         public PalletingItem(int fk_client_id,
             string first_name,
             string last_name,
-            string fk_receipt_id,
-            string fk_article_id,
-            string quantity,
+            int fk_receipt_id,
+            int fk_article_id,
+            decimal quantity,
             string status,
             string article_name,
             string sort,

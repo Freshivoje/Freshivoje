@@ -28,18 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitle = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
             this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.palletingDataGridView = new System.Windows.Forms.DataGridView();
-            this.palleteQuantitylbl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.finishInsertBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
+            this.palletingDataGridView = new System.Windows.Forms.DataGridView();
             this.fk_client_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fk_receipt_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fk_arcticle_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +50,9 @@
             this.organic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.finishInsertBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.palleteQuantitylbl = new System.Windows.Forms.Label();
             this.insertFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.palletingDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -88,10 +88,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1760, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1759, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(50, 69);
+            this.exitBtn.Size = new System.Drawing.Size(51, 69);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -114,14 +114,14 @@
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.25926F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.insertFormTblLayout.Controls.Add(this.backBtn, 10, 0);
             this.insertFormTblLayout.Controls.Add(this.palletingDataGridView, 0, 2);
             this.insertFormTblLayout.Controls.Add(this.exitBtn, 11, 0);
             this.insertFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
-            this.insertFormTblLayout.Controls.Add(this.finishInsertBtn, 5, 10);
             this.insertFormTblLayout.Controls.Add(this.label2, 8, 9);
             this.insertFormTblLayout.Controls.Add(this.palleteQuantitylbl, 9, 9);
+            this.insertFormTblLayout.Controls.Add(this.finishInsertBtn, 4, 10);
             this.insertFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insertFormTblLayout.Location = new System.Drawing.Point(0, 0);
             this.insertFormTblLayout.Name = "insertFormTblLayout";
@@ -142,6 +142,29 @@
             this.insertFormTblLayout.TabIndex = 3;
             this.insertFormTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.insertFormTblLayout_Paint);
             // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.BackgroundImage = global::Freshivoje.Properties.Resources.left_arrow;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBtn.ForeColor = System.Drawing.Color.White;
+            this.backBtn.Location = new System.Drawing.Point(1709, 3);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(44, 69);
+            this.backBtn.TabIndex = 44;
+            this.backBtn.TabStop = false;
+            this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // palletingDataGridView
             // 
             this.palletingDataGridView.AllowDrop = true;
@@ -150,14 +173,14 @@
             this.palletingDataGridView.AllowUserToResizeRows = false;
             this.palletingDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.palletingDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.palletingDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.palletingDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.palletingDataGridView.ColumnHeadersHeight = 40;
             this.palletingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.palletingDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -176,18 +199,18 @@
             this.chk});
             this.insertFormTblLayout.SetColumnSpan(this.palletingDataGridView, 12);
             this.palletingDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.palletingDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.palletingDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.palletingDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.palletingDataGridView.Location = new System.Drawing.Point(3, 153);
             this.palletingDataGridView.Name = "palletingDataGridView";
-            this.palletingDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.palletingDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.palletingDataGridView.RowHeadersWidth = 40;
             this.palletingDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.insertFormTblLayout.SetRowSpan(this.palletingDataGridView, 7);
@@ -196,78 +219,6 @@
             this.palletingDataGridView.TabIndex = 35;
             this.palletingDataGridView.TabStop = false;
             this.palletingDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PalletingDataGridView_CellContentClick);
-            // 
-            // palleteQuantitylbl
-            // 
-            this.palleteQuantitylbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.palleteQuantitylbl.AutoSize = true;
-            this.palleteQuantitylbl.BackColor = System.Drawing.Color.Transparent;
-            this.palleteQuantitylbl.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.palleteQuantitylbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.palleteQuantitylbl.Location = new System.Drawing.Point(1425, 700);
-            this.palleteQuantitylbl.Name = "palleteQuantitylbl";
-            this.palleteQuantitylbl.Size = new System.Drawing.Size(85, 24);
-            this.palleteQuantitylbl.TabIndex = 42;
-            this.palleteQuantitylbl.Text = "LABEL1";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(1315, 700);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 24);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "UKUPNO:";
-            // 
-            // finishInsertBtn
-            // 
-            this.finishInsertBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.finishInsertBtn.BackColor = System.Drawing.Color.Transparent;
-            this.insertFormTblLayout.SetColumnSpan(this.finishInsertBtn, 3);
-            this.finishInsertBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.finishInsertBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.finishInsertBtn.FlatAppearance.BorderSize = 5;
-            this.finishInsertBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.finishInsertBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.finishInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.finishInsertBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.finishInsertBtn.ForeColor = System.Drawing.Color.White;
-            this.finishInsertBtn.Location = new System.Drawing.Point(899, 762);
-            this.finishInsertBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.finishInsertBtn.Name = "finishInsertBtn";
-            this.finishInsertBtn.Size = new System.Drawing.Size(255, 50);
-            this.finishInsertBtn.TabIndex = 41;
-            this.finishInsertBtn.TabStop = false;
-            this.finishInsertBtn.Text = "Završi ";
-            this.finishInsertBtn.UseVisualStyleBackColor = false;
-            this.finishInsertBtn.Click += new System.EventHandler(this.finishInsertBtn_Click);
-            // 
-            // backBtn
-            // 
-            this.backBtn.BackColor = System.Drawing.Color.Transparent;
-            this.backBtn.BackgroundImage = global::Freshivoje.Properties.Resources.left_arrow;
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1710, 3);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(44, 69);
-            this.backBtn.TabIndex = 44;
-            this.backBtn.TabStop = false;
-            this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.backBtn.UseVisualStyleBackColor = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // fk_client_id
             // 
@@ -368,19 +319,68 @@
             // 
             // chk
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle6.NullValue = false;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Red;
-            this.chk.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.NullValue = false;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.chk.DefaultCellStyle = dataGridViewCellStyle2;
             this.chk.HeaderText = "";
             this.chk.Name = "chk";
             this.chk.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.chk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.chk.Width = 40;
+            // 
+            // finishInsertBtn
+            // 
+            this.finishInsertBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.finishInsertBtn.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.finishInsertBtn, 3);
+            this.finishInsertBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.finishInsertBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.finishInsertBtn.FlatAppearance.BorderSize = 5;
+            this.finishInsertBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.finishInsertBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.finishInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.finishInsertBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.finishInsertBtn.ForeColor = System.Drawing.Color.White;
+            this.finishInsertBtn.Location = new System.Drawing.Point(741, 762);
+            this.finishInsertBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.finishInsertBtn.Name = "finishInsertBtn";
+            this.finishInsertBtn.Size = new System.Drawing.Size(255, 50);
+            this.finishInsertBtn.TabIndex = 41;
+            this.finishInsertBtn.TabStop = false;
+            this.finishInsertBtn.Text = "Završi ";
+            this.finishInsertBtn.UseVisualStyleBackColor = false;
+            this.finishInsertBtn.Click += new System.EventHandler(this.finishInsertBtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(1315, 700);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 24);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "UKUPNO:";
+            // 
+            // palleteQuantitylbl
+            // 
+            this.palleteQuantitylbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.palleteQuantitylbl.AutoSize = true;
+            this.palleteQuantitylbl.BackColor = System.Drawing.Color.Transparent;
+            this.palleteQuantitylbl.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palleteQuantitylbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.palleteQuantitylbl.Location = new System.Drawing.Point(1425, 700);
+            this.palleteQuantitylbl.Name = "palleteQuantitylbl";
+            this.palleteQuantitylbl.Size = new System.Drawing.Size(85, 24);
+            this.palleteQuantitylbl.TabIndex = 42;
+            this.palleteQuantitylbl.Text = "LABEL1";
             // 
             // Palleting
             // 
