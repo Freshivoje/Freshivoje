@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Freshivoje.Custom_Forms;
 using Freshivoje.Models;
 
 namespace Freshivoje.Storage
@@ -16,7 +17,7 @@ namespace Freshivoje.Storage
         public List<PalletingItem> palletings = new List<PalletingItem>();
         public decimal totalQuanrity = 0;
         public Boolean chackedStatus = false;
-        readonly string _fillDGVQuery = "SELECT receipts.fk_client_id, clients.first_name, clients.last_name, items_receipt.fk_receipt_id, items_receipt.fk_article_id, items_receipt.quantity, items_receipt.status, articles.article_name, articles.sort, articles.organic, articles.category FROM receipts INNER JOIN clients ON receipts.fk_client_id = clients.id_client INNER JOIN items_receipt ON items_receipt.fk_receipt_id = receipts.id_receipt INNER JOIN articles ON articles.id_article = items_receipt.fk_article_id WHERE items_receipt.status = 'aktivna'";
+        readonly string _fillDGVQuery = "SELECT receipts.fk_client_id, clients.first_name, clients.last_name, items_receipt.fk_receipt_id, items_receipt.fk_article_id, items_receipt.id_items_receipt, items_receipt.quantity, items_receipt.status, articles.article_name, articles.sort, articles.organic, articles.category FROM receipts INNER JOIN clients ON receipts.fk_client_id = clients.id_client INNER JOIN items_receipt ON items_receipt.fk_receipt_id = receipts.id_receipt INNER JOIN articles ON articles.id_article = items_receipt.fk_article_id WHERE items_receipt.status = 'aktivna'";
         public Palleting()
         {
             InitializeComponent();
@@ -73,14 +74,24 @@ namespace Freshivoje.Storage
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
-            
+            if (palletingDataGridView.Rows.Count < 1)
+            {
+                CustomMessageBox.ShowDialog(this, Properties.Resources.emptyDGVMsg);
+                return;
+            }
+
+            DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da kreirate paletu ?");
+            if (result == DialogResult.No || result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             foreach (DataGridViewRow row in palletingDataGridView.Rows)
             {
-                if (row.Cells[12].Value != null && row.Cells[12].Value.Equals(true)) //3 is the column number of checkbox
+                if (row.Cells[13].Value != null && row.Cells[13].Value.Equals(true)) 
                 {
                     row.Selected = true;
                    
-                    
                     int fk_client_id = Convert.ToInt32(row.Cells["fk_client_id"].Value);
                     string first_name = Convert.ToString(row.Cells["first_name"].Value);
                     string last_name = Convert.ToString(row.Cells["last_name"].Value);
@@ -92,9 +103,11 @@ namespace Freshivoje.Storage
                     string sort = Convert.ToString(row.Cells["sort"].Value);
                     string organic = Convert.ToString(row.Cells["organic"].Value);
                     string category = Convert.ToString(row.Cells["category"].Value);
+                    int fk_item_receipt_id = Convert.ToInt32(row.Cells["id_items_receipt"].Value);
+
 
                     PalletingItem item = new PalletingItem(fk_client_id, first_name, last_name, fk_receipte_id, fk_article_id, quantity,
-                        status, article_name, sort, organic, category);
+                        status, article_name, sort, organic, category, fk_item_receipt_id);
                     palletings.Add(item);
                  }
                 else
@@ -102,16 +115,19 @@ namespace Freshivoje.Storage
                     row.Selected = false;
                 }
             }
+
+            DbConnection.executePalletingQuery(palletings);
+            Close();
         }
 
         private void PalletingDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           if( e.ColumnIndex == 12)
+           if( e.ColumnIndex == 13)
             {
                 
                 foreach (DataGridViewRow row in palletingDataGridView.Rows) {
                     int selectedRowIndex = palletingDataGridView.CurrentRow.Index;
-                    DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)palletingDataGridView.Rows[selectedRowIndex].Cells[12];
+                    DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)palletingDataGridView.Rows[selectedRowIndex].Cells[13];
                     
                     if (Convert.ToInt32(chk.Value) == 0 || chk.Value == null )
                     {

@@ -735,6 +735,73 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
+
+        public static void executePalletingQuery(List<PalletingItem> palletingItems )
+        {
+            MySqlCommand mySqlCommand = new MySqlCommand
+            {
+                Connection = _databaseConnection
+            };
+            _databaseConnection.Open();
+
+            MySqlTransaction transaction = _databaseConnection.BeginTransaction();
+            mySqlCommand.Transaction = transaction;
+
+            try
+            {
+                mySqlCommand.CommandText = "SELECT `pallet_number` FROM `pallete` ORDER BY `id_pallete` DESC LIMIT 1";
+
+                int? palletNumber = Convert.ToInt32(mySqlCommand.ExecuteScalar());
+                if (palletNumber == null)
+                {
+                    palletNumber = 0;
+                }
+
+                palletNumber += 1;
+                
+                mySqlCommand.CommandText = "INSERT INTO `pallete` (`pallet_number`) VALUES (@pallet_number); SELECT LAST_INSERT_ID()";
+                mySqlCommand.Parameters.AddWithValue("@pallet_number", palletNumber);
+               
+                int? palletId = Convert.ToInt32(mySqlCommand.ExecuteScalar());
+
+                mySqlCommand.Parameters.Clear();
+
+                mySqlCommand.CommandText = "INSERT INTO `item_pallete` ( `fk_id_item_recepit`, `fk_id_pallete`) VALUES ( @palletItemId, @palletId)";
+                foreach (PalletingItem item in palletingItems)
+                {
+                    mySqlCommand.Parameters.AddWithValue("@palletId", palletId);
+                    mySqlCommand.Parameters.AddWithValue("@palletItemId", item._fk_item_receipt_id);
+
+                    mySqlCommand.ExecuteNonQuery();
+
+                    mySqlCommand.Parameters.Clear();
+                }
+
+                mySqlCommand.CommandText = "UPDATE `items_receipt` SET `status` = 'neaktivna' WHERE `items_receipt`.`id_items_receipt` = @palletItemId; ";
+                foreach (PalletingItem item in palletingItems)
+                {
+                    mySqlCommand.Parameters.AddWithValue("@palletItemId", item._fk_item_receipt_id);
+
+                    mySqlCommand.ExecuteNonQuery();
+
+                    mySqlCommand.Parameters.Clear();
+                }
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (_databaseConnection.State != ConnectionState.Open)
+                {
+                    return;
+                }
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
+        }
+
         public static dynamic getStorageData(MySqlCommand mySqlCommand, int id)
         {
             dynamic result = null;

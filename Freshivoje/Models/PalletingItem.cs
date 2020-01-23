@@ -19,6 +19,7 @@ namespace Freshivoje.Models
         public string _sort { get; private set; }
         public string _organic { get; private set; }
         public string _category { get; private set; }
+        public int _fk_item_receipt_id { get; private set; }
 
         public PalletingItem(int fk_client_id,
             string first_name,
@@ -30,7 +31,8 @@ namespace Freshivoje.Models
             string article_name,
             string sort,
             string organic,
-            string category
+            string category,
+            int fk_item_receipt_id
             )
         {
             _fk_client_id = fk_client_id;
@@ -44,6 +46,7 @@ namespace Freshivoje.Models
             _sort = sort;
             _organic = organic;
             _category = category;
+            _fk_item_receipt_id = fk_item_receipt_id;
 
         }
     }
