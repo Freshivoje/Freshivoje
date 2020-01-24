@@ -37,9 +37,6 @@
             this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.backBtn = new System.Windows.Forms.Button();
             this.palletingDataGridView = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.palleteQuantitylbl = new System.Windows.Forms.Label();
-            this.finishInsertBtn = new System.Windows.Forms.Button();
             this.fk_client_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_items_receipt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fk_receipt_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +51,9 @@
             this.organic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.palleteQuantitylbl = new System.Windows.Forms.Label();
+            this.finishInsertBtn = new System.Windows.Forms.Button();
             this.insertFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.palletingDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -89,10 +89,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1750, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1739, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(60, 69);
+            this.exitBtn.Size = new System.Drawing.Size(71, 69);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -115,7 +115,7 @@
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.25926F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.insertFormTblLayout.Controls.Add(this.backBtn, 10, 0);
             this.insertFormTblLayout.Controls.Add(this.palletingDataGridView, 0, 2);
             this.insertFormTblLayout.Controls.Add(this.exitBtn, 11, 0);
@@ -157,7 +157,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1700, 3);
+            this.backBtn.Location = new System.Drawing.Point(1689, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 69);
             this.backBtn.TabIndex = 44;
@@ -203,7 +203,7 @@
             this.palletingDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 16F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
@@ -221,55 +221,7 @@
             this.palletingDataGridView.TabIndex = 35;
             this.palletingDataGridView.TabStop = false;
             this.palletingDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PalletingDataGridView_CellContentClick);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(1306, 700);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 24);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "UKUPNO:";
-            // 
-            // palleteQuantitylbl
-            // 
-            this.palleteQuantitylbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.palleteQuantitylbl.AutoSize = true;
-            this.palleteQuantitylbl.BackColor = System.Drawing.Color.Transparent;
-            this.palleteQuantitylbl.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.palleteQuantitylbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.palleteQuantitylbl.Location = new System.Drawing.Point(1416, 700);
-            this.palleteQuantitylbl.Name = "palleteQuantitylbl";
-            this.palleteQuantitylbl.Size = new System.Drawing.Size(85, 24);
-            this.palleteQuantitylbl.TabIndex = 42;
-            this.palleteQuantitylbl.Text = "LABEL1";
-            // 
-            // finishInsertBtn
-            // 
-            this.finishInsertBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.finishInsertBtn.BackColor = System.Drawing.Color.Transparent;
-            this.insertFormTblLayout.SetColumnSpan(this.finishInsertBtn, 3);
-            this.finishInsertBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.finishInsertBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.finishInsertBtn.FlatAppearance.BorderSize = 5;
-            this.finishInsertBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.finishInsertBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.finishInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.finishInsertBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.finishInsertBtn.ForeColor = System.Drawing.Color.White;
-            this.finishInsertBtn.Location = new System.Drawing.Point(736, 762);
-            this.finishInsertBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.finishInsertBtn.Name = "finishInsertBtn";
-            this.finishInsertBtn.Size = new System.Drawing.Size(255, 50);
-            this.finishInsertBtn.TabIndex = 41;
-            this.finishInsertBtn.TabStop = false;
-            this.finishInsertBtn.Text = "Završi ";
-            this.finishInsertBtn.UseVisualStyleBackColor = false;
-            this.finishInsertBtn.Click += new System.EventHandler(this.finishInsertBtn_Click);
+            this.palletingDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.palletingDataGridView_CellPainting_1);
             // 
             // fk_client_id
             // 
@@ -390,6 +342,55 @@
             this.chk.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.chk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.chk.Width = 40;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(1297, 700);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 24);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "UKUPNO:";
+            // 
+            // palleteQuantitylbl
+            // 
+            this.palleteQuantitylbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.palleteQuantitylbl.AutoSize = true;
+            this.palleteQuantitylbl.BackColor = System.Drawing.Color.Transparent;
+            this.palleteQuantitylbl.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palleteQuantitylbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.palleteQuantitylbl.Location = new System.Drawing.Point(1407, 700);
+            this.palleteQuantitylbl.Name = "palleteQuantitylbl";
+            this.palleteQuantitylbl.Size = new System.Drawing.Size(23, 24);
+            this.palleteQuantitylbl.TabIndex = 42;
+            this.palleteQuantitylbl.Text = "0";
+            // 
+            // finishInsertBtn
+            // 
+            this.finishInsertBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.finishInsertBtn.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.finishInsertBtn, 3);
+            this.finishInsertBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.finishInsertBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.finishInsertBtn.FlatAppearance.BorderSize = 5;
+            this.finishInsertBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.finishInsertBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.finishInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.finishInsertBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.finishInsertBtn.ForeColor = System.Drawing.Color.White;
+            this.finishInsertBtn.Location = new System.Drawing.Point(730, 762);
+            this.finishInsertBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.finishInsertBtn.Name = "finishInsertBtn";
+            this.finishInsertBtn.Size = new System.Drawing.Size(255, 50);
+            this.finishInsertBtn.TabIndex = 41;
+            this.finishInsertBtn.TabStop = false;
+            this.finishInsertBtn.Text = "Završi ";
+            this.finishInsertBtn.UseVisualStyleBackColor = false;
+            this.finishInsertBtn.Click += new System.EventHandler(this.finishInsertBtn_Click);
             // 
             // Palleting
             // 

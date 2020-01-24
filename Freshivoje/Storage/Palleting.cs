@@ -24,6 +24,7 @@ namespace Freshivoje.Storage
             palletingDataGridView.AutoGenerateColumns = false;
             DbConnection.fillDGV(palletingDataGridView, _fillDGVQuery);
             palletingDataGridView.DefaultCellStyle.ForeColor = Color.Black;
+            
         }
 
         protected override CreateParams CreateParams
@@ -36,35 +37,13 @@ namespace Freshivoje.Storage
             }
         }
 
-        private void chkItems_CheckedChanged(object sender, EventArgs e)
+        private void palletingDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            
-            foreach (DataGridViewRow row in palletingDataGridView.Rows)
+            if(e.ColumnIndex == 13 && e.RowIndex == palletingDataGridView.NewRowIndex)
             {
-                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[12];
-                if (chk.Value == chk.FalseValue || chk.Value == null)
-                {
-                    chk.Value = chk.TrueValue;
-                    int selectedRowIndex = row.Index;
-                    decimal quantity = Convert.ToDecimal(palletingDataGridView.Rows[selectedRowIndex].Cells["quantity"].Value);
-                    totalQuanrity = totalQuanrity + quantity;
-                    palleteQuantitylbl.Text = totalQuanrity.ToString();
-                }
-                else
-                {
-                    chk.Value = chk.FalseValue;
-                    decimal quantity = Convert.ToDecimal(row.Cells["quantity"].Value);
-                    totalQuanrity = totalQuanrity + quantity;
-                    palleteQuantitylbl.Text = totalQuanrity.ToString();
-                }
-
+                e.PaintBackground(e.ClipBounds, true);
+                e.Handled = true;
             }
-            palletingDataGridView.EndEdit();
-        }
-
-        private void mainFormTblLayout_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void insertFormTblLayout_Paint(object sender, PaintEventArgs e)
@@ -124,7 +103,7 @@ namespace Freshivoje.Storage
         {
            if( e.ColumnIndex == 13)
             {
-                
+
                 foreach (DataGridViewRow row in palletingDataGridView.Rows) {
                     int selectedRowIndex = palletingDataGridView.CurrentRow.Index;
                     DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)palletingDataGridView.Rows[selectedRowIndex].Cells[13];
@@ -134,6 +113,14 @@ namespace Freshivoje.Storage
                         chk.Value = 1;
                         decimal quantity = Convert.ToDecimal(palletingDataGridView.Rows[selectedRowIndex].Cells["quantity"].Value);
                             totalQuanrity = totalQuanrity + quantity;
+                            if(totalQuanrity >= 500)
+                            {
+                                palleteQuantitylbl.ForeColor = System.Drawing.Color.Red;
+                            }
+                            if(totalQuanrity < 500)
+                            {
+                            palleteQuantitylbl.ForeColor = System.Drawing.Color.White;
+                            } 
                             palleteQuantitylbl.Text = totalQuanrity.ToString();
                             return; 
                     }
@@ -142,7 +129,15 @@ namespace Freshivoje.Storage
                         chk.Value = 0;
                         decimal quantity = Convert.ToDecimal(palletingDataGridView.Rows[selectedRowIndex].Cells["quantity"].Value);
                             totalQuanrity = totalQuanrity - quantity;
-                            palleteQuantitylbl.Text = totalQuanrity.ToString();
+                            if (totalQuanrity >= 500)
+                            {
+                                palleteQuantitylbl.ForeColor = System.Drawing.Color.Red;
+                            }
+                            if (totalQuanrity < 500)
+                            {
+                                palleteQuantitylbl.ForeColor = System.Drawing.Color.White;
+                            }
+                        palleteQuantitylbl.Text = totalQuanrity.ToString();
                             return;
                     }
 
@@ -159,6 +154,15 @@ namespace Freshivoje.Storage
         private void backBtn_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void palletingDataGridView_CellPainting_1(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex == 13 && e.RowIndex == palletingDataGridView.NewRowIndex)
+            {
+                e.PaintBackground(e.ClipBounds, true);
+                e.Handled = true;
+            }
         }
     }
 }
