@@ -328,7 +328,6 @@ namespace Freshivoje
         {
             try
             {
-
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
                 mySqlCommand.CommandText = query;
@@ -340,7 +339,6 @@ namespace Freshivoje
 
                     foreach (string column in columns)
                     {
-
                         switch (column)
                         {
                             case "id_article":
@@ -373,11 +371,18 @@ namespace Freshivoje
                             case "state":
                                 text += $"{reader.GetString(column)}";
                                 break;
+                            case "id_pallete":
+                                value = reader.GetInt32(column);
+                                break;
+                            case "pallet_number":
+                                text += $"{reader.GetInt32(column).ToString()}";
+                                break;
                             default:
 
                                 break;
                         }
 
+                      
                     }
                     ComboBoxItem item = new ComboBoxItem
                     {

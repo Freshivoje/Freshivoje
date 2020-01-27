@@ -50,15 +50,12 @@ namespace Freshivoje.Storage
         {
 
             WindowState = FormWindowState.Maximized;
-            //tunnelLbl.Text = "";
-           // articlequantityLbl.Text = "";
 
             DbConnection.fillBtnText(a1Btn, _a1Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
             DbConnection.fillBtnText(a2Btn, _a2Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
             DbConnection.fillBtnText(b1Btn, _b1Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
             DbConnection.fillBtnText(b2Btn, _b2Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
             DbConnection.fillBtnText(outputBtn, _outQuery, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
-           // DbConnection.tunnel(tunnelLbl, _fillTextBox, _query1, articlequantityLbl, "quantityArticleId", "QuantityStorageArticleId", "article_name", "sort", "organic", "category", "quantityArts", "quantityStorageArticle");
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -127,6 +124,14 @@ namespace Freshivoje.Storage
             using Palleting palleting = new Palleting();
             palleting.ShowDialog(this);
             Show();
+        }
+
+        private void classificationBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            using Classification classification= new Classification();
+            classification.ShowDialog(this);
+             Show();
         }
     }
 }

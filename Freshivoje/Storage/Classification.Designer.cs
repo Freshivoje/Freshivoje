@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.backBtn = new System.Windows.Forms.Button();
             this.PalletingDataGridView = new System.Windows.Forms.DataGridView();
             this.articleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Klijent = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,22 +45,22 @@
             this.selectArticle = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.finishInsertBtn = new System.Windows.Forms.Button();
-            this.articleQuantityTxtBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.class1TxtBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.class2TxtBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.class3TxtBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.palleteQuantitylbl = new System.Windows.Forms.Label();
+            this.class4TxtBox = new System.Windows.Forms.TextBox();
+            this.ClassificationLbl = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.noClassificationLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.finishInsertBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.palletnumberCmbBox = new System.Windows.Forms.ComboBox();
             this.insertFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PalletingDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -84,25 +85,26 @@
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.999999F));
+            this.insertFormTblLayout.Controls.Add(this.palletnumberCmbBox, 7, 1);
+            this.insertFormTblLayout.Controls.Add(this.backBtn, 13, 0);
             this.insertFormTblLayout.Controls.Add(this.PalletingDataGridView, 0, 2);
             this.insertFormTblLayout.Controls.Add(this.exitBtn, 14, 0);
             this.insertFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
-            this.insertFormTblLayout.Controls.Add(this.label1, 5, 1);
-            this.insertFormTblLayout.Controls.Add(this.finishInsertBtn, 5, 11);
-            this.insertFormTblLayout.Controls.Add(this.articleQuantityTxtBox, 7, 1);
-            this.insertFormTblLayout.Controls.Add(this.label6, 1, 9);
-            this.insertFormTblLayout.Controls.Add(this.textBox3, 2, 9);
-            this.insertFormTblLayout.Controls.Add(this.label3, 4, 9);
-            this.insertFormTblLayout.Controls.Add(this.textBox1, 5, 9);
-            this.insertFormTblLayout.Controls.Add(this.label5, 7, 9);
-            this.insertFormTblLayout.Controls.Add(this.textBox2, 8, 9);
-            this.insertFormTblLayout.Controls.Add(this.label4, 10, 9);
-            this.insertFormTblLayout.Controls.Add(this.textBox4, 11, 9);
-            this.insertFormTblLayout.Controls.Add(this.palleteQuantitylbl, 11, 10);
+            this.insertFormTblLayout.Controls.Add(this.label6, 2, 9);
+            this.insertFormTblLayout.Controls.Add(this.class1TxtBox, 3, 9);
+            this.insertFormTblLayout.Controls.Add(this.label3, 5, 9);
+            this.insertFormTblLayout.Controls.Add(this.class2TxtBox, 6, 9);
+            this.insertFormTblLayout.Controls.Add(this.label5, 8, 9);
+            this.insertFormTblLayout.Controls.Add(this.class3TxtBox, 9, 9);
+            this.insertFormTblLayout.Controls.Add(this.label4, 11, 9);
+            this.insertFormTblLayout.Controls.Add(this.class4TxtBox, 12, 9);
+            this.insertFormTblLayout.Controls.Add(this.ClassificationLbl, 11, 10);
             this.insertFormTblLayout.Controls.Add(this.label7, 2, 10);
-            this.insertFormTblLayout.Controls.Add(this.label8, 6, 10);
+            this.insertFormTblLayout.Controls.Add(this.noClassificationLbl, 6, 10);
             this.insertFormTblLayout.Controls.Add(this.label2, 8, 10);
-            this.insertFormTblLayout.Controls.Add(this.label9, 0, 9);
+            this.insertFormTblLayout.Controls.Add(this.label9, 1, 9);
+            this.insertFormTblLayout.Controls.Add(this.finishInsertBtn, 6, 11);
+            this.insertFormTblLayout.Controls.Add(this.label1, 6, 1);
             this.insertFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insertFormTblLayout.Location = new System.Drawing.Point(0, 0);
             this.insertFormTblLayout.Name = "insertFormTblLayout";
@@ -119,9 +121,31 @@
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333332F));
-            this.insertFormTblLayout.Size = new System.Drawing.Size(1320, 997);
+            this.insertFormTblLayout.Size = new System.Drawing.Size(1793, 893);
             this.insertFormTblLayout.TabIndex = 4;
             this.insertFormTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.insertFormTblLayout_Paint);
+            // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.BackgroundImage = global::Freshivoje.Properties.Resources.left_arrow;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBtn.ForeColor = System.Drawing.Color.White;
+            this.backBtn.Location = new System.Drawing.Point(1551, 3);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(115, 68);
+            this.backBtn.TabIndex = 59;
+            this.backBtn.TabStop = false;
+            this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.backBtn.UseVisualStyleBackColor = false;
             // 
             // PalletingDataGridView
             // 
@@ -131,14 +155,14 @@
             this.PalletingDataGridView.AllowUserToResizeRows = false;
             this.PalletingDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.PalletingDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PalletingDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PalletingDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.PalletingDataGridView.ColumnHeadersHeight = 40;
             this.PalletingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.PalletingDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -152,26 +176,26 @@
             this.selectArticle});
             this.insertFormTblLayout.SetColumnSpan(this.PalletingDataGridView, 15);
             this.PalletingDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PalletingDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PalletingDataGridView.DefaultCellStyle = dataGridViewCellStyle15;
             this.PalletingDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PalletingDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.PalletingDataGridView.Location = new System.Drawing.Point(3, 169);
+            this.PalletingDataGridView.Location = new System.Drawing.Point(3, 151);
             this.PalletingDataGridView.MultiSelect = false;
             this.PalletingDataGridView.Name = "PalletingDataGridView";
             this.PalletingDataGridView.ReadOnly = true;
-            this.PalletingDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.PalletingDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.PalletingDataGridView.RowHeadersWidth = 40;
             this.PalletingDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.insertFormTblLayout.SetRowSpan(this.PalletingDataGridView, 7);
             this.PalletingDataGridView.RowTemplate.Height = 30;
-            this.PalletingDataGridView.Size = new System.Drawing.Size(1314, 575);
+            this.PalletingDataGridView.Size = new System.Drawing.Size(1787, 512);
             this.PalletingDataGridView.TabIndex = 35;
             this.PalletingDataGridView.TabStop = false;
             // 
@@ -227,14 +251,14 @@
             // 
             // selectArticle
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.NullValue = false;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.selectArticle.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle14.NullValue = false;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Red;
+            this.selectArticle.DefaultCellStyle = dataGridViewCellStyle14;
             this.selectArticle.HeaderText = "";
             this.selectArticle.Name = "selectArticle";
             this.selectArticle.ReadOnly = true;
@@ -257,10 +281,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1240, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1672, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(77, 77);
+            this.exitBtn.Size = new System.Drawing.Size(118, 68);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -278,24 +302,192 @@
             this.lblTitle.Location = new System.Drawing.Point(3, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblTitle.Size = new System.Drawing.Size(226, 83);
+            this.lblTitle.Size = new System.Drawing.Size(226, 74);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "KLASIFIKACIJA";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // label6
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.insertFormTblLayout.SetColumnSpan(this.label1, 2);
-            this.label1.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(489, 112);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 24);
-            this.label1.TabIndex = 46;
-            this.label1.Text = "PALETA :";
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(223, 716);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(115, 24);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "I";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // class1TxtBox
+            // 
+            this.class1TxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.insertFormTblLayout.SetColumnSpan(this.class1TxtBox, 2);
+            this.class1TxtBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.class1TxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.class1TxtBox.Location = new System.Drawing.Point(344, 706);
+            this.class1TxtBox.MaxLength = 10;
+            this.class1TxtBox.Multiline = true;
+            this.class1TxtBox.Name = "class1TxtBox";
+            this.class1TxtBox.ShortcutsEnabled = false;
+            this.class1TxtBox.Size = new System.Drawing.Size(235, 31);
+            this.class1TxtBox.TabIndex = 53;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(585, 716);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 24);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "II";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // class2TxtBox
+            // 
+            this.class2TxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.insertFormTblLayout.SetColumnSpan(this.class2TxtBox, 2);
+            this.class2TxtBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.class2TxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.class2TxtBox.Location = new System.Drawing.Point(706, 706);
+            this.class2TxtBox.MaxLength = 10;
+            this.class2TxtBox.Multiline = true;
+            this.class2TxtBox.Name = "class2TxtBox";
+            this.class2TxtBox.ShortcutsEnabled = false;
+            this.class2TxtBox.Size = new System.Drawing.Size(235, 31);
+            this.class2TxtBox.TabIndex = 49;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(947, 716);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 24);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "III";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // class3TxtBox
+            // 
+            this.class3TxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.insertFormTblLayout.SetColumnSpan(this.class3TxtBox, 2);
+            this.class3TxtBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.class3TxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.class3TxtBox.Location = new System.Drawing.Point(1068, 706);
+            this.class3TxtBox.MaxLength = 10;
+            this.class3TxtBox.Multiline = true;
+            this.class3TxtBox.Name = "class3TxtBox";
+            this.class3TxtBox.ShortcutsEnabled = false;
+            this.class3TxtBox.Size = new System.Drawing.Size(235, 31);
+            this.class3TxtBox.TabIndex = 51;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(1309, 716);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(115, 24);
+            this.label4.TabIndex = 50;
+            this.label4.Text = "IV";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // class4TxtBox
+            // 
+            this.class4TxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.insertFormTblLayout.SetColumnSpan(this.class4TxtBox, 2);
+            this.class4TxtBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.class4TxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.class4TxtBox.Location = new System.Drawing.Point(1430, 706);
+            this.class4TxtBox.MaxLength = 10;
+            this.class4TxtBox.Multiline = true;
+            this.class4TxtBox.Name = "class4TxtBox";
+            this.class4TxtBox.ShortcutsEnabled = false;
+            this.class4TxtBox.Size = new System.Drawing.Size(236, 31);
+            this.class4TxtBox.TabIndex = 55;
+            // 
+            // ClassificationLbl
+            // 
+            this.ClassificationLbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ClassificationLbl.AutoSize = true;
+            this.ClassificationLbl.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.ClassificationLbl, 2);
+            this.ClassificationLbl.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClassificationLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClassificationLbl.Location = new System.Drawing.Point(1430, 765);
+            this.ClassificationLbl.Name = "ClassificationLbl";
+            this.ClassificationLbl.Size = new System.Drawing.Size(85, 24);
+            this.ClassificationLbl.TabIndex = 42;
+            this.ClassificationLbl.Text = "LABEL1";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.label7, 4);
+            this.label7.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label7.Location = new System.Drawing.Point(408, 765);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(292, 24);
+            this.label7.TabIndex = 57;
+            this.label7.Text = "UKUPNO PRE KLASIRANJA :";
+            // 
+            // noClassificationLbl
+            // 
+            this.noClassificationLbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.noClassificationLbl.AutoSize = true;
+            this.noClassificationLbl.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.noClassificationLbl, 2);
+            this.noClassificationLbl.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noClassificationLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.noClassificationLbl.Location = new System.Drawing.Point(706, 765);
+            this.noClassificationLbl.Name = "noClassificationLbl";
+            this.noClassificationLbl.Size = new System.Drawing.Size(85, 24);
+            this.noClassificationLbl.TabIndex = 56;
+            this.noClassificationLbl.Text = "LABEL1";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.insertFormTblLayout.SetColumnSpan(this.label2, 4);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(1108, 765);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(316, 24);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "UKUPNO POSLE KLASIRANJA :";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label9.Location = new System.Drawing.Point(103, 716);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(114, 24);
+            this.label9.TabIndex = 58;
+            this.label9.Text = "Klasa :";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // finishInsertBtn
             // 
@@ -310,7 +502,7 @@
             this.finishInsertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.finishInsertBtn.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.finishInsertBtn.ForeColor = System.Drawing.Color.White;
-            this.finishInsertBtn.Location = new System.Drawing.Point(491, 930);
+            this.finishInsertBtn.Location = new System.Drawing.Point(756, 828);
             this.finishInsertBtn.Margin = new System.Windows.Forms.Padding(5);
             this.finishInsertBtn.Name = "finishInsertBtn";
             this.finishInsertBtn.Size = new System.Drawing.Size(255, 50);
@@ -319,203 +511,42 @@
             this.finishInsertBtn.Text = "Završi ";
             this.finishInsertBtn.UseVisualStyleBackColor = false;
             // 
-            // articleQuantityTxtBox
+            // label1
             // 
-            this.articleQuantityTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.articleQuantityTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.insertFormTblLayout.SetColumnSpan(this.articleQuantityTxtBox, 2);
-            this.articleQuantityTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.articleQuantityTxtBox.Location = new System.Drawing.Point(635, 109);
-            this.articleQuantityTxtBox.MaxLength = 10;
-            this.articleQuantityTxtBox.Multiline = true;
-            this.articleQuantityTxtBox.Name = "articleQuantityTxtBox";
-            this.articleQuantityTxtBox.ShortcutsEnabled = false;
-            this.articleQuantityTxtBox.Size = new System.Drawing.Size(187, 31);
-            this.articleQuantityTxtBox.TabIndex = 47;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(706, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 74);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "PALETA :";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label6
+            // palletnumberCmbBox
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(197, 776);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(20, 24);
-            this.label6.TabIndex = 54;
-            this.label6.Text = "I";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.insertFormTblLayout.SetColumnSpan(this.textBox3, 2);
-            this.textBox3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(223, 773);
-            this.textBox3.MaxLength = 10;
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ShortcutsEnabled = false;
-            this.textBox3.Size = new System.Drawing.Size(140, 31);
-            this.textBox3.TabIndex = 53;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(453, 776);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 24);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "II";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.insertFormTblLayout.SetColumnSpan(this.textBox1, 2);
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(489, 773);
-            this.textBox1.MaxLength = 10;
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ShortcutsEnabled = false;
-            this.textBox1.Size = new System.Drawing.Size(140, 31);
-            this.textBox1.TabIndex = 49;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(709, 776);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 24);
-            this.label5.TabIndex = 52;
-            this.label5.Text = "III";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.insertFormTblLayout.SetColumnSpan(this.textBox2, 2);
-            this.textBox2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(755, 773);
-            this.textBox2.MaxLength = 10;
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ShortcutsEnabled = false;
-            this.textBox2.Size = new System.Drawing.Size(140, 31);
-            this.textBox2.TabIndex = 51;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(981, 776);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 24);
-            this.label4.TabIndex = 50;
-            this.label4.Text = "IV";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.insertFormTblLayout.SetColumnSpan(this.textBox4, 2);
-            this.textBox4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(1021, 773);
-            this.textBox4.MaxLength = 10;
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ShortcutsEnabled = false;
-            this.textBox4.Size = new System.Drawing.Size(140, 31);
-            this.textBox4.TabIndex = 55;
-            // 
-            // palleteQuantitylbl
-            // 
-            this.palleteQuantitylbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.palleteQuantitylbl.AutoSize = true;
-            this.palleteQuantitylbl.BackColor = System.Drawing.Color.Transparent;
-            this.insertFormTblLayout.SetColumnSpan(this.palleteQuantitylbl, 2);
-            this.palleteQuantitylbl.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.palleteQuantitylbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.palleteQuantitylbl.Location = new System.Drawing.Point(1094, 859);
-            this.palleteQuantitylbl.Name = "palleteQuantitylbl";
-            this.palleteQuantitylbl.Size = new System.Drawing.Size(85, 24);
-            this.palleteQuantitylbl.TabIndex = 42;
-            this.palleteQuantitylbl.Text = "LABEL1";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.insertFormTblLayout.SetColumnSpan(this.label7, 4);
-            this.label7.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(264, 859);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(292, 24);
-            this.label7.TabIndex = 57;
-            this.label7.Text = "UKUPNO PRE KLASIRANJA :";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.insertFormTblLayout.SetColumnSpan(this.label8, 2);
-            this.label8.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(562, 859);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 24);
-            this.label8.TabIndex = 56;
-            this.label8.Text = "LABEL1";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.insertFormTblLayout.SetColumnSpan(this.label2, 4);
-            this.label2.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(772, 859);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(316, 24);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "UKUPNO POSLE KLASIRANJA :";
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(3, 776);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 24);
-            this.label9.TabIndex = 58;
-            this.label9.Text = "Klasa :";
+            this.insertFormTblLayout.SetColumnSpan(this.palletnumberCmbBox, 3);
+            this.palletnumberCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.palletnumberCmbBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.palletnumberCmbBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palletnumberCmbBox.FormattingEnabled = true;
+            this.palletnumberCmbBox.Items.AddRange(new object[] {
+            "---"});
+            this.palletnumberCmbBox.Location = new System.Drawing.Point(827, 77);
+            this.palletnumberCmbBox.Name = "palletnumberCmbBox";
+            this.palletnumberCmbBox.Size = new System.Drawing.Size(356, 31);
+            this.palletnumberCmbBox.TabIndex = 60;
+            this.palletnumberCmbBox.TabStop = false;
+            this.palletnumberCmbBox.SelectedIndexChanged += new System.EventHandler(this.palletnumberCmbBox_SelectedIndexChanged);
             // 
             // Classification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(1320, 997);
+            this.ClientSize = new System.Drawing.Size(1793, 893);
             this.ControlBox = false;
             this.Controls.Add(this.insertFormTblLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -544,21 +575,22 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn selectArticle;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label palleteQuantitylbl;
+        private System.Windows.Forms.Label ClassificationLbl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button finishInsertBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox articleQuantityTxtBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox class1TxtBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox class2TxtBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox class3TxtBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox class4TxtBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label noClassificationLbl;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.ComboBox palletnumberCmbBox;
     }
 }

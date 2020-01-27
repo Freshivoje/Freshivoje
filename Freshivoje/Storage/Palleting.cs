@@ -116,10 +116,12 @@ namespace Freshivoje.Storage
                             if(totalQuanrity >= 500)
                             {
                                 palleteQuantitylbl.ForeColor = System.Drawing.Color.Red;
+                                finishInsertBtn.Enabled = false;
                             }
                             if(totalQuanrity < 500)
                             {
-                            palleteQuantitylbl.ForeColor = System.Drawing.Color.White;
+                                palleteQuantitylbl.ForeColor = System.Drawing.Color.White;
+                                finishInsertBtn.Enabled = true;
                             } 
                             palleteQuantitylbl.Text = totalQuanrity.ToString();
                             return; 
