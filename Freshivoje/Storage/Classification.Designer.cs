@@ -60,7 +60,6 @@
             this.fk_article_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_items_receipt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Articlename = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sort = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Organic = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -193,7 +192,6 @@
             this.fk_article_id,
             this.id_items_receipt,
             this.Quantity,
-            this.Status,
             this.Articlename,
             this.Sort,
             this.Organic,
@@ -387,9 +385,9 @@
             this.ClassificationLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClassificationLbl.Location = new System.Drawing.Point(1430, 765);
             this.ClassificationLbl.Name = "ClassificationLbl";
-            this.ClassificationLbl.Size = new System.Drawing.Size(85, 24);
+            this.ClassificationLbl.Size = new System.Drawing.Size(23, 24);
             this.ClassificationLbl.TabIndex = 42;
-            this.ClassificationLbl.Text = "LABEL1";
+            this.ClassificationLbl.Text = "0";
             // 
             // label7
             // 
@@ -415,9 +413,9 @@
             this.noClassificationLbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.noClassificationLbl.Location = new System.Drawing.Point(706, 765);
             this.noClassificationLbl.Name = "noClassificationLbl";
-            this.noClassificationLbl.Size = new System.Drawing.Size(85, 24);
+            this.noClassificationLbl.Size = new System.Drawing.Size(23, 24);
             this.noClassificationLbl.TabIndex = 56;
-            this.noClassificationLbl.Text = "LABEL1";
+            this.noClassificationLbl.Text = "0";
             // 
             // label2
             // 
@@ -512,6 +510,7 @@
             this.fk_id_pallete.Name = "fk_id_pallete";
             this.fk_id_pallete.ReadOnly = true;
             this.fk_id_pallete.Visible = false;
+            this.fk_id_pallete.Width = 500;
             // 
             // first_name
             // 
@@ -564,13 +563,6 @@
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
             this.Quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
             // 
             // Articlename
             // 
@@ -658,7 +650,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fk_article_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_items_receipt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Articlename;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sort;
         private System.Windows.Forms.DataGridViewTextBoxColumn Organic;
