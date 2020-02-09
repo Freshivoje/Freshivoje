@@ -61,7 +61,7 @@
             this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.25074F));
             this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this.StorageFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.StorageFormTblLayout.Controls.Add(this.tunnelBtn, 0, 8);
             this.StorageFormTblLayout.Controls.Add(this.palletizingBtn, 0, 2);
             this.StorageFormTblLayout.Controls.Add(this.classificationBtn, 4, 7);
@@ -124,11 +124,12 @@
             this.tunnelBtn.Margin = new System.Windows.Forms.Padding(5);
             this.tunnelBtn.Name = "tunnelBtn";
             this.StorageFormTblLayout.SetRowSpan(this.tunnelBtn, 6);
-            this.tunnelBtn.Size = new System.Drawing.Size(617, 332);
+            this.tunnelBtn.Size = new System.Drawing.Size(616, 332);
             this.tunnelBtn.TabIndex = 63;
             this.tunnelBtn.TabStop = false;
             this.tunnelBtn.Text = "TUNEL";
             this.tunnelBtn.UseVisualStyleBackColor = false;
+            this.tunnelBtn.Click += new System.EventHandler(this.tunnelBtn_Click);
             // 
             // palletizingBtn
             // 
@@ -147,7 +148,7 @@
             this.palletizingBtn.Margin = new System.Windows.Forms.Padding(5);
             this.palletizingBtn.Name = "palletizingBtn";
             this.StorageFormTblLayout.SetRowSpan(this.palletizingBtn, 6);
-            this.palletizingBtn.Size = new System.Drawing.Size(617, 332);
+            this.palletizingBtn.Size = new System.Drawing.Size(616, 332);
             this.palletizingBtn.TabIndex = 62;
             this.palletizingBtn.TabStop = false;
             this.palletizingBtn.Text = "PALETIRANJE";
@@ -167,11 +168,11 @@
             this.classificationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.classificationBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.classificationBtn.ForeColor = System.Drawing.Color.White;
-            this.classificationBtn.Location = new System.Drawing.Point(652, 404);
+            this.classificationBtn.Location = new System.Drawing.Point(651, 404);
             this.classificationBtn.Margin = new System.Windows.Forms.Padding(5);
             this.classificationBtn.Name = "classificationBtn";
             this.StorageFormTblLayout.SetRowSpan(this.classificationBtn, 2);
-            this.classificationBtn.Size = new System.Drawing.Size(849, 104);
+            this.classificationBtn.Size = new System.Drawing.Size(848, 104);
             this.classificationBtn.TabIndex = 61;
             this.classificationBtn.TabStop = false;
             this.classificationBtn.Text = "KLASIRANJE";
@@ -191,10 +192,10 @@
             this.storageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.storageBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.storageBtn.ForeColor = System.Drawing.Color.White;
-            this.storageBtn.Location = new System.Drawing.Point(652, 803);
+            this.storageBtn.Location = new System.Drawing.Point(651, 803);
             this.storageBtn.Margin = new System.Windows.Forms.Padding(5);
             this.storageBtn.Name = "storageBtn";
-            this.storageBtn.Size = new System.Drawing.Size(849, 56);
+            this.storageBtn.Size = new System.Drawing.Size(848, 56);
             this.storageBtn.TabIndex = 60;
             this.storageBtn.TabStop = false;
             this.storageBtn.Text = "MAGACIN";
@@ -208,9 +209,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1529, 87);
+            this.label1.Location = new System.Drawing.Point(1527, 87);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(272, 27);
+            this.label1.Size = new System.Drawing.Size(271, 27);
             this.label1.TabIndex = 50;
             this.label1.Text = "Prodaja artikla ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -229,10 +230,10 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitBtn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.White;
-            this.exitBtn.Location = new System.Drawing.Point(1857, 3);
+            this.exitBtn.Location = new System.Drawing.Point(1854, 3);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.exitBtn.Size = new System.Drawing.Size(80, 51);
+            this.exitBtn.Size = new System.Drawing.Size(83, 51);
             this.exitBtn.TabIndex = 6;
             this.exitBtn.TabStop = false;
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -270,7 +271,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1807, 3);
+            this.backBtn.Location = new System.Drawing.Point(1804, 3);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(44, 51);
             this.backBtn.TabIndex = 9;
@@ -287,10 +288,10 @@
             this.chambersLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chambersLbl.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chambersLbl.ForeColor = System.Drawing.Color.White;
-            this.chambersLbl.Location = new System.Drawing.Point(650, 57);
+            this.chambersLbl.Location = new System.Drawing.Point(649, 57);
             this.chambersLbl.Name = "chambersLbl";
             this.chambersLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.chambersLbl.Size = new System.Drawing.Size(853, 57);
+            this.chambersLbl.Size = new System.Drawing.Size(852, 57);
             this.chambersLbl.TabIndex = 44;
             this.chambersLbl.Text = "KOMORE ";
             this.chambersLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -307,7 +308,7 @@
             this.a1Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.a1Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.a1Btn.ForeColor = System.Drawing.Color.White;
-            this.a1Btn.Location = new System.Drawing.Point(652, 119);
+            this.a1Btn.Location = new System.Drawing.Point(651, 119);
             this.a1Btn.Margin = new System.Windows.Forms.Padding(5);
             this.a1Btn.Name = "a1Btn";
             this.StorageFormTblLayout.SetRowSpan(this.a1Btn, 5);
@@ -329,7 +330,7 @@
             this.b1Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b1Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b1Btn.ForeColor = System.Drawing.Color.White;
-            this.b1Btn.Location = new System.Drawing.Point(650, 516);
+            this.b1Btn.Location = new System.Drawing.Point(649, 516);
             this.b1Btn.Name = "b1Btn";
             this.StorageFormTblLayout.SetRowSpan(this.b1Btn, 5);
             this.b1Btn.Size = new System.Drawing.Size(416, 279);
@@ -349,10 +350,10 @@
             this.a2Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.a2Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.a2Btn.ForeColor = System.Drawing.Color.White;
-            this.a2Btn.Location = new System.Drawing.Point(1092, 117);
+            this.a2Btn.Location = new System.Drawing.Point(1091, 117);
             this.a2Btn.Name = "a2Btn";
             this.StorageFormTblLayout.SetRowSpan(this.a2Btn, 5);
-            this.a2Btn.Size = new System.Drawing.Size(411, 279);
+            this.a2Btn.Size = new System.Drawing.Size(410, 279);
             this.a2Btn.TabIndex = 47;
             this.a2Btn.UseVisualStyleBackColor = false;
             this.a2Btn.Click += new System.EventHandler(this.a2Btn_Click);
@@ -369,10 +370,10 @@
             this.b2Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b2Btn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b2Btn.ForeColor = System.Drawing.Color.White;
-            this.b2Btn.Location = new System.Drawing.Point(1092, 516);
+            this.b2Btn.Location = new System.Drawing.Point(1091, 516);
             this.b2Btn.Name = "b2Btn";
             this.StorageFormTblLayout.SetRowSpan(this.b2Btn, 5);
-            this.b2Btn.Size = new System.Drawing.Size(411, 279);
+            this.b2Btn.Size = new System.Drawing.Size(410, 279);
             this.b2Btn.TabIndex = 48;
             this.b2Btn.UseVisualStyleBackColor = false;
             this.b2Btn.Click += new System.EventHandler(this.b2Btn_Click);
@@ -389,10 +390,10 @@
             this.outputBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.outputBtn.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold);
             this.outputBtn.ForeColor = System.Drawing.Color.White;
-            this.outputBtn.Location = new System.Drawing.Point(1529, 117);
+            this.outputBtn.Location = new System.Drawing.Point(1527, 117);
             this.outputBtn.Name = "outputBtn";
             this.StorageFormTblLayout.SetRowSpan(this.outputBtn, 12);
-            this.outputBtn.Size = new System.Drawing.Size(272, 678);
+            this.outputBtn.Size = new System.Drawing.Size(271, 678);
             this.outputBtn.TabIndex = 49;
             this.outputBtn.Text = "IZLAZ";
             this.outputBtn.UseVisualStyleBackColor = false;

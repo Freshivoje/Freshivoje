@@ -10,21 +10,18 @@ namespace Freshivoje.Models
     {
         public int _id { get; private set; }
         public string _name { get; private set; }
-        public decimal _articleQuantity { get; private set; }
-        public decimal _packageQuantity { get; private set; }
+     
       
 
 
         public StorageData(int storageId,
-            string storageName,
-            decimal articleQuantity,
-            decimal packageQuantity
+            string storageName
+       
           )
         {
             _id = storageId;
             _name = storageName;
-            _articleQuantity = articleQuantity;
-            _packageQuantity = packageQuantity;
+
 
         }
 

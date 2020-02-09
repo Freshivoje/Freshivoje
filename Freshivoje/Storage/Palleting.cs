@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Freshivoje.Custom_Forms;
 using Freshivoje.Models;
+using MySql.Data.MySqlClient;
 
 namespace Freshivoje.Storage
 {
@@ -64,7 +65,7 @@ namespace Freshivoje.Storage
             {
                 return;
             }
-
+            
             foreach (DataGridViewRow row in palletingDataGridView.Rows)
             {
                 if (row.Cells[13].Value != null && row.Cells[13].Value.Equals(true)) 
@@ -84,7 +85,6 @@ namespace Freshivoje.Storage
                     string category = Convert.ToString(row.Cells["category"].Value);
                     int fk_item_receipt_id = Convert.ToInt32(row.Cells["id_items_receipt"].Value);
 
-
                     PalletingItem item = new PalletingItem(fk_client_id, first_name, last_name, fk_receipte_id, fk_article_id, quantity,
                         status, article_name, sort, organic, category, fk_item_receipt_id);
                     palletings.Add(item);
@@ -96,6 +96,24 @@ namespace Freshivoje.Storage
             }
 
             DbConnection.executePalletingQuery(palletings);
+
+            MySqlCommand mySqlCommand2 = new MySqlCommand
+            {
+                CommandText = @"SELECT id_pallete FROM pallete ORDER BY id_pallete DESC LIMIT 1"
+            };
+           int pallet_id = DbConnection.getValue(mySqlCommand2);
+
+            MySqlCommand mySqlCommand1 = new MySqlCommand
+            {
+                CommandText = @"INSERT INTO pallete_positioning(fk_pallete_id, fk_storage_id, pallete_positioning_date)VALUES(@fkPaleteId, @fkStorageId, @dateTimeNow)"
+            };
+            mySqlCommand1.Parameters.AddWithValue("@fkPaleteId", pallet_id);
+            mySqlCommand1.Parameters.AddWithValue("@fkStorageId", 9);
+            mySqlCommand1.Parameters.AddWithValue("@dateTimeNow", DateTime.Now.ToString("yyyy-MM-dd hh:ss:ii"));
+            DbConnection.executeQuery(mySqlCommand1);
+
+
+
             Close();
         }
 

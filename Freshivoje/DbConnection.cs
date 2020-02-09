@@ -820,17 +820,15 @@ namespace Freshivoje
                 if (mySqlDataReader.Read())
                 {
 
-                    decimal article_quantity = mySqlDataReader.GetDecimal("article_quantity");
                     string storage_position = mySqlDataReader.GetString("storage_position");
 
                     if (storage_position == "IZLAZ")
                     {
-                        StorageData storageData1 = new StorageData(id, storage_position, article_quantity, 0);
+                        StorageData storageData1 = new StorageData(id, storage_position);
                         result = storageData1;
                         return result;
                     }
-                    decimal package_quantity = mySqlDataReader.GetDecimal("package_quantity");
-                    StorageData storageData = new StorageData(id, storage_position, article_quantity, package_quantity);
+                    StorageData storageData = new StorageData(id, storage_position);
 
                     result = storageData;
                 }

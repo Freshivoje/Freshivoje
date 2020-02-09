@@ -133,5 +133,13 @@ namespace Freshivoje.Storage
             classification.ShowDialog(this);
              Show();
         }
+
+        private void tunnelBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            using InsertStorageForm insertStorageForm = new InsertStorageForm(9);
+            insertStorageForm.ShowDialog(this);
+            Show();
+        }
     }
 }

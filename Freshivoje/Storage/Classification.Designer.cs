@@ -35,6 +35,18 @@
             this.palletNumberTxt = new System.Windows.Forms.TextBox();
             this.backBtn = new System.Windows.Forms.Button();
             this.classiDataGridView = new System.Windows.Forms.DataGridView();
+            this.fk_id_pallete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_client_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fk_article_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_items_receipt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Articlename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sort = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Organic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.palletnumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,18 +65,6 @@
             this.finishInsertBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.searchBtn = new System.Windows.Forms.Button();
-            this.fk_id_pallete = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fk_client_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fk_article_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_items_receipt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Articlename = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Organic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.palletnumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.insertFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classiDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -221,6 +221,113 @@
             this.classiDataGridView.Size = new System.Drawing.Size(1787, 512);
             this.classiDataGridView.TabIndex = 35;
             this.classiDataGridView.TabStop = false;
+            // 
+            // fk_id_pallete
+            // 
+            this.fk_id_pallete.DataPropertyName = "fk_id_pallete";
+            this.fk_id_pallete.HeaderText = "ID palete";
+            this.fk_id_pallete.Name = "fk_id_pallete";
+            this.fk_id_pallete.ReadOnly = true;
+            this.fk_id_pallete.Visible = false;
+            this.fk_id_pallete.Width = 500;
+            // 
+            // first_name
+            // 
+            this.first_name.DataPropertyName = "first_name";
+            this.first_name.FillWeight = 150F;
+            this.first_name.HeaderText = "Ime ";
+            this.first_name.MinimumWidth = 200;
+            this.first_name.Name = "first_name";
+            this.first_name.ReadOnly = true;
+            this.first_name.Width = 200;
+            // 
+            // last_name
+            // 
+            this.last_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.last_name.DataPropertyName = "last_name";
+            this.last_name.HeaderText = "Prezime";
+            this.last_name.MinimumWidth = 300;
+            this.last_name.Name = "last_name";
+            this.last_name.ReadOnly = true;
+            // 
+            // fk_client_id
+            // 
+            this.fk_client_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fk_client_id.DataPropertyName = "fk_client_id";
+            this.fk_client_id.HeaderText = "id klijenta";
+            this.fk_client_id.Name = "fk_client_id";
+            this.fk_client_id.ReadOnly = true;
+            this.fk_client_id.Visible = false;
+            // 
+            // fk_article_id
+            // 
+            this.fk_article_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.fk_article_id.DataPropertyName = "fk_article_id";
+            this.fk_article_id.HeaderText = "id artikla";
+            this.fk_article_id.Name = "fk_article_id";
+            this.fk_article_id.ReadOnly = true;
+            this.fk_article_id.Visible = false;
+            this.fk_article_id.Width = 136;
+            // 
+            // id_items_receipt
+            // 
+            this.id_items_receipt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id_items_receipt.DataPropertyName = "id_items_receipt";
+            this.id_items_receipt.HeaderText = "ID Item Receipt";
+            this.id_items_receipt.Name = "id_items_receipt";
+            this.id_items_receipt.ReadOnly = true;
+            this.id_items_receipt.Visible = false;
+            // 
+            // Quantity
+            // 
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Quantity.DataPropertyName = "quantity";
+            this.Quantity.FillWeight = 150F;
+            this.Quantity.HeaderText = "Količina";
+            this.Quantity.MinimumWidth = 150;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Articlename
+            // 
+            this.Articlename.DataPropertyName = "article_name";
+            this.Articlename.HeaderText = "Ime artikla";
+            this.Articlename.Name = "Articlename";
+            this.Articlename.ReadOnly = true;
+            this.Articlename.Width = 200;
+            // 
+            // Sort
+            // 
+            this.Sort.DataPropertyName = "sort";
+            this.Sort.HeaderText = "Sorta";
+            this.Sort.Name = "Sort";
+            this.Sort.ReadOnly = true;
+            this.Sort.Width = 200;
+            // 
+            // Organic
+            // 
+            this.Organic.DataPropertyName = "organic";
+            this.Organic.HeaderText = "K.Proizvodnja";
+            this.Organic.Name = "Organic";
+            this.Organic.ReadOnly = true;
+            this.Organic.Width = 200;
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "category";
+            this.Category.HeaderText = "Kategorija";
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            this.Category.Width = 200;
+            // 
+            // palletnumber
+            // 
+            this.palletnumber.DataPropertyName = "pallet_number";
+            this.palletnumber.HeaderText = "Broj palete";
+            this.palletnumber.Name = "palletnumber";
+            this.palletnumber.ReadOnly = true;
+            this.palletnumber.Width = 250;
             // 
             // exitBtn
             // 
@@ -466,6 +573,7 @@
             this.finishInsertBtn.TabStop = false;
             this.finishInsertBtn.Text = "Završi ";
             this.finishInsertBtn.UseVisualStyleBackColor = false;
+            this.finishInsertBtn.Click += new System.EventHandler(this.finishInsertBtn_Click);
             // 
             // label1
             // 
@@ -502,102 +610,6 @@
             this.searchBtn.Text = "Traži";
             this.searchBtn.UseVisualStyleBackColor = false;
             this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
-            // 
-            // fk_id_pallete
-            // 
-            this.fk_id_pallete.DataPropertyName = "fk_id_pallete";
-            this.fk_id_pallete.HeaderText = "ID palete";
-            this.fk_id_pallete.Name = "fk_id_pallete";
-            this.fk_id_pallete.ReadOnly = true;
-            this.fk_id_pallete.Visible = false;
-            this.fk_id_pallete.Width = 500;
-            // 
-            // first_name
-            // 
-            this.first_name.DataPropertyName = "first_name";
-            this.first_name.HeaderText = "Ime ";
-            this.first_name.Name = "first_name";
-            this.first_name.ReadOnly = true;
-            // 
-            // last_name
-            // 
-            this.last_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.last_name.DataPropertyName = "last_name";
-            this.last_name.HeaderText = "Prezime";
-            this.last_name.Name = "last_name";
-            this.last_name.ReadOnly = true;
-            // 
-            // fk_client_id
-            // 
-            this.fk_client_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fk_client_id.DataPropertyName = "fk_client_id";
-            this.fk_client_id.HeaderText = "id klijenta";
-            this.fk_client_id.Name = "fk_client_id";
-            this.fk_client_id.ReadOnly = true;
-            this.fk_client_id.Visible = false;
-            // 
-            // fk_article_id
-            // 
-            this.fk_article_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.fk_article_id.DataPropertyName = "fk_article_id";
-            this.fk_article_id.HeaderText = "id artikla";
-            this.fk_article_id.Name = "fk_article_id";
-            this.fk_article_id.ReadOnly = true;
-            this.fk_article_id.Visible = false;
-            this.fk_article_id.Width = 136;
-            // 
-            // id_items_receipt
-            // 
-            this.id_items_receipt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id_items_receipt.DataPropertyName = "id_items_receipt";
-            this.id_items_receipt.HeaderText = "ID Item Receipt";
-            this.id_items_receipt.Name = "id_items_receipt";
-            this.id_items_receipt.ReadOnly = true;
-            this.id_items_receipt.Visible = false;
-            // 
-            // Quantity
-            // 
-            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Quantity.DataPropertyName = "quantity";
-            this.Quantity.HeaderText = "Količina";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            this.Quantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Articlename
-            // 
-            this.Articlename.DataPropertyName = "article_name";
-            this.Articlename.HeaderText = "Ime artikla";
-            this.Articlename.Name = "Articlename";
-            this.Articlename.ReadOnly = true;
-            // 
-            // Sort
-            // 
-            this.Sort.DataPropertyName = "sort";
-            this.Sort.HeaderText = "Sorta";
-            this.Sort.Name = "Sort";
-            this.Sort.ReadOnly = true;
-            // 
-            // Organic
-            // 
-            this.Organic.DataPropertyName = "organic";
-            this.Organic.HeaderText = "Kontrolisana proizvodnja";
-            this.Organic.Name = "Organic";
-            this.Organic.ReadOnly = true;
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "category";
-            this.Category.HeaderText = "Kategorija";
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
-            // 
-            // palletnumber
-            // 
-            this.palletnumber.DataPropertyName = "pallet_number";
-            this.palletnumber.HeaderText = "Broj palete";
-            this.palletnumber.Name = "palletnumber";
-            this.palletnumber.ReadOnly = true;
             // 
             // Classification
             // 

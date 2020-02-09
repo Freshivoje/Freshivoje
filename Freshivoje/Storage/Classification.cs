@@ -1,4 +1,5 @@
 ﻿using Freshivoje.Custom_Forms;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,6 @@ namespace Freshivoje.Storage
 {
     public partial class Classification : Form
     {
-        string query = "SELECT receipts.fk_client_id, clients.first_name, clients.last_name, items_receipt.fk_article_id, items_receipt.id_items_receipt, items_receipt.quantity, articles.article_name, articles.sort, articles.organic, articles.category, item_pallete.fk_id_pallete, pallete.pallet_number  FROM receipts INNER JOIN clients ON receipts.fk_client_id = clients.id_client INNER JOIN items_receipt ON items_receipt.fk_receipt_id = receipts.id_receipt INNER JOIN articles ON articles.id_article = items_receipt.fk_article_id INNER JOIN item_pallete ON items_receipt.id_items_receipt=item_pallete.fk_id_item_recepit INNER JOIN pallete on pallete.id_pallete = item_pallete.fk_id_pallete WHERE pallete.pallet_number = ";
         public Classification()
         {
             InitializeComponent();
@@ -53,15 +53,57 @@ namespace Freshivoje.Storage
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            string palletNuber = palletNumberTxt.Text;
-            query = query + palletNuber;
-            DbConnection.fillDGV(classiDataGridView, query);
+            string palletNuber = "";
+            palletNuber = palletNumberTxt.Text;
+            string query1 = "SELECT receipts.fk_client_id, clients.first_name, clients.last_name, items_receipt.fk_article_id, items_receipt.id_items_receipt, items_receipt.quantity, articles.article_name, articles.sort, articles.organic, articles.category, item_pallete.fk_id_pallete, pallete.pallet_number FROM receipts INNER JOIN clients ON receipts.fk_client_id = clients.id_client INNER JOIN items_receipt ON items_receipt.fk_receipt_id = receipts.id_receipt INNER JOIN articles ON articles.id_article = items_receipt.fk_article_id INNER JOIN item_pallete ON items_receipt.id_items_receipt = item_pallete.fk_id_item_recepit INNER JOIN pallete on pallete.id_pallete = item_pallete.fk_id_pallete WHERE pallete.pallet_number = " + palletNuber + " AND pallete.classification = 'no' ";
+            DbConnection.fillDGV(classiDataGridView, query1);
             if(classiDataGridView.RowCount == 0)
             {
                 CustomMessageBox.ShowDialog(this, "Paleta sa ovim brojem ne postoji !");
                 return;
             }
             sumQuantity();
+        }
+
+        private void finishInsertBtn_Click(object sender, EventArgs e)
+        {
+            decimal class1 = Convert.ToDecimal(class1TxtBox.Text);
+            decimal class2 = Convert.ToDecimal(class2TxtBox.Text);
+            decimal class3 = Convert.ToDecimal(class3TxtBox.Text);
+            decimal class4 = Convert.ToDecimal(class4TxtBox.Text);
+            decimal Sumclass = Convert.ToDecimal(noClassificationLbl.Text);
+            int pallet_id = 1;
+            foreach (DataGridViewRow row in classiDataGridView.Rows)
+            {
+               pallet_id = Convert.ToInt32(row.Cells["fk_id_pallete"].Value);
+            }
+            string date = DateTime.Now.ToString("yyyy-MM-dd");
+
+
+
+            MySqlCommand mySqlCommand = new MySqlCommand
+            {
+                CommandText = @"INSERT INTO `classificaiton` ( `fk_pallet_id`, `sum_quantity`, `first_class`, `sec_class`, `third_class`, `fourth_class`, `class_date`, `class_year`) VALUES( @pallet_id, @Sumclass ,@class1, @class2, @class3, @class4, @date, '2020')"
+            };
+
+            mySqlCommand.Parameters.AddWithValue("@class1", class1);
+            mySqlCommand.Parameters.AddWithValue("@class2", class2);
+            mySqlCommand.Parameters.AddWithValue("@class3", class3);
+            mySqlCommand.Parameters.AddWithValue("@class4", class4);
+            mySqlCommand.Parameters.AddWithValue("@Sumclass", Sumclass);
+            mySqlCommand.Parameters.AddWithValue("@pallet_id", pallet_id);
+            mySqlCommand.Parameters.AddWithValue("@date", date);
+
+            DbConnection.executeQuery(mySqlCommand);
+            MySqlCommand mySqlCommand1 = new MySqlCommand
+            {
+                CommandText = @"UPDATE pallete SET classification = 'DA' WHERE id_pallete = @pallet_id"
+            };
+            mySqlCommand1.Parameters.AddWithValue("@pallet_id", pallet_id);
+            DbConnection.executeQuery(mySqlCommand1);
+
+            Close();           
+
         }
     }
 }
