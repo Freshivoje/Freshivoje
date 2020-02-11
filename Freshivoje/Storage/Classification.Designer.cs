@@ -143,6 +143,9 @@
             this.palletNumberTxt.ShortcutsEnabled = false;
             this.palletNumberTxt.Size = new System.Drawing.Size(235, 31);
             this.palletNumberTxt.TabIndex = 60;
+            this.palletNumberTxt.TextChanged += new System.EventHandler(this.palletNumberTxt_TextChanged);
+            this.palletNumberTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
+            this.palletNumberTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
             // 
             // backBtn
             // 
@@ -165,6 +168,7 @@
             this.backBtn.TabStop = false;
             this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // classiDataGridView
             // 
@@ -397,6 +401,8 @@
             this.class1TxtBox.ShortcutsEnabled = false;
             this.class1TxtBox.Size = new System.Drawing.Size(235, 31);
             this.class1TxtBox.TabIndex = 53;
+            this.class1TxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
+            this.class1TxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // label3
             // 
@@ -425,6 +431,8 @@
             this.class2TxtBox.ShortcutsEnabled = false;
             this.class2TxtBox.Size = new System.Drawing.Size(235, 31);
             this.class2TxtBox.TabIndex = 49;
+            this.class2TxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
+            this.class2TxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // label5
             // 
@@ -453,6 +461,8 @@
             this.class3TxtBox.ShortcutsEnabled = false;
             this.class3TxtBox.Size = new System.Drawing.Size(235, 31);
             this.class3TxtBox.TabIndex = 51;
+            this.class3TxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
+            this.class3TxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // label4
             // 
@@ -481,6 +491,8 @@
             this.class4TxtBox.ShortcutsEnabled = false;
             this.class4TxtBox.Size = new System.Drawing.Size(236, 31);
             this.class4TxtBox.TabIndex = 55;
+            this.class4TxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.blockEnter);
+            this.class4TxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumerics);
             // 
             // ClassificationLbl
             // 

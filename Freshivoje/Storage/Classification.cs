@@ -41,6 +41,34 @@ namespace Freshivoje.Storage
             noClassificationLbl.Text = sum.ToString();
         }
 
+        public void blockEnter(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void onlyNumerics(object sender, KeyPressEventArgs e)
+        {
+            // Limit input to numbers only
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+            // 2 decimals limit
+            if (System.Text.RegularExpressions.Regex.IsMatch((sender as TextBox).Text, @"\.\d\d") && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
         private void Classification_Load(object sender, EventArgs e)
         {
 
@@ -103,6 +131,16 @@ namespace Freshivoje.Storage
             DbConnection.executeQuery(mySqlCommand1);
 
             Close();           
+
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void palletNumberTxt_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

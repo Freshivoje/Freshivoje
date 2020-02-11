@@ -40,13 +40,13 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.articlesLbl = new System.Windows.Forms.Label();
             this.palletePositioningDataGridView = new System.Windows.Forms.DataGridView();
-            this.articleLbl = new System.Windows.Forms.Label();
-            this.finishInsertBtn = new System.Windows.Forms.Button();
-            this.insertBtn = new System.Windows.Forms.Button();
             this.id_pallet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pallet_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.palletAction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.articleLbl = new System.Windows.Forms.Label();
+            this.finishInsertBtn = new System.Windows.Forms.Button();
+            this.insertBtn = new System.Windows.Forms.Button();
             this.insertFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.palletePositioningDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -246,6 +246,46 @@
             this.palletePositioningDataGridView.TabStop = false;
             this.palletePositioningDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ArticlesDataGridView_CellContentClick);
             // 
+            // id_pallet
+            // 
+            this.id_pallet.DataPropertyName = "id_pallet";
+            this.id_pallet.HeaderText = "ID palete";
+            this.id_pallet.Name = "id_pallet";
+            this.id_pallet.ReadOnly = true;
+            this.id_pallet.Visible = false;
+            // 
+            // pallet_number
+            // 
+            this.pallet_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pallet_number.DataPropertyName = "pallet_number";
+            this.pallet_number.HeaderText = "Palteni broj";
+            this.pallet_number.Name = "pallet_number";
+            this.pallet_number.ReadOnly = true;
+            // 
+            // classification
+            // 
+            this.classification.DataPropertyName = "classification";
+            this.classification.FillWeight = 250F;
+            this.classification.HeaderText = "Klasifikovano";
+            this.classification.Name = "classification";
+            this.classification.ReadOnly = true;
+            this.classification.Width = 250;
+            // 
+            // palletAction
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.NullValue = "X";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.palletAction.DefaultCellStyle = dataGridViewCellStyle2;
+            this.palletAction.HeaderText = "";
+            this.palletAction.Name = "palletAction";
+            this.palletAction.ReadOnly = true;
+            this.palletAction.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.palletAction.Width = 40;
+            // 
             // articleLbl
             // 
             this.articleLbl.AutoSize = true;
@@ -304,46 +344,6 @@
             this.insertBtn.UseVisualStyleBackColor = false;
             this.insertBtn.Click += new System.EventHandler(this.insertBtn_Click);
             // 
-            // id_pallet
-            // 
-            this.id_pallet.DataPropertyName = "id_pallet";
-            this.id_pallet.HeaderText = "ID palete";
-            this.id_pallet.Name = "id_pallet";
-            this.id_pallet.ReadOnly = true;
-            this.id_pallet.Visible = false;
-            // 
-            // pallet_number
-            // 
-            this.pallet_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.pallet_number.DataPropertyName = "pallet_number";
-            this.pallet_number.HeaderText = "Palteni broj";
-            this.pallet_number.Name = "pallet_number";
-            this.pallet_number.ReadOnly = true;
-            // 
-            // classification
-            // 
-            this.classification.DataPropertyName = "classification";
-            this.classification.FillWeight = 250F;
-            this.classification.HeaderText = "Klasifikovano";
-            this.classification.Name = "classification";
-            this.classification.ReadOnly = true;
-            this.classification.Width = 250;
-            // 
-            // palletAction
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.NullValue = "X";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.palletAction.DefaultCellStyle = dataGridViewCellStyle2;
-            this.palletAction.HeaderText = "";
-            this.palletAction.Name = "palletAction";
-            this.palletAction.ReadOnly = true;
-            this.palletAction.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.palletAction.Width = 40;
-            // 
             // InsertStorageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,6 +353,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InsertStorageForm";
             this.Text = "InsertStorageForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.insertFormTblLayout.ResumeLayout(false);
             this.insertFormTblLayout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.palletePositioningDataGridView)).EndInit();
