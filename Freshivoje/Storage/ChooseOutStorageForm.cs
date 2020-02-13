@@ -32,6 +32,7 @@ namespace Freshivoje.Storage
         private void recordBtn_Click(object sender, EventArgs e)
         {
             Hide();
+
             using RecordStorageForm recordStorageForm = new RecordStorageForm(_storageId);
             recordStorageForm.ShowDialog(this);
             Show();
