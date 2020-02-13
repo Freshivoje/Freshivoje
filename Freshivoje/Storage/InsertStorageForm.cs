@@ -23,6 +23,7 @@ namespace Freshivoje.Storage
             storageId = _storageId;
             string query = "SELECT `pallete`.`pallet_number`, pallete.classification FROM `pallete_positioning` INNER JOIN `pallete` ON pallete_positioning.fk_pallete_id = pallete.id_pallete WHERE pallete_positioning.fk_storage_id = " + storageId;
             DbConnection.fillDGV(palletePositioningDataGridView, query);
+           // DbConnection.fillCmbBox(palleteCmbBox, "pallete", )
             palletePositioningDataGridView.AutoGenerateColumns = false;
         }
         protected override CreateParams CreateParams

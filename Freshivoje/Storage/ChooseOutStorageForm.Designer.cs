@@ -31,8 +31,8 @@
             this.mainFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
             this.titleLbl = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.insertBtn = new System.Windows.Forms.Button();
             this.recordBtn = new System.Windows.Forms.Button();
-            this.outBtn = new System.Windows.Forms.Button();
             this.mainFormTblLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,8 +47,8 @@
             this.mainFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.mainFormTblLayout.Controls.Add(this.titleLbl, 0, 0);
             this.mainFormTblLayout.Controls.Add(this.exitBtn, 3, 0);
-            this.mainFormTblLayout.Controls.Add(this.recordBtn, 1, 1);
-            this.mainFormTblLayout.Controls.Add(this.outBtn, 1, 2);
+            this.mainFormTblLayout.Controls.Add(this.insertBtn, 1, 1);
+            this.mainFormTblLayout.Controls.Add(this.recordBtn, 1, 2);
             this.mainFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainFormTblLayout.Location = new System.Drawing.Point(0, 0);
             this.mainFormTblLayout.Name = "mainFormTblLayout";
@@ -74,9 +74,9 @@
             this.titleLbl.Location = new System.Drawing.Point(3, 0);
             this.titleLbl.Name = "titleLbl";
             this.titleLbl.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.titleLbl.Size = new System.Drawing.Size(156, 60);
+            this.titleLbl.Size = new System.Drawing.Size(90, 60);
             this.titleLbl.TabIndex = 4;
-            this.titleLbl.Text = "KOMORA :";
+            this.titleLbl.Text = "Tunel";
             this.titleLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // exitBtn
@@ -102,6 +102,26 @@
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
+            // insertBtn
+            // 
+            this.insertBtn.BackColor = System.Drawing.Color.Transparent;
+            this.insertBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.insertBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.insertBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.insertBtn.FlatAppearance.BorderSize = 5;
+            this.insertBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.insertBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.insertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.insertBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.insertBtn.ForeColor = System.Drawing.Color.White;
+            this.insertBtn.Location = new System.Drawing.Point(103, 159);
+            this.insertBtn.Name = "insertBtn";
+            this.insertBtn.Size = new System.Drawing.Size(429, 65);
+            this.insertBtn.TabIndex = 1;
+            this.insertBtn.Text = "ULAZ";
+            this.insertBtn.UseVisualStyleBackColor = false;
+            this.insertBtn.Click += new System.EventHandler(this.recordBtn_Click);
+            // 
             // recordBtn
             // 
             this.recordBtn.BackColor = System.Drawing.Color.Transparent;
@@ -114,33 +134,13 @@
             this.recordBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.recordBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recordBtn.ForeColor = System.Drawing.Color.White;
-            this.recordBtn.Location = new System.Drawing.Point(103, 159);
+            this.recordBtn.Location = new System.Drawing.Point(103, 326);
             this.recordBtn.Name = "recordBtn";
             this.recordBtn.Size = new System.Drawing.Size(429, 65);
-            this.recordBtn.TabIndex = 1;
-            this.recordBtn.Text = "EVIDENCIJA ";
+            this.recordBtn.TabIndex = 2;
+            this.recordBtn.Text = "EVIDENCIJA";
             this.recordBtn.UseVisualStyleBackColor = false;
-            this.recordBtn.Click += new System.EventHandler(this.recordBtn_Click);
-            // 
-            // outBtn
-            // 
-            this.outBtn.BackColor = System.Drawing.Color.Transparent;
-            this.outBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.outBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.outBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.outBtn.FlatAppearance.BorderSize = 5;
-            this.outBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.outBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.outBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.outBtn.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.outBtn.ForeColor = System.Drawing.Color.White;
-            this.outBtn.Location = new System.Drawing.Point(103, 326);
-            this.outBtn.Name = "outBtn";
-            this.outBtn.Size = new System.Drawing.Size(429, 65);
-            this.outBtn.TabIndex = 2;
-            this.outBtn.Text = "PRODAJA";
-            this.outBtn.UseVisualStyleBackColor = false;
-            this.outBtn.Click += new System.EventHandler(this.outBtn_Click);
+            this.recordBtn.Click += new System.EventHandler(this.outBtn_Click);
             // 
             // ChooseOutStorageForm
             // 
@@ -163,7 +163,7 @@
         private System.Windows.Forms.TableLayoutPanel mainFormTblLayout;
         private System.Windows.Forms.Label titleLbl;
         private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.Button insertBtn;
         private System.Windows.Forms.Button recordBtn;
-        private System.Windows.Forms.Button outBtn;
     }
 }

@@ -36,7 +36,7 @@
             this.freeStorageLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
-            this.articlesCmbBox = new System.Windows.Forms.ComboBox();
+            this.palleteCmbBox = new System.Windows.Forms.ComboBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.articlesLbl = new System.Windows.Forms.Label();
             this.palletePositioningDataGridView = new System.Windows.Forms.DataGridView();
@@ -68,7 +68,7 @@
             this.insertFormTblLayout.Controls.Add(this.freeStorageLbl, 5, 4);
             this.insertFormTblLayout.Controls.Add(this.label2, 0, 14);
             this.insertFormTblLayout.Controls.Add(this.exitBtn, 8, 0);
-            this.insertFormTblLayout.Controls.Add(this.articlesCmbBox, 2, 4);
+            this.insertFormTblLayout.Controls.Add(this.palleteCmbBox, 2, 4);
             this.insertFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
             this.insertFormTblLayout.Controls.Add(this.articlesLbl, 2, 3);
             this.insertFormTblLayout.Controls.Add(this.palletePositioningDataGridView, 0, 6);
@@ -148,22 +148,22 @@
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
-            // articlesCmbBox
+            // palleteCmbBox
             // 
-            this.insertFormTblLayout.SetColumnSpan(this.articlesCmbBox, 3);
-            this.articlesCmbBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.articlesCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.articlesCmbBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.articlesCmbBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.articlesCmbBox.FormattingEnabled = true;
-            this.articlesCmbBox.Items.AddRange(new object[] {
+            this.insertFormTblLayout.SetColumnSpan(this.palleteCmbBox, 3);
+            this.palleteCmbBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.palleteCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.palleteCmbBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.palleteCmbBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palleteCmbBox.FormattingEnabled = true;
+            this.palleteCmbBox.Items.AddRange(new object[] {
             "---"});
-            this.articlesCmbBox.Location = new System.Drawing.Point(401, 163);
-            this.articlesCmbBox.Name = "articlesCmbBox";
-            this.articlesCmbBox.Size = new System.Drawing.Size(738, 31);
-            this.articlesCmbBox.TabIndex = 1;
-            this.articlesCmbBox.TabStop = false;
-            this.articlesCmbBox.SelectedIndexChanged += new System.EventHandler(this.articlesCmbBox_SelectedIndexChanged);
+            this.palleteCmbBox.Location = new System.Drawing.Point(401, 163);
+            this.palleteCmbBox.Name = "palleteCmbBox";
+            this.palleteCmbBox.Size = new System.Drawing.Size(738, 31);
+            this.palleteCmbBox.TabIndex = 1;
+            this.palleteCmbBox.TabStop = false;
+            this.palleteCmbBox.SelectedIndexChanged += new System.EventHandler(this.articlesCmbBox_SelectedIndexChanged);
             // 
             // lblTitle
             // 
@@ -365,7 +365,7 @@
 
         private System.Windows.Forms.TableLayoutPanel insertFormTblLayout;
         private System.Windows.Forms.Button exitBtn;
-        private System.Windows.Forms.ComboBox articlesCmbBox;
+        private System.Windows.Forms.ComboBox palleteCmbBox;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label articlesLbl;
         private System.Windows.Forms.DataGridView palletePositioningDataGridView;

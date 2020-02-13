@@ -23,8 +23,8 @@ namespace Freshivoje.Insert_Form
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
             // DbConnection.fillCmbBox(storagePositionCmbBox, "storage", '/', "id_storage", "storage_position", "article_quantity",  "package_quantity");
-            DbConnection.fillWhereCmbBox(storagePositionCmbBox, "storage", "id_storage", "storage_position", "article_quantity", "package_quantity", "status");
-            storagePositionCmbBox.SelectedIndex = 1;
+            DbConnection.fillWhereCmbBox(storagePositionCmbBox, "storage", "id_storage", "storage_position", "status");
+            storagePositionCmbBox.SelectedIndex = 0;
             rentingDataPicker.MinDate = DateTime.Now;
             fkClientId = client._id;
             _client = client;

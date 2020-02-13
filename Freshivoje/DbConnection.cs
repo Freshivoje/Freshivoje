@@ -256,15 +256,13 @@ namespace Freshivoje
             try
             {
                 string text = string.Empty;
-                decimal ArticleQuantity = 0, StorageArticleQuantity = 0, SumA;
-                int PackagingQuantity = 0, StoragePackagingQuantity = 0, SumP;
+                string status = string.Empty;
                 _databaseConnection.Open();
                 MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
                 mySqlCommand.CommandText = query;
                 using MySqlDataReader reader = mySqlCommand.ExecuteReader();
                 while (reader.Read())
                 {
-
                     foreach (string column in columns)
                     {
                         switch (column)
@@ -275,34 +273,17 @@ namespace Freshivoje
                             case "storage_position":
                                 text += $"{reader.GetString(column)}\n";
                                 break;
-                            case "StorageArticleQuantity":
-                                text += $"Artikli(kg) {reader.GetDecimal(column)}/";
-                                StorageArticleQuantity = reader.GetDecimal(column);
-                                break;
-                            case "article_quantity":
-                                text += $"{reader.GetDecimal(column)}\n";
-                                ArticleQuantity = reader.GetDecimal(column);
-                                SumA = ArticleQuantity - StorageArticleQuantity;
-                                if (SumA <= 1000)
+                            case "status":
+                                status = $"{reader.GetString(column)}";
+                                if(status == "neaktivna")
                                 {
-                                    button.BackColor = Color.Red;
+                                    button.Enabled = false;
+                                }
+                                else
+                                {
+                                    button.Enabled = true;
                                 }
                                 break;
-                            case "StoragePackagingQuantity":
-                                text += $"Ambalaže {reader.GetInt32(column)}/";
-                                StoragePackagingQuantity = reader.GetInt32(column);
-                                break;
-                            case "package_quantity":
-                                text += $"{reader.GetInt32(column)}\n";
-                                PackagingQuantity = reader.GetInt32(column);
-                                SumP = PackagingQuantity - StoragePackagingQuantity;
-                                if (SumP <= 1000)
-                                {
-                                    button.BackColor = Color.Red;
-                                }
-                                break;
-
-
                             default:
 
                                 break;

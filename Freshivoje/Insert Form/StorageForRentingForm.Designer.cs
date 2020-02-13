@@ -103,6 +103,8 @@
             this.storagePositionCmbBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.storagePositionCmbBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.storagePositionCmbBox.FormattingEnabled = true;
+            this.storagePositionCmbBox.Items.AddRange(new object[] {
+            "---"});
             this.storagePositionCmbBox.Location = new System.Drawing.Point(153, 163);
             this.storagePositionCmbBox.Name = "storagePositionCmbBox";
             this.storagePositionCmbBox.Size = new System.Drawing.Size(709, 31);
@@ -140,11 +142,11 @@
             this.partLbl.BackColor = System.Drawing.Color.Transparent;
             this.partLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.partLbl.ForeColor = System.Drawing.Color.White;
-            this.partLbl.Location = new System.Drawing.Point(210, 133);
+            this.partLbl.Location = new System.Drawing.Point(425, 133);
             this.partLbl.Name = "partLbl";
-            this.partLbl.Size = new System.Drawing.Size(594, 27);
+            this.partLbl.Size = new System.Drawing.Size(164, 27);
             this.partLbl.TabIndex = 16;
-            this.partLbl.Text = "Ime odeljaka / Količina artikala(kg) / Broj ambalaža";
+            this.partLbl.Text = "Ime odeljaka ";
             this.partLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTitle

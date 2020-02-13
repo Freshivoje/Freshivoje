@@ -13,29 +13,24 @@ namespace Freshivoje.Storage
 {
     public partial class StorageForm : Form
     {
-        string _fillTextBox = "SELECT articles.id_article as quantityArticleId, `articles`.`article_name`, `articles`.`sort`, `articles`.`organic`, `articles`.`category`, SUM(`items_receipt`.`quantity`) as quantityArts, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM `receipts` JOIN `items_receipt` ON `items_receipt`.`fk_receipt_id` = `receipts`.`id_receipt` JOIN `articles` ON `articles`.`id_article` = `items_receipt`.`fk_article_id` WHERE `date` >= CURDATE() GROUP BY `articles`.`id_article`";
-        string _query1 = "SELECT articles.id_article as QuantityStorageArticleId, SUM(`storage_record_items`.`article_quantity`) as quantityStorageArticle, DATE_FORMAT(`date`, ' %d.%m.%Y. ') as date FROM storage_record_items JOIN articles ON articles.id_article = storage_record_items.fk_article_id WHERE `date` >= CURDATE() AND `storage_record_items`.`fk_storage_id`=5 GROUP BY articles.id_article";
-        string _a1Query = "SELECT (COALESCE(SUM(storage_record_items.package_quantity), 0) - (SELECT COALESCE(SUM(storage_record_items.package_quantity),0) FROM storage_record_items WHERE storage_record_items.fk_storage_id = 1 AND storage_record_items.status = 'neaktivna'))as StoragePackagingQuantity,(COALESCE(SUM(storage_record_items.article_quantity), 0) - (SELECT COALESCE(SUM(storage_record_items.article_quantity),0) FROM storage_record_items WHERE storage_record_items.fk_storage_id = 1 AND storage_record_items.status = 'neaktivna')) as StorageArticleQuantity, storage.id_storage, storage.storage_position, storage.article_quantity, storage.package_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 1 AND storage_record_items.status = 'aktivna'";
-        string _a2Query = "SELECT (COALESCE(SUM(storage_record_items.package_quantity), 0) - (SELECT COALESCE(SUM(storage_record_items.package_quantity),0) FROM storage_record_items WHERE storage_record_items.fk_storage_id = 2 AND storage_record_items.status = 'neaktivna'))as StoragePackagingQuantity,(COALESCE(SUM(storage_record_items.article_quantity), 0) - (SELECT COALESCE(SUM(storage_record_items.article_quantity),0) FROM storage_record_items WHERE storage_record_items.fk_storage_id = 2 AND storage_record_items.status = 'neaktivna')) as StorageArticleQuantity, storage.id_storage, storage.storage_position, storage.article_quantity, storage.package_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 2 AND storage_record_items.status = 'aktivna'";
-        string _b1Query = "SELECT (COALESCE(SUM(storage_record_items.package_quantity), 0) - (SELECT COALESCE(SUM(storage_record_items.package_quantity),0) FROM storage_record_items WHERE storage_record_items.fk_storage_id = 3 AND storage_record_items.status = 'neaktivna'))as StoragePackagingQuantity,(COALESCE(SUM(storage_record_items.article_quantity), 0) - (SELECT COALESCE(SUM(storage_record_items.article_quantity),0) FROM storage_record_items WHERE storage_record_items.fk_storage_id = 3 AND storage_record_items.status = 'neaktivna')) as StorageArticleQuantity, storage.id_storage, storage.storage_position, storage.article_quantity, storage.package_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 3 AND storage_record_items.status = 'aktivna'";
-        string _b2Query = "SELECT (COALESCE(SUM(storage_record_items.package_quantity), 0) - (SELECT COALESCE(SUM(storage_record_items.package_quantity),0) FROM storage_record_items WHERE storage_record_items.fk_storage_id = 4 AND storage_record_items.status = 'neaktivna'))as StoragePackagingQuantity,(COALESCE(SUM(storage_record_items.article_quantity), 0) - (SELECT COALESCE(SUM(storage_record_items.article_quantity),0) FROM storage_record_items WHERE storage_record_items.fk_storage_id = 4 AND storage_record_items.status = 'neaktivna')) as StorageArticleQuantity, storage.id_storage, storage.storage_position, storage.article_quantity, storage.package_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 4 AND storage_record_items.status = 'aktivna'";
-        string _outQuery = "SELECT (COALESCE(SUM(storage_record_items.package_quantity), 0) - (SELECT COALESCE(SUM(storage_record_items.package_quantity),0) FROM storage_record_items WHERE storage_record_items.fk_storage_id = 8 AND storage_record_items.status = 'neaktivna'))as StoragePackagingQuantity,(COALESCE(SUM(storage_record_items.article_quantity), 0) - (SELECT COALESCE(SUM(storage_record_items.article_quantity),0) FROM storage_record_items WHERE storage_record_items.fk_storage_id = 8 AND storage_record_items.status = 'neaktivna')) as StorageArticleQuantity, storage.id_storage, storage.storage_position, storage.article_quantity, storage.package_quantity FROM storage_record_items JOIN storage ON storage.id_storage = storage_record_items.fk_storage_id WHERE storage_record_items.fk_storage_id = 8 AND storage_record_items.status = 'aktivna'";
+       
+        string _a1Query = "SELECT * FROM storage WHERE storage.id_storage = 1;";
+        string _a2Query = "SELECT * FROM storage WHERE storage.id_storage = 2;";
+        string _b1Query = "SELECT * FROM storage WHERE storage.id_storage = 3;";
+        string _b2Query = "SELECT * FROM storage WHERE storage.id_storage = 4;";
+        string _outQuery = "SELECT * FROM storage WHERE storage.id_storage = 8;";
 
         public StorageForm()
         {
             InitializeComponent();
             WindowState = FormWindowState.Maximized;
-            //tunnelLbl.Text = "";
-            //articlequantityLbl.Text = "";
           
-            DbConnection.fillBtnText(a1Btn, _a1Query, "id_storage" ,"storage_position", "StorageArticleQuantity", "article_quantity");
-            DbConnection.fillBtnText(a2Btn, _a2Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
-            DbConnection.fillBtnText(b1Btn, _b1Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
-            DbConnection.fillBtnText(b2Btn, _b2Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
-            DbConnection.fillBtnText(outputBtn, _outQuery, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
-            //DbConnection.tunnel(tunnelLbl, _fillTextBox, _query1, articlequantityLbl, "quantityArticleId", "QuantityStorageArticleId", "article_name", "sort", "organic", "category", "quantityArts", "quantityStorageArticle");
-            
-           
+            DbConnection.fillBtnText(a1Btn, _a1Query, "id_storage" ,"storage_position", "status");
+            DbConnection.fillBtnText(a2Btn, _a2Query, "id_storage", "storage_position", "status");
+            DbConnection.fillBtnText(b1Btn, _b1Query, "id_storage", "storage_position", "status");
+            DbConnection.fillBtnText(b2Btn, _b2Query, "id_storage", "storage_position", "status");
+            DbConnection.fillBtnText(outputBtn, _outQuery, "id_storage", "storage_position", "status");
+                
         }
         protected override CreateParams CreateParams
         {
@@ -77,13 +72,6 @@ namespace Freshivoje.Storage
         {
             Button btn = sender as Button;
             int storage_id = Convert.ToInt32(btn.Tag.ToString());
-            if(storage_id == 8)
-            {
-                ChooseOutStorageForm chooseOutStorageForm = new ChooseOutStorageForm(storage_id);
-                chooseOutStorageForm.ShowDialog(this);
-                Show();
-                return;
-            }
             ChooseStorageMethodForm chooseStorageMethodForm = new ChooseStorageMethodForm(storage_id);
             chooseStorageMethodForm.ShowDialog(this);
             Show();
@@ -136,9 +124,8 @@ namespace Freshivoje.Storage
 
         private void tunnelBtn_Click(object sender, EventArgs e)
         {
-            Hide();
-            using InsertStorageForm insertStorageForm = new InsertStorageForm(9);
-            insertStorageForm.ShowDialog(this);
+            using ChooseOutStorageForm chooseOutStorageForm = new ChooseOutStorageForm(9);
+            chooseOutStorageForm.ShowDialog(this);
             Show();
         }
     }
