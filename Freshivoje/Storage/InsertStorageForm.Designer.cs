@@ -33,22 +33,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.insertFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.backBtn = new System.Windows.Forms.Button();
             this.freeStorageLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.exitBtn = new System.Windows.Forms.Button();
             this.palleteCmbBox = new System.Windows.Forms.ComboBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.articlesLbl = new System.Windows.Forms.Label();
-            this.palletePositioningDataGridView = new System.Windows.Forms.DataGridView();
-            this.id_pallet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pallet_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classification = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.palletAction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.insertPalleteDataGridView = new System.Windows.Forms.DataGridView();
             this.articleLbl = new System.Windows.Forms.Label();
             this.finishInsertBtn = new System.Windows.Forms.Button();
             this.insertBtn = new System.Windows.Forms.Button();
+            this.id_pallet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pallet_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.palletAction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.insertFormTblLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.palletePositioningDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.insertPalleteDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // insertFormTblLayout
@@ -65,13 +65,14 @@
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.insertFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.insertFormTblLayout.Controls.Add(this.backBtn, 7, 0);
             this.insertFormTblLayout.Controls.Add(this.freeStorageLbl, 5, 4);
             this.insertFormTblLayout.Controls.Add(this.label2, 0, 14);
             this.insertFormTblLayout.Controls.Add(this.exitBtn, 8, 0);
             this.insertFormTblLayout.Controls.Add(this.palleteCmbBox, 2, 4);
             this.insertFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
             this.insertFormTblLayout.Controls.Add(this.articlesLbl, 2, 3);
-            this.insertFormTblLayout.Controls.Add(this.palletePositioningDataGridView, 0, 6);
+            this.insertFormTblLayout.Controls.Add(this.insertPalleteDataGridView, 0, 6);
             this.insertFormTblLayout.Controls.Add(this.articleLbl, 4, 4);
             this.insertFormTblLayout.Controls.Add(this.finishInsertBtn, 2, 14);
             this.insertFormTblLayout.Controls.Add(this.insertBtn, 3, 5);
@@ -96,6 +97,29 @@
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.insertFormTblLayout.Size = new System.Drawing.Size(1546, 858);
             this.insertFormTblLayout.TabIndex = 2;
+            // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.BackgroundImage = global::Freshivoje.Properties.Resources.left_arrow;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBtn.ForeColor = System.Drawing.Color.White;
+            this.backBtn.Location = new System.Drawing.Point(1443, 3);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(44, 54);
+            this.backBtn.TabIndex = 45;
+            this.backBtn.TabStop = false;
+            this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // freeStorageLbl
             // 
@@ -163,7 +187,7 @@
             this.palleteCmbBox.Size = new System.Drawing.Size(738, 31);
             this.palleteCmbBox.TabIndex = 1;
             this.palleteCmbBox.TabStop = false;
-            this.palleteCmbBox.SelectedIndexChanged += new System.EventHandler(this.articlesCmbBox_SelectedIndexChanged);
+            this.palleteCmbBox.SelectedIndexChanged += new System.EventHandler(this.palleteCmbBox_SelectedIndexChanged);
             // 
             // lblTitle
             // 
@@ -177,9 +201,9 @@
             this.lblTitle.Location = new System.Drawing.Point(3, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblTitle.Size = new System.Drawing.Size(368, 60);
+            this.lblTitle.Size = new System.Drawing.Size(386, 60);
             this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "UNOS PALETU U KOMORU";
+            this.lblTitle.Text = "UNOS PALETU U KOMORU :";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // articlesLbl
@@ -197,14 +221,14 @@
             this.articlesLbl.Text = "Broj palete :";
             this.articlesLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // palletePositioningDataGridView
+            // insertPalleteDataGridView
             // 
-            this.palletePositioningDataGridView.AllowUserToAddRows = false;
-            this.palletePositioningDataGridView.AllowUserToDeleteRows = false;
-            this.palletePositioningDataGridView.AllowUserToResizeColumns = false;
-            this.palletePositioningDataGridView.AllowUserToResizeRows = false;
-            this.palletePositioningDataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.palletePositioningDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.insertPalleteDataGridView.AllowUserToAddRows = false;
+            this.insertPalleteDataGridView.AllowUserToDeleteRows = false;
+            this.insertPalleteDataGridView.AllowUserToResizeColumns = false;
+            this.insertPalleteDataGridView.AllowUserToResizeRows = false;
+            this.insertPalleteDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.insertPalleteDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
@@ -212,16 +236,15 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.palletePositioningDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.palletePositioningDataGridView.ColumnHeadersHeight = 40;
-            this.palletePositioningDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.palletePositioningDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.insertPalleteDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.insertPalleteDataGridView.ColumnHeadersHeight = 40;
+            this.insertPalleteDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.insertPalleteDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_pallet,
             this.pallet_number,
-            this.classification,
             this.palletAction});
-            this.insertFormTblLayout.SetColumnSpan(this.palletePositioningDataGridView, 9);
-            this.palletePositioningDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.insertFormTblLayout.SetColumnSpan(this.insertPalleteDataGridView, 9);
+            this.insertPalleteDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -229,62 +252,22 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.palletePositioningDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.palletePositioningDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.palletePositioningDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.palletePositioningDataGridView.Location = new System.Drawing.Point(3, 273);
-            this.palletePositioningDataGridView.MultiSelect = false;
-            this.palletePositioningDataGridView.Name = "palletePositioningDataGridView";
-            this.palletePositioningDataGridView.ReadOnly = true;
-            this.palletePositioningDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.palletePositioningDataGridView.RowHeadersWidth = 40;
-            this.palletePositioningDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.insertFormTblLayout.SetRowSpan(this.palletePositioningDataGridView, 8);
-            this.palletePositioningDataGridView.RowTemplate.Height = 30;
-            this.palletePositioningDataGridView.Size = new System.Drawing.Size(1540, 522);
-            this.palletePositioningDataGridView.TabIndex = 34;
-            this.palletePositioningDataGridView.TabStop = false;
-            this.palletePositioningDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ArticlesDataGridView_CellContentClick);
-            // 
-            // id_pallet
-            // 
-            this.id_pallet.DataPropertyName = "id_pallet";
-            this.id_pallet.HeaderText = "ID palete";
-            this.id_pallet.Name = "id_pallet";
-            this.id_pallet.ReadOnly = true;
-            this.id_pallet.Visible = false;
-            // 
-            // pallet_number
-            // 
-            this.pallet_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.pallet_number.DataPropertyName = "pallet_number";
-            this.pallet_number.HeaderText = "Palteni broj";
-            this.pallet_number.Name = "pallet_number";
-            this.pallet_number.ReadOnly = true;
-            // 
-            // classification
-            // 
-            this.classification.DataPropertyName = "classification";
-            this.classification.FillWeight = 250F;
-            this.classification.HeaderText = "Klasifikovano";
-            this.classification.Name = "classification";
-            this.classification.ReadOnly = true;
-            this.classification.Width = 250;
-            // 
-            // palletAction
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.NullValue = "X";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.palletAction.DefaultCellStyle = dataGridViewCellStyle2;
-            this.palletAction.HeaderText = "";
-            this.palletAction.Name = "palletAction";
-            this.palletAction.ReadOnly = true;
-            this.palletAction.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.palletAction.Width = 40;
+            this.insertPalleteDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.insertPalleteDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.insertPalleteDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.insertPalleteDataGridView.Location = new System.Drawing.Point(3, 273);
+            this.insertPalleteDataGridView.MultiSelect = false;
+            this.insertPalleteDataGridView.Name = "insertPalleteDataGridView";
+            this.insertPalleteDataGridView.ReadOnly = true;
+            this.insertPalleteDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.insertPalleteDataGridView.RowHeadersWidth = 40;
+            this.insertPalleteDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.insertFormTblLayout.SetRowSpan(this.insertPalleteDataGridView, 8);
+            this.insertPalleteDataGridView.RowTemplate.Height = 30;
+            this.insertPalleteDataGridView.Size = new System.Drawing.Size(1540, 522);
+            this.insertPalleteDataGridView.TabIndex = 34;
+            this.insertPalleteDataGridView.TabStop = false;
+            this.insertPalleteDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ArticlesDataGridView_CellContentClick);
             // 
             // articleLbl
             // 
@@ -344,6 +327,35 @@
             this.insertBtn.UseVisualStyleBackColor = false;
             this.insertBtn.Click += new System.EventHandler(this.insertBtn_Click);
             // 
+            // id_pallet
+            // 
+            this.id_pallet.HeaderText = "ID palete";
+            this.id_pallet.Name = "id_pallet";
+            this.id_pallet.ReadOnly = true;
+            this.id_pallet.Visible = false;
+            // 
+            // pallet_number
+            // 
+            this.pallet_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pallet_number.HeaderText = "Palteni broj";
+            this.pallet_number.Name = "pallet_number";
+            this.pallet_number.ReadOnly = true;
+            // 
+            // palletAction
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.NullValue = "X";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.palletAction.DefaultCellStyle = dataGridViewCellStyle2;
+            this.palletAction.HeaderText = "";
+            this.palletAction.Name = "palletAction";
+            this.palletAction.ReadOnly = true;
+            this.palletAction.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.palletAction.Width = 40;
+            // 
             // InsertStorageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,7 +368,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.insertFormTblLayout.ResumeLayout(false);
             this.insertFormTblLayout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.palletePositioningDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.insertPalleteDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -368,15 +380,15 @@
         private System.Windows.Forms.ComboBox palleteCmbBox;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label articlesLbl;
-        private System.Windows.Forms.DataGridView palletePositioningDataGridView;
+        private System.Windows.Forms.DataGridView insertPalleteDataGridView;
         private System.Windows.Forms.Label articleLbl;
         private System.Windows.Forms.Button insertBtn;
         private System.Windows.Forms.Button finishInsertBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label freeStorageLbl;
+        private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_pallet;
         private System.Windows.Forms.DataGridViewTextBoxColumn pallet_number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn classification;
         private System.Windows.Forms.DataGridViewTextBoxColumn palletAction;
     }
 }

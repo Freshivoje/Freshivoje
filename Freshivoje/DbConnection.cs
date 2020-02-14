@@ -18,6 +18,7 @@ namespace Freshivoje
         private static readonly string _username = "root";
         //private static string password = "";
         private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username};charset=utf8;";
+
         public static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
         public static void Storage(Label label, string query, params string[] columns)
         {
@@ -596,7 +597,6 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-
         public static void fillWhereCmbBox(ComboBox cmbBox, string table, params string[] columns)
         {
             try
@@ -721,7 +721,6 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-
         public static void executePalletingQuery(List<PalletingItem> palletingItems )
         {
             MySqlCommand mySqlCommand = new MySqlCommand
@@ -787,7 +786,6 @@ namespace Freshivoje
                 _databaseConnection.Close();
             }
         }
-
         public static dynamic getStorageData(MySqlCommand mySqlCommand, int id)
         {
             dynamic result = null;
@@ -861,7 +859,6 @@ namespace Freshivoje
             return result;
 
         }
-
         public static string getReceiptDetails(MySqlCommand mySqlCommand)
         {
             string result = string.Empty;
@@ -962,5 +959,10 @@ namespace Freshivoje
             }
             return value;
         }
+        public static void executePalletPositioningQuery(List<Pallete> pallete)
+        {
+            
+        }
+        
     }
 }

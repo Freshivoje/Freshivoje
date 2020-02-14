@@ -33,22 +33,27 @@ namespace Freshivoje.Storage
         {
             Hide();
 
-            using RecordStorageForm recordStorageForm = new RecordStorageForm(_storageId);
-            recordStorageForm.ShowDialog(this);
+            using InsertStorageForm insertStorageForm = new InsertStorageForm(_storageId);
+            insertStorageForm.ShowDialog(this);
             Show();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void outBtn_Click(object sender, EventArgs e)
         {
             Hide();
-            using OutStorageForm outStorageForm = new OutStorageForm(_storageId);
-            outStorageForm.ShowDialog(this);
+            using RecordStorageForm recordStorageForm = new RecordStorageForm(_storageId);
+            recordStorageForm.ShowDialog(this);
             Show();
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -37,10 +37,9 @@ namespace Freshivoje.Storage
         {   
             using InsertStorageForm InsertStorageForm = new InsertStorageForm(storageId);
             InsertStorageForm.ShowDialog(this);
+            
             Show();
         }
-
-     
 
         private void recordBtn_Click(object sender, EventArgs e)
         {
@@ -57,6 +56,11 @@ namespace Freshivoje.Storage
             Show();
         }
         private void exitBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
         {
             Close();
         }

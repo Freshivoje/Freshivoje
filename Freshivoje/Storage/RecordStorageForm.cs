@@ -27,7 +27,7 @@ namespace Freshivoje.Storage
             cmd.CommandText = "SELECT * FROM storage WHERE id_storage ='" + _storageId + "'";
             WindowState = FormWindowState.Maximized;
             RecordsDataGridView.AutoGenerateColumns = false;
-            searchRecordTypeComboBox.SelectedIndex = 0;
+            ;
             dynamic storageData = DbConnection.getStorageData(cmd, _storageId);
             lblTitle.Text = "EVIDENCIJA KOMORE " + storageData.getName();
             state1 = true;
@@ -83,32 +83,7 @@ namespace Freshivoje.Storage
 
         private void searchRecordTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            searchRecordTypeComboBox.Enabled = false;
-            _articleQuery = $"SELECT articles.article_name, articles.sort, articles.organic, articles.category,  COALESCE(SUM(storage_record_items.article_quantity),0) - (SELECT  COALESCE(SUM(storage_record_items.article_quantity),0) FROM `storage_record_items`  WHERE storage_record_items.fk_storage_id = {_storageId}  AND storage_record_items.status = 'neaktivna') as quantity FROM `storage_record_items` INNER JOIN articles ON storage_record_items.fk_article_id = articles.id_article INNER JOIN storage ON storage_record_items.fk_storage_id = storage.id_storage WHERE storage_record_items.fk_storage_id = {_storageId}  AND storage_record_items.status = 'aktivna' GROUP BY articles.id_article";
-            if (searchRecordTypeComboBox.SelectedIndex == 0)
-            {
-                state1 = true;
-                DbConnection.fillDGV(RecordsDataGridView, _articleQuery);
-                RecordsDataGridView.Columns[1].Visible = true;
-                RecordsDataGridView.Columns[2].Visible = true;
-                RecordsDataGridView.Columns[3].Visible = true;
-                RecordsDataGridView.Columns[0].Visible = true;
-                RecordsDataGridView.Columns[4].Visible = false;
-                RecordsDataGridView.Columns[5].Visible = false;
-                RecordsDataGridView.Columns[6].Visible = false;
-            }
-            else if (searchRecordTypeComboBox.SelectedIndex == 1)
-            {
-                state1 = false;
-                DbConnection.fillDGV(RecordsDataGridView, _packagingQuery);
-                RecordsDataGridView.Columns[1].Visible = false;
-                RecordsDataGridView.Columns[2].Visible = false;
-                RecordsDataGridView.Columns[3].Visible = false;
-                RecordsDataGridView.Columns[0].Visible = false;
-                RecordsDataGridView.Columns[4].Visible = true;
-                RecordsDataGridView.Columns[5].Visible = true;
-                RecordsDataGridView.Columns[6].Visible = true;
-            }
+         
         }
 
         private void searchRecordTxtBox_TextChanged(object sender, EventArgs e)

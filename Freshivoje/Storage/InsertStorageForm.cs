@@ -16,15 +16,21 @@ namespace Freshivoje.Storage
     public partial class InsertStorageForm : Form
     {
         int storageId;
-       
+        private object storageData;
+
         public InsertStorageForm(int _storageId)
         {
             InitializeComponent();
             storageId = _storageId;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM storage WHERE id_storage ='" + _storageId + "'";
+            dynamic storageData = DbConnection.getStorageData(cmd, _storageId);
+            string query1 = "SELECT * FROM `pallete` WHERE pallete.status = 'aktivna'";
             string query = "SELECT `pallete`.`pallet_number`, pallete.classification FROM `pallete_positioning` INNER JOIN `pallete` ON pallete_positioning.fk_pallete_id = pallete.id_pallete WHERE pallete_positioning.fk_storage_id = " + storageId;
-            DbConnection.fillDGV(palletePositioningDataGridView, query);
-           // DbConnection.fillCmbBox(palleteCmbBox, "pallete", )
-            palletePositioningDataGridView.AutoGenerateColumns = false;
+            //DbConnection.fillDGV(insertPalleteDataGridView, query);
+            DbConnection.FillCmbBoxQuery(palleteCmbBox, query1, "id_pallete", "pallet_number");
+            insertPalleteDataGridView.AutoGenerateColumns = false;
+            lblTitle.Text = "ULAZ PALETA U KOMORU " + storageData.getName();
         }
         protected override CreateParams CreateParams
         {
@@ -66,12 +72,33 @@ namespace Freshivoje.Storage
 
         private void insertBtn_Click(object sender, EventArgs e)
         {
-          
+            if (palleteCmbBox.SelectedIndex == 0)
+            {
+                CustomMessageBox.ShowDialog(this, "Niste izabrali paletu za unos.");
+                return;
+            }
+
+            int _palletId = (palleteCmbBox.SelectedItem as ComboBoxItem).Value;
+            int _palletNumber = Convert.ToInt32(palleteCmbBox.Text);
+
+            foreach(DataGridViewRow row in insertPalleteDataGridView.Rows)
+            {
+                int id = Convert.ToInt32(row.Cells["id_pallet"].Value);
+                if(_palletId == id)
+                {
+                    CustomMessageBox.ShowDialog(this, "Već ste izabrali paletu sa ovim paletnim brojem.");
+                    return;
+                }
+            }
+            Pallete pallete = new Pallete(_palletId, _palletNumber);
+            insertPalleteDataGridView.Rows.Add(pallete._id, pallete._number);
+            palleteCmbBox.SelectedIndex = 0;
+            
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
@@ -80,17 +107,22 @@ namespace Freshivoje.Storage
         }
 
 
-        private void articlesCmbBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+     
         private void ArticlesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
 
         }
 
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void palleteCmbBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
