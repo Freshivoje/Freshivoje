@@ -959,9 +959,44 @@ namespace Freshivoje
             }
             return value;
         }
-        public static void executePalletPositioningQuery(List<Pallete> pallete)
+        public static void palleting(List<Pallete> pallete, int _storageid)
         {
-            
+            MySqlCommand mySqlCommand = new MySqlCommand
+            {
+                Connection = _databaseConnection
+            };
+            _databaseConnection.Open();
+
+            MySqlTransaction transaction = _databaseConnection.BeginTransaction();
+            mySqlCommand.Transaction = transaction;
+
+            try
+            {
+
+                mySqlCommand.CommandText = "INSERT INTO `pallete_positioning` ( `fk_pallete_id`, `fk_storage_id` ) VALUES ( @fk_pallete_id, @fk_storage_id );";
+                foreach (Pallete item in pallete)
+                {
+                    mySqlCommand.Parameters.AddWithValue("@fk_pallete_id", item._id);
+                    mySqlCommand.Parameters.AddWithValue("@fk_storage_id", _storageid);
+                    mySqlCommand.ExecuteNonQuery();
+
+                    mySqlCommand.Parameters.Clear();
+                }
+
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                if (_databaseConnection.State != ConnectionState.Open)
+                {
+                    return;
+                }
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                _databaseConnection.Close();
+            }
         }
         
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Freshivoje.Models
 {
-    class Pallete
+    public class Pallete
     {
         public int _id { get; private set; }
         public int _number { get; private set; }

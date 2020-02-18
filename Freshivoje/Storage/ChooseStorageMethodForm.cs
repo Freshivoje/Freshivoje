@@ -33,11 +33,10 @@ namespace Freshivoje.Storage
                 return cp;
             }
         }
-        private void insertBtn_Click(object sender, EventArgs e)
-        {   
+        private void insertBtn_Click(object sender, EventArgs e) { 
+            Hide();
             using InsertStorageForm InsertStorageForm = new InsertStorageForm(storageId);
-            InsertStorageForm.ShowDialog(this);
-            
+            InsertStorageForm.ShowDialog(this);  
             Show();
         }
 

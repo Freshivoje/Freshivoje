@@ -17,6 +17,7 @@ namespace Freshivoje.Storage
     {
         int storageId;
         private object storageData;
+        public List<Pallete> palletes = new List<Pallete>();
 
         public InsertStorageForm(int _storageId)
         {
@@ -90,8 +91,8 @@ namespace Freshivoje.Storage
                     return;
                 }
             }
-            Pallete pallete = new Pallete(_palletId, _palletNumber);
-            insertPalleteDataGridView.Rows.Add(pallete._id, pallete._number);
+            Pallete _pallete = new Pallete(_palletId, _palletNumber);
+            insertPalleteDataGridView.Rows.Add(_pallete._id, _pallete._number);
             palleteCmbBox.SelectedIndex = 0;
             
         }
@@ -103,7 +104,22 @@ namespace Freshivoje.Storage
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
+            DialogResult result = CustomDialog.ShowDialog(this, "Da li ste sigurni da ste završili sa ubacivanjem artikala u komoru ?");
+            if (result == DialogResult.No || result == DialogResult.Cancel)
+            {
+                return;
+            }
 
+            foreach (DataGridViewRow row in insertPalleteDataGridView.Rows)
+            {
+                int idPallete = Convert.ToInt32(row.Cells["id_pallet"].Value);
+                int numberPallete = Convert.ToInt32(row.Cells["pallet_number"].Value);
+
+                Pallete item = new Pallete(idPallete, numberPallete);
+                palletes.Add(item);
+            }
+            DbConnection.palleting(palletes, storageId);
+            Close();
         }
 
 
@@ -111,6 +127,16 @@ namespace Freshivoje.Storage
         private void ArticlesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            if (e.ColumnIndex == 2)
+            {
+                DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da ne ubacite ovu paletu ?");
+                if (result == DialogResult.No || result == DialogResult.Cancel)
+                {
+                    return;
+                }
+                DataGridViewRow _selectedRow = insertPalleteDataGridView.CurrentRow;
+                insertPalleteDataGridView.Rows.Remove(_selectedRow);
+            }
 
         }
 
