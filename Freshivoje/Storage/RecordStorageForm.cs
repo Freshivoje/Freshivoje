@@ -14,9 +14,6 @@ namespace Freshivoje.Storage
     public partial class RecordStorageForm : Form
     {
         int _storageId;
-        string _packagingQuery;
-        string _articleQuery;
-        bool state1;
         string searchValue;
         public RecordStorageForm(int storageId)
         {
@@ -27,10 +24,10 @@ namespace Freshivoje.Storage
             cmd.CommandText = "SELECT * FROM storage WHERE id_storage ='" + _storageId + "'";
             WindowState = FormWindowState.Maximized;
             RecordsDataGridView.AutoGenerateColumns = false;
-            ;
+            string query = "SELECT * FROM `pallete_positioning` INNER JOIN `pallete` ON `pallete_positioning`.`fk_pallete_id` = `pallete`.`id_pallete` WHERE `pallete_positioning`.`fk_storage_id`=" + _storageId;
+            DbConnection.fillDGV(RecordsDataGridView, query);
             dynamic storageData = DbConnection.getStorageData(cmd, _storageId);
             lblTitle.Text = "EVIDENCIJA KOMORE " + storageData.getName();
-            state1 = true;
              
         }
 
@@ -72,7 +69,7 @@ namespace Freshivoje.Storage
         }
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void packagesRecordsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -89,7 +86,17 @@ namespace Freshivoje.Storage
         private void searchRecordTxtBox_TextChanged(object sender, EventArgs e)
         {
                 searchValue = searchRecordTxtBox.Text.Replace('\'', (char)0x2019); // &rsquo; 
-            (RecordsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"`category` LIKE '%{searchValue}%' OR `article_name` LIKE '%{searchValue}%' OR `sort` LIKE '%{searchValue}%' OR `organic` LIKE '%{searchValue}%'"; 
+            (RecordsDataGridView.DataSource as DataTable).DefaultView.RowFilter = @$"`pallet_number` LIKE '%{searchValue}%' OR `classification` LIKE '%{searchValue}%' OR `pallete_positioning_date` LIKE '%{searchValue}%'"; 
+        }
+
+        private void insertPalleteDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

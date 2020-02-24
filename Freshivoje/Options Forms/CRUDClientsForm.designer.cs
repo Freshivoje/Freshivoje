@@ -406,6 +406,7 @@
             this.searchClientsTxtBox.ShortcutsEnabled = false;
             this.searchClientsTxtBox.Size = new System.Drawing.Size(330, 31);
             this.searchClientsTxtBox.TabIndex = 11;
+            this.searchClientsTxtBox.TextChanged += new System.EventHandler(this.searchClientsTxtBox_TextChanged);
             this.searchClientsTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchClientsTxtBox_KeyPress);
             // 
             // CRUDClientsForm

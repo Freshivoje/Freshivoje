@@ -28,24 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.packagesRecordFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.RecordsDataGridView = new System.Windows.Forms.DataGridView();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.RecordsDataGridView = new System.Windows.Forms.DataGridView();
-            this.article_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.organic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packagingName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchRentPackagesRecordLbl = new System.Windows.Forms.Label();
             this.searchRecordTxtBox = new System.Windows.Forms.TextBox();
+            this.id_pallet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pallet_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classification = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pallete_positioning_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.palletAction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backBtn = new System.Windows.Forms.Button();
             this.packagesRecordFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecordsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -63,11 +61,12 @@
             this.packagesRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.packagesRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.packagesRecordFormTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.packagesRecordFormTblLayout.Controls.Add(this.backBtn, 6, 0);
+            this.packagesRecordFormTblLayout.Controls.Add(this.RecordsDataGridView, 0, 3);
             this.packagesRecordFormTblLayout.Controls.Add(this.exitBtn, 7, 0);
             this.packagesRecordFormTblLayout.Controls.Add(this.lblTitle, 0, 0);
-            this.packagesRecordFormTblLayout.Controls.Add(this.RecordsDataGridView, 0, 3);
-            this.packagesRecordFormTblLayout.Controls.Add(this.searchRentPackagesRecordLbl, 4, 1);
-            this.packagesRecordFormTblLayout.Controls.Add(this.searchRecordTxtBox, 2, 2);
+            this.packagesRecordFormTblLayout.Controls.Add(this.searchRentPackagesRecordLbl, 3, 1);
+            this.packagesRecordFormTblLayout.Controls.Add(this.searchRecordTxtBox, 3, 2);
             this.packagesRecordFormTblLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.packagesRecordFormTblLayout.Location = new System.Drawing.Point(0, 0);
             this.packagesRecordFormTblLayout.Name = "packagesRecordFormTblLayout";
@@ -88,8 +87,63 @@
             this.packagesRecordFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
             this.packagesRecordFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
             this.packagesRecordFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.packagesRecordFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.packagesRecordFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.packagesRecordFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.packagesRecordFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.packagesRecordFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.packagesRecordFormTblLayout.Size = new System.Drawing.Size(1940, 901);
             this.packagesRecordFormTblLayout.TabIndex = 4;
+            // 
+            // RecordsDataGridView
+            // 
+            this.RecordsDataGridView.AllowUserToAddRows = false;
+            this.RecordsDataGridView.AllowUserToDeleteRows = false;
+            this.RecordsDataGridView.AllowUserToResizeColumns = false;
+            this.RecordsDataGridView.AllowUserToResizeRows = false;
+            this.RecordsDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.RecordsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecordsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.RecordsDataGridView.ColumnHeadersHeight = 40;
+            this.RecordsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.RecordsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_pallet,
+            this.pallet_number,
+            this.classification,
+            this.pallete_positioning_date,
+            this.palletAction});
+            this.packagesRecordFormTblLayout.SetColumnSpan(this.RecordsDataGridView, 8);
+            this.RecordsDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecordsDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
+            this.RecordsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RecordsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.RecordsDataGridView.Location = new System.Drawing.Point(3, 173);
+            this.RecordsDataGridView.MultiSelect = false;
+            this.RecordsDataGridView.Name = "RecordsDataGridView";
+            this.RecordsDataGridView.ReadOnly = true;
+            this.RecordsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.RecordsDataGridView.RowHeadersWidth = 40;
+            this.RecordsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.packagesRecordFormTblLayout.SetRowSpan(this.RecordsDataGridView, 12);
+            this.RecordsDataGridView.RowTemplate.Height = 30;
+            this.RecordsDataGridView.Size = new System.Drawing.Size(1934, 725);
+            this.RecordsDataGridView.TabIndex = 42;
+            this.RecordsDataGridView.TabStop = false;
+            this.RecordsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.insertPalleteDataGridView_CellContentClick);
             // 
             // exitBtn
             // 
@@ -132,126 +186,6 @@
             this.lblTitle.Text = "\r\n";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // RecordsDataGridView
-            // 
-            this.RecordsDataGridView.AllowUserToAddRows = false;
-            this.RecordsDataGridView.AllowUserToDeleteRows = false;
-            this.RecordsDataGridView.AllowUserToResizeColumns = false;
-            this.RecordsDataGridView.AllowUserToResizeRows = false;
-            this.RecordsDataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.RecordsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecordsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.RecordsDataGridView.ColumnHeadersHeight = 40;
-            this.RecordsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.RecordsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.article_name,
-            this.sort,
-            this.organic,
-            this.category,
-            this.packagingName,
-            this.capacity,
-            this.state,
-            this.quantity});
-            this.packagesRecordFormTblLayout.SetColumnSpan(this.RecordsDataGridView, 8);
-            this.RecordsDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecordsDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.RecordsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RecordsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.RecordsDataGridView.Location = new System.Drawing.Point(3, 173);
-            this.RecordsDataGridView.MultiSelect = false;
-            this.RecordsDataGridView.Name = "RecordsDataGridView";
-            this.RecordsDataGridView.ReadOnly = true;
-            this.RecordsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.RecordsDataGridView.RowHeadersWidth = 40;
-            this.RecordsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.packagesRecordFormTblLayout.SetRowSpan(this.RecordsDataGridView, 12);
-            this.RecordsDataGridView.RowTemplate.Height = 30;
-            this.RecordsDataGridView.Size = new System.Drawing.Size(1934, 725);
-            this.RecordsDataGridView.TabIndex = 6;
-            this.RecordsDataGridView.TabStop = false;
-            this.RecordsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.packagesRecordsDataGridView_CellContentClick);
-            // 
-            // article_name
-            // 
-            this.article_name.DataPropertyName = "article_name";
-            this.article_name.HeaderText = "Ime(Artikla)";
-            this.article_name.Name = "article_name";
-            this.article_name.ReadOnly = true;
-            this.article_name.Width = 300;
-            // 
-            // sort
-            // 
-            this.sort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.sort.DataPropertyName = "sort";
-            this.sort.HeaderText = "Sorta";
-            this.sort.Name = "sort";
-            this.sort.ReadOnly = true;
-            // 
-            // organic
-            // 
-            this.organic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.organic.DataPropertyName = "organic";
-            this.organic.HeaderText = "Kontrolisana Proizvodnja";
-            this.organic.Name = "organic";
-            this.organic.ReadOnly = true;
-            this.organic.Width = 317;
-            // 
-            // category
-            // 
-            this.category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.category.DataPropertyName = "category";
-            dataGridViewCellStyle2.NullValue = null;
-            this.category.DefaultCellStyle = dataGridViewCellStyle2;
-            this.category.HeaderText = "Kategorija";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // packagingName
-            // 
-            this.packagingName.DataPropertyName = "packagingName";
-            this.packagingName.HeaderText = "Ime(Ambalaže)";
-            this.packagingName.Name = "packagingName";
-            this.packagingName.ReadOnly = true;
-            this.packagingName.Width = 300;
-            // 
-            // capacity
-            // 
-            this.capacity.DataPropertyName = "capacity";
-            this.capacity.HeaderText = "Kapacitet";
-            this.capacity.Name = "capacity";
-            this.capacity.ReadOnly = true;
-            this.capacity.Width = 300;
-            // 
-            // state
-            // 
-            this.state.DataPropertyName = "state";
-            this.state.HeaderText = "Stanje";
-            this.state.Name = "state";
-            this.state.ReadOnly = true;
-            this.state.Width = 300;
-            // 
-            // quantity
-            // 
-            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.quantity.DataPropertyName = "quantity";
-            this.quantity.HeaderText = "Količina";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            // 
             // searchRentPackagesRecordLbl
             // 
             this.searchRentPackagesRecordLbl.AutoSize = true;
@@ -259,9 +193,9 @@
             this.searchRentPackagesRecordLbl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchRentPackagesRecordLbl.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchRentPackagesRecordLbl.ForeColor = System.Drawing.Color.White;
-            this.searchRentPackagesRecordLbl.Location = new System.Drawing.Point(1263, 93);
+            this.searchRentPackagesRecordLbl.Location = new System.Drawing.Point(893, 93);
             this.searchRentPackagesRecordLbl.Name = "searchRentPackagesRecordLbl";
-            this.searchRentPackagesRecordLbl.Size = new System.Drawing.Size(512, 27);
+            this.searchRentPackagesRecordLbl.Size = new System.Drawing.Size(364, 27);
             this.searchRentPackagesRecordLbl.TabIndex = 41;
             this.searchRentPackagesRecordLbl.Text = "Pretraži ";
             this.searchRentPackagesRecordLbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -271,13 +205,84 @@
             this.searchRecordTxtBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchRecordTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchRecordTxtBox.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchRecordTxtBox.Location = new System.Drawing.Point(539, 123);
+            this.searchRecordTxtBox.Location = new System.Drawing.Point(909, 123);
             this.searchRecordTxtBox.Multiline = true;
             this.searchRecordTxtBox.Name = "searchRecordTxtBox";
             this.searchRecordTxtBox.ShortcutsEnabled = false;
             this.searchRecordTxtBox.Size = new System.Drawing.Size(332, 31);
             this.searchRecordTxtBox.TabIndex = 5;
             this.searchRecordTxtBox.TextChanged += new System.EventHandler(this.searchRecordTxtBox_TextChanged);
+            // 
+            // id_pallet
+            // 
+            this.id_pallet.HeaderText = "ID palete";
+            this.id_pallet.Name = "id_pallet";
+            this.id_pallet.ReadOnly = true;
+            this.id_pallet.Visible = false;
+            // 
+            // pallet_number
+            // 
+            this.pallet_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pallet_number.DataPropertyName = "pallet_number";
+            this.pallet_number.HeaderText = "Palteni broj";
+            this.pallet_number.Name = "pallet_number";
+            this.pallet_number.ReadOnly = true;
+            // 
+            // classification
+            // 
+            this.classification.DataPropertyName = "classification";
+            this.classification.HeaderText = "Klasifikovan";
+            this.classification.MinimumWidth = 500;
+            this.classification.Name = "classification";
+            this.classification.ReadOnly = true;
+            this.classification.Width = 500;
+            // 
+            // pallete_positioning_date
+            // 
+            this.pallete_positioning_date.DataPropertyName = "pallete_positioning_date";
+            this.pallete_positioning_date.HeaderText = "Datum i vreme ulaza ";
+            this.pallete_positioning_date.MinimumWidth = 700;
+            this.pallete_positioning_date.Name = "pallete_positioning_date";
+            this.pallete_positioning_date.ReadOnly = true;
+            this.pallete_positioning_date.Width = 700;
+            // 
+            // palletAction
+            // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle6.NullValue = "X";
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Red;
+            this.palletAction.DefaultCellStyle = dataGridViewCellStyle6;
+            this.palletAction.HeaderText = "";
+            this.palletAction.Name = "palletAction";
+            this.palletAction.ReadOnly = true;
+            this.palletAction.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.palletAction.Width = 40;
+            // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.BackgroundImage = global::Freshivoje.Properties.Resources.left_arrow;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBtn.ForeColor = System.Drawing.Color.White;
+            this.backBtn.Location = new System.Drawing.Point(1831, 3);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(44, 54);
+            this.backBtn.TabIndex = 46;
+            this.backBtn.TabStop = false;
+            this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // RecordStorageForm
             // 
@@ -300,16 +305,14 @@
         private System.Windows.Forms.TableLayoutPanel packagesRecordFormTblLayout;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.DataGridView RecordsDataGridView;
         private System.Windows.Forms.Label searchRentPackagesRecordLbl;
         private System.Windows.Forms.TextBox searchRecordTxtBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn article_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sort;
-        private System.Windows.Forms.DataGridViewTextBoxColumn organic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn packagingName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn capacity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn state;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridView RecordsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_pallet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pallet_number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn classification;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pallete_positioning_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn palletAction;
+        private System.Windows.Forms.Button backBtn;
     }
 }

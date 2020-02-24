@@ -26,10 +26,17 @@ namespace Freshivoje.Storage
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = "SELECT * FROM storage WHERE id_storage ='" + _storageId + "'";
             dynamic storageData = DbConnection.getStorageData(cmd, _storageId);
-            string query1 = "SELECT * FROM `pallete` WHERE pallete.status = 'aktivna'";
-            string query = "SELECT `pallete`.`pallet_number`, pallete.classification FROM `pallete_positioning` INNER JOIN `pallete` ON pallete_positioning.fk_pallete_id = pallete.id_pallete WHERE pallete_positioning.fk_storage_id = " + storageId;
-            //DbConnection.fillDGV(insertPalleteDataGridView, query);
-            DbConnection.FillCmbBoxQuery(palleteCmbBox, query1, "id_pallete", "pallet_number");
+            if(storageId == 9)
+            {
+                string query1 = "SELECT * FROM `pallete` WHERE pallete.status = 'aktivna'";
+                DbConnection.FillCmbBoxQuery(palleteCmbBox, query1, "id_pallete", "pallet_number");
+            }
+            else
+            {
+                string query1 = "SELECT * FROM `pallete_positioning` INNER JOIN `pallete` ON `pallete_positioning`.`fk_pallete_id` = `pallete`.`id_pallete` WHERE `pallete_positioning`.`fk_storage_id`=9;";
+                DbConnection.FillCmbBoxQuery(palleteCmbBox, query1, "id_pallete", "pallet_number");
+            }
+          
             insertPalleteDataGridView.AutoGenerateColumns = false;
             lblTitle.Text = "ULAZ PALETA U KOMORU " + storageData.getName();
         }

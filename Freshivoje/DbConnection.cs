@@ -983,6 +983,14 @@ namespace Freshivoje
                     mySqlCommand.Parameters.Clear();
                 }
 
+                mySqlCommand.CommandText = "UPDATE `pallete` SET `status` = 'nekativna' WHERE `pallete`.`id_pallete` = @fk_pallete_id;";
+                foreach (Pallete item in pallete)
+                {
+                    mySqlCommand.Parameters.AddWithValue("@fk_pallete_id", item._id);
+                    mySqlCommand.ExecuteNonQuery();
+
+                    mySqlCommand.Parameters.Clear();
+                }
                 transaction.Commit();
             }
             catch (Exception ex)

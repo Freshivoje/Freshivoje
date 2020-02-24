@@ -30,6 +30,11 @@ namespace Freshivoje.Options_Forms
                         _selectedClientBankAccount = string.Empty,
                         _selectedClientPhone = string.Empty;
 
+        private void searchClientsTxtBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void crudClientsFormTblLayout_Paint(object sender, PaintEventArgs e)
         {
 
