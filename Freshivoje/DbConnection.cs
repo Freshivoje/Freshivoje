@@ -168,7 +168,7 @@ namespace Freshivoje
                     return;
                 }
                 _databaseConnection.Open();
-                int j = 1;
+               
                 MySqlCommand mySqlCommand1 = _databaseConnection.CreateCommand();
                 mySqlCommand1.CommandText = query1;
                 using MySqlDataReader reader1 = mySqlCommand1.ExecuteReader();
@@ -509,7 +509,7 @@ namespace Freshivoje
                 label.Text = text;
                 _databaseConnection.Close();
                 _databaseConnection.Open();
-                int j = 1;
+      
 
                 MySqlCommand mySqlCommand1 = _databaseConnection.CreateCommand();
                 mySqlCommand1.CommandText = query1;
@@ -538,8 +538,6 @@ namespace Freshivoje
                                 break;
                         }
                     }
-
-
                 }
                 foreach (KeyValuePair<Int32, Decimal> item in MapOfArticleQuantiy)
                 {
@@ -1005,6 +1003,49 @@ namespace Freshivoje
             {
                 _databaseConnection.Close();
             }
+        }
+        public static string fillCustom(string query, params string[] columns)
+        {
+                _databaseConnection.Open();
+                string text = string.Empty;
+                MySqlCommand mySqlCommand = _databaseConnection.CreateCommand();
+                mySqlCommand.CommandText = query;
+                using MySqlDataReader reader = mySqlCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    foreach (string column in columns)
+                    {
+                        switch (column)
+                        {
+                            case "first_name":
+                                text += $"{reader.GetString(column)} ";
+                                break;
+                            case "last_name":
+                                text += $"{reader.GetString(column)}, ";
+                                break;
+                            case "quantity":
+                                text += $"{reader.GetInt32(column)} KG\n";
+                                break;
+                            case "article_name":
+                                text += $"{reader.GetString(column)}, ";
+                                break;
+                            case "sort":
+                                text += $"{reader.GetString(column)}, ";
+                                break;
+                            case "organic":
+                                text += $"{reader.GetString(column)}, ";
+                                break;
+                            case "category":
+                                text += $"{reader.GetString(column)}, ";
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                return text;
+                 _databaseConnection.Close();
+
         }
         
     }

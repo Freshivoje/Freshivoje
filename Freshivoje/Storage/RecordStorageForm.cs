@@ -24,7 +24,7 @@ namespace Freshivoje.Storage
             cmd.CommandText = "SELECT * FROM storage WHERE id_storage ='" + _storageId + "'";
             WindowState = FormWindowState.Maximized;
             RecordsDataGridView.AutoGenerateColumns = false;
-            string query = "SELECT * FROM `pallete_positioning` INNER JOIN `pallete` ON `pallete_positioning`.`fk_pallete_id` = `pallete`.`id_pallete` WHERE `pallete_positioning`.`fk_storage_id`=" + _storageId;
+            string query = "SELECT * FROM `pallete_positioning` INNER JOIN `pallete` ON `pallete_positioning`.`fk_pallete_id` = `pallete`.`id_pallete` WHERE `pallete_positioning`.`status`='aktivna' AND `pallete_positioning`.`fk_storage_id`=" + _storageId;
             DbConnection.fillDGV(RecordsDataGridView, query);
             dynamic storageData = DbConnection.getStorageData(cmd, _storageId);
             lblTitle.Text = "EVIDENCIJA KOMORE " + storageData.getName();
@@ -91,6 +91,17 @@ namespace Freshivoje.Storage
 
         private void insertPalleteDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            if(e.ColumnIndex == 4) {
+
+                int _id_pallete = Convert.ToInt32(RecordsDataGridView.Rows[e.RowIndex].Cells["id_pallet"].Value);
+
+                string query2 = @$"SELECT receipts.fk_client_id, clients.first_name, clients.last_name, items_receipt.fk_receipt_id, items_receipt.fk_article_id, items_receipt.id_items_receipt, items_receipt.quantity, items_receipt.status, articles.article_name, articles.sort, articles.organic, articles.category,  item_pallete.fk_id_item_recepit, item_pallete.fk_id_pallete, pallete.pallet_number FROM receipts INNER JOIN clients ON receipts.fk_client_id = clients.id_client INNER JOIN items_receipt ON items_receipt.fk_receipt_id = receipts.id_receipt INNER JOIN articles ON articles.id_article = items_receipt.fk_article_id INNER JOIN item_pallete ON items_receipt.id_items_receipt = item_pallete.fk_id_item_recepit INNER JOIN pallete ON pallete.id_pallete = item_pallete.fk_id_pallete WHERE pallete.id_pallete = '{_id_pallete}'";
+
+                CustomMessageBox.ShowDialog(this, "Na ovoj paleti se nalazi : \n\t" + DbConnection.fillCustom(query2, "first_name", "last_name", "article_name", "sort", "organic", "category", "quantity"));
+                return;
+            }
+
 
         }
 

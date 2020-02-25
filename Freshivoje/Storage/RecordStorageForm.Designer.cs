@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.packagesRecordFormTblLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.backBtn = new System.Windows.Forms.Button();
             this.RecordsDataGridView = new System.Windows.Forms.DataGridView();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.classification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pallete_positioning_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.palletAction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backBtn = new System.Windows.Forms.Button();
             this.packagesRecordFormTblLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecordsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +95,29 @@
             this.packagesRecordFormTblLayout.Size = new System.Drawing.Size(1940, 901);
             this.packagesRecordFormTblLayout.TabIndex = 4;
             // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.BackgroundImage = global::Freshivoje.Properties.Resources.left_arrow;
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBtn.ForeColor = System.Drawing.Color.White;
+            this.backBtn.Location = new System.Drawing.Point(1831, 3);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(44, 54);
+            this.backBtn.TabIndex = 46;
+            this.backBtn.TabStop = false;
+            this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // RecordsDataGridView
             // 
             this.RecordsDataGridView.AllowUserToAddRows = false;
@@ -103,14 +126,14 @@
             this.RecordsDataGridView.AllowUserToResizeRows = false;
             this.RecordsDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.RecordsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecordsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RecordsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.RecordsDataGridView.ColumnHeadersHeight = 40;
             this.RecordsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.RecordsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -121,21 +144,21 @@
             this.palletAction});
             this.packagesRecordFormTblLayout.SetColumnSpan(this.RecordsDataGridView, 8);
             this.RecordsDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecordsDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RecordsDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.RecordsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RecordsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.RecordsDataGridView.Location = new System.Drawing.Point(3, 173);
             this.RecordsDataGridView.MultiSelect = false;
             this.RecordsDataGridView.Name = "RecordsDataGridView";
             this.RecordsDataGridView.ReadOnly = true;
-            this.RecordsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.RecordsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.RecordsDataGridView.RowHeadersWidth = 40;
             this.RecordsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.packagesRecordFormTblLayout.SetRowSpan(this.RecordsDataGridView, 12);
@@ -215,6 +238,7 @@
             // 
             // id_pallet
             // 
+            this.id_pallet.DataPropertyName = "id_pallete";
             this.id_pallet.HeaderText = "ID palete";
             this.id_pallet.Name = "id_pallet";
             this.id_pallet.ReadOnly = true;
@@ -248,41 +272,18 @@
             // 
             // palletAction
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle6.NullValue = "X";
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Red;
-            this.palletAction.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.NullValue = "🔎";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.palletAction.DefaultCellStyle = dataGridViewCellStyle2;
             this.palletAction.HeaderText = "";
             this.palletAction.Name = "palletAction";
             this.palletAction.ReadOnly = true;
             this.palletAction.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.palletAction.Width = 40;
-            // 
-            // backBtn
-            // 
-            this.backBtn.BackColor = System.Drawing.Color.Transparent;
-            this.backBtn.BackgroundImage = global::Freshivoje.Properties.Resources.left_arrow;
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(1831, 3);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(44, 54);
-            this.backBtn.TabIndex = 46;
-            this.backBtn.TabStop = false;
-            this.backBtn.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.backBtn.UseVisualStyleBackColor = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // RecordStorageForm
             // 
@@ -308,11 +309,11 @@
         private System.Windows.Forms.Label searchRentPackagesRecordLbl;
         private System.Windows.Forms.TextBox searchRecordTxtBox;
         private System.Windows.Forms.DataGridView RecordsDataGridView;
+        private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_pallet;
         private System.Windows.Forms.DataGridViewTextBoxColumn pallet_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn classification;
         private System.Windows.Forms.DataGridViewTextBoxColumn pallete_positioning_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn palletAction;
-        private System.Windows.Forms.Button backBtn;
     }
 }
