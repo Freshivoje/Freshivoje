@@ -50,6 +50,7 @@ namespace Freshivoje.Storage
 
         private void outBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             using OutStorageForm outStorageForm = new OutStorageForm(storageId);
             outStorageForm.ShowDialog(this);
             Show();

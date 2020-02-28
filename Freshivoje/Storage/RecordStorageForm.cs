@@ -24,11 +24,20 @@ namespace Freshivoje.Storage
             cmd.CommandText = "SELECT * FROM storage WHERE id_storage ='" + _storageId + "'";
             WindowState = FormWindowState.Maximized;
             RecordsDataGridView.AutoGenerateColumns = false;
-            string query = "SELECT * FROM `pallete_positioning` INNER JOIN `pallete` ON `pallete_positioning`.`fk_pallete_id` = `pallete`.`id_pallete` WHERE `pallete_positioning`.`status`='aktivna' AND `pallete_positioning`.`fk_storage_id`=" + _storageId;
-            DbConnection.fillDGV(RecordsDataGridView, query);
+           
             dynamic storageData = DbConnection.getStorageData(cmd, _storageId);
             lblTitle.Text = "EVIDENCIJA KOMORE " + storageData.getName();
-             
+            if (_storageId == 8)
+            {
+                string query = "SELECT * FROM `pallete_positioning` INNER JOIN `pallete` ON `pallete_positioning`.`fk_pallete_id` = `pallete`.`id_pallete` WHERE pallete_positioning.sell = 'aktivna' AND `pallete_positioning`.`status`='aktivna' AND `pallete_positioning`.`fk_storage_id`=" + _storageId;
+                DbConnection.fillDGV(RecordsDataGridView, query);
+            }
+            else
+            {
+                string query = "SELECT * FROM `pallete_positioning` INNER JOIN `pallete` ON `pallete_positioning`.`fk_pallete_id` = `pallete`.`id_pallete` WHERE `pallete_positioning`.`status`='aktivna' AND `pallete_positioning`.`fk_storage_id`=" + _storageId;
+                DbConnection.fillDGV(RecordsDataGridView, query);
+            }
+
         }
 
         protected override CreateParams CreateParams

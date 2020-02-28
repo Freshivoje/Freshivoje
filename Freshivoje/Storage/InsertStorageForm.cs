@@ -125,7 +125,7 @@ namespace Freshivoje.Storage
                 Pallete item = new Pallete(idPallete, numberPallete);
                 palletes.Add(item);
             }
-            DbConnection.palleting(palletes, storageId);
+            DbConnection.palleting(palletes, storageId, true);
             Close();
         }
 
@@ -134,7 +134,7 @@ namespace Freshivoje.Storage
         private void ArticlesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.ColumnIndex == 2)
+            if (e.ColumnIndex == 3)
             {
                 DialogResult result = CustomDialog.ShowDialog(this, $"Da li ste sigurni da želite da ne ubacite ovu paletu ?");
                 if (result == DialogResult.No || result == DialogResult.Cancel)
@@ -143,6 +143,15 @@ namespace Freshivoje.Storage
                 }
                 DataGridViewRow _selectedRow = insertPalleteDataGridView.CurrentRow;
                 insertPalleteDataGridView.Rows.Remove(_selectedRow);
+            }
+            if(e.ColumnIndex == 2)
+            {
+                int _id_pallete = Convert.ToInt32(insertPalleteDataGridView.Rows[e.RowIndex].Cells["id_pallet"].Value);
+
+                string query2 = @$"SELECT receipts.fk_client_id, clients.first_name, clients.last_name, items_receipt.fk_receipt_id, items_receipt.fk_article_id, items_receipt.id_items_receipt, items_receipt.quantity, items_receipt.status, articles.article_name, articles.sort, articles.organic, articles.category,  item_pallete.fk_id_item_recepit, item_pallete.fk_id_pallete, pallete.pallet_number FROM receipts INNER JOIN clients ON receipts.fk_client_id = clients.id_client INNER JOIN items_receipt ON items_receipt.fk_receipt_id = receipts.id_receipt INNER JOIN articles ON articles.id_article = items_receipt.fk_article_id INNER JOIN item_pallete ON items_receipt.id_items_receipt = item_pallete.fk_id_item_recepit INNER JOIN pallete ON pallete.id_pallete = item_pallete.fk_id_pallete WHERE pallete.id_pallete = '{_id_pallete}'";
+
+                CustomMessageBox.ShowDialog(this, "Na ovoj paleti se nalazi : \n\t" + DbConnection.fillCustom(query2, "first_name", "last_name", "article_name", "sort", "organic", "category", "quantity"));
+                return;
             }
 
         }

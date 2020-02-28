@@ -16,7 +16,6 @@ namespace Freshivoje
         private static readonly string _port = "3306";
         private static readonly string _database = "freshivoje";
         private static readonly string _username = "root";
-        //private static string password = "";
         private static readonly string _connectionString = $"datasource={_dataSource};port={_port};database={_database};username={_username};charset=utf8;";
 
         public static readonly MySqlConnection _databaseConnection = new MySqlConnection(_connectionString);
@@ -957,51 +956,143 @@ namespace Freshivoje
             }
             return value;
         }
-        public static void palleting(List<Pallete> pallete, int _storageid)
+        public static void palleting(List<Pallete> pallete, int _storageid, Boolean status)
         {
-            MySqlCommand mySqlCommand = new MySqlCommand
+            if (_storageid == 8)
             {
-                Connection = _databaseConnection
-            };
-            _databaseConnection.Open();
-
-            MySqlTransaction transaction = _databaseConnection.BeginTransaction();
-            mySqlCommand.Transaction = transaction;
-
-            try
-            {
-
-                mySqlCommand.CommandText = "INSERT INTO `pallete_positioning` ( `fk_pallete_id`, `fk_storage_id` ) VALUES ( @fk_pallete_id, @fk_storage_id );";
-                foreach (Pallete item in pallete)
+                MySqlCommand mySqlCommand = new MySqlCommand
                 {
-                    mySqlCommand.Parameters.AddWithValue("@fk_pallete_id", item._id);
-                    mySqlCommand.Parameters.AddWithValue("@fk_storage_id", _storageid);
-                    mySqlCommand.ExecuteNonQuery();
+                    Connection = _databaseConnection
+                };
+                _databaseConnection.Open();
 
-                    mySqlCommand.Parameters.Clear();
-                }
+                MySqlTransaction transaction = _databaseConnection.BeginTransaction();
+                mySqlCommand.Transaction = transaction;
 
-                mySqlCommand.CommandText = "UPDATE `pallete` SET `status` = 'nekativna' WHERE `pallete`.`id_pallete` = @fk_pallete_id;";
-                foreach (Pallete item in pallete)
+                try
                 {
-                    mySqlCommand.Parameters.AddWithValue("@fk_pallete_id", item._id);
-                    mySqlCommand.ExecuteNonQuery();
 
-                    mySqlCommand.Parameters.Clear();
+                    mySqlCommand.CommandText = "UPDATE `pallete_positioning` SET `sell` = 'neaktivna' WHERE `pallete_positioning`.`fk_pallete_id` = @fk_pallete_id AND `pallete_positioning`.`fk_storage_id` = @fk_storage_id;";
+                    foreach (Pallete item in pallete)
+                    {
+                        mySqlCommand.Parameters.AddWithValue("@fk_pallete_id", item._id);
+                        mySqlCommand.Parameters.AddWithValue("@fk_storage_id", _storageid);
+                        mySqlCommand.ExecuteNonQuery();
+
+                        mySqlCommand.Parameters.Clear();
+                    }
+                    transaction.Commit();
                 }
-                transaction.Commit();
+                catch (Exception ex)
+                {
+                    if (_databaseConnection.State != ConnectionState.Open)
+                    {
+                        return;
+                    }
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    _databaseConnection.Close();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                if (_databaseConnection.State != ConnectionState.Open)
+                if (status == true)
                 {
-                    return;
+                    MySqlCommand mySqlCommand = new MySqlCommand
+                    {
+                        Connection = _databaseConnection
+                    };
+                    _databaseConnection.Open();
+
+                    MySqlTransaction transaction = _databaseConnection.BeginTransaction();
+                    mySqlCommand.Transaction = transaction;
+
+                    try
+                    {
+
+                        mySqlCommand.CommandText = "INSERT INTO `pallete_positioning` ( `fk_pallete_id`, `fk_storage_id` ) VALUES ( @fk_pallete_id, @fk_storage_id );";
+                        foreach (Pallete item in pallete)
+                        {
+                            mySqlCommand.Parameters.AddWithValue("@fk_pallete_id", item._id);
+                            mySqlCommand.Parameters.AddWithValue("@fk_storage_id", _storageid);
+                            mySqlCommand.ExecuteNonQuery();
+
+                            mySqlCommand.Parameters.Clear();
+                        }
+
+                        mySqlCommand.CommandText = "UPDATE `pallete` SET `status` = 'nekativna' WHERE `pallete`.`id_pallete` = @fk_pallete_id;";
+                        foreach (Pallete item in pallete)
+                        {
+                            mySqlCommand.Parameters.AddWithValue("@fk_pallete_id", item._id);
+                            mySqlCommand.ExecuteNonQuery();
+
+                            mySqlCommand.Parameters.Clear();
+                        }
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        if (_databaseConnection.State != ConnectionState.Open)
+                        {
+                            return;
+                        }
+                        throw new Exception(ex.Message);
+                    }
+                    finally
+                    {
+                        _databaseConnection.Close();
+                    }
                 }
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                _databaseConnection.Close();
+                else
+                {
+                    MySqlCommand mySqlCommand = new MySqlCommand
+                    {
+                        Connection = _databaseConnection
+                    };
+                    _databaseConnection.Open();
+
+                    MySqlTransaction transaction = _databaseConnection.BeginTransaction();
+                    mySqlCommand.Transaction = transaction;
+
+                    try
+                    {
+                        mySqlCommand.CommandText = "INSERT INTO `pallete_positioning` ( `fk_pallete_id`, `fk_storage_id` ) VALUES ( @fk_pallete_id, 8 );";
+                        foreach (Pallete item in pallete)
+                        {
+                            mySqlCommand.Parameters.AddWithValue("@fk_pallete_id", item._id);
+
+                            mySqlCommand.ExecuteNonQuery();
+
+                            mySqlCommand.Parameters.Clear();
+                        }
+
+                        mySqlCommand.CommandText = "UPDATE `pallete_positioning` SET `status` = 'neaktivna' WHERE `pallete_positioning`.`fk_pallete_id` = @fk_pallete_id AND `pallete_positioning`.`fk_storage_id` = @fk_storage_id;";
+                        foreach (Pallete item in pallete)
+                        {
+                            mySqlCommand.Parameters.AddWithValue("@fk_pallete_id", item._id);
+                            mySqlCommand.Parameters.AddWithValue("@fk_storage_id", _storageid);
+                            mySqlCommand.ExecuteNonQuery();
+
+                            mySqlCommand.Parameters.Clear();
+                        }
+
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        if (_databaseConnection.State != ConnectionState.Open)
+                        {
+                            return;
+                        }
+                        throw new Exception(ex.Message);
+                    }
+                    finally
+                    {
+                        _databaseConnection.Close();
+                    }
+                }
             }
         }
         public static string fillCustom(string query, params string[] columns)

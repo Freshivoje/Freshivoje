@@ -46,11 +46,11 @@ namespace Freshivoje.Storage
 
             WindowState = FormWindowState.Maximized;
 
-            DbConnection.fillBtnText(a1Btn, _a1Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
-            DbConnection.fillBtnText(a2Btn, _a2Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
-            DbConnection.fillBtnText(b1Btn, _b1Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
-            DbConnection.fillBtnText(b2Btn, _b2Query, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
-            DbConnection.fillBtnText(outputBtn, _outQuery, "id_storage", "storage_position", "StorageArticleQuantity", "article_quantity");
+            DbConnection.fillBtnText(a1Btn, _a1Query, "id_storage", "storage_position", "status");
+            DbConnection.fillBtnText(a2Btn, _a2Query, "id_storage", "storage_position", "status");
+            DbConnection.fillBtnText(b1Btn, _b1Query, "id_storage", "storage_position", "status");
+            DbConnection.fillBtnText(b2Btn, _b2Query, "id_storage", "storage_position", "status");
+            DbConnection.fillBtnText(outputBtn, _outQuery, "id_storage", "storage_position", "status");
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -95,7 +95,9 @@ namespace Freshivoje.Storage
 
         private void outputBtn_Click(object sender, EventArgs e)
         {
-            ButtonsStorageOnClick(sender);
+            using ChooseOutStorageForm chooseOutStorageForm = new ChooseOutStorageForm(8);
+            chooseOutStorageForm.ShowDialog(this);
+            Show();
         }
 
         private void storageBtn_Click(object sender, EventArgs e)
