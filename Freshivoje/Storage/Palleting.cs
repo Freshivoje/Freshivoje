@@ -121,7 +121,6 @@ namespace Freshivoje.Storage
         {
            if( e.ColumnIndex == 13)
             {
-
                 foreach (DataGridViewRow row in palletingDataGridView.Rows) {
                     int selectedRowIndex = palletingDataGridView.CurrentRow.Index;
                     DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)palletingDataGridView.Rows[selectedRowIndex].Cells[13];
@@ -129,7 +128,7 @@ namespace Freshivoje.Storage
                     if (Convert.ToInt32(chk.Value) == 0 || chk.Value == null )
                     {
                         chk.Value = 1;
-                        decimal quantity = Convert.ToDecimal(palletingDataGridView.Rows[selectedRowIndex].Cells["quantity"].Value);
+                            decimal quantity = Convert.ToDecimal(palletingDataGridView.Rows[selectedRowIndex].Cells["quantity"].Value);
                             totalQuanrity = totalQuanrity + quantity;
                             if(totalQuanrity >= 500)
                             {
@@ -149,14 +148,16 @@ namespace Freshivoje.Storage
                         chk.Value = 0;
                         decimal quantity = Convert.ToDecimal(palletingDataGridView.Rows[selectedRowIndex].Cells["quantity"].Value);
                             totalQuanrity = totalQuanrity - quantity;
-                            if (totalQuanrity >= 500)
-                            {
-                                palleteQuantitylbl.ForeColor = System.Drawing.Color.Red;
-                            }
-                            if (totalQuanrity < 500)
-                            {
-                                palleteQuantitylbl.ForeColor = System.Drawing.Color.White;
-                            }
+                        if (totalQuanrity >= 500)
+                        {
+                            palleteQuantitylbl.ForeColor = System.Drawing.Color.Red;
+                            finishInsertBtn.Enabled = false;
+                        }
+                        if (totalQuanrity < 500)
+                        {
+                            palleteQuantitylbl.ForeColor = System.Drawing.Color.White;
+                            finishInsertBtn.Enabled = true;
+                        }
                         palleteQuantitylbl.Text = totalQuanrity.ToString();
                             return;
                     }
