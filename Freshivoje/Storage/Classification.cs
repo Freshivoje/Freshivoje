@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Freshivoje.Custom_Classes;
 
 namespace Freshivoje.Storage
 {
@@ -129,6 +130,9 @@ namespace Freshivoje.Storage
             };
             mySqlCommand1.Parameters.AddWithValue("@pallet_id", pallet_id);
             DbConnection.executeQuery(mySqlCommand1);
+
+            ClassificationPDF createPDF = new ClassificationPDF();
+            createPDF.exportgridview(classiDataGridView);
 
             Close();           
 

@@ -94,6 +94,7 @@
             this.transportRecordsTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149926F));
             this.transportRecordsTblLayout.Size = new System.Drawing.Size(1375, 798);
             this.transportRecordsTblLayout.TabIndex = 3;
+            this.transportRecordsTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.transportRecordsTblLayout_Paint);
             // 
             // exitBtn
             // 

@@ -69,6 +69,11 @@ namespace Freshivoje.Transport
             Application.Exit();
         }
 
+        private void transportRecordsTblLayout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void TransportDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)

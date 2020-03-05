@@ -391,6 +391,7 @@
             this.transportFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.transportFormTblLayout.Size = new System.Drawing.Size(1930, 820);
             this.transportFormTblLayout.TabIndex = 2;
+            this.transportFormTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.transportFormTblLayout_Paint);
             // 
             // TransportForm
             // 

@@ -143,5 +143,10 @@ namespace Freshivoje.Transport
                 transportDataGridView.Rows.Remove(_selectedRow);
             }
         }
+
+        private void transportFormTblLayout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using Freshivoje.Custom_Forms;
 using Freshivoje.Models;
 using MySql.Data.MySqlClient;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using Freshivoje.Custom_Classes;
 
 namespace Freshivoje.Storage
 {
@@ -48,7 +52,7 @@ namespace Freshivoje.Storage
         }
 
         private void insertFormTblLayout_Paint(object sender, PaintEventArgs e)
-         {
+        {
 
         }
 
@@ -68,7 +72,7 @@ namespace Freshivoje.Storage
             
             foreach (DataGridViewRow row in palletingDataGridView.Rows)
             {
-                if (row.Cells[13].Value != null && row.Cells[13].Value.Equals(true)) 
+                if (row.Cells[13].Value != null && row.Cells[13].Value.Equals(true))
                 {
                     row.Selected = true;
                    
@@ -86,7 +90,7 @@ namespace Freshivoje.Storage
                     int fk_item_receipt_id = Convert.ToInt32(row.Cells["id_items_receipt"].Value);
 
                     PalletingItem item = new PalletingItem(fk_client_id, first_name, last_name, fk_receipte_id, fk_article_id, quantity,
-                        status, article_name, sort, organic, category, fk_item_receipt_id);
+                    status, article_name, sort, organic, category, fk_item_receipt_id);
                     palletings.Add(item);
                  }
                 else
@@ -101,7 +105,7 @@ namespace Freshivoje.Storage
             {
                 CommandText = @"SELECT id_pallete FROM pallete ORDER BY id_pallete DESC LIMIT 1"
             };
-           int pallet_id = DbConnection.getValue(mySqlCommand2);
+            int pallet_id = DbConnection.getValue(mySqlCommand2);
 
             MySqlCommand mySqlCommand1 = new MySqlCommand
             {
@@ -112,7 +116,8 @@ namespace Freshivoje.Storage
             mySqlCommand1.Parameters.AddWithValue("@dateTimeNow", DateTime.Now.ToString("yyyy-MM-dd hh:ss:ii"));
             DbConnection.executeQuery(mySqlCommand1);
 
-
+            PalletingPDF createPDF = new PalletingPDF();
+            createPDF.exportgridview(palletingDataGridView);
 
             Close();
         }
