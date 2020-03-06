@@ -4,6 +4,7 @@ using iTextSharp.text.pdf;
 using System.IO;
 using System.Windows.Forms;
 using Freshivoje.Models;
+using MySql.Data.MySqlClient;
 
 namespace Freshivoje.Custom_Classes
 {
@@ -16,13 +17,25 @@ namespace Freshivoje.Custom_Classes
 
         private string firstName, lastName, status, articleName, sort, organic, category;
         private decimal quantity;
+        private string _palleteNumber;
+        private string _palleteQuantity;
 
         Font font = new Font();
         Font font2 = new Font();
-        public PalletingPDF()
+        Font font3 = new Font();
+        public PalletingPDF(string pallete_quantity)
         {
             font = GetTahoma();
             font2 = GetTahomaa();
+            font3 = GetTahomaaa();
+            _palleteQuantity = pallete_quantity;
+
+            MySqlCommand mySqlCommand2 = new MySqlCommand
+            {
+                CommandText = "SELECT pallete.pallet_number FROM pallete ORDER BY id_pallete DESC LIMIT 1;"
+            };
+            int palleteNumber = DbConnection.getValue(mySqlCommand2);
+            _palleteNumber = palleteNumber.ToString();
         }
 
         public static Font GetTahoma()
@@ -47,6 +60,17 @@ namespace Freshivoje.Custom_Classes
             return FontFactory.GetFont(fontName, BaseFont.CP1250, 70, Font.NORMAL);
         }
 
+        public static Font GetTahomaaa()
+        {
+            var fontName = "Tahoma";
+            if (!FontFactory.IsRegistered(fontName))
+            {
+                var fontPath = Environment.GetEnvironmentVariable("SystemRoot") + "\\fonts\\tahoma.ttf";
+                FontFactory.Register(fontPath);
+            }
+            return FontFactory.GetFont(fontName, BaseFont.CP1250, 35, Font.NORMAL);
+        }
+
         public void exportgridview(DataGridView dgw)
         {
             int fileCount;
@@ -62,7 +86,7 @@ namespace Freshivoje.Custom_Classes
                 PdfPTable data = new PdfPTable(8);
                 PdfPTable blank = new PdfPTable(1);
                 PdfPTable invoiceNumber = new PdfPTable(1);
-                PdfPTable total = new PdfPTable(7);
+                PdfPTable total = new PdfPTable(4);
 
                 palleteId.DefaultCell.Padding = 5;
                 palleteId.WidthPercentage = 80;
@@ -93,7 +117,7 @@ namespace Freshivoje.Custom_Classes
                 total.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
 
                 fileCount = Directory.GetFiles("C:\\PDF").Length;
-                palleteId.AddCell(new Phrase("P-" + (fileCount + 1), font2));
+                palleteId.AddCell(new Phrase("P-" + _palleteNumber, font2));
 
                 data.AddCell(new Phrase("IME", font));
                 data.AddCell(new Phrase("PREZIME", font));
@@ -103,6 +127,11 @@ namespace Freshivoje.Custom_Classes
                 data.AddCell(new Phrase("SORTA", font));
                 data.AddCell(new Phrase("KONTROLISANA PROIZVODNJA", font));
                 data.AddCell(new Phrase("KATEGORIJA", font));
+
+                total.AddCell(new Phrase("", font));
+                total.AddCell(new Phrase("", font));
+                total.AddCell(new Phrase("", font));
+                total.AddCell(new Phrase(_palleteQuantity + "KG", font3));
 
                 foreach (DataGridViewRow row in dgw.Rows)
                 {
@@ -172,7 +201,7 @@ namespace Freshivoje.Custom_Classes
                 {
                     Directory.CreateDirectory(folderPath);
                 }
-                
+
                 strFileName = (fileCount + 1) + "-2019" + ".pdf";
                 invoiceNumber.AddCell("BROJ FAKTURE: ARTIKLI" + ((fileCount + 1) + "-2019"));
                 #endregion

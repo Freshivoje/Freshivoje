@@ -15,6 +15,7 @@ namespace Freshivoje.Storage
 {
     public partial class Classification : Form
     {
+        string palletNuber = "";
         public Classification()
         {
             InitializeComponent();
@@ -82,7 +83,6 @@ namespace Freshivoje.Storage
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            string palletNuber = "";
             palletNuber = palletNumberTxt.Text;
             string query1 = "SELECT receipts.fk_client_id, clients.first_name, clients.last_name, items_receipt.fk_article_id, items_receipt.id_items_receipt, items_receipt.quantity, articles.article_name, articles.sort, articles.organic, articles.category, item_pallete.fk_id_pallete, pallete.classification, pallete.pallet_number FROM receipts INNER JOIN clients ON receipts.fk_client_id = clients.id_client INNER JOIN items_receipt ON items_receipt.fk_receipt_id = receipts.id_receipt INNER JOIN articles ON articles.id_article = items_receipt.fk_article_id INNER JOIN item_pallete ON items_receipt.id_items_receipt = item_pallete.fk_id_item_recepit INNER JOIN pallete on pallete.id_pallete = item_pallete.fk_id_pallete WHERE pallete.pallet_number = " + palletNuber + " AND pallete.classification = 'NE' ";
             DbConnection.fillDGV(classiDataGridView, query1);
@@ -131,7 +131,9 @@ namespace Freshivoje.Storage
             mySqlCommand1.Parameters.AddWithValue("@pallet_id", pallet_id);
             DbConnection.executeQuery(mySqlCommand1);
 
-            ClassificationPDF createPDF = new ClassificationPDF();
+            palletNuber = palletNumberTxt.Text;
+
+            ClassificationPDF createPDF = new ClassificationPDF(palletNuber);
             createPDF.exportgridview(classiDataGridView);
 
             Close();           

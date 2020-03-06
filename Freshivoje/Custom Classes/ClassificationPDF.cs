@@ -11,13 +11,15 @@ namespace Freshivoje.Custom_Classes
     {
         private string firstName, lastName, status, articleName, sort, organic, category, palletNumber;
         private decimal quantity;
+        string _pallete_number;
 
         Font font = new Font();
         Font font2 = new Font();
-        public ClassificationPDF()
+        public ClassificationPDF(string pallete_number)
         {
             font = GetTahoma();
             font2 = GetTahomaa();
+            _pallete_number = pallete_number;
         }
         public static Font GetTahoma()
         {
@@ -85,8 +87,13 @@ namespace Freshivoje.Custom_Classes
                 total.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
                 total.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
 
+                //string palletNumber = "";
+                //palletNumber = TextBox.Text;
+
+              
+
                 fileCount = Directory.GetFiles("C:\\PDF").Length;
-                palleteId.AddCell(new Phrase("K-" + (fileCount + 1), font2));
+                palleteId.AddCell(new Phrase("KP-" + _pallete_number, font2));
 
                 data.AddCell(new Phrase("IME", font));
                 data.AddCell(new Phrase("PREZIME", font));

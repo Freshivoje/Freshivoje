@@ -58,6 +58,8 @@ namespace Freshivoje.Storage
 
         private void finishInsertBtn_Click(object sender, EventArgs e)
         {
+            string pallete_quantity = palleteQuantitylbl.Text;
+
             if (palletingDataGridView.Rows.Count < 1)
             {
                 CustomMessageBox.ShowDialog(this, Properties.Resources.emptyDGVMsg);
@@ -75,7 +77,7 @@ namespace Freshivoje.Storage
                 if (row.Cells[13].Value != null && row.Cells[13].Value.Equals(true))
                 {
                     row.Selected = true;
-                   
+                    
                     int fk_client_id = Convert.ToInt32(row.Cells["fk_client_id"].Value);
                     string first_name = Convert.ToString(row.Cells["first_name"].Value);
                     string last_name = Convert.ToString(row.Cells["last_name"].Value);
@@ -116,7 +118,7 @@ namespace Freshivoje.Storage
             mySqlCommand1.Parameters.AddWithValue("@dateTimeNow", DateTime.Now.ToString("yyyy-MM-dd hh:ss:ii"));
             DbConnection.executeQuery(mySqlCommand1);
 
-            PalletingPDF createPDF = new PalletingPDF();
+            PalletingPDF createPDF = new PalletingPDF(pallete_quantity);
             createPDF.exportgridview(palletingDataGridView);
 
             Close();
