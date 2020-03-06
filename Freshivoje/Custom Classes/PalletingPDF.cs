@@ -19,6 +19,7 @@ namespace Freshivoje.Custom_Classes
         private decimal quantity;
         private string _palleteNumber;
         private string _palleteQuantity;
+        private DateTime _palleteDate;
 
         Font font = new Font();
         Font font2 = new Font();
@@ -35,7 +36,15 @@ namespace Freshivoje.Custom_Classes
                 CommandText = "SELECT pallete.pallet_number FROM pallete ORDER BY id_pallete DESC LIMIT 1;"
             };
             int palleteNumber = DbConnection.getValue(mySqlCommand2);
+
+            MySqlCommand mySqlCommand3 = new MySqlCommand
+            {
+                CommandText = "SELECT pallete.date FROM pallete ORDER BY id_pallete DESC LIMIT 1;"
+            };
+            DateTime palleteDate = DbConnection.getValue(mySqlCommand3);
+
             _palleteNumber = palleteNumber.ToString();
+            _palleteDate = palleteDate;
         }
 
         public static Font GetTahoma()
@@ -68,7 +77,7 @@ namespace Freshivoje.Custom_Classes
                 var fontPath = Environment.GetEnvironmentVariable("SystemRoot") + "\\fonts\\tahoma.ttf";
                 FontFactory.Register(fontPath);
             }
-            return FontFactory.GetFont(fontName, BaseFont.CP1250, 35, Font.NORMAL);
+            return FontFactory.GetFont(fontName, BaseFont.CP1250, 20, Font.NORMAL);
         }
 
         public void exportgridview(DataGridView dgw)
@@ -84,9 +93,10 @@ namespace Freshivoje.Custom_Classes
                 PdfPTable companyData = new PdfPTable(1);
                 PdfPTable clientData = new PdfPTable(1);
                 PdfPTable data = new PdfPTable(8);
+                PdfPTable palleteDate = new PdfPTable(3);
                 PdfPTable blank = new PdfPTable(1);
                 PdfPTable invoiceNumber = new PdfPTable(1);
-                PdfPTable total = new PdfPTable(4);
+                PdfPTable total = new PdfPTable(5);
 
                 palleteId.DefaultCell.Padding = 5;
                 palleteId.WidthPercentage = 80;
@@ -115,6 +125,10 @@ namespace Freshivoje.Custom_Classes
                 total.DefaultCell.BorderWidth = 0;
                 total.DefaultCell.HorizontalAlignment = Element.ALIGN_RIGHT;
                 total.DefaultCell.VerticalAlignment = Element.ALIGN_RIGHT;
+                palleteDate.WidthPercentage = 80;
+                palleteDate.DefaultCell.BorderWidth = 0;
+                palleteDate.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                palleteDate.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
 
                 fileCount = Directory.GetFiles("C:\\PDF").Length;
                 palleteId.AddCell(new Phrase("P-" + _palleteNumber, font2));
@@ -131,7 +145,12 @@ namespace Freshivoje.Custom_Classes
                 total.AddCell(new Phrase("", font));
                 total.AddCell(new Phrase("", font));
                 total.AddCell(new Phrase("", font));
-                total.AddCell(new Phrase(_palleteQuantity + "KG", font3));
+                total.AddCell(new Phrase("UKUPNO:", font3));
+                total.AddCell(new Phrase(_palleteQuantity + " KG", font3));
+
+                palleteDate.AddCell(new Phrase("", font));
+                palleteDate.AddCell(new Phrase("DATUM PALETIRANJA: " + (_palleteDate.ToString("MM/dd/yyyy")), font));
+                palleteDate.AddCell(new Phrase("", font));
 
                 foreach (DataGridViewRow row in dgw.Rows)
                 {
@@ -216,6 +235,7 @@ namespace Freshivoje.Custom_Classes
                     pdfDoc.Add(blank);
                     pdfDoc.Add(palleteId);
                     pdfDoc.Add(blank);
+                    pdfDoc.Add(palleteDate);
                     pdfDoc.Add(blank);
                     pdfDoc.Add(blank);
                     pdfDoc.Add(data);

@@ -67,7 +67,7 @@
             this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
             this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
+            this.receiptsRecordTblLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this.receiptsRecordTblLayout.Controls.Add(this.exitBtn, 7, 0);
             this.receiptsRecordTblLayout.Controls.Add(this.lblTitle, 0, 0);
             this.receiptsRecordTblLayout.Controls.Add(this.backBtn, 6, 0);
@@ -95,6 +95,7 @@
             this.receiptsRecordTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.149925F));
             this.receiptsRecordTblLayout.Size = new System.Drawing.Size(1312, 873);
             this.receiptsRecordTblLayout.TabIndex = 4;
+            this.receiptsRecordTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.receiptsRecordTblLayout_Paint);
             // 
             // exitBtn
             // 

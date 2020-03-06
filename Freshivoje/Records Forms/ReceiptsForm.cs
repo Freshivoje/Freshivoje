@@ -48,6 +48,11 @@ namespace Freshivoje.Records_Forms
             Application.Exit();
         }
 
+        private void receiptsRecordTblLayout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void searchTxtBox_TextChanged(object sender, System.EventArgs e)
         {
             string searchValue = searchTxtBox.Text.Replace('\'', (char)0x2019); // &rsquo; 
