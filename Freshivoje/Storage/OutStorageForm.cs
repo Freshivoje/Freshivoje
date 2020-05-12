@@ -1,4 +1,5 @@
-﻿using Freshivoje.Custom_Forms;
+﻿using Freshivoje.Custom_Classes;
+using Freshivoje.Custom_Forms;
 using Freshivoje.Models;
 using MySql.Data.MySqlClient;
 using System;
@@ -16,6 +17,7 @@ namespace Freshivoje.Storage
     public partial class OutStorageForm : Form
     {
         int _storageId;
+        string pallete_number;
         public List<Pallete> palletes = new List<Pallete>();
         public OutStorageForm(int storageId)
         {
@@ -125,6 +127,14 @@ namespace Freshivoje.Storage
                 palletes.Add(item);
             }
             DbConnection.palleting(palletes, _storageId, false);
+
+            foreach (DataGridViewRow row in outStorageDataGridView.Rows)
+            {
+                string pallete_numberr = row.Cells["pallet_number"].Value.ToString();
+                pallete_number = pallete_numberr;
+            }
+            OutStoragePDF createPDF = new OutStoragePDF(pallete_number);
+            createPDF.exportgridview(outStorageDataGridView);
             Close();
         }
 
