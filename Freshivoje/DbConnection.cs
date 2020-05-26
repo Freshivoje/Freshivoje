@@ -1134,9 +1134,8 @@ namespace Freshivoje
                         }
                     }
                 }
-                return text;
-                 _databaseConnection.Close();
-
+            _databaseConnection.Close();
+            return text;
         }
         
     }

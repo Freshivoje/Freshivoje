@@ -11,14 +11,17 @@ namespace Freshivoje.Custom_Classes
 {
     class OutStoragePDF
     {
+        private string queryString;
         private int _fkClientId;
-        private string _clientFirstName, _clientLastName, _clientAddress, _clientJMBG, _clientPIB, _clientZipCode, _clientPhone, _clientCompanyName, _clientSPO, nameQuantityPackages, selectionName, articleQuantity, numberOfPackages, rentingDataPicker, endDataOfRentPicker, price;
+        private string _clientFirstName, _clientLastName, _clientAddress, _clientJMBG, _clientPIB, _clientZipCode, _clientPhone, _clientCompanyName, _clientSPO;
+        private string name, articleName, sort, organic, category, quantity;
         private string _pallete_number;
 
         Font font = new Font();
-        public OutStoragePDF(string pallete_number)
+        public OutStoragePDF(string pallete_number, string a)
         {
             font = GetTahoma();
+            queryString = a;
             _pallete_number = pallete_number;
         }
 
@@ -71,7 +74,7 @@ namespace Freshivoje.Custom_Classes
                 PdfPTable companyName = new PdfPTable(1);
                 PdfPTable companyData = new PdfPTable(1);
                 PdfPTable clientData = new PdfPTable(1);
-                PdfPTable data = new PdfPTable(7);
+                PdfPTable data = new PdfPTable(6);
                 PdfPTable blank = new PdfPTable(1);
                 PdfPTable invoiceNumber = new PdfPTable(1);
                 PdfPTable total = new PdfPTable(7);
@@ -105,13 +108,19 @@ namespace Freshivoje.Custom_Classes
                 palleteNumber.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 palleteNumber.DefaultCell.VerticalAlignment = Element.ALIGN_CENTER;
 
-                data.AddCell(new Phrase("IME", font));
-                data.AddCell(new Phrase("PREZIME", font));
+                data.AddCell(new Phrase("IME I PREZIME", font));
                 data.AddCell(new Phrase("IME ARTIKLA", font));
                 data.AddCell(new Phrase("SORTA", font));
                 data.AddCell(new Phrase("ORAGANSA\nPROIZVODNJA", font));
                 data.AddCell(new Phrase("KATEGORIJA", font));
                 data.AddCell(new Phrase("KOLIČINA", font));
+
+                string[] separator = queryString.Split(',' , '\n');
+
+                foreach (string datas in separator)
+                {
+                    data.AddCell(new Phrase(datas, font));
+                }
 
                 //data.AddCell(new Phrase(, font));
                 //data.AddCell(new Phrase(, font));
@@ -221,7 +230,7 @@ namespace Freshivoje.Custom_Classes
 
                 #endregion
                 #region IMAGE SECTION
-                // pictureURL = "C:\\Users\\KORISNIK\\source\\repos\\Freshivoje\\Freshivoje\\Freshivoje\\Images\\1.png";
+                //pictureURL = "C:\\Users\\KORISNIK\\source\\repos\\Freshivoje\\Freshivoje\\Freshivoje\\Images\\1.png";
                 //iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(pictureURL);
                 //logo.ScaleToFit(110.0f, 140.0f);
                 //logo.SpacingBefore = 20.0f;

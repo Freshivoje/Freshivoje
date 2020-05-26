@@ -107,6 +107,7 @@
             this.insertFormTblLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.insertFormTblLayout.Size = new System.Drawing.Size(1415, 660);
             this.insertFormTblLayout.TabIndex = 3;
+            this.insertFormTblLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.insertFormTblLayout_Paint);
             // 
             // outStorageDataGridView
             // 
@@ -335,6 +336,7 @@
             this.articleLbl.Size = new System.Drawing.Size(215, 60);
             this.articleLbl.TabIndex = 35;
             this.articleLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.articleLbl.Click += new System.EventHandler(this.articleLbl_Click);
             // 
             // finishInsertBtn
             // 

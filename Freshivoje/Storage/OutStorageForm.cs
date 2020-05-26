@@ -16,6 +16,8 @@ namespace Freshivoje.Storage
 {
     public partial class OutStorageForm : Form
     {
+        string queryForPdf3;
+        string queryForPdf2;
         int _storageId;
         string pallete_number;
         public List<Pallete> palletes = new List<Pallete>();
@@ -110,41 +112,6 @@ namespace Freshivoje.Storage
             Application.Exit();
         }
 
-        private void finishInsertBtn_Click(object sender, EventArgs e)
-        {
-            DialogResult result = CustomDialog.ShowDialog(this, "Da li ste sigurni da ste završili sa ubacivanjem artikala u komoru ?");
-            if (result == DialogResult.No || result == DialogResult.Cancel)
-            {
-                return;
-            }
-
-            foreach (DataGridViewRow row in outStorageDataGridView.Rows)
-            {
-                int idPallete = Convert.ToInt32(row.Cells["id_pallet"].Value);
-                int numberPallete = Convert.ToInt32(row.Cells["pallet_number"].Value);
-
-                Pallete item = new Pallete(idPallete, numberPallete);
-                palletes.Add(item);
-            }
-            DbConnection.palleting(palletes, _storageId, false);
-
-            foreach (DataGridViewRow row in outStorageDataGridView.Rows)
-            {
-                string pallete_numberr = row.Cells["pallet_number"].Value.ToString();
-                pallete_number = pallete_numberr;
-            }
-            OutStoragePDF createPDF = new OutStoragePDF(pallete_number);
-            createPDF.exportgridview(outStorageDataGridView);
-            Close();
-        }
-
-     
-
-        private void backBtn_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void outStorageDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 3)
@@ -160,15 +127,64 @@ namespace Freshivoje.Storage
             if (e.ColumnIndex == 2)
             {
                 int _id_pallete = Convert.ToInt32(outStorageDataGridView.Rows[e.RowIndex].Cells["id_pallet"].Value);
-
                 string query2 = @$"SELECT receipts.fk_client_id, clients.first_name, clients.last_name, items_receipt.fk_receipt_id, items_receipt.fk_article_id, items_receipt.id_items_receipt, items_receipt.quantity, items_receipt.status, articles.article_name, articles.sort, articles.organic, articles.category, item_pallete.fk_id_item_recepit, item_pallete.fk_id_pallete, pallete.pallet_number, pallete.id_pallete FROM receipts INNER JOIN clients ON receipts.fk_client_id = clients.id_client INNER JOIN items_receipt ON items_receipt.fk_receipt_id = receipts.id_receipt INNER JOIN articles ON articles.id_article = items_receipt.fk_article_id INNER JOIN item_pallete ON items_receipt.id_items_receipt = item_pallete.fk_id_item_recepit INNER JOIN pallete ON pallete.id_pallete = item_pallete.fk_id_pallete WHERE pallete.id_pallete = '{_id_pallete}'";
 
                 CustomMessageBox.ShowDialog(this, "Na ovoj paleti se nalazi : \n\t" + DbConnection.fillCustom(query2, "first_name", "last_name", "article_name", "sort", "organic", "category", "quantity"));
+
                 return;
             }
         }
 
+        private void finishInsertBtn_Click(object sender, EventArgs e)
+        {
+            int broj=0;
+            DialogResult result = CustomDialog.ShowDialog(this, "Da li ste sigurni da ste završili sa ubacivanjem artikala u komoru ?");
+            if (result == DialogResult.No || result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            foreach (DataGridViewRow row in outStorageDataGridView.Rows)
+            {
+                int idPallete = Convert.ToInt32(row.Cells["id_pallet"].Value);
+                broj = idPallete;
+                int numberPallete = Convert.ToInt32(row.Cells["pallet_number"].Value);
+
+                Pallete item = new Pallete(idPallete, numberPallete);
+                palletes.Add(item);
+            }
+            DbConnection.palleting(palletes, _storageId, false);
+
+            foreach (DataGridViewRow row in outStorageDataGridView.Rows)
+            {
+                string pallete_numberr = row.Cells["pallet_number"].Value.ToString();
+                pallete_number = pallete_numberr;
+                string query2 = @$"SELECT receipts.fk_client_id, clients.first_name, clients.last_name, items_receipt.fk_receipt_id, items_receipt.fk_article_id, items_receipt.id_items_receipt, items_receipt.quantity, items_receipt.status, articles.article_name, articles.sort, articles.organic, articles.category, item_pallete.fk_id_item_recepit, item_pallete.fk_id_pallete, pallete.pallet_number, pallete.id_pallete FROM receipts INNER JOIN clients ON receipts.fk_client_id = clients.id_client INNER JOIN items_receipt ON items_receipt.fk_receipt_id = receipts.id_receipt INNER JOIN articles ON articles.id_article = items_receipt.fk_article_id INNER JOIN item_pallete ON items_receipt.id_items_receipt = item_pallete.fk_id_item_recepit INNER JOIN pallete ON pallete.id_pallete = item_pallete.fk_id_pallete WHERE pallete.id_pallete = '{broj}'";
+                string queryForPdf = DbConnection.fillCustom(query2, "first_name", "last_name", "article_name", "sort", "organic", "category", "quantity");
+                queryForPdf2 = queryForPdf2 + queryForPdf;
+            }
+
+            OutStoragePDF createPDF = new OutStoragePDF(pallete_number, queryForPdf2);
+            createPDF.exportgridview(outStorageDataGridView);
+            Close();
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void outStorageCmbBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void articleLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void insertFormTblLayout_Paint(object sender, PaintEventArgs e)
         {
 
         }
